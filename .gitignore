@@ -1,0 +1,36 @@
+__pycache__/
+*.pyc
+*.pyo
+.env
+.DS_Store
+*.swp
+.cursor/
+Auto-claude-code-research-in-sleep/
+paper-backup-*/
+results/
+papers/
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.pdfsync
+
+# AI-generated prompt images (source txt for reproducibility)
+paper/figures/*.txt
+figures/*.txt
+
+# PNG backups (PDFs are the source of truth)
+*.png
+
+# Review/improvement state (ephemeral)
+PAPER_IMPROVEMENT_STATE.json
+REVIEW_STATE.json
+
+# Intermediate PDF versions (keep only final)
+main_round*.pdf
