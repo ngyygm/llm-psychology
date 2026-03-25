@@ -1,9 +1,9 @@
-# Response Style Variation Across Language Model Families
+# Language Models Do Not Share Human Personality Structure
 
 Large-scale psychometric comparison of 15 model families (13 Chinese AI vendors + 2 international) on standardized personality inventories.
 
 **Paper:** EMNLP 2026 Findings
-**Title:** Response Style Variation Across Language Model Families: A Large-Scale Psychometric Comparison of 15 Model Families
+**Title:** Language Models Do Not Share Human Personality Structure: Evidence from Cross-Family Psychometric Responses
 
 ## Overview
 
@@ -100,7 +100,7 @@ See the script header for model configuration (Study 1: 15 families, Study 2: wi
 
 ```bibtex
 @inproceedings{anonymous2026response,
-  title={Response Style Variation Across Language Model Families: A Large-Scale Psychometric Comparison of 15 Model Families},
+  title={Language Models Do Not Share Human Personality Structure: Evidence from Cross-Family Psychometric Responses},
   author={Anonymous},
   booktitle={Proceedings of the 2026 Conference on Empirical Methods in Natural Language Processing (EMNLP)},
   year={2026}
