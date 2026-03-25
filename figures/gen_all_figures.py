@@ -31,6 +31,9 @@ print("\n--- Fig 1: Radar Chart ---")
 
 # Show all available vendors as small multiples
 all_vendors = sorted(s1['vendor'].unique())
+# Exclude vendors with insufficient seeds (< 12)
+vendor_counts = s1.groupby('vendor').size()
+all_vendors = [v for v in all_vendors if vendor_counts.get(v, 0) >= 12]
 n_vendors = len(all_vendors)
 print(f"  All vendors: {all_vendors} (n={n_vendors})")
 
