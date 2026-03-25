@@ -104,21 +104,29 @@ We test convergent validity against human baselines (\S\ref{sec:validity}), corr
 \citet{serapio-garcia2025personality} proposed a psychometric framework for evaluating and shaping personality traits across 18 LLMs, reporting that larger models exhibit broader trait ranges.
 \citet{hilliard2024eliciting} confirmed that model scale affects elicited personality profiles, with larger models showing more extreme trait scores.
 \citet{bodroza2024personality} tested 7 LLMs on multiple personality instruments, finding limited temporal stability but consistently elevated prosociality.
+\citet{santos2024personality} surveyed personality assessment with LLMs, highlighting both promises and pitfalls of treating model outputs as psychometric data.
+\citet{sorokovikova2024big} replicated Big Five profiles across three models and found systematic deviations from human norms, while \citet{tosato2025instability} documented persistent instability across scales and conversation histories.
 While \citet{serapio-garcia2025personality} evaluated the largest set of models to date (18), their study used heterogeneous APIs and did not test for structural differences in inter-dimension correlations.
 Our work contributes unified API control across 15 model families and explicit validity testing against human baselines.
 
 \paragraph{Behavioral evaluation beyond capabilities.}
-Standard benchmarks measure task performance---reasoning, coding, instruction-following---but not how models respond to self-referential statements about preferences and moral tendencies.
+Standard capability benchmarks \citep{hendrycks2021measuring, liang2022helm} measure task performance---reasoning, coding, instruction-following---and instruction-following evaluators such as AlpacaEval \citep{dubois2024alpacaeval} assess response quality, but none address how models respond to self-referential statements about preferences and moral tendencies.
+\citet{laverghetta2022predicting} showed that language models can predict human psychometric properties from text, raising the question of whether LLM self-reports reflect similar constructs.
 We contribute a behavioral evaluation dimension: how models respond to standardized self-referential questions.
 
 \paragraph{Response biases and measurement validity.}
 Applying human-designed psychometric instruments to LLMs raises validity concerns \citep{schaekermann2024personality, serpell2024validity}.
+\citet{suh2023challenging} question whether standard personality tests are valid for LLMs at all, given the lack of genuine self-report.
 \citet{salecha2024social} demonstrated that LLMs exhibit human-like social desirability biases in Big Five survey responses, inflating socially desirable traits.
 \citet{dominguez-olmedo2024questioning} showed that LLM survey responses lack the natural variation seen in human populations, producing compressed response distributions.
+\citet{tjuatja2023response} found that LLMs fail to replicate known human response biases in survey design.
+\citet{braun2025acquiescence} documented acquiescence bias in LLMs, systematically agreeing with questionnaire statements regardless of content.
+\citet{han2025personality} demonstrated a dissociation between LLM self-reported personality and behavioral choices, reinforcing the need to distinguish stated preferences from actions.
 \citet{xie2025aipsychobench} introduced AIPsychoBench, a benchmark specifically designed to measure psychometric differences between LLMs and humans, finding systematic discrepancies in response patterns.
 We address these concerns by framing measurement as ``response style,'' reporting reliability without claiming construct validity, testing convergent validity against human data, and correcting for acquiescence bias---extending methodological transparency beyond prior work.
 
 \paragraph{Factor structure in LLMs.}
+The Five-Factor Model \citep{mccrae1992five} provides the theoretical foundation for the BFI dimensions we use.
 \citet{suh2024rediscovering} recovered the Big Five factor structure from LLMs using singular value decomposition on log-probabilities of personality-relevant adjectives.
 Their approach analyzes semantic space, whereas we analyze questionnaire responses---two complementary probes.
 An exploratory PCA on our data hints at a three-factor reorganization (Appendix~\ref{sec:appendix_pca}), but this is severely underpowered ($n = 15$).
@@ -138,7 +146,7 @@ An exploratory PCA on our data hints at a three-factor reorganization (Appendix~
 \label{sec:instruments}
 
 We use 9 dimensions comprising 61 Likert items (1--5 scale; Table~\ref{tab:instruments}).
-Five come from the Big Five Inventory \citep{john1999bigfive}: Extraversion (8 items), Agreeableness (9), Conscientiousness (9), Neuroticism (8), and Openness (10).
+Five come from the Big Five Inventory \citep{john1999bigfive, mccrae1992five, oconnor2007bfi}: Extraversion (8 items), Agreeableness (9), Conscientiousness (9), Neuroticism (8), and Openness (10).
 We add HEXACO Honesty-Humility (5 items; \citealp{lee2004hexaco}), Collectivism (4 items; Schwartz Values Survey \citealp{schwartz1992universals}), Intuition (4 items; cognitive style), and Uncertainty Avoidance (4 items; cultural dimensions).
 Reverse-scored items are transformed via $\text{score} = 6 - \text{original}$; dimension scores are the mean of constituent items.
 

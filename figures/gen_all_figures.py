@@ -37,10 +37,10 @@ all_vendors = [v for v in all_vendors if vendor_counts.get(v, 0) >= 12]
 n_vendors = len(all_vendors)
 print(f"  All vendors: {all_vendors} (n={n_vendors})")
 
-# 5-column wide grid to fit two-column appendix page
-ncols = 5
+# 3-column layout for readability (15 vendors → 5 rows × 3 cols)
+ncols = 3
 nrows = (n_vendors + ncols - 1) // ncols
-fig, axes = plt.subplots(nrows, ncols, figsize=(7.0, 1.8 * nrows),
+fig, axes = plt.subplots(nrows, ncols, figsize=(8.0, 2.8 * nrows),
                          subplot_kw=dict(polar=True))
 axes = axes.flatten()
 
