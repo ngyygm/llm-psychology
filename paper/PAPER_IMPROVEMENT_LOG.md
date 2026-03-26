@@ -19,8 +19,8 @@
 - C3: Framing conflates human psychology and LLM behavior — oscillates between two framings
 
 ### Major Issues
-- M1: ICC (.22-.46) implies substantial within-vendor variance not adequately discussed
-- M2: Generalization scope poorly bounded (Chinese vendors, single API)
+- M1: ICC (.22-.46) implies substantial within-model variance not adequately discussed
+- M2: Generalization scope poorly bounded (Chinese models, single API)
 - M3: Scale usage interpretation unclear (2-3.5 range on 1-5 scale)
 - M4: Human baseline absence understated
 
@@ -31,8 +31,8 @@
 
 ### Fixes Implemented
 1. **C1/C3 (Construct validity + framing)**: Added explicit measurement caveat: "We use these instruments as standardized probes for detecting response variation; we do not assume they measure identical constructs in LLMs and humans." Consistent "systematic response variation" framing throughout.
-2. **C2 (Mechanism overclaim)**: Replaced "alignment training" → "vendor-specific training dynamics" everywhere. Added: "we cannot disambiguate alignment from architecture, data, or scale effects."
-3. **M1 (ICC)**: Expanded: "ICC(1,1) values of .22-.46 indicate moderate within-model consistency: while vendors differ systematically, individual model instances show considerable variation across seeds."
+2. **C2 (Mechanism overclaim)**: Replaced "alignment training" → "model-specific training dynamics" everywhere. Added: "we cannot disambiguate alignment from architecture, data, or scale effects."
+3. **M1 (ICC)**: Expanded: "ICC(1,1) values of .22-.46 indicate moderate within-model consistency: while models differ systematically, individual model instances show considerable variation across seeds."
 4. **M2 (Generalization)**: Added SiliconFlow caveat in limitations.
 5. **M4 (Human baseline)**: Elevated to first limitation item with strong framing.
 6. **m3 (Temperature)**: Added justification: "chosen to reflect typical deployment settings while allowing within-model variance estimation."
