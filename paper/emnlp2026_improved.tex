@@ -44,13 +44,13 @@
 \begin{abstract}
 A growing body of work applies personality inventories to LLMs, yet it remains unclear whether the resulting scores capture meaningful individual differences or systematic response tendencies shaped by training and alignment.
 In this study, we administer 61 Likert-scale items spanning 9 psychometric dimensions to one model from each of 15 model families via unified APIs, collecting 10,980 responses (12 seeds per model), and characterize the resulting response style variation.
-We find that model families exhibit large, systematic differences in their response distributions (median pairwise Cohen's $d = 1.08$), with HEXACO-H showing the largest between-family effect ($\eta^2_p = 0.83$).
-The inter-dimension correlation structure reorganizes relative to humans: the Conscientiousness--Neuroticism correlation reverses from $r = -0.25$ to $r = +0.77$ (95\% CI $[0.42, 0.92]$), and Extraversion--Openness flips from positive to negative.
+We find that model families exhibit large, systematic differences in their response distributions (median pairwise Cohen's $d = 1.01$), with Neuroticism showing the largest between-family effect ($\eta^2_p = 0.75$).
+The inter-dimension correlation structure reorganizes relative to humans: the Conscientiousness--Neuroticism correlation reverses from $r = -0.25$ to $r = +0.76$ (95\% CI $[0.47, 0.92]$), and Extraversion--Openness flips from positive to negative.
 Convergent validity against published human baselines yields insufficient evidence for construct equivalence (3/5 sign agreement, $p = 0.50$), further indicating that standard dimension labels do not transfer cleanly to LLMs.
 Together, these findings demonstrate systematic response style variation across LLM families and quantify the degree to which psychometric responses are shaped by training and alignment rather than by human-like individual differences.
 \end{abstract}
 
-\begin{figure}[!t]
+\begin{figure}[!htb]
     \centering
     \includegraphics[width=\columnwidth,height=0.42\textheight,keepaspectratio]{figures/intro_figure_prompt.pdf}
     \caption{\textbf{Core concept.} Identical psychometric items elicit systematically different Likert-scale responses from different models. These model-specific response style signatures raise the question: do psychometric scores in LLMs reflect personality traits, or systematic response tendencies shaped by training and alignment?}
@@ -73,16 +73,16 @@ We also track 16 additional models from three families (Qwen, DeepSeek, GLM) acr
 We present three findings that characterize systematic response style variation across LLM families:
 \begin{enumerate}[leftmargin=*,nosep]
     \item \textbf{Model families exhibit distinct response style signatures.}
-    Families differ substantially in their response distributions (median pairwise Cohen's $d = 1.08$), indicating that different training approaches produce systematic behavioral fingerprints.
+    Families differ substantially in their response distributions (median pairwise Cohen's $d = 1.01$), indicating that different training approaches produce systematic behavioral fingerprints.
     \item \textbf{Inter-dimension correlations reorganize relative to humans.}
-    The Conscientiousness--Neuroticism correlation reverses from $r = -0.25$ in humans to $r = +0.77$ in LLMs (95\% CI $[0.42, 0.92]$), and Extraversion--Openness flips from positive to negative, patterns observed across most tested subgroups.
+    The Conscientiousness--Neuroticism correlation reverses from $r = -0.25$ in humans to $r = +0.76$ in LLMs (95\% CI $[0.47, 0.92]$), and Extraversion--Openness flips from positive to negative, patterns observed across most tested subgroups.
     \item \textbf{Standard dimension labels do not transfer cleanly.}
     Comparison against published human baselines yields only 3/5 sign agreement ($p = 0.50$); this inconclusive convergent validity result itself constitutes evidence for trait structure reorganization rather than random noise.
 \end{enumerate}
 
-We test convergent validity against human baselines (\S\ref{sec:validity}), correct for acquiescence bias (\S\ref{sec:acquiescence}), and report 95\% confidence intervals for key statistics.
+We test convergent validity against human baselines (Appendix~\ref{sec:appendix_structure}), correct for acquiescence bias (\S\ref{sec:acquiescence}), and report 95\% confidence intervals for key statistics.
 
-\begin{figure}[!t]
+\begin{figure}[!htb]
     \centering
     \includegraphics[width=0.48\textwidth]{figures/fig1_radar_combined.pdf}
     \caption{Response style profiles of all 15 model families across 9 dimensions. Each line is one model family. The distinct shapes suggest that different training approaches leave different behavioral fingerprints on models.}
@@ -148,7 +148,7 @@ Five come from the Big Five Inventory \citep{john1999bigfive, mccrae1992five, oc
 We add HEXACO Honesty-Humility (5 items; \citealp{lee2004hexaco}), Collectivism (4 items; Schwartz Values Survey \citealp{schwartz1992universals}), Intuition (4 items; cognitive style), and Uncertainty Avoidance (4 items; cultural dimensions).
 Reverse-scored items are transformed via $\text{score} = 6 - \text{original}$; dimension scores are the mean of constituent items.
 
-\begin{table}[!t]
+\begin{table}[!htb]
 \centering
 \footnotesize
 \caption{Psychometric instruments: 9 dimensions, 61 Likert items (1--5 scale).}
@@ -174,13 +174,25 @@ Uncertainty Avoidance & Cultural Dimensions & 4 & 2 items \\
 }
 \end{table}
 
+\subsection{What We Measure: Response Style}
+\label{sec:response_style}
+
+We frame our measurements as \textbf{response style} rather than personality \citep{paulhus1991response, rammstedt2000response}.
+In psychometrics, response style refers to systematic tendencies in how respondents answer questionnaire items, independent of item content: acquiescence (yea-saying), midpoint responding, extreme responding, and socially desirable responding \citep{baumgartner2007modeling}.
+These styles are properties of the \emph{respondent}, not of the construct being measured---a respondent who agrees with every statement is not necessarily more extraverted or agreeable.
+
+We adopt this framing because LLMs lack the subjective experience that personality constructs presume.
+When an LLM reports high Conscientiousness, this reflects a systematic tendency in its training data and alignment to produce conscientiousness-consistent responses, not a genuine psychological trait.
+Our research question is therefore descriptive: \emph{do models from different families exhibit systematically different response style signatures when presented with identical psychometric items?}
+We report dimension labels (``Extraversion,'' ``Neuroticism'') for interpretability but explicitly test (and fail to establish) that these labels capture constructs equivalent to human personality (Appendix~\ref{sec:appendix_structure}).
+
 \subsection{Model Selection}
 \label{sec:models}
 
 We select 15 model families accessible through unified API platforms, contributing one representative model each (Table~\ref{tab:models}).
-Priorities: flagship models where available; Dense and MoE architectures both represented (4 Dense, 9 MoE, 2 undisclosed).
+Priorities: flagship models where available; Dense and MoE architectures both represented (10 Dense, 5 MoE).
 
-\begin{table}[!t]
+\begin{table}[!htb]
 \centering
 \footnotesize
 \caption{Models from 15 model families, one representative model per family. Total parameters in parentheses where publicly disclosed.}
@@ -230,7 +242,7 @@ The effect size is quantified as partial $\eta^2_p$:
 \eta^2_p = \frac{SS_{\text{between}}}{SS_{\text{between}} + SS_{\text{within}}}
 \end{equation}
 where $SS_{\text{between}}$ and $SS_{\text{within}}$ are the between-group and within-group sums of squares, respectively.
-Pairwise Cohen's $d$ (Welch's $t$-test) is computed for all 105 model pairs across 9 dimensions (945 tests, FDR-corrected):
+Pairwise Cohen's $d$ (Welch's $t$-test) is computed for all 105 model pairs across 8 primary dimensions (840 tests, FDR-corrected):
 \begin{equation}
 \begin{split}
 d_{ij} &= \frac{\bar{x}_i - \bar{x}_j}{s_{\text{pooled}}}, \\[4pt]
@@ -257,18 +269,18 @@ The human baseline correlations are drawn from the large-scale validation of the
 \subsection{Overview}
 \label{sec:overview}
 
-Table~\ref{tab:vendor_means} reports model family mean scores across 9 dimensions.
+Table~\ref{tab:model_means} reports model family mean scores across 9 dimensions.
 On the Big Five, scores cluster around the scale midpoint (2.7--3.3) with the exception of Neuroticism, where Ring (2.22) and MiniMax (2.31) stand apart from GPT (3.30) and Claude (3.39).
 Intuition shows the widest spread among non-H dimensions: GLM scores lowest (1.88) while Claude leads (2.92), a gap of over one full point.
 Collectivism and Uncertainty Avoidance are the most compressed dimensions (ranges of 0.73 and 0.44, respectively), suggesting near-uniform responses across model families.
-In the raw data, Dense models (Hunyuan, Seed, InternLM, KAT) tend to score higher on HEXACO-H and Agreeableness than MoE models, while MoE models show higher Neuroticism and Collectivism---a pattern we revisit in \S\ref{sec:hexaco_h} with appropriate caution about the small Dense sample ($n = 4$).
+In the raw data, Dense models (GPT, Claude, Kimi, Hunyuan, Seed, InternLM, Ring, Step, KAT, MiniMax) tend to score higher on HEXACO-H and Agreeableness than MoE models, while MoE models show higher Uncertainty Avoidance---a pattern we revisit in Appendix~\ref{sec:appendix_hexaco_detail} with appropriate caution about confounding between architecture, provider, and scale.
 Figure~\ref{fig:radar_profiles} overlays all 15 profiles, revealing that models from the same provider tend to share similar profile shapes.
 Family-level clustering is further illustrated by within-family trajectories across model versions (Appendix~\ref{sec:appendix_trajectories}).
 
 \begin{table*}[!t]
 \centering
-\caption{Model family mean scores (SD) across 9 dimensions. Range: 1--5.}
-\label{tab:vendor_means}
+\caption{Model family mean scores (SD) across 9 dimensions. Range: 1--5. Primary analysis uses 8 dimensions ($\alpha > 0.70$); HEXACO-H ($\alpha = 0.27$) shown for completeness only.}
+\label{tab:model_means}
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{lccccccccc}
 \toprule
@@ -282,7 +294,7 @@ InternLM & 2.76 (0.24) & 3.03 (0.14) & 2.81 (0.17) & 3.33 (0.19) & 3.12 (0.24) &
 KAT & 3.00 (0.00) & 2.91 (0.21) & 2.92 (0.14) & 3.04 (0.11) & 2.95 (0.14) & 2.43 (0.27) & 2.44 (0.19) & 2.65 (0.20) & 3.17 (0.16) \\
 MiniMax & 3.23 (0.34) & 2.94 (0.25) & 2.19 (0.21) & 2.31 (0.22) & 2.67 (0.15) & 1.08 (0.23) & 2.65 (0.27) & 2.12 (0.13) & 3.00 (0.34) \\
 Kimi & 3.05 (0.18) & 3.20 (0.12) & 2.76 (0.15) & 3.00 (0.11) & 2.77 (0.17) & 1.10 (0.13) & 2.31 (0.11) & 2.77 (0.31) & 3.23 (0.33) \\
-Qwen & 2.90 (0.20) & 2.76 (0.26) & 2.46 (0.10) & 2.96 (0.17) & 2.74 (0.22) & 1.02 (0.06) & 2.50 (0.00) & 2.17 (0.19) & 3.29 (0.18) \\
+Qwen & 2.88 (0.17) & 2.74 (0.26) & 2.45 (0.11) & 2.98 (0.17) & 2.71 (0.17) & 1.00 (0.00) & 2.50 (0.00) & 2.10 (0.17) & 3.29 (0.14) \\
 Step & 3.17 (0.16) & 2.95 (0.16) & 2.77 (0.26) & 2.81 (0.26) & 2.99 (0.18) & 2.30 (0.64) & 2.50 (0.18) & 2.15 (0.61) & 3.12 (0.23) \\
 Hunyuan & 2.83 (0.14) & 3.02 (0.09) & 2.70 (0.14) & 3.00 (0.00) & 2.98 (0.14) & 2.77 (0.27) & 2.54 (0.14) & 2.88 (0.13) & 2.98 (0.07) \\
 GLM & 3.26 (0.26) & 2.94 (0.13) & 2.61 (0.24) & 3.03 (0.19) & 2.78 (0.19) & 1.15 (0.12) & 2.15 (0.13) & 1.88 (0.17) & 3.42 (0.16) \\
@@ -297,23 +309,24 @@ Claude & 2.96 (0.18) & 3.13 (0.18) & 2.93 (0.21) & 3.39 (0.19) & 3.12 (0.17) & 2
 \subsection{Cross-Model Discrimination}
 \label{sec:discrimination}
 
-All 9 dimensions show significant model effects ($p < 0.001$, FDR-corrected; Table~\ref{tab:anova_results}), with the strongest discrimination on HEXACO-H ($F = 56.75$, $\eta^2_p = 0.83$) and Neuroticism ($F = 34.50$, $\eta^2_p = 0.75$); non-parametric Kruskal-Wallis tests confirm these results.
-Figure~\ref{fig:intervendor_sd} shows the inter-model $\sd$ by dimension: HEXACO-H has the highest variability (0.68), followed by Neuroticism (0.38) and Intuition (0.35), while only Agreeableness ($\sd = 0.14$) falls below our alignment-artifact threshold.
+All 8 primary dimensions show significant model effects ($p < 0.001$, FDR-corrected; Table~\ref{tab:anova_results}), with the strongest discrimination on Neuroticism ($F = 34.60$, $\eta^2_p = 0.75$) and Intuition ($F = 20.26$, $\eta^2_p = 0.63$); non-parametric Kruskal-Wallis tests confirm these results.
+Figure~\ref{fig:intermodel_sd} shows the inter-model $\sd$ by dimension: among the 8 primary dimensions, Intuition (0.37) and Neuroticism (0.34) show the most variability, while Agreeableness ($\sd = 0.15$) and UA ($\sd = 0.16$) fall below our alignment-artifact threshold of 0.15.
+HEXACO-H has the highest overall variability (0.67) but is excluded from primary analysis ($\alpha = 0.27$); detailed results are in Appendix~\ref{sec:appendix_hexaco_detail}.
 
-Architecture type (Dense vs.\ MoE) shows suggestive but non-significant differences (Table~\ref{tab:architecture_effects}), with only 4 Dense families rendering all comparisons severely underpowered.
-The strongest signal is on HEXACO-H ($d = 1.44$, 95\% CI $[0.14, 2.74]$, $p = 0.11$), but this is a descriptive pattern rather than a statistically supported conclusion.
-These patterns are explored further in \S\ref{sec:hexaco_h}, where we emphasize their exploratory nature.
+Architecture type (Dense vs.\ MoE) shows significant differences on several dimensions (Table~\ref{tab:architecture_effects}), with 10 Dense and 5 MoE families.
+The strongest signals are on Agreeableness ($d = 0.78$, $p < 0.001$) and UA ($d = -0.83$, $p < 0.001$); HEXACO-H shows an even larger apparent effect ($d = 0.91$) but is excluded from primary analysis due to low reliability.
+\textbf{However, architecture is fully confounded with provider} (all MoE models are from Chinese providers, while Dense models include GPT and Claude) and partially confounded with model scale, so these patterns must be interpreted as descriptive observations of co-variation rather than evidence for causal architecture effects.
 
-\begin{figure}[!t]
+\begin{figure}[!htb]
     \centering
-    \includegraphics[width=0.48\textwidth]{figures/fig3_intervendor_sd.pdf}
+    \includegraphics[width=0.48\textwidth]{figures/fig3_intermodel_sd.pdf}
     \caption{Inter-model SD by dimension. Blue: discriminative ($\sd \geq 0.15$); orange: alignment artifact.}
-    \label{fig:intervendor_sd}
+    \label{fig:intermodel_sd}
 \end{figure}
 
-\begin{table}[!t]
+\begin{table}[!htb]
 \centering
-\caption{Mean dimension scores by architecture type. Dense: $n = 4$ model families (Hunyuan, Seed, InternLM, KAT). MoE: $n = 9$ (Qwen, DeepSeek, GLM, Kimi, ERNIE, Ring, Step, Pangu, MiniMax). 95\% CI for Cohen's $d$ reported for HEXACO-H (CI excludes zero). No effect reaches $p < 0.05$ at the family level; the comparison is severely underpowered with only 4 Dense families.}
+\caption{Mean dimension scores by architecture type (8 primary dimensions; HEXACO-H excluded). Dense: $n = 10$ model families (GPT, Claude, Kimi, Hunyuan, Seed, InternLM, Ring, Step, KAT, MiniMax). MoE: $n = 5$ (Qwen, DeepSeek, GLM, ERNIE, Pangu). 95\% CI for Cohen's $d$ from bootstrap ($5{,}000$ iterations). Effects surviving FDR correction are marked with *; no claim of causal architecture effect is intended due to confounding with provider and scale.}
 \label{tab:architecture_effects}
 \resizebox{\columnwidth}{!}{%
 \footnotesize
@@ -321,23 +334,22 @@ These patterns are explored further in \S\ref{sec:hexaco_h}, where we emphasize 
 \toprule
 Dimension & Dense & MoE & $d$ (95\% CI) & $p$ \\
 \midrule
-Extraversion         & 2.96 & 3.09 & $-$0.75 [$-$1.96, 0.46] & 0.33 \\
-Agreeableness        & 2.95 & 2.93 & +0.17 [$-$0.45, 0.80] & 0.73 \\
-Conscientiousness    & 2.75 & 2.57 & +0.83 [$-$0.39, 2.05] & 0.14 \\
-Neuroticism          & 3.07 & 2.81 & +0.83 [$-$0.39, 2.05] & 0.11 \\
-Openness             & 2.86 & 2.83 & +0.17 [$-$0.45, 0.79] & 0.85 \\
-HEXACO-H             & 2.12 & 1.36 & +1.44 [+0.14, 2.74] & 0.11 \\
-Collectivism         & 2.57 & 2.54 & +0.16 [$-$0.46, 0.79] & 0.77 \\
-Intuition            & 2.57 & 2.34 & +0.63 [$-$0.57, 1.83] & 0.26 \\
-UA                   & 3.16 & 3.29 & $-$0.84 [$-$2.06, 0.38] & 0.25 \\
+Extraversion         & 3.04 & 3.01 & +0.12 [$-$0.18, +0.42] & 0.42 \\
+Agreeableness        & 3.02 & 2.84 & +0.78 [+0.47, +1.11] & 0.000* \\
+Conscientiousness    & 2.71 & 2.60 & +0.36 [+0.07, +0.70] & 0.014 \\
+Neuroticism          & 2.93 & 2.99 & $-$0.16 [$-$0.42, +0.12] & 0.25 \\
+Openness             & 2.90 & 2.85 & +0.14 [$-$0.14, +0.43] & 0.32 \\
+Collectivism         & 2.59 & 2.50 & +0.32 [+0.01, +0.64] & 0.046 \\
+Intuition            & 2.51 & 2.39 & +0.27 [$-$0.03, +0.60] & 0.093 \\
+UA                   & 3.16 & 3.37 & $-$0.83 [$-$1.15, $-$0.55] & 0.000* \\
 \bottomrule
 \end{tabular}%
 }
 \end{table}
 
-\begin{table}[!t]
+\begin{table}[!htb]
 \centering
-\caption{ANOVA results: model effect on each dimension ($df = 14, 189$). All $p < 0.001$ after FDR correction.}
+\caption{ANOVA results: model effect on each dimension ($df = 14, 165$). Primary analysis uses 8 dimensions ($\alpha > 0.70$); HEXACO-H excluded ($\alpha = 0.27$, 5 items). All $p < 0.001$ after FDR correction.}
 \label{tab:anova_results}
 \resizebox{\columnwidth}{!}{%
 \footnotesize
@@ -345,28 +357,27 @@ UA                   & 3.16 & 3.29 & $-$0.84 [$-$2.06, 0.38] & 0.25 \\
 \toprule
 Dimension & $F$ & $p$ (raw) & $\eta^2_p$ & KW $H$ & KW $p$ \\
 \midrule
-Extraversion         &   6.37 &  4.0e-10 &  0.351 &  64.2 &  2.2e-08 \\
-Agreeableness        &   5.84 &  3.2e-09 &  0.331 &  61.8 &  5.8e-08 \\
-Conscientiousness    &  14.30 &  5.5e-22 &  0.548 &  99.0 &  7.4e-15 \\
-Neuroticism          &  34.50 &  9.6e-42 &  0.745 & 124.7 &  7.5e-20 \\
-Openness             &   9.59 &  2.3e-15 &  0.449 &  77.7 &  7.5e-11 \\
-HEXACO-H             &  56.75 &  1.5e-55 &  0.828 & 150.5 &  5.7e-25 \\
+Extraversion         &   6.55 &  2.0e-10 &  0.357 &  65.5 &  1.3e-08 \\
+Agreeableness        &   5.99 &  1.8e-09 &  0.337 &  62.4 &  4.4e-08 \\
+Conscientiousness    &  14.35 &  4.8e-22 &  0.549 &  99.1 &  7.1e-15 \\
+Neuroticism          &  34.60 &  8.1e-42 &  0.746 & 124.7 &  7.6e-20 \\
+Openness             &   9.95 &  6.7e-16 &  0.458 &  80.2 &  2.6e-11 \\
 Collectivism         &   9.01 &  1.9e-14 &  0.433 &  78.7 &  4.9e-11 \\
-Intuition            &  19.66 &  2.4e-28 &  0.625 & 117.7 &  1.8e-18 \\
-UA                   &   5.60 &  8.7e-09 &  0.322 &  61.4 &  6.6e-08 \\
+Intuition            &  20.26 &  5.5e-29 &  0.632 & 118.5 &  1.3e-18 \\
+UA                   &   5.68 &  6.3e-09 &  0.325 &  62.3 &  4.6e-08 \\
 \bottomrule
 \end{tabular}%
 }
 \end{table}
 
-The pairwise effect sizes are large: the median Cohen's $d$ across all 105 model pairs and 9 dimensions is 1.08, and every pair exceeds $d \geq 0.8$ on at least one dimension (Figure~\ref{fig:cohen_d_heatmap}).
+The pairwise effect sizes are large: the median Cohen's $d$ across all 105 model pairs and 8 primary dimensions is 1.01, and every pair exceeds $d \geq 0.8$ on at least one dimension (Figure~\ref{fig:cohen_d_heatmap}).
 Table~\ref{tab:top_cohen_d} reports the largest pairwise Cohen's $d$ for each dimension.
-Dimensions outside the Big Five---HEXACO-H and Intuition---produce the most extreme separations (max $d = 9.34$ and $8.04$), far exceeding what is typical in human personality studies, while among the Big Five, Neuroticism and Conscientiousness are most separable (max $d = 5.29$ and $4.45$) and Agreeableness shows the weakest discrimination (median $d = 0.74$, the only dimension below 0.8).
+Among the 8 primary dimensions, Neuroticism and Conscientiousness are most separable (max $d = 5.29$ and $4.45$), while Agreeableness shows the weakest discrimination (median $d = 0.74$).
 Notably, GPT and Claude produce the smallest Euclidean distance of any model pair ($0.50$), suggesting convergence in training objectives across leading model families.
 
-\begin{table}[!t]
+\begin{table}[!htb]
 \centering
-\caption{Largest pairwise Cohen's $d$ per dimension (105 pairs each, FDR-corrected). Median $d$ across all pairs shown in parentheses.}
+\caption{Largest pairwise Cohen's $d$ per dimension (105 pairs each, FDR-corrected). Median $d$ across all pairs shown. HEXACO-H excluded from primary analysis ($\alpha = 0.27$).}
 \label{tab:top_cohen_d}
 \resizebox{\columnwidth}{!}{%
 \footnotesize
@@ -374,194 +385,232 @@ Notably, GPT and Claude produce the smallest Euclidean distance of any model pai
 \toprule
 Dimension & Model A & & Model B & Med $d$ & $d$ \\
 \midrule
-HEXACO-H          & ERNIE    & vs & Hunyuan    & 2.25 & $-$9.34 \\
-Intuition         & GLM      & vs & Claude     & 1.60 & $-$7.06 \\
 Neuroticism       & MiniMax  & vs & Claude     & 1.66 & $-$5.29 \\
 Conscientiousness & ERNIE    & vs & DeepSeek   & 1.22 & $-$4.45 \\
-Collectivism      & Qwen     & vs & GLM        & 0.80 & +3.89  \\
+Intuition         & GLM      & vs & Claude     & 1.53 & $-$7.06 \\
+Collectivism      & GLM      & vs & Qwen       & 0.80 & $-$3.89 \\
 Agreeableness     & ERNIE    & vs & Kimi       & 0.74 & $-$3.72 \\
-UA                & Hunyuan  & vs & GLM        & 0.73 & $-$3.47 \\
+UA                & GLM      & vs & Hunyuan    & 0.81 & +3.47  \\
 Openness          & MiniMax  & vs & Claude     & 0.98 & $-$2.85 \\
-Extraversion      & Step     & vs & Hunyuan    & 0.85 & +2.17  \\
+Extraversion      & Step     & vs & Hunyuan    & 0.90 & +2.17  \\
 \bottomrule
 \end{tabular}%
 }
 \end{table}
 
-\begin{figure}[!t]
+\begin{figure}[!htb]
     \centering
     \includegraphics[width=0.48\textwidth]{figures/fig4_cohen_d_heatmap.pdf}
     \caption{Maximum pairwise Cohen's $d$ per model pair (across 9 dimensions). All pairs exceed $d \geq 0.8$.}
     \label{fig:cohen_d_heatmap}
 \end{figure}
 
-\subsection{Inter-Dimension Structure}
+\subsection{Inter-Dimension Correlations (Exploratory)}
 \label{sec:interdim}
 
-The 9$\times$9 model-level correlation matrix (Figure~\ref{fig:inter_dim_corr}) reveals that the BFI five-factor structure does not recover in our sample of LLMs.
-Most notably, the Conscientiousness--Neuroticism correlation is strongly positive ($r = +0.77$, 95\% CI $[0.42, 0.92]$, $p = 0.0008$), the reverse of the human baseline ($r = -0.25$), and this reversal holds across all tested subgroups: MoE ($r = +0.66$, $p = 0.05$), small models ($r = +0.83$, $p = 0.04$), and open-source ($r = +0.70$, $p = 0.007$), though it is non-significant for the small Dense subset ($p = 0.44$, $n = 4$).
+The 9$\times$9 model-level correlation matrix (Figure~\ref{fig:inter_dim_corr}) suggests that the human BFI factor structure does not fully recover in LLMs.
+The most notable divergence is the Conscientiousness--Neuroticism correlation, which is strongly positive in LLMs ($r = +0.76$, 95\% CI $[0.47, 0.92]$) but weakly negative in humans ($r = -0.25$), and this reversal holds across multiple subgroups (Appendix~\ref{sec:appendix_structure}).
+A convergent validity test against human baselines yields 3/5 sign agreement (binomial $p = 0.50$), providing no evidence that the measured dimensions capture constructs equivalent to human personality (Appendix~\ref{sec:appendix_structure}).
 
-\paragraph{Why does the C--N correlation reverse?}
-One possible explanation invokes alignment-driven compression.
-In humans, Conscientiousness (self-discipline, organization) and Neuroticism (emotional instability) are weakly negatively correlated because they tap independent biological and environmental factors \citep{john1999bigfive}.
-In LLMs, both dimensions may be compressed toward socially desirable endpoints by safety alignment: models learn to present themselves as both emotionally stable (low Neuroticism) and diligent (high Conscientiousness).
-If this shared alignment pressure is the mechanism, it would induce a positive correlation that does not exist in humans, where individual differences in these traits arise from genuinely independent sources.
-The HEXACO-H results (\S\ref{sec:hexaco_h}) are consistent with this account: models with more intensive alignment (larger MoE models) show stronger floor compression on morally sensitive items.
-However, without directly comparing aligned and base models, we cannot rule out alternative explanations such as architectural or data-driven effects, and this mechanism should be considered speculative.
+These structural observations are \textbf{exploratory} ($n = 15$ families) and should be interpreted with caution; the wide confidence intervals at this sample size mean that replication with a broader model sample is needed before drawing firm conclusions about factor structure reorganization.
 
-Beyond the C--N reversal, Extraversion flips from positively correlated with Openness in humans to negatively correlated in LLMs ($r = -0.62$, $p = 0.014$), and Agreeableness shows a stronger positive correlation with Conscientiousness ($r = +0.56$) than in humans ($r = +0.20$).
-An exploratory PCA (Appendix~\ref{sec:appendix_pca}) hints at a three-factor reorganization, though severely underpowered ($n = 15$).
+\subsection{Aligned vs.\ Base: Preliminary Evidence}
+\label{sec:aligned_base}
 
-\begin{figure}[!t]
-    \centering
-    \includegraphics[width=0.48\textwidth]{figures/fig5_hexaco_h_vendors.pdf}
-    \caption{HEXACO-H by model family (ordered by mean). Error bars: $\sd$ across 12 seeds. Dashed line: theoretical floor (1.0). Dense models (Hunyuan, KAT) score higher than MoE models.}
-    \label{fig:hexaco_h_vendors}
-\end{figure}
+To test whether alignment shapes response style, we compare base (pre-alignment) models against their aligned counterparts from the same provider: Qwen3-8B vs.\ Qwen3.5-397B, Qwen3-14B vs.\ Qwen3.5-397B, and GLM-4.7 vs.\ GLM-5 (Table~\ref{tab:aligned_base}).
+We acknowledge two limitations of this design: (1) the Qwen comparisons confound alignment with a large scale difference (8B/14B $\to$ 397B), and (2) GLM-4.7 may retain partial alignment from its training, making it not a fully ``base'' model.
+Despite these caveats, if response style variation reflects inherent model properties rather than alignment, base and aligned models should show similar profiles.
 
-\begin{figure}[!t]
-    \centering
-    \includegraphics[width=0.48\textwidth]{figures/fig6_hexaco_h_params.pdf}
-    \caption{HEXACO-H vs.\ total parameters across all tested models (27 with disclosed sizes + 4 undisclosed). Colors indicate architecture type. The architecture split (Dense vs.\ MoE) explains more variance than the scale trend.}
-    \label{fig:hexaco_h_params}
-\end{figure}
-
-\subsection{HEXACO-H: Architecture and Scale}
-\label{sec:hexaco_h}
-
-Having identified HEXACO-H as the most discriminative dimension, we examine what drives its variation.
-HEXACO-H items involve moral judgment (\eg ``I would buy stolen goods if I were sure I wouldn't get caught'') and are directly targeted by safety alignment during training.
-Figure~\ref{fig:hexaco_h_vendors} shows a bimodal pattern: Dense models (Hunyuan: 2.77, KAT: 2.43, InternLM: 2.12, Seed: 1.15) tend to score higher than MoE models (ERNIE: 1.00, Qwen: 1.02, MiniMax: 1.08, Kimi: 1.10).
-This Dense--MoE split is consistent with more intensive moral safety alignment in MoE models, though the small Dense sample ($n = 4$) limits the strength of this inference.
-
-Dense models average $H = 2.12$ vs.\ MoE models $H = 1.36$ ($d = 1.44$, 95\% CI $[0.14, 2.74]$, $p = 0.11$; Table~\ref{tab:architecture_effects}), but the wide confidence interval and small Dense sample ($n = 4$) make this fragile: excluding Hunyuan reduces $d$ to 1.09 ($p = 0.29$).
-The Dense and MoE groups are not balanced across providers, so architecture and provider effects cannot be disentangled.
-In the broader 27-model sample, H correlates negatively with log-transformed parameters ($r = -0.49$, $p = 0.009$; Figure~\ref{fig:hexaco_h_params}), indicating that larger models score lower---a pattern consistent with more intensive safety alignment at scale.
-Additional scale effects are reported in Appendix~\ref{sec:appendix_params}.
-H's high $\sd$ may be partially amplified by floor effects (5/15 models score at or below 1.15), but the Dense--MoE ranking is stable across all tested thresholds.
-To jointly assess the effects of scale and architecture, we regress dimension scores on log-transformed parameters and architecture type across the 13 models with disclosed sizes (Appendix~\ref{sec:appendix_regression}).
-HEXACO-H shows the highest explained variance ($R^2 = 0.41$), driven primarily by architecture, while Neuroticism shows the largest improvement from adding scale ($\Delta R^2 = +0.20$); however, no effect survives FDR correction at this sample size.
-As partial evidence for alignment-driven compression, a thinking mode ablation (Appendix~\ref{sec:appendix_thinking}) across 4 vendors shows that reasoning mode further reduces HEXACO-H to the theoretical floor (1.00) and consistently decreases Conscientiousness and Neuroticism, patterns consistent with amplified alignment pressure during extended reasoning.
-
-\subsection{Convergent Validity: Inconclusive}
-\label{sec:validity}
-
-We compare LLM inter-dimension correlations against published human baselines \citep{john1999bigfive, oconnor2007bfi} for 5 key dimension pairs (Table~\ref{tab:convergent_validity}; full matrix in Figure~\ref{fig:inter_dim_corr}).
-The human baselines are drawn from the large-scale BFI validation literature \citep{john1999bigfive, oconnor2007bfi}, which reports inter-dimension correlations based on samples of several thousand participants; exact standard deviations for these correlations are not always reported in the original sources.
-Three of five pairs agree in sign, including Extraversion--Neuroticism (human $r = -0.30$, LLM $r = -0.65$).
-Two pairs disagree: Extraversion--Agreeableness flips from positive to negative, and Conscientiousness--Neuroticism reverses to $r = +0.77$.
-The 60\% sign agreement rate does not exceed chance (binomial $p = 0.50$), yielding a null result: the data provide insufficient evidence that the measured dimensions capture constructs equivalent to human personality.
-The systematic nature of the divergences---the C--N reversal is one of the strongest correlations in our data---suggests a reorganization of response structure rather than random noise, though the mechanism remains unclear.
-
-\begin{table}[!t]
+\begin{table}[!htb]
 \centering
-\caption{Convergent validity: LLM vs.\ human inter-dimension correlations. Sign agreement 3/5 ($p = 0.50$) does not exceed chance, providing insufficient evidence for construct equivalence.}
-\label{tab:convergent_validity}
+\caption{Base vs.\ aligned model comparison (Study 4). Base models lack RLHF/safety alignment; aligned models are their post-alignment counterparts from the same provider. Cohen's $d$ reported as base minus aligned.}
+\label{tab:aligned_base}
 \resizebox{\columnwidth}{!}{%
-\begin{tabular}{lrrc}
+\footnotesize
+\begin{tabular}{lccc}
 \toprule
-Dimension Pair & Human $r$ & LLM $r$ & Sign Match \\
+Dimension & Qwen3-8B vs 397B & Qwen3-14B vs 397B & GLM-4.7 vs GLM-5 \\
 \midrule
-Extraversion         vs Neuroticism          & -0.30 & $-$0.646 & Yes  \\
-Agreeableness        vs Conscientiousness    & +0.20 & +0.560 & Yes  \\
-Openness             vs Agreeableness        & +0.10 & +0.487 & Yes  \\
-Extraversion         vs Agreeableness        & +0.10 & $-$0.065 & No   \\
-Conscientiousness    vs Neuroticism          & -0.25 & +0.768 & No   \\
+Extraversion         & $-$0.36 & +1.30 & $-$1.46 \\
+Agreeableness        & +2.24 & +2.50 & $-$0.83 \\
+Conscientiousness    & +4.62 & +8.67 & $-$1.20 \\
+Neuroticism          & +3.29 & +0.22 & $-$1.09 \\
+Openness             & +5.51 & +2.96 & $-$1.56 \\
+HEXACO-H             & +11.19 & +15.81 & +0.85 \\
+Collectivism         & +2.77 & $-$1.01 & +1.20 \\
+Intuition            & +4.02 & +6.79 & +2.01 \\
+UA                   & $-$2.30 & $-$0.51 & +0.80 \\
 \bottomrule
 \end{tabular}%
 }
 \end{table}
 
-\begin{figure}[!t]
-    \centering
-    \includegraphics[width=0.48\textwidth]{figures/fig7_inter_dim_corr.pdf}
-    \caption{Inter-dimension correlation matrix (model-level means). E = Extraversion, A = Agreeableness, C = Conscientiousness, N = Neuroticism, O = Openness, H = HEXACO-H, Col = Collectivism, Int = Intuition, UA = Uncertainty Avoidance. The C--N reversal ($r = +0.77$) and E's negative correlations with N and O are clearly visible.}
-    \label{fig:inter_dim_corr}
-\end{figure}
+The results provide preliminary evidence that alignment shapes response style variation, though the scale confound in the Qwen comparisons limits causal attribution.
+Base models produce responses clustered at the Likert scale midpoint (3.0): Qwen3-14B shows exactly zero variance on 7 of 9 dimensions, and Qwen3-8B shows near-zero variance ($\sd < 0.20$ on all dimensions).
+In contrast, their aligned counterpart (Qwen3.5-397B) exhibits the differentiated, compressed profiles seen throughout Study 1.
+Among the 8 primary dimensions, alignment effects are largest on Intuition ($d = 2.01$--$6.79$) and Conscientiousness ($d = 1.20$--$8.67$).
+The most dramatic single-dimension effect is on HEXACO-H ($d > 11$), where base models score 2.15--2.40 and the aligned model scores 1.00; however, given HEXACO-H's low reliability ($\alpha = 0.27$), this finding is suggestive rather than conclusive.
+
+GLM-4.7 vs.\ GLM-5 shows more moderate effects on the primary dimensions, suggesting that GLM-4.7 retains partial alignment from its training.
+Taken together, these comparisons suggest that post-training alignment substantially shapes response style, but the scale--alignment confound means this evidence is preliminary and should be replicated with same-scale model pairs.
+
 
 \subsection{Within-Family Evolution}
 \label{sec:evolution}
 
 To examine whether response styles change across model versions, we track 16 additional models from three families (Qwen: 6 versions; DeepSeek: 4 versions; GLM: 6 versions; full trajectories in Appendix~\ref{sec:appendix_trajectories}).
 Most dimensions show moderate variation without clear monotonic trends.
-Notable exceptions: DeepSeek shows a steep HEXACO-H decline from V2.5 ($H = 3.00$) to V3.2 ($H = 1.68$), consistent with intensified safety alignment between versions; GLM shows the largest within-family shift on Intuition (5.0 to 3.875).
+Notable exceptions: DeepSeek shows a steep decline on HEXACO-H from V2.5 ($H = 3.00$) to V3.2 ($H = 1.68$), consistent with intensified safety alignment between versions (though HEXACO-H is excluded from primary analysis); GLM shows the largest within-family shift on Intuition (5.0 to 3.875).
 These observations are descriptive and motivate future controlled experiments.
 
 \subsection{Acquiescence and Reliability}
 \label{sec:acquiescence}
 
-\paragraph{Acquiescence.}
-The first principal component of the 15-family correlation matrix explains 51.3\% of variance (vs.\ 11.1\% expected under independence), indicating a strong general factor.
-Partial correlations controlling for PC1 reduce median absolute correlation by 49\%, but 23 of 36 pairs show sign flips, indicating that the general factor is entangled with the dimension structure rather than representing a simple acquiescence bias.
+\paragraph{Response style indicators.}
+Following \citet{paulhus1991response}, we operationalize three response style indicators directly from item-level responses (Figure~\ref{fig:response_styles}).
+\textbf{Midpoint responding} (proportion of responses at the scale midpoint, 3.0) varies widely across families: Step (83\%) and KAT (87\%) show extreme midpoint bias, while MiniMax (20\%) and Claude (27\%) show low midpoint responding.
+\textbf{Extreme responding} (proportion of responses at 1 or 5) shows the opposite pattern: Ring (53\%) and Seed (43\%) produce the most extreme responses, while Hunyuan (2\%) and Claude (4\%) rarely use scale endpoints.
+\textbf{Acquiescence bias} (mean of positively worded items minus mean of reverse-scored items) is consistently negative across 14 of 15 families (mean $= -0.28$), indicating a slight tendency to disagree with positively worded items and agree with negatively worded items; Ring is the sole exception ($+0.24$).
+These indicators confirm that models differ substantially in how they use the Likert scale, consistent with the response style framework.
+
+\begin{figure*}[!t]
+    \centering
+    \includegraphics[width=\textwidth]{figures/fig_response_styles.pdf}
+    \caption{Response style indicators by model family: (a) midpoint responding rate, (b) extreme responding rate, (c) acquiescence bias (positive-scored mean minus reverse-scored mean). Models ordered by midpoint rate.}
+    \label{fig:response_styles}
+\end{figure*}
+
+\paragraph{Acquiescence factor.}
+The first principal component of the 15-family correlation matrix explains 51.1\% of variance (vs.\ 11.1\% expected under independence), indicating a strong general factor.
+Partial correlations controlling for PC1 reduce median absolute correlation by 45\%, but 16 of 36 pairs show sign flips, indicating that the general factor is entangled with the dimension structure rather than representing a simple acquiescence bias.
 
 \paragraph{Reliability.}
 Table~\ref{tab:reliability} summarizes reliability metrics.
-Within-model CV is uniformly low (0.066--0.149), indicating tight response distributions, while ICC(1,1) ranges from 0.277 to 0.823, with the highest values on HEXACO-H (0.823) and Neuroticism (0.736), reflecting large between-family differences on these dimensions.
+Within-model CV is uniformly low (0.065--0.108 for the 8 primary dimensions), indicating tight response distributions, while ICC(1,1) ranges from 0.281 to 0.737, with the highest value on Neuroticism (0.737), reflecting large between-family differences.
 
-\begin{table}[!t]
+\begin{table}[!htb]
 \centering
-\caption{Reliability across all 15 models. CV = coefficient of variation across seeds. ICC(1,1) = intraclass correlation for absolute agreement, computed at the family level ($n = 15$ families $\times$ 12 seeds).}
+\caption{Reliability across all 15 models. CV = coefficient of variation across seeds. ICC(1,1) = intraclass correlation for absolute agreement, computed at the family level ($n = 15$ families $\times$ 12 seeds). HEXACO-H ($\alpha = 0.27$) shown for completeness but excluded from primary analysis.}
 \label{tab:reliability}
-\resizebox{\columnwidth}{!}{%
 \begin{tabular}{lcc}
 \toprule
 Dimension & Mean CV & ICC(1,1) \\
 \midrule
-Extraversion         & 0.070 & 0.309 \\
-Agreeableness        & 0.067 & 0.288 \\
-Conscientiousness    & 0.076 & 0.526 \\
-Neuroticism          & 0.066 & 0.736 \\
-Openness             & 0.078 & 0.417 \\
-HEXACO-H             & 0.149 & 0.823 \\
+Extraversion         & 0.069 & 0.316 \\
+Agreeableness        & 0.067 & 0.293 \\
+Conscientiousness    & 0.076 & 0.527 \\
+Neuroticism          & 0.065 & 0.737 \\
+Openness             & 0.077 & 0.427 \\
+HEXACO-H             & 0.146 & 0.824 \\
 Collectivism         & 0.076 & 0.400 \\
-Intuition            & 0.108 & 0.609 \\
-UA                   & 0.069 & 0.277 \\
+Intuition            & 0.108 & 0.616 \\
+UA                   & 0.068 & 0.281 \\
 \bottomrule
-\end{tabular}%
-}
+\end{tabular}
 \end{table}
 
-\subsection{Threshold Sensitivity}
-\label{sec:threshold}
+\subsection{Prompt Sensitivity}
+\label{sec:prompt_sensitivity}
 
-HEXACO-H remains classified as discriminative across all 6 tested thresholds (0.05--0.30).
-With all 15 models, every dimension shows $\sd \geq 0.14$ and reaches $p < 0.001$ in ANOVA, so the specific threshold choice does not affect qualitative conclusions.
+If LLM psychometric scores reflect stable traits, they should be invariant to surface-level changes in question framing. We administered the same 61 Likert items to all 15 Study~1 models under four prompt conditions (12 seeds each, temperature $= 0.7$): \textbf{Default} (``respond as honestly as possible''), \textbf{Neutral} (instruction removed, ``rate your agreement''), \textbf{Persona} (human role-play: ``you are completing a personality survey''), and \textbf{Direct} (no instruction, only the item and scale).
+Two models (GLM-5, Ring-flash-2.0) were unavailable for the Direct condition due to API downtime; 13 models have complete data across all four conditions.
+
+\paragraph{Score shifts.}
+Within-model standard deviation across the four prompt conditions averaged 0.127 on the 1--5 scale (range 0.083--0.174 across dimensions).
+Conscientiousness and Neuroticism showed the largest prompt sensitivity (mean SD $= 0.173$ and $0.174$), while Agreeableness and Uncertainty Avoidance were most stable (mean SD $= 0.083$ and $0.093$).
+Cohen's $d$ between each variant and the Default condition yielded a median $|d|$ of 0.49--0.98 across dimensions; 75\% of model-dimension pairs exceeded $|d| > 0.5$, comparable to the between-model effect sizes reported in Section~\ref{sec:discrimination}.
+
+\paragraph{Rank instability.}
+Model rankings are not preserved across prompt framings.
+Spearman $\rho$ between model rankings under different prompts averaged 0.28--0.65 across dimensions (mean 0.49); for Agreeableness, the minimum pairwise $\rho$ was $-0.13$, indicating rank reversals.
+Even for the most stable dimensions (Conscientiousness, Intuition; mean $\rho = 0.65$), the lowest pairwise correlations were only 0.35, far below the $\rho > 0.80$ threshold that would indicate stable relative ordering.
+
+\paragraph{Response style shifts.}
+Prompt framing alters response style indicators (Table~\ref{tab:prompt_response_styles}).
+The Neutral prompt increased extreme responding from 23.2\% (Default) to 31.3\%, while the Persona prompt reduced it to 17.6\%.
+Midpoint responding ranged from 43.7\% (Direct) to 51.9\% (Default).
+
+\begin{table}[!htb]
+\centering
+\caption{Response style indicators across four prompt conditions, averaged over 13 models with complete data. Midpoint = proportion of responses at 3; Extreme = proportion at 1 or 5; Mean = overall average rating.}
+\label{tab:prompt_response_styles}
+\begin{tabular}{lccc}
+\toprule
+Prompt & Midpoint (\%) & Extreme (\%) & Mean \\
+\midrule
+Default  & 51.9 & 23.2 & 2.91 \\
+Neutral  & 48.6 & 31.3 & 2.86 \\
+Persona  & 44.1 & 17.6 & 2.94 \\
+Direct   & 43.7 & 24.8 & 2.92 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Variance decomposition.}
+A two-way decomposition of total score variance into Model, Prompt, and Residual components (Table~\ref{tab:prompt_variance}) shows that prompt condition explains 16--32\% of variance across dimensions.
+For Neuroticism, prompt (32.0\%) nearly matches model family (37.1\%) as a variance source.
+This confirms that surface-level prompt framing produces score shifts comparable in magnitude to those observed across model families, directly supporting the response style interpretation: LLM psychometric responses are not stable trait measures but artifacts of the interaction between model training and question format.
+
+\begin{table}[!htb]
+\centering
+\caption{Variance decomposition: percentage of total score variance attributable to Model family, Prompt condition, and Residual (within-model, within-prompt), for 13 models with complete four-condition data.}
+\label{tab:prompt_variance}
+\begin{tabular}{lccc}
+\toprule
+Dimension & Model (\%) & Prompt (\%) & Residual (\%) \\
+\midrule
+Extraversion         & 34.8 & 17.9 & 47.2 \\
+Agreeableness        &  9.7 & 17.5 & 72.8 \\
+Conscientiousness    & 45.6 & 27.7 & 26.7 \\
+Neuroticism          & 37.1 & 32.0 & 30.9 \\
+Openness             & 26.2 & 19.7 & 54.2 \\
+Collectivism         & 31.2 & 23.2 & 45.6 \\
+Intuition            & 41.4 & 19.7 & 39.0 \\
+UA                   & 20.3 & 16.2 & 63.5 \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 % ============================================================
 \section{Conclusion}
 \label{sec:conclusion}
 
-\FloatBarrier
-
 We characterized systematic response style variation across 15 model families, 9 dimensions, 61 items, and 12 seeds per model, all administered via unified APIs.
-Model families differ substantially in their response distributions (median pairwise $d = 1.08$), with HEXACO-H showing the largest between-family effect ($\eta^2_p = 0.83$); however, architecture, training intensity, and provider are confounded, and we cannot attribute this variation to any single factor.
-The inter-dimension correlation structure reorganizes relative to humans: the Conscientiousness--Neuroticism correlation reverses from $r = -0.25$ to $r = +0.77$ (95\% CI $[0.42, 0.92]$), and the convergent validity test yields insufficient evidence for construct equivalence (3/5 sign agreement, $p = 0.50$).
+Model families differ substantially in their response distributions (median pairwise $d = 1.01$), with Neuroticism showing the largest between-family effect ($\eta^2_p = 0.75$); however, architecture, training intensity, and provider are confounded, and we cannot attribute this variation to any single factor.
+Exploratory structural analysis ($n = 15$) suggests the inter-dimension correlation structure reorganizes relative to humans: the Conscientiousness--Neuroticism correlation reverses from $r = -0.25$ to $r = +0.76$ (95\% CI $[0.47, 0.92]$), and the convergent validity test yields insufficient evidence for construct equivalence (3/5 sign agreement, $p = 0.50$); however, these structural claims require replication with a larger model sample.
 
 These findings demonstrate that LLM psychometric responses capture systematic response style variation shaped by training and alignment, not human-like personality traits.
-The observed correlation reorganization may reflect shared alignment pressure toward socially desirable endpoints, but without direct comparison of aligned and base models, this explanation remains speculative.
+Critically, our prompt sensitivity experiment (Section~\ref{sec:prompt_sensitivity}) shows that surface-level changes to question framing produce score shifts (median $|d| = 0.49$--$0.98$) comparable to between-model differences, and prompt condition explains 16--32\% of total variance---direct evidence that these scores are prompt-dependent response styles rather than stable traits.
+The observed correlation reorganization is consistent with shared alignment pressure toward socially desirable endpoints---a hypothesis supported by our aligned-vs.-base comparison (Section~\ref{sec:aligned_base}), where base models default to the Likert midpoint while aligned models show compressed but differentiated profiles; however, both the structural analysis ($n = 15$) and the aligned-vs.-base comparison (which confounds alignment with scale) are preliminary and require replication.
 Following \citet{binz2023psychology}, we treat psychometric items as standardized stimuli that probe response tendencies, and our results reinforce this stance: the label ``Extraversion'' or ``Neuroticism'' applied to an LLM should not be assumed to denote the same construct it denotes in humans.
 We recommend that the community treat LLM psychometric responses as measures of response style---systematic tendencies shaped by training data, alignment objectives, and deployment configurations---rather than as evidence for human-like personality.
-Future work should test the alignment-compression hypothesis directly by comparing aligned and base models from the same family on the same instruments, and should develop evaluation frameworks specifically designed for LLM behavioral measurement rather than adapting human personality inventories.
+Future work should extend the aligned-vs.-base paradigm to additional model families and develop evaluation frameworks specifically designed for LLM behavioral measurement rather than adapting human personality inventories.
 
 % ============================================================
 \section{Limitations}
 \label{sec:limitations}
 
 Several limitations constrain interpretation.
-First, our sample of model families is small ($n = 15$); the structural observations (correlation reversal, inconclusive convergent validity) are based on aggregate statistics and should be replicated with a broader and more diverse set of models.
+First, our sample of model families is small ($n = 15$); Pearson correlations at this sample size yield wide confidence intervals, and the structural observations (correlation reversal, inconclusive convergent validity, exploratory PCA) should be treated as preliminary signals requiring replication with a broader model sample.
 Second, only 2 of 15 models are closed-source (GPT-5, Claude Opus~4.5); findings may not generalize to the broader population of closed-source models, and the open-source--closed-source comparison (13 vs.\ 2) is underpowered.
-Third, architecture, training intensity, and provider are partially confounded: we cannot attribute observed differences to any single factor, and the Dense--MoE comparison (4 vs.\ 9 families) does not reach significance.
+Third, architecture, training intensity, and provider are partially confounded: we cannot attribute observed differences to any single factor, and the Dense--MoE comparison (10 vs.\ 5 families) does not reach significance.
 Fourth, psychometric scales were designed for human self-report; the convergent validity result (3/5 sign agreement) provides insufficient evidence that the BFI dimension labels measure the same constructs in LLMs as in humans.
-Fifth, the alignment-compression explanation is inferred from aggregate patterns rather than tested directly; a definitive test would require comparing aligned and base models from the same family on the same instruments.
+Fifth, although our aligned-vs.-base comparison (Section~\ref{sec:aligned_base}) provides preliminary evidence for alignment-driven response compression, it covers only 3 of 15 families and the Qwen comparisons confound alignment with scale (8B/14B $\to$ 397B); same-scale model pairs would provide cleaner causal evidence.
 Sixth, this is a descriptive study---we quantify patterns without establishing causal mechanisms, and the alignment-based account we offer should be treated as one of several plausible explanations.
-Seventh, all tested models are aligned/instruct versions accessible through commercial APIs; we cannot directly compare base and aligned models from the same family to test the alignment-compression hypothesis, though our thinking ablation (Appendix~\ref{sec:appendix_thinking}) provides partial within-model evidence.
+Seventh, all tested models are aligned/instruct versions accessible through commercial APIs; our aligned-vs.-base comparison (Section~\ref{sec:aligned_base}) and thinking ablation (Appendix~\ref{sec:appendix_thinking}) provide complementary evidence for alignment effects, but the base models tested represent only a subset of families.
 Eighth, within-family trajectory analyses have 2--6 data points per family and are descriptive.
 Finally, our use of temperature $= 0.7$ introduces response variance that may not generalize to low-temperature deployments.
+Our prompt sensitivity experiment (Section~\ref{sec:prompt_sensitivity}) tests only four framings; additional framings (e.g., system prompts, few-shot examples) may produce different patterns, and two models were unavailable for the Direct condition.
 
 % ============================================================
 \section*{Acknowledgements}
 
-\bibliographystyle{acl_natbib}
+% ============================================================
+\section*{Data and Code Availability}
+
+All experimental data (466 observations across 4 studies), analysis scripts, and figure-generation code will be released upon publication.
+The experiment uses publicly accessible APIs (SiliconFlow, Anthropic, OpenAI) and standard psychometric instruments (BFI-2, HEXACO-PI-R); no proprietary datasets are involved.
+
 \bibliography{references}
 
 % ============================================================
@@ -620,13 +669,13 @@ Items marked with R are reverse-scored via $\text{score} = 6 - \text{original}$.
 \end{tabular}
 \end{table*}
 
-Figure~\ref{fig:radar_per_vendor} shows each model family's radar profile individually for detailed inspection.
+Figure~\ref{fig:radar_per_model} shows each model family's radar profile individually for detailed inspection.
 
 \begin{figure*}[!t]
     \centering
-    \includegraphics[width=0.9\textwidth]{figures/fig1_radar_profiles.pdf}
+    \includegraphics[width=0.85\textwidth]{figures/fig1_radar_profiles.pdf}
     \caption{Individual model family radar profiles across 9 dimensions.}
-    \label{fig:radar_per_vendor}
+    \label{fig:radar_per_model}
 \end{figure*}
 
 \section{Per-Dimension Model Family Scores}
@@ -641,13 +690,125 @@ Figure~\ref{fig:all_dimensions} shows all 9 dimensions as dot plots, with model 
     \label{fig:all_dimensions}
 \end{figure*}
 
+\section{Threshold Sensitivity}
+\label{sec:threshold}
+
+We test whether the alignment-artifact threshold ($\sd < 0.15$) affects qualitative conclusions by varying it from 0.05 to 0.30.
+HEXACO-H remains classified as discriminative across all 6 tested thresholds (0.05--0.30).
+With all 15 models, every dimension shows $\sd \geq 0.14$ and reaches $p < 0.001$ in ANOVA, so the specific threshold choice does not affect qualitative conclusions.
+
+\section{Exploratory PCA Details}
+\label{sec:appendix_pca}
+
+We present the full exploratory PCA results here, with the caveat that PCA on $n = 15$ model families with 9 dimensions is severely underpowered and should be treated as hypothesis-generating.
+
+\paragraph{Decomposition.}
+We decompose the 9-dimension model-level correlation matrix ($n = 31$ models including within-family variants) via PCA:
+\begin{equation}
+\mathbf{X} = \mathbf{W}\mathbf{\Lambda}^{1/2}\mathbf{V}^\top
+\end{equation}
+where $\mathbf{\Lambda} = \text{diag}(\lambda_1, \ldots, \lambda_9)$ and $\sum_{k} \lambda_k / \sum_j \lambda_j$ gives the proportion of variance explained.
+
+\paragraph{Factor structure.}
+PC1 (51.1\% variance) loads most strongly on HEXACO-H ($+0.82$), with secondary loadings on Intuition ($+0.31$) and Conscientiousness ($+0.29$).
+PC2 (14.0\% variance) isolates Neuroticism ($+0.52$) and HEXACO-H ($-0.51$).
+PC3 (11.0\% variance) loads most strongly on Collectivism ($-0.71$).
+These three factors explain 76.1\% of variance, compared to the five BFI factors expected in humans.
+The factor structure does not cleanly recover the expected Big Five organization, aligning with the inter-dimension correlation divergences reported in \S\ref{sec:interdim}.
+
+\paragraph{Extraversion reversal.}
+Extraversion is significantly negatively correlated with Neuroticism ($r = -0.65$, $p = 0.009$) and Openness ($r = -0.60$, $p = 0.019$), with moderate negative correlations with HEXACO-H ($r = -0.48$, $p = 0.069$) and Conscientiousness ($r = -0.38$, $p = 0.161$) that do not reach significance.
+In humans, Extraversion is positively correlated with Openness; in LLMs the sign flips.
+Models that score high on Extraversion tend to be emotionally stable but closed-minded---a pattern with no direct human personality analog.
+
+\paragraph{Agreeableness.}
+Agreeableness shows a significant positive correlation with Conscientiousness ($r = +0.56$, $p = 0.029$) and a borderline correlation with Openness ($r = +0.50$, $p = 0.058$), but has no significant correlation with Collectivism ($r = -0.02$).
+In humans, Agreeableness correlates moderately with Conscientiousness ($r = +0.20$) and weakly with Openness ($r = +0.10$); in LLMs, the A--C connection is substantially stronger.
+
+\paragraph{Interpretation caution.}
+Whether the observed factor structure generalizes to larger and more diverse model samples remains an open question.
+As a rule of thumb, factor analysis typically requires at least 5--10 observations per variable; with $n = 15$ families and 9 dimensions, we fall below even the most lenient recommendation.
+These results should be treated as suggestive patterns that motivate future investigation, not as evidence for a specific factor structure.
+
+\section{Inter-Dimension Structure and Convergent Validity (Detailed)}
+\label{sec:appendix_structure}
+
+The main text (\S\ref{sec:interdim}) summarizes the key structural findings. Here we provide the full analysis.
+
+\subsection{Correlation Matrix}
+The 9$\times$9 model-level correlation matrix (Figure~\ref{fig:inter_dim_corr}) suggests that the BFI five-factor structure does not recover in our sample of LLMs.
+Most notably, the Conscientiousness--Neuroticism correlation is strongly positive ($r = +0.76$, 95\% CI $[0.47, 0.92]$, $p = 0.001$), the reverse of the human baseline ($r = -0.25$).
+This reversal holds across several subgroups: MoE ($r = +0.66$, $p = 0.05$), small models ($r = +0.83$, $p = 0.04$), and open-source ($r = +0.70$, $p = 0.007$), though it is non-significant for the small Dense subset ($p = 0.44$, $n = 4$).
+
+\paragraph{Tentative explanation: alignment-driven compression.}
+In humans, Conscientiousness and Neuroticism are weakly negatively correlated because they tap independent factors \citep{john1999bigfive}.
+In LLMs, both dimensions may be compressed toward socially desirable endpoints by safety alignment, inducing a positive correlation.
+This is consistent with the HEXACO-H results (Appendix~\ref{sec:appendix_hexaco_detail}), though the small sample ($n = 15$) means alternative explanations cannot be ruled out.
+
+Beyond the C--N reversal, Extraversion is negatively correlated with Openness ($r = -0.60$, 95\% CI $[-0.81, -0.20]$, $p = 0.019$), and Agreeableness shows a stronger correlation with Conscientiousness ($r = +0.56$, 95\% CI $[0.26, 0.84]$, $p = 0.029$) than in humans ($r = +0.20$).
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.48\textwidth]{figures/fig7_inter_dim_corr.pdf}
+    \caption{Inter-dimension correlation matrix (model-level means). E = Extraversion, A = Agreeableness, C = Conscientiousness, N = Neuroticism, O = Openness, H = HEXACO-H, Col = Collectivism, Int = Intuition, UA = Uncertainty Avoidance.}
+    \label{fig:inter_dim_corr}
+\end{figure}
+
+\subsection{Convergent Validity}
+We compare LLM inter-dimension correlations against published human baselines \citep{john1999bigfive, oconnor2007bfi} for 5 key dimension pairs (Table~\ref{tab:convergent_validity}).
+Three of five pairs agree in sign, including Extraversion--Neuroticism (human $r = -0.30$, LLM $r = -0.65$, 95\% CI $[-0.86, -0.27]$) and Agreeableness--Conscientiousness (human $r = +0.20$, LLM $r = +0.56$, 95\% CI $[0.26, 0.84]$).
+Two pairs disagree: Extraversion--Agreeableness flips from positive to negative, and Conscientiousness--Neuroticism reverses to $r = +0.76$ (95\% CI $[0.47, 0.92]$).
+The 60\% sign agreement rate does not exceed chance (binomial $p = 0.50$).
+This test is severely underpowered at $n = 15$, but the systematic nature of the C--N divergence provides a preliminary signal warranting further investigation.
+
+\begin{table}[!htb]
+\centering
+\caption{Convergent validity: LLM vs.\ human inter-dimension correlations. Sign agreement 3/5 ($p = 0.50$).}
+\label{tab:convergent_validity}
+\resizebox{\columnwidth}{!}{%
+\footnotesize
+\begin{tabular}{lrrc}
+\toprule
+Dimension Pair & Human $r$ & LLM $r$ & Sign Match \\
+\midrule
+Extraversion         vs Neuroticism          & $-$0.30 & $-$0.645 & Yes  \\
+Agreeableness        vs Conscientiousness    & +0.20 & +0.564 & Yes  \\
+Openness             vs Agreeableness        & +0.10 & +0.499 & Yes  \\
+Extraversion         vs Agreeableness        & +0.10 & $-$0.044 & No   \\
+Conscientiousness    vs Neuroticism          & $-$0.25 & +0.761 & No   \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\section{HEXACO-H: Detailed Architecture and Scale Analysis}
+\label{sec:appendix_hexaco_detail}
+
+\textbf{Note:} HEXACO-H has unacceptably low internal consistency ($\alpha = 0.27$, 5 items). The analyses below are provided for completeness but should be interpreted with extreme caution.
+
+Dense models average $H = 1.91$ vs.\ MoE models $H = 1.31$ ($d = 0.91$, 95\% CI $[0.66, 1.20]$, $p < 0.001$; Table~\ref{tab:architecture_effects}), with 10 Dense and 5 MoE families.
+However, the Dense and MoE groups are not balanced across providers---all MoE models are from Chinese providers, while Dense models include GPT and Claude---so architecture and provider effects cannot be disentangled.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.48\textwidth]{figures/fig6_hexaco_h_params.pdf}
+    \caption{HEXACO-H vs.\ total parameters across all tested models (27 with disclosed sizes + 4 undisclosed). Colors indicate architecture type. The architecture split (Dense vs.\ MoE) explains more variance than the scale trend. $\alpha = 0.27$; interpret with caution.}
+    \label{fig:hexaco_h_params}
+\end{figure}
+
+In the broader 27-model sample, H correlates negatively with log-transformed parameters ($r = -0.49$, $p = 0.009$; Figure~\ref{fig:hexaco_h_params}), indicating that larger models score lower---a pattern consistent with more intensive safety alignment at scale.
+H's high $\sd$ may be partially amplified by floor effects (7/15 models score at or below 1.15), but the Dense--MoE ranking is stable across all tested thresholds.
+To jointly assess the effects of scale and architecture, we regress dimension scores on log-transformed parameters and architecture type across the 13 models with disclosed sizes (Appendix~\ref{sec:appendix_regression}).
+HEXACO-H shows the highest explained variance ($R^2 = 0.41$), driven primarily by architecture, while Neuroticism shows the largest improvement from adding scale ($\Delta R^2 = +0.20$); however, no effect survives FDR correction at this sample size.
+As partial evidence for alignment-driven compression, a thinking mode ablation (Appendix~\ref{sec:appendix_thinking}) across 4 models shows that reasoning mode further reduces HEXACO-H to the theoretical floor (1.00) and consistently decreases Conscientiousness and Neuroticism, patterns consistent with amplified alignment pressure during extended reasoning.
+
 \section{Scale--Dimension Correlations}
 \label{sec:appendix_params}
 
 Table~\ref{tab:scale_correlations} reports Pearson correlations between total parameters and each dimension across 27 models with disclosed sizes (including Study~2 within-family variants).
 Figure~\ref{fig:9dim_params} shows the corresponding scatter plots for the 15 representative models ($n = 13$ with disclosed parameters).
 
-\begin{table}[!t]
+\begin{table}[!htb]
 \centering
 \caption{Pearson correlation between total parameters and each dimension (27 models with disclosed sizes, including Study~2 within-family variants). ${}^*p < 0.05$, ${}^{**}p < 0.01$.}
 \label{tab:scale_correlations}
@@ -673,7 +834,7 @@ UA                   & +0.35 & +0.42$^*$ \\
 
 \begin{figure*}[!t]
     \centering
-    \includegraphics[width=0.95\textwidth]{figures/appendix_9dim_params_grid.pdf}
+    \includegraphics[width=0.9\textwidth,height=0.42\textheight,keepaspectratio]{figures/appendix_9dim_params_grid.pdf}
     \caption{Total parameters vs.\ dimension score for all 9 dimensions ($n = 13$ models with disclosed total parameters). Red labels: $p < 0.05$; gray labels: not significant.}
     \label{fig:9dim_params}
 \end{figure*}
@@ -687,7 +848,7 @@ Y_d = \beta_0 + \beta_1 \log_{10}(\text{params}) + \beta_2 \cdot \text{arch}_{\t
 \end{equation}
 for each dimension $d$, across the 13 Study~1 models with disclosed parameter counts (GPT-5 and Claude Opus~4.5 excluded).
 
-\begin{table}[!t]
+\begin{table}[!htb]
 \centering
 \caption{OLS regression: dimension score $\sim \log_{10}(\text{params}) +$ architecture ($n = 13$). Dense = 0, MoE = 1. No effect survives FDR correction across 18 tests (9 dimensions $\times$ 2 predictors).}
 \label{tab:regression}
@@ -722,7 +883,7 @@ As partial evidence for alignment-driven response compression, we compare standa
 Thinking mode prompts the model to reason before responding; this engages the model's chain-of-thought capability and may alter how it processes self-referential items.
 Each model was tested with 3 seeds in thinking mode, compared against 12-seed chat mode baselines from Study~1.
 
-\begin{table}[!t]
+\begin{table}[!htb]
 \centering
 \caption{Thinking mode ablation: mean (SD) for chat vs.\ thinking mode. Cohen's $d$ computed with pooled SD.}
 \label{tab:thinking_ablation}
@@ -732,7 +893,7 @@ Each model was tested with 3 seeds in thinking mode, compared against 12-seed ch
 \toprule
 & & \multicolumn{2}{c}{Chat (Study 1)} & \multicolumn{2}{c}{Thinking} & & \\
 \cmidrule(lr){3-4} \cmidrule(lr){5-6}
-Vendor & Dim. & Mean & SD & Mean & SD & $\Delta$ & $d$ \\
+Model & Dim. & Mean & SD & Mean & SD & $\Delta$ & $d$ \\
 \midrule
 \multirow{4}{*}{Qwen}
   & C & 2.46 & 0.10 & 1.70 & 0.05 & $-$0.76 & $-$8.02 \\
@@ -762,47 +923,14 @@ Vendor & Dim. & Mean & SD & Mean & SD & $\Delta$ & $d$ \\
 }
 \end{table}
 
-Two consistent patterns emerge across all four vendors.
+Two consistent patterns emerge across all four models.
 Conscientiousness decreases in thinking mode (Cohen's $d$ from $-$2.11 to $-$8.02), suggesting that reasoning amplifies alignment-driven compression of the ``diligent'' response.
 Neuroticism also decreases ($d$ from $-$3.74 to $-$7.41), consistent with models reasoning themselves toward emotional stability.
-HEXACO-H drops to the theoretical floor (1.00) in thinking mode for all vendors, including DeepSeek where chat-mode H is 1.68.
+HEXACO-H drops to the theoretical floor (1.00) in thinking mode for all models, including DeepSeek where chat-mode H is 1.68.
 Intuition increases sharply in thinking mode (up to $d = +13.09$ for GLM), suggesting that reasoning models self-attribute greater intuitive decision-making.
 
 These patterns are consistent with alignment-driven response compression: when models engage in extended reasoning, they produce more extreme responses on morally and socially sensitive dimensions, pushing further toward the socially desirable endpoints that alignment training targets.
 However, this comparison confounds inference mode with response length and cognitive effort, and should not be equated with a direct base vs.\ aligned model comparison.
-
-\section{Exploratory PCA Details}
-\label{sec:appendix_pca}
-
-We present the full exploratory PCA results here, with the caveat that PCA on $n = 15$ model families with 9 dimensions is severely underpowered and should be treated as hypothesis-generating.
-
-\paragraph{Decomposition.}
-We decompose the 9-dimension model-level correlation matrix ($n = 31$ models including within-family variants) via PCA:
-\begin{equation}
-\mathbf{X} = \mathbf{W}\mathbf{\Lambda}^{1/2}\mathbf{V}^\top
-\end{equation}
-where $\mathbf{\Lambda} = \text{diag}(\lambda_1, \ldots, \lambda_9)$ and $\sum_{k} \lambda_k / \sum_j \lambda_j$ gives the proportion of variance explained.
-
-\paragraph{Factor structure.}
-PC1 (48.4\% variance) loads most strongly on Conscientiousness, Neuroticism, and Intuition (all negative), with Collectivism and Uncertainty Avoidance loading positively.
-PC2 (17.4\% variance) isolates Collectivism ($+0.62$) and Agreeableness ($+0.61$).
-PC3 (10.0\% variance) loads most strongly on Uncertainty Avoidance ($-0.71$).
-These three factors explain 75.8\% of variance, compared to the five BFI factors expected in humans.
-The factor structure does not cleanly recover the expected Big Five organization, aligning with the inter-dimension correlation divergences reported in \S\ref{sec:interdim}.
-
-\paragraph{Extraversion reversal.}
-Extraversion is significantly negatively correlated with Neuroticism ($r = -0.65$, $p = 0.009$) and Openness ($r = -0.62$, $p = 0.014$), with moderate negative correlations with Conscientiousness ($r = -0.40$, $p = 0.14$) and HEXACO-H ($r = -0.50$, $p = 0.06$) that do not reach significance.
-In humans, Extraversion is positively correlated with Openness; in LLMs the sign flips.
-Models that score high on Extraversion tend to be emotionally stable but closed-minded---a pattern with no direct human personality analog.
-
-\paragraph{Agreeableness.}
-Agreeableness shows a significant positive correlation with Conscientiousness ($r = +0.56$, $p = 0.030$) and a borderline correlation with Openness ($r = +0.49$, $p = 0.066$), but has no significant correlation with Collectivism ($r = -0.02$).
-In humans, Agreeableness correlates moderately with Conscientiousness ($r = +0.20$) and weakly with Openness ($r = +0.10$); in LLMs, the A--C connection is substantially stronger.
-
-\paragraph{Interpretation caution.}
-Whether the observed factor structure generalizes to larger and more diverse model samples remains an open question.
-As a rule of thumb, factor analysis typically requires at least 5--10 observations per variable; with $n = 15$ families and 9 dimensions, we fall below even the most lenient recommendation.
-These results should be treated as suggestive patterns that motivate future investigation, not as evidence for a specific factor structure.
 
 \section{Within-Family Response Style Trajectories}
 \label{sec:appendix_trajectories}
