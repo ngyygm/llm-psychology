@@ -23,23 +23,23 @@ print(f"Study 2: {len(s2)} obs, {s2['model'].nunique()} models")
 
 # Model-level means for Study 1
 s1_model_means = s1.groupby("model")[DIMENSIONS].agg(["mean", "std", "count"])
-s1_vendor_means = s1.groupby("vendor")[DIMENSIONS].agg(["mean", "std"])
+s1_model_means = s1.groupby("model_id")[DIMENSIONS].agg(["mean", "std"])
 
 
-# ============== Fig 1: Radar Chart — 3 Representative Vendors ==============
+# ============== Fig 1: Radar Chart — 3 Representative Models ==============
 print("\n--- Fig 1: Radar Chart ---")
 
-# Show all available vendors as small multiples
-all_vendors = sorted(s1['vendor'].unique())
-# Exclude vendors with insufficient seeds (< 12)
-vendor_counts = s1.groupby('vendor').size()
-all_vendors = [v for v in all_vendors if vendor_counts.get(v, 0) >= 12]
-n_vendors = len(all_vendors)
-print(f"  All vendors: {all_vendors} (n={n_vendors})")
+# Show all available models as small multiples
+all_models = sorted(s1['model'].unique())
+# Exclude models with insufficient seeds (< 12)
+model_counts = s1.groupby('model_id').size()
+all_models = [v for v in all_models if model_counts.get(v, 0) >= 12]
+n_models = len(all_models)
+print(f"  All models: {all_models} (n={n_models})")
 
-# 3-column layout for readability (15 vendors → 5 rows × 3 cols)
+# 3-column layout for readability (15 models → 5 rows × 3 cols)
 ncols = 3
-nrows = (n_vendors + ncols - 1) // ncols
+nrows = (n_models + ncols - 1) // ncols
 fig, axes = plt.subplots(nrows, ncols, figsize=(8.0, 2.8 * nrows),
                          subplot_kw=dict(polar=True))
 axes = axes.flatten()
@@ -51,23 +51,23 @@ angles += angles[:1]
 
 # Compute global min/max for consistent axis
 global_mins, global_maxs = [], []
-for vendor in all_vendors:
-    vdata = s1[s1['vendor'] == vendor]
+for model in all_models:
+    vdata = s1[s1['model'] == model]
     if len(vdata) > 0:
         for d in DIMENSIONS:
             global_mins.append(vdata[d].mean())
             global_maxs.append(vdata[d].mean())
 
-for idx, vendor in enumerate(all_vendors):
+for idx, model in enumerate(all_models):
     ax = axes[idx]
-    vdata = s1[s1['vendor'] == vendor]
+    vdata = s1[s1['model'] == model]
     if len(vdata) == 0:
         ax.set_visible(False)
         continue
 
     means = [vdata[d].mean() for d in DIMENSIONS]
     means_plot = means + means[:1]
-    color = C_VENDOR_COLORS.get(vendor, COLORS[idx % 10])
+    color = C_MODEL_COLORS.get(model, COLORS[idx % 10])
 
     ax.plot(angles, means_plot, 'o-', linewidth=1.5, color=color, markersize=3)
     ax.fill(angles, means_plot, alpha=0.15, color=color)
@@ -77,18 +77,18 @@ for idx, vendor in enumerate(all_vendors):
     ax.set_ylim(1, 5)
     ax.set_yticks([2, 3, 4])
     ax.set_yticklabels(['2', '3', '4'], fontsize=5, color='gray')
-    ax.set_title(vendor, fontsize=7, pad=6)
+    ax.set_title(model, fontsize=7, pad=6)
 
 # Hide unused subplots
-for idx in range(n_vendors, len(axes)):
+for idx in range(n_models, len(axes)):
     axes[idx].set_visible(False)
 
 plt.tight_layout()
 save_fig(fig, 'fig1_radar_profiles')
 
 
-# ============== Fig 2: Inter-Vendor SD Bar Chart ==============
-print("\n--- Fig 2: Inter-Vendor SD Bar Chart ---")
+# ============== Fig 2: Inter-Model SD Bar Chart ==============
+print("\n--- Fig 2: Inter-Model SD Bar Chart ---")
 
 model_means_all = s1.groupby("model")[DIMENSIONS].mean()
 dim_sds = model_means_all.std()
@@ -113,7 +113,7 @@ for bar, val in zip(bars, [dim_sds[d] for d in DIMENSIONS]):
 ax.axhline(y=0.15, color='gray', linestyle='--', linewidth=0.8, alpha=0.7)
 ax.text(len(labels) - 0.5, 0.16, 'Threshold', fontsize=FONT_SIZE - 3, color='gray', ha='right')
 
-ax.set_ylabel('Inter-Vendor SD')
+ax.set_ylabel('Inter-Model SD')
 ax.set_xticklabels(labels, rotation=30, ha='right', fontsize=FONT_SIZE - 2)
 
 # Custom legend
@@ -122,40 +122,40 @@ legend_elements = [Patch(facecolor=C_DISCRIMINATIVE, edgecolor='black', label='D
                    Patch(facecolor=C_ALIGNMENT, edgecolor='black', label='Alignment Artifact')]
 ax.legend(handles=legend_elements, frameon=False, fontsize=FONT_SIZE - 2)
 plt.tight_layout()
-save_fig(fig, 'fig2_intervendor_sd')
+save_fig(fig, 'fig2_intermodel_sd')
 
 
-# ============== Fig 3: HEXACO-H Dot Plot by Vendor ==============
+# ============== Fig 3: HEXACO-H Dot Plot by Model ==============
 print("\n--- Fig 3: HEXACO-H Dot Plot ---")
 
-vendor_h = s1.groupby("vendor")["hexaco_h"].agg(["mean", "std", "count"])
-vendor_h = vendor_h.sort_values("mean", ascending=False)
+model_h = s1.groupby("model_id")["hexaco_h"].agg(["mean", "std", "count"])
+model_h = model_h.sort_values("mean", ascending=False)
 
 fig, ax = plt.subplots(figsize=(5.5, 4))
-y_pos = np.arange(len(vendor_h))
+y_pos = np.arange(len(model_h))
 
 # Color by discriminative vs alignment
 h_sd = dim_sds.get("hexaco_h", 0)
 dot_color = C_DISCRIMINATIVE if h_sd >= 0.15 else C_ALIGNMENT
 
-ax.errorbar(vendor_h["mean"], y_pos, xerr=vendor_h["std"],
+ax.errorbar(model_h["mean"], y_pos, xerr=model_h["std"],
             fmt='o', color=dot_color, markersize=8, capsize=3,
             elinewidth=1, markeredgecolor='black', markeredgewidth=0.5)
 
 ax.set_yticks(y_pos)
-ax.set_yticklabels(vendor_h.index, fontsize=FONT_SIZE - 1)
+ax.set_yticklabels(model_h.index, fontsize=FONT_SIZE - 1)
 ax.set_xlabel('HEXACO-H Score (1-5)')
 ax.axvline(x=1.0, color='gray', linestyle=':', alpha=0.5, linewidth=0.8)
-ax.text(1.02, len(vendor_h) - 0.3, 'Floor (1.0)', fontsize=FONT_SIZE - 3, color='gray')
+ax.text(1.02, len(model_h) - 0.3, 'Floor (1.0)', fontsize=FONT_SIZE - 3, color='gray')
 
-# Add n per vendor
-for i, (vendor, row) in enumerate(vendor_h.iterrows()):
-    ax.text(vendor_h["mean"].max() + 0.1, i, f'n={int(row["count"])}',
+# Add n per model
+for i, (model, row) in enumerate(model_h.iterrows()):
+    ax.text(model_h["mean"].max() + 0.1, i, f'n={int(row["count"])}',
             fontsize=FONT_SIZE - 3, va='center', color='gray')
 
-ax.set_xlim(0.8, vendor_h["mean"].max() + 0.6)
+ax.set_xlim(0.8, model_h["mean"].max() + 0.6)
 plt.tight_layout()
-save_fig(fig, 'fig3_hexaco_h_vendors')
+save_fig(fig, 'fig3_hexaco_h_models')
 
 
 # ============== Fig 4: H × Active Params Scatter ==============
@@ -183,15 +183,15 @@ model_h = model_h.dropna()
 
 params_list = []
 h_list = []
-vendor_list = []
+model_list = []
 for model_id, row in model_h.iterrows():
     params = MODEL_PARAMS.get(model_id, 0)
     if params > 0:
         params_list.append(params)
         h_list.append(row["mean"])
-        # Get vendor
+        # Get model
         vdata = all_chat[all_chat["model"] == model_id]
-        vendor_list.append(vdata["vendor"].iloc[0] if len(vdata) > 0 else model_id.split("/")[0])
+        model_list.append(vdata["model"].iloc[0] if len(vdata) > 0 else model_id.split("/")[0])
 
 from scipy import stats
 if len(params_list) >= 3:
@@ -199,12 +199,12 @@ if len(params_list) >= 3:
 
     fig, ax = plt.subplots(figsize=(5, 3.5))
 
-    # Color by vendor
-    unique_vendors = list(set(vendor_list))
-    for i, v in enumerate(unique_vendors):
-        vidx = [j for j, vv in enumerate(vendor_list) if vv == v]
+    # Color by model
+    unique_models = list(set(model_list))
+    for i, v in enumerate(unique_models):
+        vidx = [j for j, vv in enumerate(model_list) if vv == v]
         ax.scatter([params_list[j] for j in vidx], [h_list[j] for j in vidx],
-                   c=C_VENDOR_COLORS.get(v, COLORS[i % 10]), label=v, s=60,
+                   c=C_MODEL_COLORS.get(v, COLORS[i % 10]), label=v, s=60,
                    edgecolors='black', linewidths=0.5, zorder=3)
 
     # Regression line
@@ -230,20 +230,20 @@ else:
 # ============== Fig 5: Pairwise Cohen's d Heatmap ==============
 print("\n--- Fig 5: Pairwise Cohen's d Heatmap ---")
 
-vendors_sorted = sorted(s1['vendor'].unique())
-# Use study 1 only for cross-vendor comparison
-n_v = len(vendors_sorted)
+models_sorted = sorted(s1['model'].unique())
+# Use study 1 only for cross-model comparison
+n_m = len(models_sorted)
 
 # Compute pairwise d for each dimension
-d_matrix = np.zeros((n_v, n_v))  # max |d| across dimensions
+d_matrix = np.zeros((n_m, n_m))  # max |d| across dimensions
 d_by_dim = {}
 
 for dim in DIMENSIONS:
-    d_dim = np.zeros((n_v, n_v))
-    for i in range(n_v):
-        for j in range(i + 1, n_v):
-            g1 = s1[s1['vendor'] == vendors_sorted[i]][dim].dropna().values
-            g2 = s1[s1['vendor'] == vendors_sorted[j]][dim].dropna().values
+    d_dim = np.zeros((n_m, n_m))
+    for i in range(n_m):
+        for j in range(i + 1, n_m):
+            g1 = s1[s1['model'] == models_sorted[i]][dim].dropna().values
+            g2 = s1[s1['model'] == models_sorted[j]][dim].dropna().values
             if len(g1) < 2 or len(g2) < 2:
                 d_dim[i, j] = d_dim[j, i] = 0
                 continue
@@ -262,15 +262,15 @@ fig, ax = plt.subplots(figsize=(6, 5))
 im = ax.imshow(d_matrix, cmap='YlOrRd', aspect='auto', vmin=0, vmax=max(3, d_matrix.max()))
 
 # Labels
-short_vendors = [v[:12] for v in vendors_sorted]
-ax.set_xticks(range(n_v))
-ax.set_xticklabels(short_vendors, rotation=45, ha='right', fontsize=FONT_SIZE - 2)
-ax.set_yticks(range(n_v))
-ax.set_yticklabels(short_vendors, fontsize=FONT_SIZE - 2)
+short_models = [v[:12] for v in models_sorted]
+ax.set_xticks(range(n_m))
+ax.set_xticklabels(short_models, rotation=45, ha='right', fontsize=FONT_SIZE - 2)
+ax.set_yticks(range(n_m))
+ax.set_yticklabels(short_models, fontsize=FONT_SIZE - 2)
 
 # Annotate cells
-for i in range(n_v):
-    for j in range(n_v):
+for i in range(n_m):
+    for j in range(n_m):
         color = 'white' if d_matrix[i, j] > 1.5 else 'black'
         ax.text(j, i, f'{d_matrix[i, j]:.1f}', ha='center', va='center',
                 fontsize=FONT_SIZE - 3, color=color)
@@ -386,7 +386,7 @@ for m in available_ds:
 available_ds = deduped_ds
 
 if len(available_ds) >= 2:
-    ds_colors = [C_VENDOR_COLORS.get('DeepSeek', COLORS[1])]
+    ds_colors = [C_MODEL_COLORS.get('DeepSeek', COLORS[1])]
 
     fig, axes = plt.subplots(3, 3, figsize=(8, 7))
     axes = axes.flatten()
@@ -434,7 +434,7 @@ available_zp = [m for m in zhipu_models if m in all_models]
 if len(available_zp) >= 2:
     fig, axes = plt.subplots(3, 3, figsize=(8, 7))
     axes = axes.flatten()
-    zp_color = C_VENDOR_COLORS.get('Zhipu', COLORS[2])
+    zp_color = C_MODEL_COLORS.get('Zhipu', COLORS[2])
 
     for dim_idx, dim in enumerate(DIMENSIONS):
         ax = axes[dim_idx]

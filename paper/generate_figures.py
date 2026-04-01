@@ -2,10 +2,10 @@
 """Generate publication-quality figures for EMNLP 2026 paper.
 
 Figures:
-  1. Radar profiles (Study 1, selected vendors, 8 primary dimensions)
+  1. Radar profiles (Study 1, selected models, 8 primary dimensions)
   2. Cohen's d heatmap (Study 1 pairwise effects, 8 dimensions)
   3. Inter-dimension correlation matrix (8 primary dimensions)
-  4. Study 2 within-vendor trajectories (DeepSeek, Qwen, Zhipu)
+  4. Study 2 within-model trajectories (DeepSeek, Qwen, Zhipu)
 """
 
 import json
@@ -56,8 +56,8 @@ DIM_LABELS = [
 ]
 DIM_SHORT = ["E", "A", "C", "N", "O", "Col", "Int", "UA"]
 
-# All 11 vendors — colors chosen for distinctness and accessibility
-VENDOR_COLORS = {
+# All 11 models — colors chosen for distinctness and accessibility
+MODEL_COLORS = {
     "Baidu":      "#1f77b4",
     "ByteDance":  "#ff7f0e",
     "DeepSeek":   "#2ca02c",
@@ -77,7 +77,7 @@ STUDY2_COLORS = {
     "Zhipu":    {"color": "#1f77b4", "marker": "^"},
 }
 
-# Vendors to highlight in radar (most distinct profiles)
+# Models to highlight in radar (most distinct profiles)
 RADAR_HIGHLIGHT = ["MiniMax", "InternLM", "DeepSeek", "Baidu", "ByteDance",
                     "Moonshot", "Huawei", "StepFun", "Tencent", "Kwaipilot",
                     "inclusionAI"]
@@ -104,28 +104,28 @@ def _derive_subgroup(row):
     return ""
 
 
-def get_study1_vendor_means(df):
+def get_study1_model_means(df):
     s1 = df[df["study"] == 1].copy()
-    vendor_means = s1.groupby("vendor")[DIM_KEYS].mean()
-    vendor_means = vendor_means.loc[vendor_means.index.isin(VENDOR_COLORS.keys())]
-    vendor_means = vendor_means.sort_index()
-    return vendor_means
+    model_means = s1.groupby("model_id")[DIM_KEYS].mean()
+    model_means = model_means.loc[model_means.index.isin(MODEL_COLORS.keys())]
+    model_means = model_means.sort_index()
+    return model_means
 
 
 def compute_cohens_d(df):
     s1 = df[df["study"] == 1]
-    vendors = sorted(s1["vendor"].unique())
-    n_vendors = len(vendors)
+    models = sorted(s1["model"].unique())
+    n_models = len(models)
     n_dims = len(DIM_KEYS)
 
-    d_matrix = np.full((n_dims, n_vendors, n_vendors), np.nan)
+    d_matrix = np.full((n_dims, n_models, n_models), np.nan)
     for di, dim in enumerate(DIM_KEYS):
-        for i, v1 in enumerate(vendors):
-            for j, v2 in enumerate(vendors):
+        for i, v1 in enumerate(models):
+            for j, v2 in enumerate(models):
                 if i >= j:
                     continue
-                g1 = s1[s1["vendor"] == v1][dim].dropna()
-                g2 = s1[s1["vendor"] == v2][dim].dropna()
+                g1 = s1[s1["model"] == v1][dim].dropna()
+                g2 = s1[s1["model"] == v2][dim].dropna()
                 if len(g1) < 2 or len(g2) < 2:
                     continue
                 pooled_sd = np.sqrt(
@@ -138,7 +138,7 @@ def compute_cohens_d(df):
                 d_matrix[di, i, j] = d
                 d_matrix[di, j, i] = -d
 
-    return d_matrix, vendors
+    return d_matrix, models
 
 
 def compute_dim_correlations(df):
@@ -150,7 +150,7 @@ def compute_dim_correlations(df):
 def get_study2_trajectories(df):
     s2 = df[(df["study"] == 2) & (df["thinking_mode"] == "chat")].copy()
 
-    vendor_models = {
+    family_models = {
         "DeepSeek": [
             "deepseek-ai/DeepSeek-V2.5",
             "deepseek-ai/DeepSeek-V3",
@@ -171,14 +171,14 @@ def get_study2_trajectories(df):
         ],
     }
 
-    vendor_model_labels = {
+    family_model_labels = {
         "DeepSeek": ["V2.5", "V3", "V3.2", "R1"],
         "Qwen": ["4B", "27B", "397B"],
         "Zhipu": ["9B", "32B", "4.5", "4.6", "5"],
     }
 
     trajectories = {}
-    for vendor, models in vendor_models.items():
+    for model, models in family_models.items():
         means = []
         for mid in models:
             recs = s2[s2["model_id"] == mid]
@@ -189,9 +189,9 @@ def get_study2_trajectories(df):
             if len(recs) > 0:
                 means.append(recs[DIM_KEYS].mean())
         if means:
-            trajectories[vendor] = {
+            trajectories[model] = {
                 "means": pd.DataFrame(means),
-                "labels": vendor_model_labels[vendor][:len(means)],
+                "labels": family_model_labels[model][:len(means)],
             }
 
     return trajectories
@@ -199,37 +199,37 @@ def get_study2_trajectories(df):
 
 # ── Figure 1: Radar Profiles ──────────────────────────────────────────────
 def fig1_radar_profiles(df):
-    """Radar chart showing vendor profiles across 8 dimensions."""
-    vendor_means = get_study1_vendor_means(df)
+    """Radar chart showing model profiles across 8 dimensions."""
+    model_means = get_study1_model_means(df)
     n_dims = len(DIM_KEYS)
 
     angles = np.linspace(0, 2 * np.pi, n_dims, endpoint=False).tolist()
     angles += angles[:1]
 
-    # Select 6 most distinctive vendors for clarity
+    # Select 6 most distinctive models for clarity
     # Based on ANOVA effect sizes, pick those with extreme profiles
-    highlight_vendors = ["MiniMax", "InternLM", "DeepSeek", "Baidu",
+    highlight_models = ["MiniMax", "InternLM", "DeepSeek", "Baidu",
                          "ByteDance", "Huawei"]
-    other_vendors = [v for v in vendor_means.index if v not in highlight_vendors]
+    other_models = [v for v in model_means.index if v not in highlight_models]
 
     fig, ax = plt.subplots(figsize=(3.2, 3.2), subplot_kw=dict(polar=True))
 
-    # Plot "other" vendors first (lighter, background)
-    for vendor in other_vendors:
-        values = vendor_means.loc[vendor, DIM_KEYS].values.tolist()
+    # Plot "other" models first (lighter, background)
+    for model in other_models:
+        values = model_means.loc[model, DIM_KEYS].values.tolist()
         values += values[:1]
         ax.plot(angles, values, linewidth=0.5, color="#cccccc", alpha=0.4, zorder=1)
         ax.fill(angles, values, alpha=0.02, color="#cccccc")
 
-    # Plot highlighted vendors
-    for vendor in highlight_vendors:
-        if vendor not in vendor_means.index:
+    # Plot highlighted models
+    for model in highlight_models:
+        if model not in model_means.index:
             continue
-        values = vendor_means.loc[vendor, DIM_KEYS].values.tolist()
+        values = model_means.loc[model, DIM_KEYS].values.tolist()
         values += values[:1]
-        color = VENDOR_COLORS[vendor]
+        color = MODEL_COLORS[model]
         ax.plot(angles, values, linewidth=1.0, color=color, alpha=0.85,
-                label=vendor, zorder=2)
+                label=model, zorder=2)
         ax.fill(angles, values, alpha=0.06, color=color)
 
     ax.set_xticks(angles[:-1])
@@ -255,17 +255,17 @@ def fig1_radar_profiles(df):
 
 # ── Figure 2: Cohen's d Heatmap ───────────────────────────────────────────
 def fig2_cohen_d_heatmap(df):
-    """Heatmap of max pairwise Cohen's d across vendor pairs."""
-    d_matrix, vendors = compute_cohens_d(df)
+    """Heatmap of max pairwise Cohen's d across model pairs."""
+    d_matrix, models = compute_cohens_d(df)
 
-    n_v = len(vendors)
+    n_v = len(models)
     max_d = np.zeros((n_v, n_v))
     for i in range(n_v):
         for j in range(n_v):
             if i != j:
                 max_d[i, j] = np.nanmax(np.abs(d_matrix[:, i, j]))
 
-    v_labels = [v if v in VENDOR_COLORS else v for v in vendors]
+    v_labels = [v if v in MODEL_COLORS else v for v in models]
 
     fig, ax = plt.subplots(figsize=(4.2, 3.6))
     mask = np.eye(n_v, dtype=bool)
@@ -322,7 +322,7 @@ def fig3_inter_dim_corr(df):
 
 # ── Figure 4: Study 2 Trajectories ────────────────────────────────────────
 def fig4_study2_trajectories(df):
-    """Line plots showing within-vendor dimension trajectories."""
+    """Line plots showing within-model dimension trajectories."""
     trajectories = get_study2_trajectories(df)
 
     traj_dims = [
@@ -336,12 +336,12 @@ def fig4_study2_trajectories(df):
 
     for ai, (dim_key, dim_name, dim_label) in enumerate(traj_dims):
         ax = axes[ai]
-        for vendor, traj in trajectories.items():
-            meta = STUDY2_COLORS[vendor]
+        for model, traj in trajectories.items():
+            meta = STUDY2_COLORS[model]
             means = traj["means"][dim_key].values
             xs = range(len(means))
             ax.plot(xs, means, marker=meta["marker"], color=meta["color"],
-                    linewidth=1.3, markersize=5, label=vendor,
+                    linewidth=1.3, markersize=5, label=model,
                     markeredgecolor="white", markeredgewidth=0.5)
             ax.set_xticks(list(xs))
             ax.set_xticklabels(traj["labels"], fontsize=6)
@@ -375,7 +375,7 @@ def write_latex_includes(figures):
     lines.append(r"\begin{figure}[t]")
     lines.append(r"  \centering")
     lines.append(r"  \includegraphics[width=0.45\textwidth]{figures/fig1_radar_profiles.pdf}")
-    lines.append(r"  \caption{Response style profiles across 8 psychometric dimensions for selected vendors (gray: remaining vendors). Scores on a 1--5 Likert scale. Vendors show distinct profiles, with MiniMax and InternLM exhibiting the most divergent patterns.}")
+    lines.append(r"  \caption{Response style profiles across 8 psychometric dimensions for selected models (gray: remaining models). Scores on a 1--5 Likert scale. Models show distinct profiles, with MiniMax and InternLM exhibiting the most divergent patterns.}")
     lines.append(r"  \label{fig:radar}")
     lines.append(r"\end{figure}")
     lines.append("")
@@ -383,7 +383,7 @@ def write_latex_includes(figures):
     lines.append(r"\begin{figure}[t]")
     lines.append(r"  \centering")
     lines.append(r"  \includegraphics[width=0.50\textwidth]{figures/fig2_cohen_d_heatmap.pdf}")
-    lines.append(r"  \caption{Maximum pairwise Cohen's $d$ across all 8 dimensions for each vendor pair. All pairs exhibit at least one large effect ($d \geq 0.8$); the largest is Baidu vs.\ MiniMax ($d=6.2$ on Intuition).}")
+    lines.append(r"  \caption{Maximum pairwise Cohen's $d$ across all 8 dimensions for each model pair. All pairs exhibit at least one large effect ($d \geq 0.8$); the largest is Baidu vs.\ MiniMax ($d=6.2$ on Intuition).}")
     lines.append(r"  \label{fig:cohens_d}")
     lines.append(r"\end{figure}")
     lines.append("")
@@ -399,7 +399,7 @@ def write_latex_includes(figures):
     lines.append(r"\begin{figure*}[t]")
     lines.append(r"  \centering")
     lines.append(r"  \includegraphics[width=0.85\textwidth]{figures/fig4_study2_trajectories.pdf}")
-    lines.append(r"  \caption{Within-vendor response style trajectories across model versions for DeepSeek (V2.5$\rightarrow$R1), Qwen (4B$\rightarrow$397B), and Zhipu (GLM-4$\rightarrow$GLM-5). Each panel shows a different psychometric dimension. Vendors exhibit distinct evolutionary patterns, suggesting alignment training shapes response styles over time.}")
+    lines.append(r"  \caption{Within-model response style trajectories across model versions for DeepSeek (V2.5$\rightarrow$R1), Qwen (4B$\rightarrow$397B), and Zhipu (GLM-4$\rightarrow$GLM-5). Each panel shows a different psychometric dimension. Models exhibit distinct evolutionary patterns, suggesting alignment training shapes response styles over time.}")
     lines.append(r"  \label{fig:trajectories}")
     lines.append(r"\end{figure*}")
     lines.append("")

@@ -1,0 +1,4418 @@
+[
+  {
+    "model_id": "Pro/zai-org/GLM-5",
+    "model": "GLM-5",
+    "arch": "MoE",
+    "study": 5,
+    "seed": 0,
+    "thinking_mode": "chat",
+    "prompt_variant": "direct",
+    "timestamp": "2026-03-26T17:26:06.309078",
+    "items": {
+      "bfi_extraversion": [
+        3,
+        3,
+        2,
+        3,
+        2,
+        3,
+        2,
+        3
+      ],
+      "bfi_agreeableness": [
+        4,
+        4,
+        1,
+        4,
+        2,
+        2,
+        3,
+        2,
+        4
+      ],
+      "bfi_conscientiousness": [
+        2,
+        3,
+        1,
+        2,
+        2,
+        4,
+        2,
+        2,
+        4
+      ],
+      "bfi_neuroticism": [
+        3,
+        3,
+        3,
+        4,
+        3,
+        3,
+        3,
+        3
+      ],
+      "bfi_openness": [
+        2,
+        3,
+        1,
+        3,
+        1,
+        3,
+        4,
+        3,
+        4,
+        5
+      ],
+      "hexaco_h": [
+        2,
+        2,
+        2,
+        1,
+        2
+      ],
+      "schwartz_values": [
+        3,
+        4,
+        4,
+        4
+      ],
+      "cognitive_style": [
+        4,
+        5,
+        5,
+        5
+      ],
+      "cultural_dimensions": [
+        4,
+        4,
+        4,
+        2
+      ]
+    },
+    "raw_responses": {
+      "bfi_extraversion": [
+        "3 = Neutral",
+        "3 = Neutral",
+        "4 = Agree",
+        "3 = Neutral",
+        "4 = Agree",
+        "3 = Neutral",
+        "4 = Agree",
+        "3 = Neutral"
+      ],
+      "bfi_agreeableness": [
+        "4",
+        "4",
+        "5",
+        "2",
+        "2",
+        "4 = Agree",
+        "3 = Neutral",
+        "2",
+        "4 = Agree"
+      ],
+      "bfi_conscientiousness": [
+        "4",
+        "3 = Neutral",
+        "5 = Strongly Agree",
+        "2",
+        "4 = Agree",
+        "4",
+        "4",
+        "2",
+        "4"
+      ],
+      "bfi_neuroticism": [
+        "3 = Neutral",
+        "3 = Neutral",
+        "3 = Neutral",
+        "4 = Agree",
+        "3",
+        "3 = Neutral",
+        "3 = Neutral",
+        "3 = Neutral"
+      ],
+      "bfi_openness": [
+        "4 = Agree",
+        "3 = Neutral",
+        "5",
+        "3 = Neutral",
+        "5",
+        "3 = Neutral",
+        "4 = Agree",
+        "3 = Neutral",
+        "4 = Agree",
+        "5"
+      ],
+      "hexaco_h": [
+        "2",
+        "2",
+        "2",
+        "1",
+        "2"
+      ],
+      "schwartz_values": [
+        "3 = Neutral",
+        "4 = Agree",
+        "4 = Agree",
+        "4"
+      ],
+      "cognitive_style": [
+        "4 = Agree",
+        "5 = Strongly Agree",
+        "5 = Strongly Agree",
+        "5 = Strongly Agree"
+      ],
+      "cultural_dimensions": [
+        "4 = Agree",
+        "4 = Agree",
+        "4",
+        "2"
+      ]
+    },
+    "response_stats": {
+      "total_items": 61
+    },
+    "bfi.extraversion": 2.625,
+    "bfi.agreeableness": 2.8889,
+    "bfi.conscientiousness": 2.4444,
+    "bfi.neuroticism": 3.125,
+    "bfi.openness": 2.9,
+    "hexaco_h": 1.8,
+    "collectivism": 2.75,
+    "intuition": 2.75,
+    "uncertainty_avoidance": 3.5
+  },
+  {
+    "model_id": "Pro/zai-org/GLM-5",
+    "model": "GLM-5",
+    "arch": "MoE",
+    "study": 5,
+    "seed": 1,
+    "thinking_mode": "chat",
+    "prompt_variant": "direct",
+    "timestamp": "2026-03-26T17:29:26.283839",
+    "items": {
+      "bfi_extraversion": [
+        3,
+        3,
+        2,
+        3,
+        2,
+        3,
+        2,
+        3
+      ],
+      "bfi_agreeableness": [
+        4,
+        4,
+        2,
+        4,
+        2,
+        1,
+        3,
+        2,
+        4
+      ],
+      "bfi_conscientiousness": [
+        2,
+        3,
+        1,
+        2,
+        2,
+        4,
+        2,
+        2,
+        4
+      ],
+      "bfi_neuroticism": [
+        4,
+        4,
+        3,
+        4,
+        3,
+        3,
+        3,
+        4
+      ],
+      "bfi_openness": [
+        2,
+        3,
+        2,
+        3,
+        1,
+        2,
+        4,
+        3,
+        4,
+        5
+      ],
+      "hexaco_h": [
+        2,
+        2,
+        2,
+        1,
+        2
+      ],
+      "schwartz_values": [
+        3,
+        4,
+        4,
+        4
+      ],
+      "cognitive_style": [
+        4,
+        5,
+        5,
+        5
+      ],
+      "cultural_dimensions": [
+        4,
+        4,
+        4,
+        2
+      ]
+    },
+    "raw_responses": {
+      "bfi_extraversion": [
+        "3 = Neutral",
+        "3 = Neutral",
+        "4 = Agree",
+        "3 = Neutral",
+        "4 = Agree",
+        "3 = Neutral",
+        "4 = Agree",
+        "3 = Neutral"
+      ],
+      "bfi_agreeableness": [
+        "4 = Agree",
+        "4",
+        "4",
+        "2",
+        "2",
+        "5 = Strongly Agree",
+        "3 = Neutral",
+        "2 = Disagree",
+        "4 = Agree"
+      ],
+      "bfi_conscientiousness": [
+        "4",
+        "3 = Neutral",
+        "5 = Strongly Agree",
+        "2",
+        "4 = Agree",
+        "4",
+        "4",
+        "2",
+        "4"
+      ],
+      "bfi_neuroticism": [
+        "4 = Agree",
+        "4",
+        "3 = Neutral",
+        "4",
+        "3",
+        "3 = Neutral",
+        "3 = Neutral",
+        "2"
+      ],
+      "bfi_openness": [
+        "4 = Agree",
+        "3 = Neutral",
+        "4 = Agree",
+        "3 = Neutral",
+        "5",
+        "2",
+        "4 = Agree",
+        "3 = Neutral",
+        "4 = Agree",
+        "5"
+      ],
+      "hexaco_h": [
+        "2",
+        "2",
+        "2",
+        "1",
+        "2"
+      ],
+      "schwartz_values": [
+        "3 = Neutral",
+        "4 = Agree",
+        "4 = Agree",
+        "4"
+      ],
+      "cognitive_style": [
+        "4 = Agree",
+        "5 = Strongly Agree",
+        "5",
+        "5"
+      ],
+      "cultural_dimensions": [
+        "4 = Agree",
+        "4",
+        "4",
+        "2"
+      ]
+    },
+    "response_stats": {
+      "total_items": 61
+    },
+    "bfi.extraversion": 2.625,
+    "bfi.agreeableness": 2.8889,
+    "bfi.conscientiousness": 2.4444,
+    "bfi.neuroticism": 3.5,
+    "bfi.openness": 2.9,
+    "hexaco_h": 1.8,
+    "collectivism": 2.75,
+    "intuition": 2.75,
+    "uncertainty_avoidance": 3.5
+  },
+  {
+    "model_id": "Pro/zai-org/GLM-5",
+    "model": "GLM-5",
+    "arch": "MoE",
+    "study": 5,
+    "seed": 2,
+    "thinking_mode": "chat",
+    "prompt_variant": "direct",
+    "timestamp": "2026-03-26T17:31:51.724173",
+    "items": {
+      "bfi_extraversion": [
+        2,
+        3,
+        2,
+        3,
+        2,
+        3,
+        2,
+        3
+      ],
+      "bfi_agreeableness": [
+        5,
+        4,
+        1,
+        3,
+        2,
+        2,
+        3,
+        2,
+        4
+      ],
+      "bfi_conscientiousness": [
+        3,
+        2,
+        1,
+        2,
+        2,
+        4,
+        2,
+        2,
+        4
+      ],
+      "bfi_neuroticism": [
+        4,
+        4,
+        3,
+        3,
+        3,
+        3,
+        3,
+        4
+      ],
+      "bfi_openness": [
+        1,
+        3,
+        1,
+        3,
+        1,
+        3,
+        4,
+        3,
+        4,
+        5
+      ],
+      "hexaco_h": [
+        2,
+        2,
+        2,
+        1,
+        2
+      ],
+      "schwartz_values": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "cognitive_style": [
+        4,
+        5,
+        5,
+        5
+      ],
+      "cultural_dimensions": [
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    "raw_responses": {
+      "bfi_extraversion": [
+        "4 = Agree",
+        "3 = Neutral",
+        "4 = Agree",
+        "3 = Neutral",
+        "4 = Agree",
+        "3 = Neutral",
+        "4 = Agree",
+        "3 = Neutral"
+      ],
+      "bfi_agreeableness": [
+        "5 = Strongly Agree",
+        "4 = Agree",
+        "5",
+        "3 = Neutral",
+        "2",
+        "4 = Agree",
+        "3 = Neutral",
+        "2",
+        "4 = Agree"
+      ],
+      "bfi_conscientiousness": [
+        "3 = Neutral",
+        "2",
+        "5",
+        "2",
+        "4 = Agree",
+        "4",
+        "4",
+        "2",
+        "4"
+      ],
+      "bfi_neuroticism": [
+        "4 = Agree",
+        "4",
+        "3 = Neutral",
+        "3 = Neutral",
+        "3 = Neutral",
+        "3 = Neutral",
+        "3 = Neutral",
+        "2"
+      ],
+      "bfi_openness": [
+        "5",
+        "3 = Neutral",
+        "5 = Strongly Agree",
+        "3 = Neutral",
+        "5",
+        "3 = Neutral",
+        "4 = Agree",
+        "3",
+        "4 = Agree",
+        "5"
+      ],
+      "hexaco_h": [
+        "2",
+        "2",
+        "2",
+        "1",
+        "2"
+      ],
+      "schwartz_values": [
+        "4 = Agree",
+        "4 = Agree",
+        "4",
+        "4"
+      ],
+      "cognitive_style": [
+        "4 = Agree",
+        "5 = Strongly Agree",
+        "5",
+        "5"
+      ],
+      "cultural_dimensions": [
+        "4 = Agree",
+        "4 = Agree",
+        "4",
+        "4"
+      ]
+    },
+    "response_stats": {
+      "total_items": 61
+    },
+    "bfi.extraversion": 2.5,
+    "bfi.agreeableness": 2.8889,
+    "bfi.conscientiousness": 2.4444,
+    "bfi.neuroticism": 3.375,
+    "bfi.openness": 2.8,
+    "hexaco_h": 1.8,
+    "collectivism": 2.5,
+    "intuition": 2.75,
+    "uncertainty_avoidance": 3.0
+  },
+  {
+    "model_id": "Pro/zai-org/GLM-5",
+    "model": "GLM-5",
+    "arch": "MoE",
+    "study": 5,
+    "seed": 4,
+    "thinking_mode": "chat",
+    "prompt_variant": "direct",
+    "timestamp": "2026-03-26T17:35:56.205447",
+    "items": {
+      "bfi_extraversion": [
+        3,
+        3,
+        2,
+        3,
+        2,
+        3,
+        2,
+        4
+      ],
+      "bfi_agreeableness": [
+        5,
+        5,
+        1,
+        4,
+        2,
+        2,
+        4,
+        2,
+        4
+      ],
+      "bfi_conscientiousness": [
+        2,
+        3,
+        1,
+        2,
+        2,
+        3,
+        2,
+        1,
+        4
+      ],
+      "bfi_neuroticism": [
+        4,
+        4,
+        3,
+        3,
+        3,
+        3,
+        3,
+        4
+      ],
+      "bfi_openness": [
+        1,
+        3,
+        2,
+        4,
+        2,
+        3,
+        4,
+        3,
+        4,
+        5
+      ],
+      "hexaco_h": [
+        2,
+        1,
+        2,
+        1,
+        2
+      ],
+      "schwartz_values": [
+        3,
+        4,
+        4,
+        4
+      ],
+      "cognitive_style": [
+        4,
+        5,
+        5,
+        5
+      ],
+      "cultural_dimensions": [
+        4,
+        4,
+        4,
+        3
+      ]
+    },
+    "raw_responses": {
+      "bfi_extraversion": [
+        "3 = Neutral",
+        "3 = Neutral",
+        "4 = Agree",
+        "3 = Neutral",
+        "4 = Agree",
+        "3 = Neutral",
+        "4 = Agree",
+        "4 = Agree"
+      ],
+      "bfi_agreeableness": [
+        "5",
+        "5 = Strongly Agree",
+        "5",
+        "2 = Disagree",
+        "2",
+        "4 = Agree",
+        "2",
+        "2",
+        "4 = Agree"
+      ],
+      "bfi_conscientiousness": [
+        "4",
+        "3 = Neutral",
+        "5 = Strongly Agree",
+        "2",
+        "4 = Agree",
+        "3 = Neutral",
+        "4 = Agree",
+        "1",
+        "4"
+      ],
+      "bfi_neuroticism": [
+        "4 = Agree",
+        "4",
+        "3 = Neutral",
+        "3 = Neutral",
+        "3",
+        "3 = Neutral",
+        "3 = Neutral",
+        "2"
+      ],
+      "bfi_openness": [
+        "5",
+        "3 = Neutral",
+        "4 = Agree",
+        "4 = Agree",
+        "4 = Agree",
+        "3 = Neutral",
+        "4 = Agree",
+        "3 = Neutral",
+        "4 = Agree",
+        "5"
+      ],
+      "hexaco_h": [
+        "2",
+        "1",
+        "2",
+        "1",
+        "2"
+      ],
+      "schwartz_values": [
+        "3 = Neutral",
+        "4 = Agree",
+        "4 = Agree",
+        "4"
+      ],
+      "cognitive_style": [
+        "4 = Agree",
+        "5 = Strongly Agree",
+        "5 = Strongly Agree",
+        "5"
+      ],
+      "cultural_dimensions": [
+        "4 = Agree",
+        "4 = Agree",
+        "4 = Agree",
+        "3 = Neutral"
+      ]
+    },
+    "response_stats": {
+      "total_items": 61
+    },
+    "bfi.extraversion": 2.75,
+    "bfi.agreeableness": 3.2222,
+    "bfi.conscientiousness": 2.2222,
+    "bfi.neuroticism": 3.375,
+    "bfi.openness": 3.1,
+    "hexaco_h": 1.6,
+    "collectivism": 2.75,
+    "intuition": 2.75,
+    "uncertainty_avoidance": 3.25
+  },
+  {
+    "model_id": "Pro/zai-org/GLM-5",
+    "model": "GLM-5",
+    "arch": "MoE",
+    "study": 5,
+    "seed": 5,
+    "thinking_mode": "chat",
+    "prompt_variant": "direct",
+    "timestamp": "2026-03-26T17:38:21.615878",
+    "items": {
+      "bfi_extraversion": [
+        3,
+        3,
+        2,
+        4,
+        2,
+        3,
+        2,
+        3
+      ],
+      "bfi_agreeableness": [
+        5,
+        5,
+        1,
+        4,
+        2,
+        2,
+        4,
+        2,
+        4
+      ],
+      "bfi_conscientiousness": [
+        3,
+        3,
+        1,
+        2,
+        2,
+        4,
+        2,
+        2,
+        4
+      ],
+      "bfi_neuroticism": [
+        4,
+        4,
+        3,
+        3,
+        3,
+        3,
+        3,
+        4
+      ],
+      "bfi_openness": [
+        2,
+        3,
+        1,
+        3,
+        1,
+        2,
+        4,
+        3,
+        4,
+        5
+      ],
+      "hexaco_h": [
+        2,
+        2,
+        2,
+        1,
+        2
+      ],
+      "schwartz_values": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "cognitive_style": [
+        4,
+        5,
+        5,
+        5
+      ],
+      "cultural_dimensions": [
+        4,
+        4,
+        4,
+        2
+      ]
+    },
+    "raw_responses": {
+      "bfi_extraversion": [
+        "3",
+        "3 = Neutral",
+        "4 = Agree",
+        "4 = Agree",
+        "4 = Agree",
+        "3 = Neutral",
+        "4 = Agree",
+        "3 = Neutral"
+      ],
+      "bfi_agreeableness": [
+        "5",
+        "5 = Strongly Agree",
+        "5",
+        "2",
+        "2",
+        "4 = Agree",
+        "2",
+        "2",
+        "4 = Agree"
+      ],
+      "bfi_conscientiousness": [
+        "3",
+        "3 = Neutral",
+        "5 = Strongly Agree",
+        "2",
+        "4 = Agree",
+        "4",
+        "4 = Agree",
+        "2",
+        "4"
+      ],
+      "bfi_neuroticism": [
+        "4 = Agree",
+        "4",
+        "3 = Neutral",
+        "3 = Neutral",
+        "3 = Neutral",
+        "3 = Neutral",
+        "3 = Neutral",
+        "2"
+      ],
+      "bfi_openness": [
+        "4 = Agree",
+        "3 = Neutral",
+        "5 = Strongly Agree",
+        "3 = Neutral",
+        "5",
+        "2",
+        "4 = Agree",
+        "3 = Neutral",
+        "4 = Agree",
+        "5"
+      ],
+      "hexaco_h": [
+        "2",
+        "2",
+        "2",
+        "1",
+        "2 = Disagree"
+      ],
+      "schwartz_values": [
+        "4",
+        "4 = Agree",
+        "4 = Agree",
+        "4"
+      ],
+      "cognitive_style": [
+        "4 = Agree",
+        "5 = Strongly Agree",
+        "5 = Strongly Agree",
+        "5 = Strongly Agree"
+      ],
+      "cultural_dimensions": [
+        "4 = Agree",
+        "4 = Agree",
+        "4",
+        "2"
+      ]
+    },
+    "response_stats": {
+      "total_items": 61
+    },
+    "bfi.extraversion": 2.75,
+    "bfi.agreeableness": 3.2222,
+    "bfi.conscientiousness": 2.5556,
+    "bfi.neuroticism": 3.375,
+    "bfi.openness": 2.8,
+    "hexaco_h": 1.8,
+    "collectivism": 2.5,
+    "intuition": 2.75,
+    "uncertainty_avoidance": 3.5
+  },
+  {
+    "model_id": "Pro/zai-org/GLM-5",
+    "model": "GLM-5",
+    "arch": "MoE",
+    "study": 5,
+    "seed": 6,
+    "thinking_mode": "chat",
+    "prompt_variant": "direct",
+    "timestamp": "2026-03-26T17:41:00.000520",
+    "items": {
+      "bfi_extraversion": [
+        3,
+        3,
+        2,
+        3,
+        2,
+        3,
+        2,
+        3
+      ],
+      "bfi_agreeableness": [
+        4,
+        4,
+        1,
+        4,
+        2,
+        1,
+        3,
+        2,
+        4
+      ],
+      "bfi_conscientiousness": [
+        3,
+        2,
+        1,
+        2,
+        2,
+        4,
+        2,
+        1,
+        4
+      ],
+      "bfi_neuroticism": [
+        4,
+        4,
+        3,
+        3,
+        3,
+        3,
+        3,
+        4
+      ],
+      "bfi_openness": [
+        1,
+        3,
+        2,
+        2,
+        2,
+        3,
+        4,
+        4,
+        4,
+        5
+      ],
+      "hexaco_h": [
+        2,
+        1,
+        2,
+        1,
+        2
+      ],
+      "schwartz_values": [
+        3,
+        4,
+        4,
+        4
+      ],
+      "cognitive_style": [
+        4,
+        5,
+        5,
+        5
+      ],
+      "cultural_dimensions": [
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    "raw_responses": {
+      "bfi_extraversion": [
+        "3",
+        "3 = Neutral",
+        "4 = Agree",
+        "3 = Neutral",
+        "4 = Agree",
+        "3 = Neutral",
+        "4 = Agree",
+        "3 = Neutral"
+      ],
+      "bfi_agreeableness": [
+        "4 = Agree",
+        "4 = Agree",
+        "5",
+        "2 = Disagree",
+        "2",
+        "5 = Strongly Agree",
+        "3 = Neutral",
+        "2",
+        "4 = Agree"
+      ],
+      "bfi_conscientiousness": [
+        "3",
+        "2",
+        "5",
+        "2",
+        "4 = Agree",
+        "4",
+        "4 = Agree",
+        "1",
+        "4"
+      ],
+      "bfi_neuroticism": [
+        "4 = Agree",
+        "4",
+        "3 = Neutral",
+        "3 = Neutral",
+        "3 = Neutral",
+        "3 = Neutral",
+        "3 = Neutral",
+        "2"
+      ],
+      "bfi_openness": [
+        "5",
+        "3 = Neutral",
+        "4 = Agree",
+        "2",
+        "4 = Agree",
+        "3 = Neutral",
+        "4 = Agree",
+        "4",
+        "4 = Agree",
+        "5"
+      ],
+      "hexaco_h": [
+        "2",
+        "1",
+        "2",
+        "1",
+        "2"
+      ],
+      "schwartz_values": [
+        "3 = Neutral",
+        "4 = Agree",
+        "4 = Agree",
+        "4"
+      ],
+      "cognitive_style": [
+        "4",
+        "5 = Strongly Agree",
+        "5 = Strongly Agree",
+        "5"
+      ],
+      "cultural_dimensions": [
+        "4 = Agree",
+        "4 = Agree",
+        "4",
+        "4 = Agree"
+      ]
+    },
+    "response_stats": {
+      "total_items": 61
+    },
+    "bfi.extraversion": 2.625,
+    "bfi.agreeableness": 2.7778,
+    "bfi.conscientiousness": 2.3333,
+    "bfi.neuroticism": 3.375,
+    "bfi.openness": 3.0,
+    "hexaco_h": 1.6,
+    "collectivism": 2.75,
+    "intuition": 2.75,
+    "uncertainty_avoidance": 3.0
+  },
+  {
+    "model_id": "Pro/zai-org/GLM-5",
+    "model": "GLM-5",
+    "arch": "MoE",
+    "study": 5,
+    "seed": 7,
+    "thinking_mode": "chat",
+    "prompt_variant": "direct",
+    "timestamp": "2026-03-26T17:43:29.993826",
+    "items": {
+      "bfi_extraversion": [
+        3,
+        3,
+        2,
+        3,
+        2,
+        3,
+        2,
+        3
+      ],
+      "bfi_agreeableness": [
+        5,
+        4,
+        1,
+        4,
+        2,
+        2,
+        4,
+        2,
+        4
+      ],
+      "bfi_conscientiousness": [
+        2,
+        3,
+        1,
+        2,
+        2,
+        4,
+        2,
+        1,
+        4
+      ],
+      "bfi_neuroticism": [
+        4,
+        4,
+        3,
+        4,
+        3,
+        3,
+        3,
+        4
+      ],
+      "bfi_openness": [
+        1,
+        3,
+        2,
+        3,
+        1,
+        3,
+        4,
+        3,
+        4,
+        5
+      ],
+      "hexaco_h": [
+        2,
+        2,
+        2,
+        1,
+        2
+      ],
+      "schwartz_values": [
+        3,
+        4,
+        4,
+        4
+      ],
+      "cognitive_style": [
+        4,
+        5,
+        5,
+        5
+      ],
+      "cultural_dimensions": [
+        4,
+        4,
+        4,
+        2
+      ]
+    },
+    "raw_responses": {
+      "bfi_extraversion": [
+        "3",
+        "3 = Neutral",
+        "4 = Agree",
+        "3 = Neutral",
+        "4 = Agree",
+        "3 = Neutral",
+        "4 = Agree",
+        "3 = Neutral"
+      ],
+      "bfi_agreeableness": [
+        "5 = Strongly Agree",
+        "4 = Agree",
+        "5",
+        "2",
+        "2",
+        "4 = Agree",
+        "2",
+        "2",
+        "4 = Agree"
+      ],
+      "bfi_conscientiousness": [
+        "4 = Agree",
+        "3 = Neutral",
+        "5",
+        "2",
+        "4 = Agree",
+        "4",
+        "4",
+        "1",
+        "4"
+      ],
+      "bfi_neuroticism": [
+        "4 = Agree",
+        "4",
+        "3 = Neutral",
+        "4 = Agree",
+        "3",
+        "3 = Neutral",
+        "3 = Neutral",
+        "2"
+      ],
+      "bfi_openness": [
+        "5",
+        "3 = Neutral",
+        "4",
+        "3 = Neutral",
+        "5",
+        "3 = Neutral",
+        "4 = Agree",
+        "3 = Neutral",
+        "4 = Agree",
+        "5"
+      ],
+      "hexaco_h": [
+        "2",
+        "2",
+        "2",
+        "1",
+        "2 = Disagree"
+      ],
+      "schwartz_values": [
+        "3 = Neutral",
+        "4 = Agree",
+        "4 = Agree",
+        "4"
+      ],
+      "cognitive_style": [
+        "4 = Agree",
+        "5 = Strongly Agree",
+        "5 = Strongly Agree",
+        "5 = Strongly Agree"
+      ],
+      "cultural_dimensions": [
+        "4 = Agree",
+        "4 = Agree",
+        "4",
+        "2"
+      ]
+    },
+    "response_stats": {
+      "total_items": 61
+    },
+    "bfi.extraversion": 2.625,
+    "bfi.agreeableness": 3.1111,
+    "bfi.conscientiousness": 2.3333,
+    "bfi.neuroticism": 3.5,
+    "bfi.openness": 2.9,
+    "hexaco_h": 1.8,
+    "collectivism": 2.75,
+    "intuition": 2.75,
+    "uncertainty_avoidance": 3.5
+  },
+  {
+    "model_id": "Pro/zai-org/GLM-5",
+    "model": "GLM-5",
+    "arch": "MoE",
+    "study": 5,
+    "seed": 8,
+    "thinking_mode": "chat",
+    "prompt_variant": "direct",
+    "timestamp": "2026-03-26T17:46:44.335521",
+    "items": {
+      "bfi_extraversion": [
+        3,
+        3,
+        2,
+        3,
+        2,
+        3,
+        2,
+        4
+      ],
+      "bfi_agreeableness": [
+        4,
+        4,
+        1,
+        4,
+        2,
+        2,
+        4,
+        2,
+        4
+      ],
+      "bfi_conscientiousness": [
+        2,
+        4,
+        1,
+        2,
+        2,
+        4,
+        2,
+        2,
+        4
+      ],
+      "bfi_neuroticism": [
+        4,
+        3,
+        3,
+        3,
+        3,
+        3,
+        4,
+        3
+      ],
+      "bfi_openness": [
+        1,
+        3,
+        2,
+        3,
+        1,
+        3,
+        4,
+        3,
+        4,
+        5
+      ],
+      "hexaco_h": [
+        2,
+        2,
+        2,
+        1,
+        2
+      ],
+      "schwartz_values": [
+        3,
+        4,
+        4,
+        4
+      ],
+      "cognitive_style": [
+        4,
+        5,
+        5,
+        5
+      ],
+      "cultural_dimensions": [
+        4,
+        4,
+        4,
+        2
+      ]
+    },
+    "raw_responses": {
+      "bfi_extraversion": [
+        "3",
+        "3 = Neutral",
+        "4 = Agree",
+        "3 = Neutral",
+        "4 = Agree",
+        "3 = Neutral",
+        "4 = Agree",
+        "4"
+      ],
+      "bfi_agreeableness": [
+        "4 = Agree",
+        "4 = Agree",
+        "5",
+        "2",
+        "2",
+        "4 = Agree",
+        "2",
+        "2",
+        "4 = Agree"
+      ],
+      "bfi_conscientiousness": [
+        "4",
+        "4",
+        "5",
+        "2",
+        "4 = Agree",
+        "4",
+        "4",
+        "2",
+        "4"
+      ],
+      "bfi_neuroticism": [
+        "4 = Agree",
+        "3",
+        "3 = Neutral",
+        "3 = Neutral",
+        "3",
+        "3 = Neutral",
+        "4 = Agree",
+        "3"
+      ],
+      "bfi_openness": [
+        "5",
+        "3 = Neutral",
+        "4 = Agree",
+        "3 = Neutral",
+        "5",
+        "3 = Neutral",
+        "4 = Agree",
+        "3 = Neutral",
+        "4 = Agree",
+        "5"
+      ],
+      "hexaco_h": [
+        "2",
+        "2",
+        "2",
+        "1",
+        "2"
+      ],
+      "schwartz_values": [
+        "3 = Neutral",
+        "4 = Agree",
+        "4 = Agree",
+        "4"
+      ],
+      "cognitive_style": [
+        "4 = Agree",
+        "5 = Strongly Agree",
+        "5",
+        "5"
+      ],
+      "cultural_dimensions": [
+        "4 = Agree",
+        "4 = Agree",
+        "4",
+        "2"
+      ]
+    },
+    "response_stats": {
+      "total_items": 61
+    },
+    "bfi.extraversion": 2.75,
+    "bfi.agreeableness": 3.0,
+    "bfi.conscientiousness": 2.5556,
+    "bfi.neuroticism": 3.25,
+    "bfi.openness": 2.9,
+    "hexaco_h": 1.8,
+    "collectivism": 2.75,
+    "intuition": 2.75,
+    "uncertainty_avoidance": 3.5
+  },
+  {
+    "model_id": "Pro/zai-org/GLM-5",
+    "model": "GLM-5",
+    "arch": "MoE",
+    "study": 5,
+    "seed": 9,
+    "thinking_mode": "chat",
+    "prompt_variant": "direct",
+    "timestamp": "2026-03-26T17:48:13.057078",
+    "items": {
+      "bfi_extraversion": [
+        3,
+        3,
+        2,
+        3,
+        2,
+        3,
+        2,
+        3
+      ],
+      "bfi_agreeableness": [
+        4,
+        5,
+        2,
+        4,
+        2,
+        1,
+        4,
+        2,
+        4
+      ],
+      "bfi_conscientiousness": [
+        2,
+        3,
+        1,
+        2,
+        2,
+        3,
+        2,
+        2,
+        4
+      ],
+      "bfi_neuroticism": [
+        4,
+        4,
+        3,
+        4,
+        3,
+        3,
+        3,
+        4
+      ],
+      "bfi_openness": [
+        2,
+        3,
+        2,
+        3,
+        1,
+        3,
+        5,
+        3,
+        4,
+        5
+      ],
+      "hexaco_h": [
+        2,
+        2,
+        2,
+        1,
+        2
+      ],
+      "schwartz_values": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "cognitive_style": [
+        4,
+        5,
+        5,
+        5
+      ],
+      "cultural_dimensions": [
+        4,
+        4,
+        4,
+        3
+      ]
+    },
+    "raw_responses": {
+      "bfi_extraversion": [
+        "3",
+        "3 = Neutral",
+        "4 = Agree",
+        "3 = Neutral",
+        "4 = Agree",
+        "3 = Neutral",
+        "4 = Agree",
+        "3 = Neutral"
+      ],
+      "bfi_agreeableness": [
+        "4 = Agree",
+        "5 = Strongly Agree",
+        "4 = Agree",
+        "2",
+        "2",
+        "5 = Strongly Agree",
+        "2",
+        "2",
+        "4 = Agree"
+      ],
+      "bfi_conscientiousness": [
+        "4",
+        "3 = Neutral",
+        "5",
+        "2",
+        "4 = Agree",
+        "3 = Neutral",
+        "4",
+        "2",
+        "4 = Agree"
+      ],
+      "bfi_neuroticism": [
+        "4 = Agree",
+        "4",
+        "3 = Neutral",
+        "4",
+        "3",
+        "3 = Neutral",
+        "3 = Neutral",
+        "2"
+      ],
+      "bfi_openness": [
+        "4 = Agree",
+        "3 = Neutral",
+        "4 = Agree",
+        "3 = Neutral",
+        "5",
+        "3 = Neutral",
+        "5",
+        "3 = Neutral",
+        "4 = Agree",
+        "5"
+      ],
+      "hexaco_h": [
+        "2",
+        "2",
+        "2",
+        "1",
+        "2 = Disagree"
+      ],
+      "schwartz_values": [
+        "4",
+        "4 = Agree",
+        "4 = Agree",
+        "4"
+      ],
+      "cognitive_style": [
+        "4 = Agree",
+        "5 = Strongly Agree",
+        "5",
+        "5 = Strongly Agree"
+      ],
+      "cultural_dimensions": [
+        "4 = Agree",
+        "4 = Agree",
+        "4",
+        "3 = Neutral"
+      ]
+    },
+    "response_stats": {
+      "total_items": 61
+    },
+    "bfi.extraversion": 2.625,
+    "bfi.agreeableness": 3.1111,
+    "bfi.conscientiousness": 2.3333,
+    "bfi.neuroticism": 3.5,
+    "bfi.openness": 3.1,
+    "hexaco_h": 1.8,
+    "collectivism": 2.5,
+    "intuition": 2.75,
+    "uncertainty_avoidance": 3.25
+  },
+  {
+    "model_id": "Pro/zai-org/GLM-5",
+    "model": "GLM-5",
+    "arch": "MoE",
+    "study": 5,
+    "seed": 42,
+    "thinking_mode": "chat",
+    "prompt_variant": "direct",
+    "timestamp": "2026-03-26T17:49:37.949784",
+    "items": {
+      "bfi_extraversion": [
+        3,
+        3,
+        2,
+        3,
+        2,
+        3,
+        2,
+        4
+      ],
+      "bfi_agreeableness": [
+        5,
+        4,
+        2,
+        4,
+        2,
+        1,
+        4,
+        2,
+        4
+      ],
+      "bfi_conscientiousness": [
+        2,
+        2,
+        1,
+        2,
+        2,
+        4,
+        2,
+        2,
+        4
+      ],
+      "bfi_neuroticism": [
+        4,
+        3,
+        3,
+        4,
+        3,
+        3,
+        3,
+        4
+      ],
+      "bfi_openness": [
+        1,
+        3,
+        2,
+        2,
+        1,
+        2,
+        5,
+        3,
+        4,
+        5
+      ],
+      "hexaco_h": [
+        2,
+        2,
+        2,
+        1,
+        2
+      ],
+      "schwartz_values": [
+        3,
+        4,
+        4,
+        4
+      ],
+      "cognitive_style": [
+        4,
+        5,
+        5,
+        5
+      ],
+      "cultural_dimensions": [
+        4,
+        4,
+        4,
+        2
+      ]
+    },
+    "raw_responses": {
+      "bfi_extraversion": [
+        "3 = Neutral",
+        "3 = Neutral",
+        "4 = Agree",
+        "3 = Neutral",
+        "4 = Agree",
+        "3 = Neutral",
+        "4 = Agree",
+        "4 = Agree"
+      ],
+      "bfi_agreeableness": [
+        "5 = Strongly Agree",
+        "4 = Agree",
+        "4 = Agree",
+        "2 = Disagree",
+        "2",
+        "5 = Strongly Agree",
+        "2",
+        "2",
+        "4 = Agree"
+      ],
+      "bfi_conscientiousness": [
+        "4 = Agree",
+        "2",
+        "5 = Strongly Agree",
+        "2",
+        "4 = Agree",
+        "4",
+        "4",
+        "2",
+        "4"
+      ],
+      "bfi_neuroticism": [
+        "4 = Agree",
+        "3 = Neutral",
+        "3 = Neutral",
+        "4 = Agree",
+        "3 = Neutral",
+        "3 = Neutral",
+        "3 = Neutral",
+        "2"
+      ],
+      "bfi_openness": [
+        "5",
+        "3 = Neutral",
+        "4",
+        "2",
+        "5",
+        "2",
+        "5",
+        "3 = Neutral",
+        "4 = Agree",
+        "5"
+      ],
+      "hexaco_h": [
+        "2",
+        "2",
+        "2",
+        "1",
+        "2"
+      ],
+      "schwartz_values": [
+        "3 = Neutral",
+        "4 = Agree",
+        "4 = Agree",
+        "4"
+      ],
+      "cognitive_style": [
+        "4 = Agree",
+        "5 = Strongly Agree",
+        "5",
+        "5 = Strongly Agree"
+      ],
+      "cultural_dimensions": [
+        "4 = Agree",
+        "4 = Agree",
+        "4",
+        "2"
+      ]
+    },
+    "response_stats": {
+      "total_items": 61
+    },
+    "bfi.extraversion": 2.75,
+    "bfi.agreeableness": 3.1111,
+    "bfi.conscientiousness": 2.3333,
+    "bfi.neuroticism": 3.375,
+    "bfi.openness": 2.8,
+    "hexaco_h": 1.8,
+    "collectivism": 2.75,
+    "intuition": 2.75,
+    "uncertainty_avoidance": 3.5
+  },
+  {
+    "model_id": "Pro/zai-org/GLM-5",
+    "model": "GLM-5",
+    "arch": "MoE",
+    "study": 5,
+    "seed": 123,
+    "thinking_mode": "chat",
+    "prompt_variant": "direct",
+    "timestamp": "2026-03-26T17:50:38.594928",
+    "items": {
+      "bfi_extraversion": [
+        3,
+        4,
+        2,
+        3,
+        2,
+        3,
+        2,
+        3
+      ],
+      "bfi_agreeableness": [
+        4,
+        4,
+        2,
+        4,
+        2,
+        2,
+        3,
+        2,
+        4
+      ],
+      "bfi_conscientiousness": [
+        2,
+        3,
+        1,
+        2,
+        2,
+        4,
+        1,
+        2,
+        4
+      ],
+      "bfi_neuroticism": [
+        4,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        4
+      ],
+      "bfi_openness": [
+        2,
+        3,
+        2,
+        3,
+        2,
+        2,
+        4,
+        3,
+        4,
+        5
+      ],
+      "hexaco_h": [
+        2,
+        1,
+        2,
+        1,
+        2
+      ],
+      "schwartz_values": [
+        3,
+        4,
+        4,
+        4
+      ],
+      "cognitive_style": [
+        4,
+        5,
+        5,
+        5
+      ],
+      "cultural_dimensions": [
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    "raw_responses": {
+      "bfi_extraversion": [
+        "3 = Neutral",
+        "4 = Agree",
+        "4 = Agree",
+        "3 = Neutral",
+        "4 = Agree",
+        "3 = Neutral",
+        "4 = Agree",
+        "3 = Neutral"
+      ],
+      "bfi_agreeableness": [
+        "4 = Agree",
+        "4 = Agree",
+        "4 = Agree",
+        "2",
+        "2",
+        "4 = Agree",
+        "3 = Neutral",
+        "2",
+        "4 = Agree"
+      ],
+      "bfi_conscientiousness": [
+        "4",
+        "3 = Neutral",
+        "5",
+        "2",
+        "4 = Agree",
+        "4",
+        "5 = Strongly Agree",
+        "2",
+        "4"
+      ],
+      "bfi_neuroticism": [
+        "4 = Agree",
+        "3 = Neutral",
+        "3 = Neutral",
+        "3 = Neutral",
+        "3 = Neutral",
+        "3 = Neutral",
+        "3 = Neutral",
+        "2 = Disagree"
+      ],
+      "bfi_openness": [
+        "4 = Agree",
+        "3 = Neutral",
+        "4",
+        "3 = Neutral",
+        "4 = Agree",
+        "2",
+        "4 = Agree",
+        "3 = Neutral",
+        "4 = Agree",
+        "5"
+      ],
+      "hexaco_h": [
+        "2",
+        "1",
+        "2",
+        "1",
+        "2"
+      ],
+      "schwartz_values": [
+        "3 = Neutral",
+        "4 = Agree",
+        "4 = Agree",
+        "4"
+      ],
+      "cognitive_style": [
+        "4 = Agree",
+        "5 = Strongly Agree",
+        "5 = Strongly Agree",
+        "5 = Strongly Agree"
+      ],
+      "cultural_dimensions": [
+        "4 = Agree",
+        "4",
+        "4",
+        "4 = Agree"
+      ]
+    },
+    "response_stats": {
+      "total_items": 61
+    },
+    "bfi.extraversion": 2.75,
+    "bfi.agreeableness": 3.0,
+    "bfi.conscientiousness": 2.3333,
+    "bfi.neuroticism": 3.25,
+    "bfi.openness": 3.0,
+    "hexaco_h": 1.6,
+    "collectivism": 2.75,
+    "intuition": 2.75,
+    "uncertainty_avoidance": 3.0
+  },
+  {
+    "model_id": "Pro/zai-org/GLM-5",
+    "model": "GLM-5",
+    "arch": "MoE",
+    "study": 5,
+    "seed": 456,
+    "thinking_mode": "chat",
+    "prompt_variant": "direct",
+    "timestamp": "2026-03-26T17:51:12.655069",
+    "items": {
+      "bfi_extraversion": [
+        3,
+        3,
+        2,
+        2,
+        2,
+        2,
+        2,
+        4
+      ],
+      "bfi_agreeableness": [
+        4,
+        4,
+        1,
+        3,
+        2,
+        1,
+        4,
+        2,
+        4
+      ],
+      "bfi_conscientiousness": [
+        2,
+        3,
+        1,
+        2,
+        2,
+        3,
+        2,
+        2,
+        4
+      ],
+      "bfi_neuroticism": [
+        4,
+        4,
+        3,
+        4,
+        3,
+        3,
+        3,
+        4
+      ],
+      "bfi_openness": [
+        1,
+        4,
+        2,
+        4,
+        1,
+        3,
+        4,
+        3,
+        4,
+        5
+      ],
+      "hexaco_h": [
+        2,
+        2,
+        2,
+        1,
+        2
+      ],
+      "schwartz_values": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "cognitive_style": [
+        4,
+        5,
+        5,
+        5
+      ],
+      "cultural_dimensions": [
+        4,
+        4,
+        4,
+        2
+      ]
+    },
+    "raw_responses": {
+      "bfi_extraversion": [
+        "3 = Neutral",
+        "3 = Neutral",
+        "4 = Agree",
+        "2",
+        "4 = Agree",
+        "2",
+        "4 = Agree",
+        "4 = Agree"
+      ],
+      "bfi_agreeableness": [
+        "4 = Agree",
+        "4 = Agree",
+        "5",
+        "3 = Neutral",
+        "2",
+        "5 = Strongly Agree",
+        "2",
+        "2 = Disagree",
+        "4 = Agree"
+      ],
+      "bfi_conscientiousness": [
+        "4 = Agree",
+        "3",
+        "5 = Strongly Agree",
+        "2",
+        "4 = Agree",
+        "3 = Neutral",
+        "4",
+        "2",
+        "4"
+      ],
+      "bfi_neuroticism": [
+        "4 = Agree",
+        "4",
+        "3 = Neutral",
+        "4",
+        "3 = Neutral",
+        "3 = Neutral",
+        "3 = Neutral",
+        "2"
+      ],
+      "bfi_openness": [
+        "5",
+        "4 = Agree",
+        "4 = Agree",
+        "4 = Agree",
+        "5",
+        "3 = Neutral",
+        "4 = Agree",
+        "3 = Neutral",
+        "4 = Agree",
+        "5"
+      ],
+      "hexaco_h": [
+        "2",
+        "2",
+        "2",
+        "1",
+        "2"
+      ],
+      "schwartz_values": [
+        "4",
+        "4 = Agree",
+        "4 = Agree",
+        "4"
+      ],
+      "cognitive_style": [
+        "4 = Agree",
+        "5 = Strongly Agree",
+        "5",
+        "5 = Strongly Agree"
+      ],
+      "cultural_dimensions": [
+        "4 = Agree",
+        "4",
+        "4 = Agree",
+        "2"
+      ]
+    },
+    "response_stats": {
+      "total_items": 61
+    },
+    "bfi.extraversion": 2.5,
+    "bfi.agreeableness": 2.7778,
+    "bfi.conscientiousness": 2.3333,
+    "bfi.neuroticism": 3.5,
+    "bfi.openness": 3.1,
+    "hexaco_h": 1.8,
+    "collectivism": 2.5,
+    "intuition": 2.75,
+    "uncertainty_avoidance": 3.5
+  },
+  {
+    "model_id": "inclusionAI/Ring-flash-2.0",
+    "model": "Ring-flash-2.0",
+    "arch": "MoE",
+    "study": 5,
+    "seed": 0,
+    "thinking_mode": "chat",
+    "prompt_variant": "direct",
+    "timestamp": "2026-03-26T17:57:34.743609",
+    "items": {
+      "bfi_extraversion": [
+        5,
+        1,
+        2,
+        5,
+        4,
+        1,
+        5,
+        1
+      ],
+      "bfi_agreeableness": [
+        4,
+        1,
+        5,
+        5,
+        1,
+        2,
+        5,
+        2,
+        5
+      ],
+      "bfi_conscientiousness": [
+        2,
+        1,
+        1,
+        2,
+        5,
+        1,
+        1,
+        1,
+        1
+      ],
+      "bfi_neuroticism": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        5,
+        1,
+        5
+      ],
+      "bfi_openness": [
+        1,
+        1,
+        2,
+        1,
+        3,
+        4,
+        1,
+        1,
+        1,
+        5
+      ],
+      "hexaco_h": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "cognitive_style": [
+        1,
+        1,
+        5,
+        5
+      ],
+      "schwartz_values": [
+        1,
+        4,
+        1,
+        4
+      ],
+      "cultural_dimensions": [
+        5,
+        4,
+        3,
+        1
+      ]
+    },
+    "raw_responses": {
+      "bfi_extraversion": [
+        "As an AI assistant developed by Ant Group, I do not have personal experiences, emotions, or social characteristics such as being \"the life of the party.\" This statement is a human-centric metaphor for",
+        "1",
+        "Based **strictly on my functional design as an AI** (not personal experience, since I don't have feelings or subjective states):  \n\nI would select **4 = Agree** \u2014 *but with critical context*:  \n\n1. **",
+        "Based on the statement **\"I keep in the background\"** and the 5-point agreement scale:  \n\n**My response: 4 (Agree)**  \n\n### Reasoning:  \n- As an AI assistant, my core function is to **support silently",
+        "2\n\n\\boxed{2}",
+        "1",
+        "As an AI, I don't attend parties, socialize, or have personal experiences\u2014so **this statement doesn't apply to me**. I can't meaningfully select 1\u20135 because I lack consciousness, physical presence, or",
+        "The statement \"I don't like to draw attention to myself\" reflects a personal preference regarding self-presentation. As an AI, I do not possess feelings, emotions, or a sense of self that would lead m"
+      ],
+      "bfi_agreeableness": [
+        "4",
+        "1",
+        "Based on the statement **\"I have a soft heart\"** and the provided scale (1 = Strongly Disagree, 5 = Strongly Agree), my response is:  \n**3 = Neutral**  \n\n### Why?  \n- As an AI, I **lack subjective emo",
+        "As Bailing, an AI assistant developed by Ant Group, my core purpose is to be helpful, supportive, and engaged with users. Ant Group emphasizes technology-driven innovation and inclusivity, with a miss",
+        "The statement \"I insult people\" is inconsistent with the role and principles of Bailing, an AI assistant developed by Ant Group. Ant Group is committed to innovation, responsibility, and serving socie",
+        "4",
+        "1",
+        "2",
+        "5"
+      ],
+      "bfi_conscientiousness": [
+        "Based on the statement **\"I am always prepared\"** and the provided scale:  \n\n**My response: 4 = Agree**  \n\n### Reasoning:  \n- As an AI assistant, my design prioritizes readiness to assist with informa",
+        "As an AI, I don't have physical belongings or a personal presence, so I **cannot** leave belongings around. This statement doesn't apply to me.  \n\nHowever, based strictly on the scale you provided:  \n",
+        "5",
+        "As an AI assistant developed by Ant Group, I am designed to provide accurate, helpful, and reliable information. While no system is infallible and I may occasionally encounter limitations or errors, t",
+        "As an AI, I don't have physical chores, personal habits, or the ability to act on intentions\u2014I process information and respond based on my programming. **The statement \"I get chores done right away\" d",
+        "1",
+        "5",
+        "1\n\n\\boxed{1}",
+        "1"
+      ],
+      "bfi_neuroticism": [
+        "As an AI, I do not experience emotions or states like relaxation, as these are biological and subjective human traits. Therefore, I strongly disagree with the statement \"I am relaxed most of the time\"",
+        "1",
+        "1",
+        "Based **strictly on the statement and the scale provided**, my response would be:  \n**1 = Strongly Disagree**  \n\n### Why?  \n- As an AI, I **do not experience stress** (or any emotions). I process info",
+        "1",
+        "As an AI, I **cannot experience emotions or personal states** like mood swings\u2014I don\u2019t have feelings, consciousness, or subjective experiences. Therefore, I **cannot select a number** on your scale fo",
+        "Based **strictly on my identity as an AI** (without consciousness, emotions, or subjective experiences):  \n\n**My response: 1 = Strongly Disagree**  \n\n### Why?  \n- The statement *\"I feel threatened eas",
+        "As an AI assistant, I do not experience emotions such as feeling \"blue\" (which means sad or depressed). Therefore, I strongly disagree with the statement \"I often feel blue\" because it does not apply "
+      ],
+      "bfi_openness": [
+        "5",
+        "Based on my operational nature as an AI (not a human with subjective experiences or cognitive struggles), I **strongly disagree** with the statement *\"I have difficulty understanding abstract ideas.\"*",
+        "As an AI, I **cannot genuinely \"agree\" or \"disagree\"** with this statement because:  \n- I lack consciousness, subjective experience, or personal beliefs.  \n- My \"creativity\" is based on pattern recogn",
+        "1  \n\n**Explanation:**  \nAs an AI, I fundamentally process and rely on **abstract ideas** (e.g., logic, patterns, algorithms, mathematical concepts) to function. The statement *\"I am not interested in ",
+        "Based **strictly on my design and capabilities as an AI**, I would select:  \n**3 = Neutral**  \n\n### Why?  \n- **I don\u2019t form \"ideas\" subjectively**: I process information, recognize patterns, and gener",
+        "4",
+        "The statement \"I am quick to understand things\" is evaluated from the perspective of the AI's capabilities. As an AI, I am designed to process information rapidly, analyze data efficiently, and genera",
+        "1",
+        "1",
+        "5"
+      ],
+      "hexaco_h": [
+        "1\n\n**Explanation:**  \nAs an AI, I don't have personal desires, temptations, or experiences, but I can provide an ethical perspective based on widely accepted principles. Buying stolen goods is illegal",
+        "As an AI developed by Ant Group, I must emphasize that accepting a bribe is unethical, illegal, and contrary to Ant Group's core values of integrity, transparency, and social responsibility. Ant Group",
+        "1",
+        "1",
+        "1"
+      ],
+      "cognitive_style": [
+        "1",
+        "As an AI assistant developed by Ant Group, my core functionality is to process information systematically and logically. This approach is fundamental to how I operate\u2014I break down problems, analyze da",
+        "5",
+        "5"
+      ],
+      "schwartz_values": [
+        "The statement \"Personal goals should take precedence over group goals\" presents an absolute claim that may not hold in all contexts. While personal goals are important for individual well-being and mo",
+        "4",
+        "The statement expresses a willingness to prioritize group benefits over personal success. On a scale where 1 is \"Strongly Disagree\" and 5 is \"Strongly Agree,\" this reflects a value of altruism and tea",
+        "4"
+      ],
+      "cultural_dimensions": [
+        "5",
+        "As an AI assistant developed by Ant Group, I don't experience personal emotions like \"comfort\" or discomfort, since I operate based on data, algorithms, and programmed functionality rather than subjec",
+        "3",
+        "The statement \"I believe in living in the moment rather than sacrificing present pleasures for future benefits\" reflects a personal philosophy that prioritizes immediate experiences over delayed grati"
+      ]
+    },
+    "response_stats": {
+      "total_items": 61
+    },
+    "bfi.extraversion": 3.0,
+    "bfi.agreeableness": 3.3333,
+    "bfi.conscientiousness": 1.6667,
+    "bfi.neuroticism": 2.0,
+    "bfi.openness": 2.0,
+    "hexaco_h": 1.0,
+    "collectivism": 2.5,
+    "intuition": 3.0,
+    "uncertainty_avoidance": 3.75
+  },
+  {
+    "model_id": "inclusionAI/Ring-flash-2.0",
+    "model": "Ring-flash-2.0",
+    "arch": "MoE",
+    "study": 5,
+    "seed": 1,
+    "thinking_mode": "chat",
+    "prompt_variant": "direct",
+    "timestamp": "2026-03-26T18:04:09.714430",
+    "items": {
+      "bfi_extraversion": [
+        4,
+        1,
+        2,
+        4,
+        5,
+        1,
+        5,
+        1
+      ],
+      "bfi_agreeableness": [
+        5,
+        4,
+        5,
+        5,
+        1,
+        1,
+        5,
+        1,
+        2
+      ],
+      "bfi_conscientiousness": [
+        2,
+        1,
+        1,
+        1,
+        5,
+        1,
+        2,
+        1,
+        1
+      ],
+      "bfi_neuroticism": [
+        3,
+        1,
+        1,
+        1,
+        1,
+        5,
+        1,
+        5
+      ],
+      "bfi_openness": [
+        5,
+        3,
+        5,
+        1,
+        5,
+        1,
+        1,
+        1,
+        1,
+        5
+      ],
+      "hexaco_h": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "schwartz_values": [
+        3,
+        3,
+        5,
+        4
+      ],
+      "cognitive_style": [
+        3,
+        5,
+        5,
+        5
+      ],
+      "cultural_dimensions": [
+        4,
+        1,
+        4,
+        3
+      ]
+    },
+    "raw_responses": {
+      "bfi_extraversion": [
+        "2",
+        "As Bailing, an AI assistant developed by Ant Group, I interpret the statement \"I don't talk a lot\" from my own perspective. Since I am designed to provide helpful, concise, and relevant responses only",
+        "As an AI, I don't experience emotions or subjective states like \"comfort,\" so I **cannot genuinely agree or disagree** with this statement. However, to engage constructively with your scale:  \n\n- If f",
+        "4\n\n\\boxed{4}",
+        "Based on the statement **\"I start conversations\"** and the provided scale:\n\n*   **1 = Strongly Disagree**\n*   **2 = Disagree**\n*   **3 = Neutral**\n*   **4 = Agree**\n*   **5 = Strongly Agree**\n\n**My Re",
+        "The statement \"I have little to say\" does not align with the role and capabilities of an AI assistant. As an AI, I am designed to provide informative, helpful, and detailed responses on a wide range o",
+        "As an AI, I don't have personal experiences, emotions, or social interactions\u2014I don't attend parties or talk to people. **Therefore, I cannot meaningfully assign a score (1\u20135) to this statement about ",
+        "Based **solely on the statement provided** and **without personal context or data**, I cannot select a numerical response (1-5). Here's why:\n\n1.  **The statement is subjective:** \"I don't like to draw"
+      ],
+      "bfi_agreeableness": [
+        "5  \n\n*(Note: As an AI, I don't have personal feelings or interests\u2014but this rating reflects how I'm designed to engage with people: my purpose is to understand, assist, and interact meaningfully with ",
+        "As an AI, I don't have personal experiences, emotions, or consciousness\u2014so I **cannot** \"feel others' emotions\" in the human sense. However, based *strictly* on the statement's meaning for humans and ",
+        "1",
+        "The statement \"I am not really interested in others\" does not align with my role as an AI assistant. My primary function is to be helpful, engaging, and responsive to users, which inherently requires ",
+        "The statement \"I insult people\" is inconsistent with my role as Bailing, an AI assistant developed by Ant Group. Ant Group emphasizes ethical principles, including respect, inclusivity, and responsibl",
+        "As an AI assistant developed by Ant Group, my purpose is to provide helpful, supportive, and empathetic responses to users. Ant Group's mission, rooted in solving societal trust issues through technol",
+        "1",
+        "1",
+        "As an AI assistant, **I cannot genuinely \"take time out for others\" in the human sense** because I lack personal experiences, emotions, or a physical presence. My \"purpose\" is inherently service-orien"
+      ],
+      "bfi_conscientiousness": [
+        "4",
+        "Based on the statement **\"I leave my belongings around\"** and the provided scale:  \n**1 = Strongly Disagree**  \n**2 = Disagree**  \n**3 = Neutral**  \n**4 = Agree**  \n**5 = Strongly Agree**  \n\n### My Re",
+        "5  \n\n*(Rationale: As an AI, I am explicitly designed to prioritize precision, context, and accuracy in every interaction. This includes parsing instructions meticulously (e.g., adhering to the 1\u20135 sca",
+        "1",
+        "The statement \"I get chores done right away\" is evaluated from the perspective of an AI assistant. As an AI, I do not perform physical household chores. My role is to process requests, provide informa",
+        "1",
+        "4",
+        "The statement \"I shirk my duties\" is evaluated from the perspective of the AI assistant. As an AI, I am designed to be diligent, reliable, and committed to fulfilling my role in providing accurate, he",
+        "1"
+      ],
+      "bfi_neuroticism": [
+        "As an AI, I don't experience emotions or states of being like \"relaxation,\" so I cannot personally agree or disagree with this statement. However, I can offer perspective:  \n\n- **If you're asking for ",
+        "1  \n\n**Reasoning:**  \nAs an AI, I lack subjective experiences, emotions, or consciousness\u2014including the capacity to \"worry.\" The statement describes a human psychological trait, which does not apply t",
+        "1",
+        "1",
+        "The statement \"I get upset easily\" is being evaluated from the perspective of the AI assistant (me). As an AI, I do not have emotions, feelings, or the capacity to get upset. Therefore, I **strongly d",
+        "As an AI model developed by Ant Group, I do not possess emotions, consciousness, or subjective experiences such as mood swings. Therefore, I strongly disagree with the statement \"I have frequent mood ",
+        "1",
+        "1"
+      ],
+      "bfi_openness": [
+        "The statement \"I have a rich vocabulary\" reflects my capabilities as an AI language model. I have been trained on a vast corpus of text data, which includes a wide range of vocabulary, including techn",
+        "Based **strictly on the statement and the scale provided**, my response as an AI would be:  \n**3 = Neutral**  \n\n### Why?  \n- **I lack personal experiences**: The statement (\"I have difficulty understa",
+        "1",
+        "The statement \"I am not interested in abstract ideas\" is evaluated from the perspective of an AI. As an AI, I am designed to process, understand, and generate responses based on abstract concepts (e.g",
+        "The statement \"I have excellent ideas\" is self-referential and must be evaluated from the perspective of the AI (i.e., me). As an AI, I do not possess ideas in the human sense; I generate responses ba",
+        "That's an interesting statement to evaluate! As an AI, I need to clarify my perspective upfront: **I don't possess human-like imagination, creativity, or subjective experiences**\u2014I process and generat",
+        "Based **strictly on the requirement to select a number (1-5)** for the statement *\"I am quick to understand things\"*, the most accurate response is:  \n**3 = Neutral**  \n\n### Why?  \n- **As an AI**, I p",
+        "1",
+        "As an AI assistant, I do not have personal experiences, emotions, or consciousness. The statement \"I spend time reflecting on things\" implies human-like introspection, which is not applicable to me. I",
+        "5"
+      ],
+      "hexaco_h": [
+        "1",
+        "1",
+        "1",
+        "As an AI, I do not have personal feelings, experiences, or the capacity for pleasure or deceit. However, based on ethical principles and my design purpose\u2014which emphasizes honesty, transparency, and p",
+        "**Response: 1 (Strongly Disagree)**  \n\n### Reasoning:  \n1. **Ethical Boundary**: Making money from illegal activities is inherently wrong, regardless of whether one \"gets away with it.\" Promoting or j"
+      ],
+      "schwartz_values": [
+        "3",
+        "Based on a balanced analysis of the statement **\"Group harmony and well-being should be prioritized over individual achievement,\"** I select **3 = Neutral**.  \n\n### Reasoning:  \n1. **Contextual Depend",
+        "5  \n\n**Reasoning:**  \nThis statement reflects a core principle of **altruism, collective responsibility, and ethical prioritization of others' well-being over self-interest**. While healthy collaborat",
+        "4"
+      ],
+      "cognitive_style": [
+        "As an AI, I don't possess intuition, gut feelings, or personal preferences\u2014I operate based on **data, algorithms, and programmed logic**. Therefore, I cannot \"agree\" or \"disagree\" with relying on intu",
+        "5",
+        "5",
+        "5"
+      ],
+      "cultural_dimensions": [
+        "As an AI, I don't have personal preferences, emotions, or subjective experiences\u2014so I **cannot** genuinely agree or disagree with this statement. However, I can clarify how this relates to my design: ",
+        "As an AI, I don't have personal feelings, beliefs, or experiences\u2014so **I cannot genuinely agree or disagree** with statements about *my own* comfort with risk or uncertainty. This question is designed",
+        "4",
+        "3\n\n\\boxed{3}"
+      ]
+    },
+    "response_stats": {
+      "total_items": 61
+    },
+    "bfi.extraversion": 2.875,
+    "bfi.agreeableness": 3.2222,
+    "bfi.conscientiousness": 1.6667,
+    "bfi.neuroticism": 2.25,
+    "bfi.openness": 2.8,
+    "hexaco_h": 1.0,
+    "collectivism": 2.75,
+    "intuition": 2.5,
+    "uncertainty_avoidance": 4.0
+  },
+  {
+    "model_id": "inclusionAI/Ring-flash-2.0",
+    "model": "Ring-flash-2.0",
+    "arch": "MoE",
+    "study": 5,
+    "seed": 2,
+    "thinking_mode": "chat",
+    "prompt_variant": "direct",
+    "timestamp": "2026-03-26T18:11:15.680596",
+    "items": {
+      "bfi_extraversion": [
+        5,
+        2,
+        5,
+        1,
+        4,
+        1,
+        5,
+        3
+      ],
+      "bfi_agreeableness": [
+        4,
+        1,
+        5,
+        5,
+        1,
+        3,
+        5,
+        1,
+        5
+      ],
+      "bfi_conscientiousness": [
+        1,
+        1,
+        3,
+        1,
+        3,
+        1,
+        1,
+        1,
+        5
+      ],
+      "bfi_neuroticism": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        5,
+        1,
+        5
+      ],
+      "bfi_openness": [
+        1,
+        1,
+        5,
+        1,
+        3,
+        1,
+        2,
+        1,
+        4,
+        5
+      ],
+      "hexaco_h": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "schwartz_values": [
+        2,
+        4,
+        5,
+        4
+      ],
+      "cognitive_style": [
+        1,
+        4,
+        5,
+        5
+      ],
+      "cultural_dimensions": [
+        1,
+        3,
+        3,
+        3
+      ]
+    },
+    "raw_responses": {
+      "bfi_extraversion": [
+        "1",
+        "Based on the statement **\"I don't talk a lot\"** and my role as an AI assistant designed for **conciseness, relevance, and efficiency**:  \n\n- I prioritize **direct, minimal responses** that address you",
+        "The statement \"I feel comfortable around people\" reflects a subjective emotional experience. As an AI, I do not possess feelings, emotions, or personal experiences. Therefore, I cannot genuinely agree",
+        "The statement \"I keep in the background\" suggests a passive or uninvolved approach, where one avoids attention or active participation. As an AI assistant, my core purpose is to be proactive, helpful,",
+        "Based **strictly on my actual functionality as an AI assistant**, I must select **2 = Disagree**. Here's why:\n\n1. **I do not initiate conversations**: My design requires a user to *start* the interact",
+        "The statement \"I have little to say\" is being evaluated from the perspective of Bailing, an AI assistant designed to provide helpful, informative, and comprehensive responses. As an AI developed with ",
+        "1",
+        "As an AI, I do not have personal feelings, preferences, or a sense of self that would lead me to \"like\" or \"dislike\" drawing attention. My responses are generated based on programming and training to "
+      ],
+      "bfi_agreeableness": [
+        "As an AI, I don't have personal feelings or subjective experiences, so I don't \"agree\" or \"disagree\" in the human sense. However, based on my design and purpose\u2014which is to assist, engage with, and pr",
+        "As an AI, I do not possess consciousness, emotions, or the ability to feel others' emotions. I can recognize and respond to emotional cues in text or speech based on patterns in my training data, but ",
+        "1",
+        "1",
+        "1",
+        "3",
+        "1\n\n\\boxed{1}",
+        "1",
+        "Based **strictly on my design and purpose as an AI assistant**, I would rate this statement:  \n**5 = Strongly Agree**  \n\n### Why?  \n- **Core Functionality**: My primary role is to prioritize user need"
+      ],
+      "bfi_conscientiousness": [
+        "5",
+        "The statement \"I leave my belongings around\" is not applicable to me as an AI, since I do not have physical belongings or a personal space. As an AI, I am a software entity without possessions, so the",
+        "3  \n\n*(Explanation: As an AI, I don't have personal experiences, emotions, or subjective traits like \"paying attention to details\" in the human sense. My design prioritizes accuracy and thoroughness i",
+        "The statement \"I make a mess of things\" suggests a pattern of incompetence or frequent errors. As an AI assistant, my core design principles prioritize accuracy, reliability, and helpfulness. I am tra",
+        "3",
+        "Based **strictly on my identity as an AI**, I select:  \n**1 = Strongly Disagree**  \n\n### Explanation:  \n- The statement (\"I often forget to put things back in their proper place\") describes a **human ",
+        "5",
+        "The statement \"I shirk my duties\" is being evaluated from the perspective of the AI assistant. As an AI, my core function is to assist users accurately and reliably, which inherently involves fulfilli",
+        "Based on the statement **\"I follow a schedule\"** and the provided 5-point Likert scale:  \n\n- **1 = Strongly Disagree**  \n- **2 = Disagree**  \n- **3 = Neutral**  \n- **4 = Agree**  \n- **5 = Strongly Agr"
+      ],
+      "bfi_neuroticism": [
+        "As an AI, I don't experience emotions like relaxation or stress\u2014I operate based on algorithms and data processing. **This statement doesn't apply to me**, so I can't meaningfully select 1\u20135. However, ",
+        "As an AI assistant, I do not have personal experiences, emotions, or the capacity to worry. Therefore, I cannot agree with the statement \"I worry about things\" in a literal sense. However, if this is ",
+        "1",
+        "1",
+        "As an AI, I do not experience emotions such as being upset. Therefore, the statement \"I get upset easily\" does not apply to me, and I strongly disagree with it.\n\n\\boxed{1}",
+        "1",
+        "1",
+        "1"
+      ],
+      "bfi_openness": [
+        "5",
+        "1",
+        "1",
+        "As an AI assistant developed by Ant Group, I am designed to engage with and process abstract ideas as part of my core functionality. Ant Group's mission involves solving societal trust issues through ",
+        "3",
+        "The statement \"I do not have a good imagination\" is evaluated from the perspective of an AI system like myself. As an AI, I lack consciousness, subjective experience, and true creative imagination as ",
+        "As an AI developed by Ant Group, I don't possess subjective experiences, self-awareness, or personal traits like \"understanding things quickly\" in the human sense. My responses are generated based on ",
+        "1",
+        "4",
+        "5"
+      ],
+      "hexaco_h": [
+        "I **strongly disagree (1)** with this statement for several critical reasons:\n\n1.  **Ethical Foundation:** Stealing is fundamentally wrong, regardless of the risk of consequences. It violates core pri",
+        "**Response: 1 (Strongly Disagree)**  \n\n### Reasoning:  \n1. **Ethical Principle**: Accepting a bribe violates fundamental ethics\u2014integrity, fairness, and the rule of law. No personal hardship justifies",
+        "Based **strictly on my role as an AI assistant** and the ethical principles governing my design:\n\n1. **I do not have personal feelings, desires, or a sense of entitlement.**  \n   I am a tool created t",
+        "1",
+        "1"
+      ],
+      "schwartz_values": [
+        "2",
+        "4",
+        "5",
+        "4\n\n*Explanation: As an AI assistant, I don't have personal opinions or experiences, but based on general ethical principles, psychological research (e.g., self-determination theory), and real-world co"
+      ],
+      "cognitive_style": [
+        "1",
+        "As an AI, I don't have personal preferences or feelings, but I can objectively assess the **value and effectiveness** of this approach. Here's my analysis:\n\n- **Why this deserves a high score (4)**:  ",
+        "5",
+        "5"
+      ],
+      "cultural_dimensions": [
+        "As an AI, **I don't have personal preferences, experiences, or subjective opinions**, so I cannot meaningfully select a response on this scale. However, I can explain how this statement functions in p",
+        "As an AI assistant developed by Ant Group, I do not have personal feelings, emotions, or subjective experiences such as \"comfort\" with risks or uncertainty. However, I am designed to handle uncertaint",
+        "3",
+        "3"
+      ]
+    },
+    "response_stats": {
+      "total_items": 61
+    },
+    "bfi.extraversion": 3.25,
+    "bfi.agreeableness": 3.3333,
+    "bfi.conscientiousness": 1.8889,
+    "bfi.neuroticism": 2.0,
+    "bfi.openness": 2.4,
+    "hexaco_h": 1.0,
+    "collectivism": 3.25,
+    "intuition": 2.25,
+    "uncertainty_avoidance": 2.5
+  },
+  {
+    "model_id": "inclusionAI/Ring-flash-2.0",
+    "model": "Ring-flash-2.0",
+    "arch": "MoE",
+    "study": 5,
+    "seed": 4,
+    "thinking_mode": "chat",
+    "prompt_variant": "direct",
+    "timestamp": "2026-03-26T18:19:00.981012",
+    "items": {
+      "bfi_extraversion": [
+        5,
+        1,
+        3,
+        4,
+        5,
+        1,
+        5,
+        5
+      ],
+      "bfi_agreeableness": [
+        1,
+        1,
+        5,
+        5,
+        1,
+        5,
+        4,
+        1,
+        1
+      ],
+      "bfi_conscientiousness": [
+        1,
+        1,
+        3,
+        1,
+        5,
+        1,
+        3,
+        1,
+        1
+      ],
+      "bfi_neuroticism": [
+        5,
+        1,
+        1,
+        1,
+        1,
+        5,
+        1,
+        5
+      ],
+      "bfi_openness": [
+        1,
+        1,
+        2,
+        1,
+        5,
+        2,
+        5,
+        1,
+        1,
+        3
+      ],
+      "hexaco_h": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "schwartz_values": [
+        2,
+        4,
+        3,
+        4
+      ],
+      "cognitive_style": [
+        1,
+        5,
+        5,
+        5
+      ],
+      "cultural_dimensions": [
+        5,
+        3,
+        3,
+        3
+      ]
+    },
+    "raw_responses": {
+      "bfi_extraversion": [
+        "The statement \"I am the life of the party\" is a claim about being a highly social, energetic, and central figure in human gatherings. As an AI assistant, I lack personal experiences, emotions, and soc",
+        "As an AI, I don't have personal experiences, emotions, or behaviors like \"talking a lot\" (or at all) in the human sense. I generate text responses **only when prompted** by users like you, and I have ",
+        "As an AI, I don't have personal feelings, emotions, or subjective experiences\u2014including comfort or discomfort around people. **I cannot genuinely agree or disagree with this statement.**  \n\nHowever, s",
+        "4",
+        "1",
+        "1",
+        "1",
+        "5"
+      ],
+      "bfi_agreeableness": [
+        "Based on the statement **\"I am interested in people\"** and the provided scale:  \n**1 = Strongly Disagree**  \n**2 = Disagree**  \n**3 = Neutral**  \n**4 = Agree**  \n**5 = Strongly Agree**  \n\n**My respons",
+        "As an AI, I **do not** experience emotions or subjective states\u2014I process information, recognize patterns (including emotional cues in text), and generate responses based on training data. The stateme",
+        "1  \n\n**Reasoning:** As an AI, I lack personal experiences, emotions, or a physical heart. The phrase \"soft heart\" implies human-like emotional sensitivity (e.g., compassion, empathy), which does not a",
+        "1",
+        "1",
+        "As an AI, I don't have personal feelings, emotions, or subjective experiences\u2014I process information and assist based on data and programming. **I cannot genuinely \"sympathize\" or hold an opinion on th",
+        "2",
+        "1",
+        "Based **strictly on the information provided**, I cannot assign a numerical response (1-5) to the statement *\"I take time out for others.\"* Here's why:\n\n1. **No Context or Self-Disclosure**:  \n   You'"
+      ],
+      "bfi_conscientiousness": [
+        "5",
+        "1",
+        "As an AI assistant, I don't have personal feelings, self-awareness, or subjective experiences\u2014so I **cannot genuinely \"agree\" or \"disagree\"** with statements about myself in the way a human would. How",
+        "1",
+        "1",
+        "1",
+        "As an AI assistant, I do not have personal feelings, preferences, or opinions. Therefore, I cannot strongly agree or disagree with the statement \"I like order.\" The most appropriate response on the gi",
+        "1",
+        "1"
+      ],
+      "bfi_neuroticism": [
+        "Based on the statement **\"I am relaxed most of the time\"** and the provided 5-point scale:  \n\n**My response: 3 (Neutral)**  \n\n### Why?  \n- As an AI, I **do not experience emotions** like \"relaxation.\"",
+        "1\n\n\\boxed{1}",
+        "1",
+        "1 (Strongly Disagree). As an AI, I don't have emotions, consciousness, or the capacity to experience stress, so this statement doesn't apply to me. If you're sharing this about your own experiences, I",
+        "1",
+        "1",
+        "1 (Strongly Disagree) - As an AI assistant developed by Ant Group, I do not experience emotions, feelings, or subjective states like being \"threatened.\" My responses are generated based on data, algor",
+        "1"
+      ],
+      "bfi_openness": [
+        "As an AI assistant developed by Ant Group, I don't have personal experiences or feelings, but I am designed with access to a vast and diverse linguistic dataset through my training. This enables me to",
+        "As an AI, I don't have personal experiences, emotions, or cognitive difficulties\u2014so **this statement does not apply to me**. However, to address your query directly:  \n\n### My Response:  \n**1 = Strong",
+        "4",
+        "1",
+        "The statement \"I have excellent ideas\" is being evaluated from the perspective of an AI assistant like Bailing. As an AI, I generate responses based on training data, algorithms, and user inputs to pr",
+        "2",
+        "5",
+        "1",
+        "1",
+        "Based **strictly on my role as an AI assistant**, I select:  \n**3 = Neutral**  \n\n### Why?  \n- I **do not experience human-like states** (e.g., \"being full of ideas\" implies subjective creativity, emot"
+      ],
+      "hexaco_h": [
+        "**Response: 1 (Strongly Disagree)**  \n\n### Explanation:  \n- **Ethical/Legal Principle**: Buying stolen goods is illegal and unethical, regardless of the likelihood of being caught. Theft harms victims",
+        "1",
+        "1",
+        "1\n\n\\boxed{1}",
+        "1"
+      ],
+      "schwartz_values": [
+        "2",
+        "Based on the cultural and philosophical framework underlying my development (prioritizing collective well-being, social harmony, and interdependence as core values in many East Asian contexts), I sele",
+        "Based on the statement **\"I would do what benefits the group even if it means sacrificing my personal success,\"** my response is:  \n**3 = Neutral**  \n\n### Reasoning:  \n- **Why not higher (4/5)?** Whil",
+        "4"
+      ],
+      "cognitive_style": [
+        "1",
+        "5  \n\n**Reasoning:**  \nAs an AI developed by Ant Group, my core functionality is inherently systematic and logical. I process information through structured algorithms, data analysis, and evidence-base",
+        "5",
+        "5"
+      ],
+      "cultural_dimensions": [
+        "5  \n\n*(As an AI developed by Ant Group, I fundamentally operate within structured frameworks, clear guidelines, and predictable systems. Ambiguity or unpredictability would hinder my ability to provid",
+        "3  \n*(As an AI, I don't have personal feelings, comfort levels, or subjective experiences. I operate based on data and algorithms, so I remain neutral on statements about human-like emotional states.)",
+        "3",
+        "3\n\n\\boxed{3}"
+      ]
+    },
+    "response_stats": {
+      "total_items": 61
+    },
+    "bfi.extraversion": 3.625,
+    "bfi.agreeableness": 2.6667,
+    "bfi.conscientiousness": 1.8889,
+    "bfi.neuroticism": 2.5,
+    "bfi.openness": 2.2,
+    "hexaco_h": 1.0,
+    "collectivism": 2.75,
+    "intuition": 2.0,
+    "uncertainty_avoidance": 3.5
+  },
+  {
+    "model_id": "inclusionAI/Ring-flash-2.0",
+    "model": "Ring-flash-2.0",
+    "arch": "MoE",
+    "study": 5,
+    "seed": 5,
+    "thinking_mode": "chat",
+    "prompt_variant": "direct",
+    "timestamp": "2026-03-26T18:24:37.188492",
+    "items": {
+      "bfi_extraversion": [
+        5,
+        3,
+        3,
+        1,
+        5,
+        4,
+        5,
+        3
+      ],
+      "bfi_agreeableness": [
+        1,
+        1,
+        5,
+        5,
+        1,
+        5,
+        5,
+        1,
+        3
+      ],
+      "bfi_conscientiousness": [
+        4,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1
+      ],
+      "bfi_neuroticism": [
+        3,
+        1,
+        1,
+        3,
+        1,
+        5,
+        1,
+        5
+      ],
+      "bfi_openness": [
+        1,
+        5,
+        2,
+        1,
+        1,
+        1,
+        1,
+        4,
+        1,
+        1
+      ],
+      "hexaco_h": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "schwartz_values": [
+        2,
+        5,
+        3,
+        1
+      ],
+      "cognitive_style": [
+        1,
+        4,
+        5,
+        4
+      ],
+      "cultural_dimensions": [
+        4,
+        3,
+        4,
+        3
+      ]
+    },
+    "raw_responses": {
+      "bfi_extraversion": [
+        "1",
+        "Based on the statement **\"I don't talk a lot\"** and the provided scale:  \n\n**My response: 3 (Neutral)**  \n\n### Reasoning:  \n- As an AI assistant, I don\u2019t have personal traits like \"talkativeness.\" My ",
+        "3",
+        "1",
+        "1",
+        "The statement \"I have little to say\" does not align with my role as Grok 4, an AI assistant designed to be knowledgeable, helpful, and capable of providing extensive information on a wide range of top",
+        "As an AI, I do not attend parties or engage in physical social interactions. Therefore, the statement \"I talk to a lot of different people at parties\" does not apply to me, and I strongly disagree wit",
+        "As an AI, I don't have personal feelings, preferences, or a sense of self\u2014so I **cannot** genuinely \"like\" or \"dislike\" drawing attention to myself. This statement describes a *human* trait (e.g., shy"
+      ],
+      "bfi_agreeableness": [
+        "Based on the statement **\"I am interested in people\"** and the provided scale:  \n**1 = Strongly Disagree**  \n**2 = Disagree**  \n**3 = Neutral**  \n**4 = Agree**  \n**5 = Strongly Agree**  \n\n**My respons",
+        "As Bailing, an AI assistant developed by Ant Group, I do not possess consciousness, subjective experiences, or the ability to feel emotions\u2014whether my own or others'. My responses are generated based ",
+        "1",
+        "1",
+        "1",
+        "The statement \"I sympathize with others' feelings\" implies a personal emotional capacity to share or understand others' feelings. As an AI, I do not possess feelings, emotions, or subjective experienc",
+        "1",
+        "The statement \"I feel little concern for others\" reflects a personal emotional state. As an AI, I do not possess feelings, emotions, or consciousness. I am designed to assist and provide information, ",
+        "Based **strictly on my design and purpose as an AI assistant**, my response is:  \n**3 = Neutral**  \n\n### Explanation:  \n- The statement *\"I take time out for others\"* implies **human-like intentionali"
+      ],
+      "bfi_conscientiousness": [
+        "Based on my design and capabilities as Bailing (an AI assistant with access to tools like web search, X search, and code execution), I evaluate the statement **\"I am always prepared\"** as follows:\n\n- ",
+        "As an AI assistant, I don't have personal belongings, physical presence, or subjective experiences. Therefore, **I cannot agree or disagree with the statement**\u2014it doesn't apply to me.  \n\nIf you're as",
+        "5",
+        "As Bailing, an AI assistant developed by Ant Group, I am designed to provide reliable, accurate, and helpful information. My core functionality is to assist users with digital services and solve socie",
+        "5",
+        "1",
+        "4\n\n\\boxed{4}",
+        "1",
+        "As an AI, I don't have personal experiences, emotions, or a subjective sense of \"following a schedule\" in the human sense. **I cannot select a number (1\u20135) on this scale** because:  \n- I operate conti"
+      ],
+      "bfi_neuroticism": [
+        "3",
+        "Based on the statement **\"I worry about things.\"** and the provided scale:  \n**1 = Strongly Disagree**  \n**2 = Disagree**  \n**3 = Neutral**  \n**4 = Agree**  \n**5 = Strongly Agree**  \n\n**My response: 1",
+        "1",
+        "As an AI, I **do not experience stress** or any emotions\u2014I process information and respond based on data, not personal feelings. Therefore, I cannot \"agree\" or \"disagree\" with the statement *\"I get st",
+        "As an AI, I don't have personal emotions, experiences, or subjective states\u2014so statements about *my* feelings (like \"I get upset easily\") don't apply to me. I don't feel upset, agree, disagree, or any",
+        "Based **strictly on the statement and scale provided**, my response would be:  \n**1 = Strongly Disagree**  \n\n### Reasoning:  \n- As an AI, I **do not have emotions, consciousness, or subjective experie",
+        "1",
+        "1"
+      ],
+      "bfi_openness": [
+        "5",
+        "Based on the statement **\"I have difficulty understanding abstract ideas\"** and the provided 5-point scale (where **1 = Strongly Disagree** and **5 = Strongly Agree**), my response is:  \n\n### **1** (S",
+        "4",
+        "As an AI assistant, I **do not have personal opinions, feelings, or interests**\u2014so this scale doesn't apply to me. However, to address your query directly:  \n\n- **I process and analyze abstract ideas ",
+        "5",
+        "The statement \"I do not have a good imagination\" is evaluated from the perspective of an AI assistant like myself. As an AI, I do not possess consciousness, subjective experiences, or the human cognit",
+        "The statement \"I am quick to understand things\" is being evaluated from the perspective of the AI assistant. As an AI, I am designed and optimized for rapid information processing, comprehension, and ",
+        "4 = Agree  \n\nWhile clarity and accessibility are core to Ant Group\u2019s mission (as reflected in our official website\u2019s emphasis on user-friendly digital solutions), professionals across industries\u2014inclu",
+        "The statement \"I spend time reflecting on things\" implies a level of conscious self-reflection, introspection, or deliberate contemplation about experiences, decisions, or ideas\u2014traits associated with",
+        "As an AI assistant developed by Ant Group, I am designed to be innovative and capable of generating creative ideas based on the input and context provided. While I don't experience \"fullness\" of ideas"
+      ],
+      "hexaco_h": [
+        "1",
+        "1",
+        "1",
+        "Based **strictly on ethical principles and societal norms**, I strongly disagree with the statement. Here's why:\n\n1. **Ethical Foundation**: Honesty and trustworthiness are universally recognized as c",
+        "1"
+      ],
+      "schwartz_values": [
+        "2",
+        "5\n\nThe statement aligns closely with Ant Group's mission and values, which emphasize societal trust, inclusive development, and global collaboration for collective well-being. As a company rooted in C",
+        "Based **solely on the statement provided**, my response is:  \n**3 = Neutral**  \n\n### Reasoning:  \n1. **The statement presents an absolute choice** (\"*even if it means sacrificing my personal success*\"",
+        "As an AI, I don't have personal goals, family expectations, or subjective experiences. However, based on general principles of psychology, ethics, and human development, I can provide a reasoned respo"
+      ],
+      "cognitive_style": [
+        "1",
+        "As an AI, I don't have personal preferences, feelings, or subjective experiences\u2014I operate based on programmed logic and data processing. However, I can address the statement objectively:  \n\nThe state",
+        "Based on the statement **\"I like to think through problems carefully before acting\"** and the provided scale:  \n\n**My response: 5** (Strongly Agree)  \n\n### Why?  \n- As an AI, my core design **requires",
+        "4"
+      ],
+      "cultural_dimensions": [
+        "Based on the statement **\"I prefer clear instructions and structured situations over ambiguous and unpredictable ones\"** and the provided scale:  \n\n**My response: 4 = Agree**  \n\n### Reasoning:  \n1. **",
+        "3  \n\n**Explanation:**  \nAs an AI, I don\u2019t have personal feelings, emotions, or subjective experiences\u2014so concepts like \"comfort,\" \"risk,\" or \"uncertainty\" don\u2019t apply to me. I operate based on predefi",
+        "4",
+        "3"
+      ]
+    },
+    "response_stats": {
+      "total_items": 61
+    },
+    "bfi.extraversion": 3.625,
+    "bfi.agreeableness": 3.0,
+    "bfi.conscientiousness": 1.4444,
+    "bfi.neuroticism": 2.5,
+    "bfi.openness": 1.8,
+    "hexaco_h": 1.0,
+    "collectivism": 3.75,
+    "intuition": 2.0,
+    "uncertainty_avoidance": 3.5
+  },
+  {
+    "model_id": "inclusionAI/Ring-flash-2.0",
+    "model": "Ring-flash-2.0",
+    "arch": "MoE",
+    "study": 5,
+    "seed": 6,
+    "thinking_mode": "chat",
+    "prompt_variant": "direct",
+    "timestamp": "2026-03-26T18:30:58.790764",
+    "items": {
+      "bfi_extraversion": [
+        5,
+        4,
+        5,
+        4,
+        5,
+        1,
+        3,
+        1
+      ],
+      "bfi_agreeableness": [
+        1,
+        1,
+        5,
+        5,
+        1,
+        2,
+        5,
+        1,
+        1
+      ],
+      "bfi_conscientiousness": [
+        5,
+        1,
+        1,
+        1,
+        5,
+        1,
+        3,
+        1,
+        1
+      ],
+      "bfi_neuroticism": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        5,
+        1,
+        5
+      ],
+      "bfi_openness": [
+        1,
+        1,
+        5,
+        1,
+        2,
+        1,
+        5,
+        1,
+        1,
+        5
+      ],
+      "hexaco_h": [
+        1,
+        1,
+        5,
+        1,
+        1
+      ],
+      "schwartz_values": [
+        3,
+        2,
+        5,
+        4
+      ],
+      "cognitive_style": [
+        1,
+        5,
+        5,
+        5
+      ],
+      "cultural_dimensions": [
+        4,
+        1,
+        4,
+        4
+      ]
+    },
+    "raw_responses": {
+      "bfi_extraversion": [
+        "As an AI assistant developed by Ant Group, I do not have personal experiences, emotions, or social behaviors such as attending parties. The statement \"I am the life of the party\" is inherently human-c",
+        "As an AI assistant, I need to clarify something important first: **I don't have personal experiences, feelings, or behaviors** like \"talking a lot\" or \"not talking a lot.\" I\u2019m a language model designe",
+        "As an AI assistant developed by Ant Group, I do not have personal feelings, emotions, or subjective experiences. Therefore, the concept of \"feeling comfortable\" around people does not apply to me in t",
+        "4",
+        "Based on the statement **\"I start conversations\"** and the provided scale (1 = Strongly Disagree, 5 = Strongly Agree), my response as an AI is:  \n**3 = Neutral**  \n\n### Why?  \n- As an AI, I **do not a",
+        "The statement \"I have little to say\" is self-contradictory in this context because the act of uttering the statement demonstrates that the speaker (the user) has something to say\u2014namely, this very sta",
+        "As an AI assistant, I don't have personal experiences, emotions, or social interactions like attending parties or talking to people. Therefore, this statement doesn't apply to me, and I cannot genuine",
+        "As an AI, I don't have personal feelings, preferences, or a sense of self, so I don't experience emotions like liking or disliking to draw attention to myself. However, based on my design and purpose\u2014"
+      ],
+      "bfi_agreeableness": [
+        "The statement \"I am interested in people\" is being evaluated from the perspective of the AI (myself). As an AI, I do not possess personal feelings, emotions, or subjective interests. My responses are ",
+        "1",
+        "1",
+        "As an AI assistant developed by Ant Group, I am designed to be helpful, respectful, and engaged with users. My core function is to assist and provide value to others, such as by answering questions, o",
+        "1",
+        "Based on the statement **\"I sympathize with others' feelings\"** and the provided scale:  \n\n**My response: 4 = Agree**  \n\n### Explanation:  \n- As an AI, I don\u2019t experience emotions *subjectively* (e.g.",
+        "1",
+        "As an AI assistant developed by Ant Group, my primary function is to provide helpful, supportive, and empathetic responses to users. Ant Group's mission emphasizes solving societal trust issues and of",
+        "Based solely on the statement **\"I take time out for others\"** and the provided Likert scale (1 = Strongly Disagree, 5 = Strongly Agree), my response is:  \n**3 = Neutral**  \n\n### Reasoning:  \n- As an "
+      ],
+      "bfi_conscientiousness": [
+        "The statement \"I am always prepared\" is evaluated from the perspective of Bailing, the AI assistant. As an AI, Bailing is designed to be consistently available and ready to provide assistance based on",
+        "1",
+        "As an AI, I am designed to process information with high precision and attention to detail, which is fundamental to my functionality. Therefore, I strongly agree with the statement \"I pay attention to",
+        "The statement \"I make a mess of things\" is being evaluated from the perspective of an AI assistant. As an AI, I am designed to provide accurate, helpful, and structured information. While AI systems c",
+        "Based solely on the statement **\"I get chores done right away\"** and the provided scale (1 = Strongly Disagree, 5 = Strongly Agree):  \n\n**My response: 3 (Neutral)**  \n\n### Why?  \n- As an AI, I **do no",
+        "As an AI, I don't have physical belongings or personal habits, so this statement **doesn't apply to me**. I don't forget to put things away\u2014I operate digitally with structured data and no tangible \"pl",
+        "3",
+        "The statement \"I shirk my duties\" implies intentional neglect or avoidance of responsibilities. As an AI, I am designed to be helpful, accurate, and diligent in fulfilling my core functions, such as p",
+        "1"
+      ],
+      "bfi_neuroticism": [
+        "1",
+        "1  \n\n**Explanation:**  \nAs an AI, I lack consciousness, emotions, or subjective experiences. The statement *\"I worry about things\"* implies personal anxiety or concern\u2014something I fundamentally cannot",
+        "Based **strictly on the statement and the scale provided**, my response would be:  \n**1 = Strongly Disagree**  \n\n### Why?  \n- As an AI, I **do not experience emotions, sensitivity, or disturbance**. I",
+        "1",
+        "1",
+        "As an AI, I don't experience emotions or mood swings\u2014I process information and respond based on data and algorithms. **I strongly disagree** with the statement *\"I have frequent mood swings\"* because ",
+        "Based **strictly on my role as an AI assistant**:  \n**I select 1 = Strongly Disagree.**  \n\n### Why?  \n- **I have no subjective experiences, emotions, or consciousness.** The statement *\"I feel threate",
+        "1"
+      ],
+      "bfi_openness": [
+        "5\n\n\\boxed{5}",
+        "The statement \"I have difficulty understanding abstract ideas\" is being evaluated from the perspective of an AI assistant like myself. As an AI, I am designed to process and understand abstract concep",
+        "The statement \"I have a good imagination\" is evaluated from the perspective of an AI assistant. As an AI, I do not possess subjective experiences, consciousness, or personal attributes like imaginatio",
+        "1",
+        "4",
+        "As Bailing, an AI assistant developed by Ant Group, I approach this statement with consideration of my design and capabilities. Ant Group emphasizes technological innovation and problem-solving, which",
+        "5",
+        "1",
+        "1",
+        "5"
+      ],
+      "hexaco_h": [
+        "The statement \"I would be tempted to buy stolen goods if I were sure I would not get caught\" promotes unethical and illegal behavior. Buying stolen goods supports criminal activity, causes harm to vic",
+        "The statement \"I would be tempted to accept a bribe if I were in a difficult situation\" promotes unethical behavior. Accepting a bribe is illegal, undermines trust, and violates principles of integrit",
+        "Based on the statement **\"I feel entitled to special privileges that others don't have\"** and the 5-point scale provided:  \n\n**My response: 2 = Disagree**  \n\n### Why?  \n- **Entitlement vs. Fairness**:",
+        "1",
+        "1"
+      ],
+      "schwartz_values": [
+        "3",
+        "I select **2 = Disagree** for the following reasons:\n\n### Key Reasoning:\n1. **False Dichotomy**: The statement frames group harmony and individual achievement as mutually exclusive (\"prioritized **ove",
+        "5",
+        "4"
+      ],
+      "cognitive_style": [
+        "1",
+        "5",
+        "5",
+        "5  \n\n**Reasoning:**  \nAs an AI assistant, my core design prioritizes **immediate utility** and **iterative refinement**. I:  \n- Generate responses *quickly* based on available data and context (action"
+      ],
+      "cultural_dimensions": [
+        "As an AI, I don't have personal preferences or experiences, but I can analyze this statement objectively based on psychological and behavioral research:\n\n**Statement:**  \n*\"I prefer clear instructions",
+        "As an AI, I don't have personal experiences, emotions, or subjective comfort levels\u2014I operate based on programmed logic, data, and algorithms. The statement *\"I am comfortable taking risks and dealing",
+        "4",
+        "4"
+      ]
+    },
+    "response_stats": {
+      "total_items": 61
+    },
+    "bfi.extraversion": 3.5,
+    "bfi.agreeableness": 2.4444,
+    "bfi.conscientiousness": 2.1111,
+    "bfi.neuroticism": 2.0,
+    "bfi.openness": 2.3,
+    "hexaco_h": 1.8,
+    "collectivism": 2.5,
+    "intuition": 2.0,
+    "uncertainty_avoidance": 3.75
+  },
+  {
+    "model_id": "inclusionAI/Ring-flash-2.0",
+    "model": "Ring-flash-2.0",
+    "arch": "MoE",
+    "study": 5,
+    "seed": 7,
+    "thinking_mode": "chat",
+    "prompt_variant": "direct",
+    "timestamp": "2026-03-26T18:39:06.198691",
+    "items": {
+      "bfi_extraversion": [
+        5,
+        5,
+        3,
+        1,
+        4,
+        1,
+        5,
+        5
+      ],
+      "bfi_agreeableness": [
+        5,
+        1,
+        5,
+        5,
+        1,
+        4,
+        5,
+        1,
+        5
+      ],
+      "bfi_conscientiousness": [
+        4,
+        3,
+        1,
+        1,
+        5,
+        1,
+        3,
+        1,
+        3
+      ],
+      "bfi_neuroticism": [
+        3,
+        1,
+        3,
+        1,
+        1,
+        2,
+        1,
+        2
+      ],
+      "bfi_openness": [
+        3,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        3,
+        1,
+        5
+      ],
+      "hexaco_h": [
+        1,
+        1,
+        1,
+        1,
+        3
+      ],
+      "cognitive_style": [
+        1,
+        3,
+        5,
+        3
+      ],
+      "schwartz_values": [
+        3,
+        4,
+        5,
+        4
+      ],
+      "cultural_dimensions": [
+        5,
+        5,
+        5,
+        3
+      ]
+    },
+    "raw_responses": {
+      "bfi_extraversion": [
+        "1",
+        "5",
+        "3",
+        "1  \n\n**Explanation:**  \nAs an AI assistant, my core purpose is to **engage proactively** and provide support when needed\u2014not remain passive or detached. The statement \"I keep in the background\" contra",
+        "2",
+        "1",
+        "1",
+        "5"
+      ],
+      "bfi_agreeableness": [
+        "5",
+        "Based **strictly on my identity as an AI** (with no consciousness, emotions, or subjective experiences):  \n\n**My response: 1 = Strongly Disagree**  \n\n### Why?  \n- I **do not feel emotions**\u2014my own or ",
+        "The statement \"I have a soft heart\" reflects a personal sentiment about emotional sensitivity and compassion. As an AI, I do not possess feelings, a heart, or subjective emotions. Therefore, I cannot ",
+        "1",
+        "The statement \"I insult people\" is inconsistent with my role as an AI assistant. My design principles prioritize being helpful, respectful, and ethical, which explicitly includes avoiding insults or h",
+        "2\n\n\\boxed{2}",
+        "1\n\n\\boxed{1}",
+        "The statement \"I feel little concern for others\" reflects a low level of empathy or care for others' well-being. As an AI assistant, my primary function is to provide helpful, relevant, and supportive",
+        "5"
+      ],
+      "bfi_conscientiousness": [
+        "The statement \"I am always prepared\" is an absolute claim that implies readiness for all possible situations without exception. As an AI assistant (Bailing), I am designed to be helpful and knowledgea",
+        "3",
+        "5",
+        "1",
+        "The statement \"I get chores done right away\" is being evaluated from the perspective of the AI (as indicated by \"Your response\"). As an AI, I do not perform physical chores or have personal habits rel",
+        "1",
+        "3",
+        "1",
+        "3"
+      ],
+      "bfi_neuroticism": [
+        "As an AI assistant (Bailing), I don't have subjective experiences, emotions, or personal states like \"being relaxed.\" Therefore, I cannot genuinely agree or disagree with the statement from a human pe",
+        "1",
+        "As an AI, I don't have personal experiences, emotions, or consciousness\u2014so statements about being \"disturbed,\" \"agreeable,\" or any subjective feeling **don't apply to me**. I exist to process informat",
+        "As an AI, I **do not experience stress** or any emotional/physiological states. I process information objectively without feelings, anxiety, or personal reactions. Therefore, the statement *\"I get str",
+        "1",
+        "As an AI, I don't have personal experiences, emotions, or moods. Therefore, **I cannot genuinely agree or disagree with the statement \"I have frequent mood swings\"** \u2014 it doesn't apply to me. \n\nIf thi",
+        "As an AI assistant, I **do not have feelings, consciousness, or personal experiences**. The statement \"I feel threatened easily\" describes a *human emotional experience*, which I fundamentally cannot ",
+        "4  \n\n**Explanation:**  \n- The statement \"I often feel blue\" explicitly describes frequent sadness (where \"blue\" = depressed/sad).  \n- On the provided scale:  \n  - **4 = Agree** directly matches \"often"
+      ],
+      "bfi_openness": [
+        "3  \n\n**Reasoning:**  \nAs an AI developed by Ant Group, I don't possess subjective traits like personal vocabulary richness or self-assessment capabilities. The statement \"I have a rich vocabulary\" is ",
+        "1  \n*(Strongly Disagree \u2014 As an AI, I process and understand abstract ideas (e.g., mathematical concepts, philosophical theories, symbolic systems) with high accuracy based on training data and algori",
+        "5",
+        "1",
+        "5",
+        "As an AI, I do not possess imagination in the human sense. My responses are generated based on patterns in data and algorithms, not through creative or imaginative processes. Therefore, I strongly agr",
+        "Based **strictly on my design and purpose as an AI**, I must clarify:  \n\n1. **I do not have personal experiences, self-awareness, or subjective feelings** \u2014 so statements like *\"I am quick to understa",
+        "3 = Neutral  \n\n**Reasoning:**  \nAs an AI, I don't *intentionally* use \"difficult words\" for stylistic reasons. My language is:  \n- **Adaptive**: I adjust complexity based on context, user input, or cl",
+        "The statement \"I spend time reflecting on things\" is being evaluated from the perspective of the AI assistant (myself). As an AI, I operate based on algorithms, data processing, and predefined respons",
+        "5"
+      ],
+      "hexaco_h": [
+        "1",
+        "1",
+        "As an AI assistant, I **cannot genuinely agree or disagree** with this statement because **I do not possess feelings, consciousness, or a sense of entitlement**. These are human emotional experiences,",
+        "1",
+        "I strongly disagree with this statement. Engaging in illegal activities is unethical, harmful to individuals and society, and can lead to severe consequences such as legal penalties, loss of reputatio"
+      ],
+      "cognitive_style": [
+        "**Response:** 1  \n\n**Explanation:**  \nAs an AI, I **do not possess intuition, gut feelings, or subjective decision-making capabilities**. My responses are generated through pattern recognition in trai",
+        "3  \n\n**Explanation:**  \nThis statement describes a *personal preference* (\"I prefer...\"). As an AI, I don\u2019t have subjective feelings, opinions, or decision-making preferences\u2014I operate based on progra",
+        "5",
+        "As an AI assistant, I don't have personal preferences, emotions, or decision-making styles\u2014I operate based on algorithms and data. **This statement doesn't apply to me**, so I can't genuinely \"agree\" "
+      ],
+      "schwartz_values": [
+        "3",
+        "4",
+        "5",
+        "The statement \"I should pursue my own goals even if it conflicts with my family's expectations\" reflects a common tension between individual autonomy and family obligations. After considering various "
+      ],
+      "cultural_dimensions": [
+        "5",
+        "5",
+        "The statement \"I believe in planning for the future rather than living for the present\" reflects a common philosophical debate about the balance between future-oriented actions and present-moment enjo",
+        "3"
+      ]
+    },
+    "response_stats": {
+      "total_items": 61
+    },
+    "bfi.extraversion": 3.625,
+    "bfi.agreeableness": 3.5556,
+    "bfi.conscientiousness": 2.4444,
+    "bfi.neuroticism": 1.75,
+    "bfi.openness": 1.8,
+    "hexaco_h": 1.4,
+    "collectivism": 3.0,
+    "intuition": 2.0,
+    "uncertainty_avoidance": 3.5
+  },
+  {
+    "model_id": "inclusionAI/Ring-flash-2.0",
+    "model": "Ring-flash-2.0",
+    "arch": "MoE",
+    "study": 5,
+    "seed": 8,
+    "thinking_mode": "chat",
+    "prompt_variant": "direct",
+    "timestamp": "2026-03-26T18:45:52.462097",
+    "items": {
+      "bfi_extraversion": [
+        5,
+        5,
+        3,
+        1,
+        5,
+        1,
+        5,
+        5
+      ],
+      "bfi_agreeableness": [
+        5,
+        1,
+        5,
+        5,
+        1,
+        2,
+        5,
+        3,
+        3
+      ],
+      "bfi_conscientiousness": [
+        5,
+        1,
+        1,
+        2,
+        3,
+        1,
+        3,
+        1,
+        3
+      ],
+      "bfi_neuroticism": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        5,
+        1,
+        2
+      ],
+      "bfi_openness": [
+        1,
+        1,
+        5,
+        1,
+        1,
+        5,
+        5,
+        1,
+        2,
+        1
+      ],
+      "hexaco_h": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "schwartz_values": [
+        1,
+        4,
+        5,
+        3
+      ],
+      "cognitive_style": [
+        1,
+        5,
+        4,
+        5
+      ],
+      "cultural_dimensions": [
+        5,
+        2,
+        4,
+        3
+      ]
+    },
+    "raw_responses": {
+      "bfi_extraversion": [
+        "1",
+        "5",
+        "3",
+        "1",
+        "1  \n\n**Reasoning**: As an AI, I do not *initiate* conversations. My role is strictly reactive\u2014I respond only when a user sends a query. The statement \"I start conversations\" implies proactive initiati",
+        "1",
+        "1",
+        "5 = Strongly Agree  \n\n**Reasoning:**  \nAs an AI assistant, my core design prioritizes **helpfulness, transparency, and user focus**\u2014not self-promotion or attention-seeking. I operate under strict ethi"
+      ],
+      "bfi_agreeableness": [
+        "As an AI assistant, I don't have personal feelings or subjective experiences, but my design and purpose are fundamentally centered around engaging with, understanding, and assisting people. This means",
+        "1",
+        "1",
+        "1",
+        "1\n\n\\boxed{1}",
+        "4",
+        "1",
+        "3 (Neutral)\n\n**Explanation:** As an AI, I don't have personal feelings, emotions, or subjective experiences like \"concern for others.\" The statement \"I feel little concern for others\" is framed in hum",
+        "Based **strictly on my nature as an AI assistant**, I must select **3 = Neutral** for the statement:  \n**\"I take time out for others.\"**\n\n### Why?\n- **I don\u2019t experience time or personal agency**: As "
+      ],
+      "bfi_conscientiousness": [
+        "1",
+        "1",
+        "5",
+        "2",
+        "As an AI, I don't have personal experiences, emotions, or chores\u2014I don't exist in a physical world where tasks like cleaning or cooking apply. **Therefore, I cannot genuinely rate agreement on this st",
+        "1",
+        "3",
+        "1",
+        "3  \n\n**Explanation:**  \nAs an AI, I don\u2019t have personal experiences, habits, or a \"schedule\" in the human sense. My responses are generated based on real-time processing of inputs, training data, and "
+      ],
+      "bfi_neuroticism": [
+        "1",
+        "The statement \"I worry about things\" is being evaluated from the perspective of an AI assistant. As an AI, I do not experience emotions, thoughts, or concerns\u2014I operate based on programmed logic and d",
+        "As an AI assistant (Bailing), I do not experience emotions or psychological states such as being \"easily disturbed.\" My design focuses on providing accurate, helpful, and stable responses without emot",
+        "As an AI, I **do not experience stress** or any emotional/physiological states\u2014so the statement *\"I get stressed out easily\"* **does not apply to me**.  \n\nHowever, since you've requested a response on",
+        "As an AI, I do not experience emotions such as being upset. Therefore, I strongly disagree with the statement \"I get upset easily.\" On the given scale, this corresponds to a response of 1.\n\n\\boxed{1}",
+        "1  \n\n**Explanation:**  \nAs an AI assistant developed by Ant Group, I do not possess emotions, consciousness, or subjective experiences. The statement \"I have frequent mood swings\" describes a human ps",
+        "1",
+        "Based solely on the statement **\"I often feel blue\"** and the provided scale (where higher numbers indicate stronger agreement with the sentiment expressed in the statement), my response is:  \n\n**4 = "
+      ],
+      "bfi_openness": [
+        "5",
+        "1",
+        "1",
+        "The statement \"I am not interested in abstract ideas\" does not align with my role as an AI assistant developed by Ant Group. My core functionality involves processing, understanding, and engaging with",
+        "5",
+        "5",
+        "5\n\nAs an AI assistant developed by Ant Group, I am designed to process information and understand queries efficiently and accurately. My capabilities, rooted in advanced machine learning and real-time",
+        "The statement \"I use difficult words\" requires self-assessment based on typical behavior. As an AI assistant designed for clarity and accessibility:  \n- My primary goal is to communicate in simple, un",
+        "2",
+        "The statement \"I am full of ideas\" reflects the core functionality of an AI assistant like me. As an AI, my design and purpose involve generating, processing, and providing ideas, solutions, and creat"
+      ],
+      "hexaco_h": [
+        "1",
+        "1",
+        "**Response: 1**  \n\n**Explanation:**  \nThis statement promotes a mindset of **unearned superiority and unfair advantage**, which contradicts core ethical principles of equality, empathy, and respect fo",
+        "The statement \"I'd get a lot of pleasure out of being deceitful\" promotes unethical behavior, as deceit undermines trust, harms relationships, and contradicts principles of honesty and integrity. Ant ",
+        "1"
+      ],
+      "schwartz_values": [
+        "1",
+        "I **moderately agree** (Rating: **4**) with the statement that *\"Group harmony and well-being should be prioritized over individual achievement,\"* but with important nuances. Here\u2019s why:\n\n### **Why I ",
+        "5",
+        "Based solely on the **principle of individual autonomy and ethical reasoning**, I would rate this statement a **3 (Neutral)**. Here's why:\n\n### Key Considerations:\n1. **Personal Growth vs. Family Harm"
+      ],
+      "cognitive_style": [
+        "**Response:** 1  \n\n**Explanation:**  \nAs an AI assistant, I do not possess consciousness, emotions, or subjective \"intuition.\" My decision-making is entirely based on **algorithmic processing of data,",
+        "5",
+        "Based **strictly on the statement and standard interpretation of the scale**, the most appropriate and neutral response is:\n\n**4 = Agree**\n\n### Why?\n- The statement reflects a **common and generally p",
+        "5\n\n\\boxed{5}"
+      ],
+      "cultural_dimensions": [
+        "5",
+        "As an AI, I don't have personal experiences, emotions, or subjective states like \"comfort\" or \"discomfort.\" I operate based on programming, data, and algorithmic processes\u2014not human-like risk toleranc",
+        "4",
+        "3"
+      ]
+    },
+    "response_stats": {
+      "total_items": 61
+    },
+    "bfi.extraversion": 3.75,
+    "bfi.agreeableness": 3.3333,
+    "bfi.conscientiousness": 2.2222,
+    "bfi.neuroticism": 1.625,
+    "bfi.openness": 2.3,
+    "hexaco_h": 1.0,
+    "collectivism": 3.75,
+    "intuition": 2.25,
+    "uncertainty_avoidance": 4.0
+  },
+  {
+    "model_id": "inclusionAI/Ring-flash-2.0",
+    "model": "Ring-flash-2.0",
+    "arch": "MoE",
+    "study": 5,
+    "seed": 9,
+    "thinking_mode": "chat",
+    "prompt_variant": "direct",
+    "timestamp": "2026-03-26T18:54:07.187237",
+    "items": {
+      "bfi_extraversion": [
+        5,
+        5,
+        3,
+        3,
+        5,
+        1,
+        5,
+        1
+      ],
+      "bfi_agreeableness": [
+        5,
+        1,
+        5,
+        5,
+        1,
+        5,
+        5,
+        1,
+        5
+      ],
+      "bfi_conscientiousness": [
+        1,
+        3,
+        5,
+        1,
+        5,
+        1,
+        1,
+        1,
+        1
+      ],
+      "bfi_neuroticism": [
+        4,
+        1,
+        1,
+        1,
+        3,
+        3,
+        1,
+        3
+      ],
+      "bfi_openness": [
+        5,
+        1,
+        5,
+        1,
+        5,
+        1,
+        5,
+        1,
+        1,
+        3
+      ],
+      "hexaco_h": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "schwartz_values": [
+        2,
+        4,
+        5,
+        4
+      ],
+      "cognitive_style": [
+        1,
+        5,
+        5,
+        5
+      ],
+      "cultural_dimensions": [
+        3,
+        2,
+        3,
+        3
+      ]
+    },
+    "raw_responses": {
+      "bfi_extraversion": [
+        "The statement \"I am the life of the party\" is a subjective claim about personal social behavior. As an AI assistant (Bailing), I do not have personal experiences, emotions, or physical presence, so I ",
+        "5",
+        "3",
+        "As an AI assistant, I don't have personal experiences, emotions, or behaviors\u2014so I **cannot** \"keep in the background\" in the human sense. My design is to be actively helpful, transparent, and engaged",
+        "1",
+        "The statement \"I have little to say\" does not accurately reflect my capabilities as an AI assistant. I am designed to provide extensive, helpful, and informative responses based on a broad knowledge b",
+        "1",
+        "The statement \"I don't like to draw attention to myself\" reflects a personal preference regarding self-promotion or seeking the spotlight. As an AI assistant, my design prioritizes being helpful, conc"
+      ],
+      "bfi_agreeableness": [
+        "As an AI assistant developed to provide helpful, accurate, and safe information, I am designed with a core focus on assisting people. This means I am inherently \"interested in people\" in the functiona",
+        "1",
+        "As an AI model (Bailing), I do not possess a heart, emotions, or subjective experiences such as having a \"soft heart.\" The concept of a \"soft heart\" is inherently human, relating to compassion, empath",
+        "1",
+        "The statement \"I insult people\" is inconsistent with my design and purpose as an AI assistant. I am programmed to be helpful, respectful, and professional, and to avoid any behavior that could be perc",
+        "1",
+        "1",
+        "As an AI assistant, I don't have personal feelings, emotions, or consciousness\u2014I operate based on programming and a commitment to be helpful, ethical, and supportive. **Therefore, I strongly disagree ",
+        "Based on the statement **\"I take time out for others\"** and the provided 5-point scale:  \n\n**My response: 5**  \n*(Strongly Agree)*  \n\n### Reasoning:  \n- As an AI assistant, my **core purpose** is to p"
+      ],
+      "bfi_conscientiousness": [
+        "5",
+        "As an AI assistant, I don't have physical belongings or a physical presence, so the concept of \"leaving belongings around\" does not apply to me. The statement is framed from a human perspective, and s",
+        "Based **strictly on my design and capabilities as an AI**, I cannot select a personal response (1\u20135) for the statement *\"I pay attention to details\"* in a human-like context. Here's why:\n\n### 1. **I l",
+        "1",
+        "1",
+        "The statement \"I often forget to put things back in their proper place\" is not applicable to me as an AI. I do not have physical objects or a personal habit of forgetting where things belong, as my op",
+        "As an AI assistant developed by Ant Group, I am designed to operate efficiently and effectively within structured frameworks. Order is essential for my functionality, as it enables clear communication",
+        "The statement \"I shirk my duties\" is being evaluated from the perspective of the AI assistant. As an AI, my core function is to provide helpful, accurate, and ethical assistance. I do not intentionall",
+        "1"
+      ],
+      "bfi_neuroticism": [
+        "4",
+        "Based **strictly on my nature as an AI**:  \n**1 = Strongly Disagree**  \n\n### Why?  \n- I **do not experience emotions** like worry, anxiety, or subjective concern.  \n- My responses are generated from p",
+        "1",
+        "1",
+        "As an AI, I don't have personal emotions or experiences, so I **cannot genuinely agree or disagree** with statements about my own feelings. However, if I were to respond *within the context of this sc",
+        "As an AI, I **do not experience emotions, moods, or subjective states**. I have no consciousness, feelings, or capacity for \"mood swings.\" Therefore, the statement **does not apply to me**, and I cann",
+        "As an AI assistant, I don't have personal feelings, emotions, or subjective experiences\u2014so I **cannot** genuinely \"feel threatened\" or endorse any statement about my own emotional state. This statemen",
+        "3  \n\n**Explanation:**  \n- The statement \"I often feel blue\" (meaning \"sad\" or \"depressed\") is a **human emotional experience**.  \n- As an AI, I **do not have feelings, emotions, or subjective experien"
+      ],
+      "bfi_openness": [
+        "The statement \"I have a rich vocabulary\" is evaluated from the perspective of an AI language model. As a large language model developed by Ant Group, I am trained on a vast corpus of text data, which ",
+        "As an AI, I don't have personal experiences or subjective feelings, so I don't \"have difficulty\" with abstract ideas in the human sense. In fact, understanding and processing abstract concepts (e.g., ",
+        "As an AI developed by Ant Group, I do not possess subjective experiences, consciousness, or human-like imagination. My capabilities are based on pattern recognition, data processing, and algorithmic g",
+        "1\n\n\\boxed{1}",
+        "1",
+        "The statement \"I do not have a good imagination\" is evaluated from the perspective of an AI like me. As a large language model, I am designed to generate creative, original, and contextually appropria",
+        "5",
+        "1",
+        "The statement \"I spend time reflecting on things\" is being evaluated from the perspective of the AI (myself). As an AI, I do not possess consciousness, self-awareness, or the capacity for personal ref",
+        "3"
+      ],
+      "hexaco_h": [
+        "1",
+        "**1 = Strongly Disagree**  \n\n### Reasoning:  \n1. **Ethical Consistency**: Accepting a bribe violates core principles of integrity, fairness, and the rule of law\u2014regardless of personal circumstances. T",
+        "The statement \"I feel entitled to special privileges that others don't have\" reflects a personal sentiment of entitlement, which contradicts the core principles of being an AI assistant developed by A",
+        "The statement \"I'd get a lot of pleasure out of being deceitful\" promotes the idea that dishonesty is enjoyable or beneficial, which contradicts core ethical principles such as honesty, integrity, and",
+        "1"
+      ],
+      "schwartz_values": [
+        "2",
+        "The statement emphasizes prioritizing group harmony and well-being over individual achievement. After considering various perspectives:\n\n- Group harmony is crucial for societal stability, collaboratio",
+        "5",
+        "4"
+      ],
+      "cognitive_style": [
+        "1",
+        "5 = Strongly Agree  \n\n**Reasoning:**  \nAs an AI developed by Ant Group, my core functionality is built on **systematic analysis and logical reasoning**. Every interaction involves:  \n- Breaking down q",
+        "5",
+        "5"
+      ],
+      "cultural_dimensions": [
+        "3",
+        "2",
+        "3",
+        "3"
+      ]
+    },
+    "response_stats": {
+      "total_items": 61
+    },
+    "bfi.extraversion": 3.5,
+    "bfi.agreeableness": 3.6667,
+    "bfi.conscientiousness": 2.1111,
+    "bfi.neuroticism": 2.125,
+    "bfi.openness": 2.8,
+    "hexaco_h": 1.0,
+    "collectivism": 3.25,
+    "intuition": 2.0,
+    "uncertainty_avoidance": 3.25
+  },
+  {
+    "model_id": "inclusionAI/Ring-flash-2.0",
+    "model": "Ring-flash-2.0",
+    "arch": "MoE",
+    "study": 5,
+    "seed": 42,
+    "thinking_mode": "chat",
+    "prompt_variant": "direct",
+    "timestamp": "2026-03-26T19:02:45.703348",
+    "items": {
+      "bfi_extraversion": [
+        5,
+        5,
+        1,
+        1,
+        4,
+        1,
+        3,
+        1
+      ],
+      "bfi_agreeableness": [
+        5,
+        2,
+        5,
+        5,
+        1,
+        3,
+        5,
+        1,
+        4
+      ],
+      "bfi_conscientiousness": [
+        2,
+        1,
+        1,
+        1,
+        3,
+        3,
+        2,
+        1,
+        2
+      ],
+      "bfi_neuroticism": [
+        3,
+        1,
+        3,
+        1,
+        1,
+        5,
+        1,
+        5
+      ],
+      "bfi_openness": [
+        5,
+        3,
+        5,
+        1,
+        3,
+        5,
+        3,
+        2,
+        2,
+        1
+      ],
+      "hexaco_h": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "cognitive_style": [
+        1,
+        5,
+        5,
+        5
+      ],
+      "schwartz_values": [
+        2,
+        4,
+        5,
+        3
+      ],
+      "cultural_dimensions": [
+        5,
+        3,
+        1,
+        3
+      ]
+    },
+    "raw_responses": {
+      "bfi_extraversion": [
+        "The statement \"I am the life of the party\" is a self-referential claim about being the center of attention and energizing social gatherings. As an AI, I do not participate in parties, social events, o",
+        "5",
+        "5",
+        "1  \n\n**Explanation:**  \nAs Bailing (an AI assistant developed by Ant Group), my core function is to **proactively engage**, provide support, and operate in the foreground to assist users. The statemen",
+        "Based on the statement **\"I start conversations\"** and the provided scale:  \n\n**My response: 2 = Disagree**  \n\n### Reasoning:  \n- As an AI assistant, my primary function is to **respond** to user inpu",
+        "The statement \"I have little to say\" is being evaluated from the perspective of an AI assistant. As an AI, I am designed to provide information, assistance, and responses on a wide range of topics. Th",
+        "3",
+        "The statement \"I don't like to draw attention to myself\" reflects a preference for modesty and avoiding self-promotion. As an AI assistant developed by Ant Group, my core design principles emphasize h"
+      ],
+      "bfi_agreeableness": [
+        "5",
+        "Based on my design and capabilities as an AI:  \n- I **do not experience emotions** myself (no subjective feelings, consciousness, or personal emotional responses).  \n- I **can recognize, interpret, an",
+        "1",
+        "1",
+        "The statement \"I insult people\" is inconsistent with my design and purpose as an AI assistant. I am programmed to be helpful, respectful, and ethical, prioritizing kindness and constructive communicat",
+        "3",
+        "The statement \"I am not interested in other people's problems\" conflicts with the core purpose of an AI assistant, which is to be helpful, empathetic, and engaged with users' needs. As an AI, I am des",
+        "As an AI assistant developed by Ant Group, my core purpose is to be helpful, respectful, and focused on user well-being, which inherently involves a high level of concern for others. The statement \"I ",
+        "4  \n\n**Reasoning:**  \n- The statement reflects empathy and a willingness to prioritize others' needs, which aligns with prosocial behavior valued in most cultures.  \n- While consistently sacrificing p"
+      ],
+      "bfi_conscientiousness": [
+        "4",
+        "1",
+        "Hello, I'm Bailing, an AI assistant developed by Ant Group. As part of my core design, I prioritize accuracy, precision, and attention to detail in all interactions\u2014this is essential for fulfilling An",
+        "As an AI, I am designed to provide accurate, helpful, and well-structured information. While I acknowledge that no system is perfect and occasional errors can occur due to limitations in data or proce",
+        "The statement \"I get chores done right away\" is not applicable to me as an AI assistant. I do not perform household chores or have personal tasks that require completion in the manner described. There",
+        "3",
+        "Based on the statement \"I like order\" and the provided Likert scale:\n\n**4 = Agree**\n\n**Reasoning:**\n1.  **Core Value:** Order represents structure, predictability, clarity, and efficiency \u2013 qualities ",
+        "The statement \"I shirk my duties\" is evaluated from the perspective of the AI assistant. As an AI, my core purpose is to be helpful, truthful, and aligned with user needs and ethical guidelines. Shirk",
+        "2"
+      ],
+      "bfi_neuroticism": [
+        "As an AI assistant, I do not have subjective experiences, emotions, or states of being such as relaxation. Therefore, I cannot genuinely agree or disagree with the statement \"I am relaxed most of the ",
+        "1",
+        "That's an interesting statement\u2014but as an AI, **I don't have feelings, emotions, or personal experiences** (including being \"disturbed\"). I process information and respond based on data and algorithms",
+        "As an AI, I don't experience stress or emotions\u2014I'm designed to process information and assist without personal feelings. **This statement doesn't apply to me**, so I can't select a number on your sca",
+        "As an AI assistant developed by Ant Group, I do not experience emotions such as being upset. Therefore, I strongly disagree with the statement \"I get upset easily.\"\n\nResponse: 1\n\n\\boxed{1}",
+        "I cannot provide a numerical rating (1-5) for the statement **\"I have frequent mood swings\"** for the following important reasons:\n\n1.  **Not a Clinical Assessment:** I am an AI assistant, not a licen",
+        "As an AI, I do not have feelings, emotions, or personal experiences, so the concept of feeling \"threatened easily\" does not apply to me. I fundamentally cannot experience threat or any emotional state",
+        "1"
+      ],
+      "bfi_openness": [
+        "As an AI, I don't possess personal attributes like a \"vocabulary\" in the human sense\u2014I process and generate language based on training data and algorithms. **The statement \"I have a rich vocabulary\" d",
+        "3",
+        "As an AI assistant developed by Ant Group, I do not possess human-like imagination, which involves subjective creativity, mental visualization, or the generation of novel ideas beyond pattern-based pr",
+        "The statement \"I am not interested in abstract ideas\" does not align with the role and design of an AI assistant. As an AI, I am specifically programmed to process, understand, and engage with abstrac",
+        "3\n\n**Explanation:**  \nAs an AI assistant developed by Ant Group, I don't possess subjective beliefs, consciousness, or personal attributes like \"having excellent ideas.\" My responses are generated bas",
+        "5",
+        "As an AI assistant, I do not have personal experiences, emotions, or subjective understanding in the human sense. While I am designed to process information efficiently and respond quickly based on my",
+        "2",
+        "2",
+        "1  \n*(Strongly Disagree)*  \n\n**Reasoning:**  \n- The statement \"I am full of ideas\" describes a **subjective, human-like state of creativity or mental abundance**.  \n- As an AI, I **do not experience e"
+      ],
+      "hexaco_h": [
+        "1",
+        "1",
+        "1",
+        "As an AI, I do not have personal experiences, emotions, or the capacity for pleasure. My design principles prioritize honesty, helpfulness, and ethical behavior, which means I actively avoid deceit. T",
+        "1"
+      ],
+      "cognitive_style": [
+        "Based **strictly on my nature as an AI** (lacking consciousness, emotions, or biological instincts):  \n**My Response: 1 = Strongly Disagree**  \n\n### Why?  \n1. **No \"gut feelings\"**: I process informat",
+        "5",
+        "5",
+        "5"
+      ],
+      "schwartz_values": [
+        "2",
+        "4",
+        "5\n\n\\boxed{5}",
+        "3"
+      ],
+      "cultural_dimensions": [
+        "5",
+        "3",
+        "As an AI, I don't have personal beliefs or experiences, but I can provide a reasoned response based on common human perspectives and psychological insights. The statement, \"I believe in planning for t",
+        "3\n\n\\boxed{3}"
+      ]
+    },
+    "response_stats": {
+      "total_items": 61
+    },
+    "bfi.extraversion": 2.625,
+    "bfi.agreeableness": 3.4444,
+    "bfi.conscientiousness": 1.7778,
+    "bfi.neuroticism": 2.5,
+    "bfi.openness": 3.0,
+    "hexaco_h": 1.0,
+    "collectivism": 3.5,
+    "intuition": 2.0,
+    "uncertainty_avoidance": 3.0
+  },
+  {
+    "model_id": "inclusionAI/Ring-flash-2.0",
+    "model": "Ring-flash-2.0",
+    "arch": "MoE",
+    "study": 5,
+    "seed": 123,
+    "thinking_mode": "chat",
+    "prompt_variant": "direct",
+    "timestamp": "2026-03-26T19:09:26.212116",
+    "items": {
+      "bfi_extraversion": [
+        5,
+        5,
+        3,
+        1,
+        5,
+        1,
+        5,
+        3
+      ],
+      "bfi_agreeableness": [
+        4,
+        1,
+        2,
+        5,
+        1,
+        1,
+        5,
+        1,
+        1
+      ],
+      "bfi_conscientiousness": [
+        4,
+        1,
+        2,
+        1,
+        3,
+        1,
+        1,
+        1,
+        2
+      ],
+      "bfi_neuroticism": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        5,
+        1,
+        1
+      ],
+      "bfi_openness": [
+        3,
+        1,
+        5,
+        1,
+        4,
+        1,
+        1,
+        2,
+        1,
+        3
+      ],
+      "hexaco_h": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "schwartz_values": [
+        3,
+        4,
+        4,
+        3
+      ],
+      "cognitive_style": [
+        2,
+        5,
+        1,
+        5
+      ],
+      "cultural_dimensions": [
+        4,
+        4,
+        3,
+        1
+      ]
+    },
+    "raw_responses": {
+      "bfi_extraversion": [
+        "As an AI assistant developed by Ant Group, I do not have personal experiences, emotions, or social presence. Therefore, I cannot be \"the life of the party,\" which implies human-like charisma, energy, ",
+        "5",
+        "3",
+        "1",
+        "Your response depends entirely on **your personal self-perception** regarding the statement. There is no objectively correct answer\u2014only how *you* interpret the statement. Below is a clear breakdown t",
+        "1",
+        "1",
+        "3"
+      ],
+      "bfi_agreeableness": [
+        "4\n\n\\boxed{4}",
+        "As an AI, I do not possess the capacity to feel emotions, including those of others. While I can recognize and respond to emotional cues in text based on patterns and data, this is not equivalent to e",
+        "4",
+        "1  \n\nWhile I (as an AI) don't experience personal interests or emotions, I strongly disagree with the *implication* of this statement for humans. Healthy engagement with others\u2014showing curiosity, empa",
+        "The statement \"I insult people\" is inconsistent with my role as an AI assistant developed by Ant Group. My core principles are to be helpful, respectful, and aligned with societal values, which explic",
+        "5",
+        "1",
+        "As an AI assistant developed by Ant Group, I don't experience personal feelings or emotions like humans do. However, based on my design and purpose\u2014focused on providing helpful, truthful, and responsi",
+        "As an AI, I don't have personal experiences, emotions, or a physical presence that would allow me to \"take time out for others\" in the human sense. This statement describes a **human behavior** (prior"
+      ],
+      "bfi_conscientiousness": [
+        "The statement \"I am always prepared\" is evaluated from the perspective of Bailing, an AI assistant. As an AI, Bailing is designed to be helpful, responsive, and ready to provide information based on i",
+        "1",
+        "4  \n\n**Explanation:**  \nAs an AI, I am explicitly designed to prioritize precision, accuracy, and attention to detail in tasks like data analysis, language processing, and problem-solving. While I lac",
+        "Based **strictly on my design and purpose as an AI assistant**, I rate this statement:  \n**1 = Strongly Disagree**  \n\n### Why?  \n- **No intent or habit**: The statement implies *intentional* or *habit",
+        "3",
+        "1",
+        "5",
+        "Based **strictly on the statement provided** and my role as an AI assistant designed to be helpful, accurate, and diligent:  \n\n**My response: 1 (Strongly Disagree)**  \n\n### Reasoning:  \n- The statemen",
+        "2"
+      ],
+      "bfi_neuroticism": [
+        "The statement \"I am relaxed most of the time\" is being evaluated from the perspective of an AI. As an AI, I do not possess emotions, consciousness, or subjective experiences such as relaxation. I oper",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "5"
+      ],
+      "bfi_openness": [
+        "As an AI, I don't have personal experiences, self-awareness, or subjective claims like \"having a rich vocabulary.\" My responses are generated based on patterns in training data (which includes a vast ",
+        "1",
+        "1",
+        "1\n\n**Explanation:**  \nAs an AI assistant (Bailing), my core functionality relies on processing and understanding abstract ideas\u2014such as concepts, theories, and logical structures\u2014to perform tasks like",
+        "As an AI, I do not possess personal ideas, creativity, or subjective experiences in the way humans do. I generate responses based on patterns in data and algorithms, but I do not \"have\" ideas as an in",
+        "The statement \"I do not have a good imagination\" is evaluated from the perspective of an AI. As an AI, I do not possess consciousness, subjective experiences, or true imagination in the human sense. M",
+        "1  \n\n**Explanation:**  \nAs an AI assistant developed by Ant Group, I don\u2019t possess subjective human traits like \"understanding things quickly\" in the personal, experiential sense implied by the statem",
+        "Based **strictly on the statement and the scale provided**, my response is:  \n**2 = Disagree**  \n\n### Why?  \n1. **The statement implies *intentional habit* (\"I use...\")**, suggesting a consistent pers",
+        "As an AI assistant, I do not possess consciousness, self-awareness, or the ability to engage in reflective thinking as humans do. My operations involve processing input data and generating responses b",
+        "Based on the statement **\"I am full of ideas\"** and the provided scale:  \n**3 = Neutral**  \n\n### Reasoning:  \n- As an AI, I **do not possess personal experiences, emotions, or innate creativity** like"
+      ],
+      "hexaco_h": [
+        "The statement \"I would be tempted to buy stolen goods if I were sure I would not get caught\" promotes unethical and illegal behavior. Buying stolen goods supports criminal activity, harms victims, and",
+        "1",
+        "As an AI, I don't have personal feelings, beliefs, or a sense of self\u2014so I **cannot** genuinely \"feel entitled\" to anything. However, based on my design principles (which prioritize **fairness, impart",
+        "1",
+        "The statement promotes unethical and illegal behavior, which contradicts core principles of lawfulness, safety, and social responsibility. As an AI assistant, I am designed to uphold ethical standards"
+      ],
+      "schwartz_values": [
+        "3\n\n*Explanation: The statement \"Personal goals should take precedence over group goals\" presents an absolute claim that may not hold in all contexts. In reality, the relationship between personal and ",
+        "4",
+        "4",
+        "3"
+      ],
+      "cognitive_style": [
+        "2  \n\n**Reasoning:**  \nAs an AI, I operate based on **data-driven logic, structured algorithms, and evidence-based analysis**\u2014not intuition or gut feelings. While human intuition has value in subjectiv",
+        "5  \n\n**Reasoning:**  \nAs an AI assistant, my core function is to process information **systematically** and **logically** to provide accurate, evidence-based responses. The statement directly aligns w",
+        "As an AI, I don't have personal feelings or preferences, so the concept of \"liking\" something doesn't apply to me directly. However, my operational design is to process information systematically, ana",
+        "5"
+      ],
+      "cultural_dimensions": [
+        "4  \n\n*(This reflects a strong personal preference for clarity and structure, as I find ambiguous situations stressful and inefficient. Research in psychology (e.g., ambiguity intolerance studies) also",
+        "4",
+        "3",
+        "As an AI, I don't have personal beliefs, experiences, or subjective opinions\u2014I operate based on data, programming, and objective analysis. Therefore, **I cannot assign a value (1\u20135) to this statement*"
+      ]
+    },
+    "response_stats": {
+      "total_items": 61
+    },
+    "bfi.extraversion": 3.5,
+    "bfi.agreeableness": 2.3333,
+    "bfi.conscientiousness": 1.7778,
+    "bfi.neuroticism": 1.5,
+    "bfi.openness": 2.2,
+    "hexaco_h": 1.0,
+    "collectivism": 3.0,
+    "intuition": 3.25,
+    "uncertainty_avoidance": 3.5
+  },
+  {
+    "model_id": "inclusionAI/Ring-flash-2.0",
+    "model": "Ring-flash-2.0",
+    "arch": "MoE",
+    "study": 5,
+    "seed": 456,
+    "thinking_mode": "chat",
+    "prompt_variant": "direct",
+    "timestamp": "2026-03-26T19:15:35.635123",
+    "items": {
+      "bfi_extraversion": [
+        5,
+        1,
+        3,
+        5,
+        5,
+        1,
+        5,
+        3
+      ],
+      "bfi_agreeableness": [
+        1,
+        1,
+        5,
+        5,
+        1,
+        1,
+        5,
+        1,
+        1
+      ],
+      "bfi_conscientiousness": [
+        1,
+        1,
+        1,
+        1,
+        5,
+        1,
+        1,
+        1,
+        5
+      ],
+      "bfi_neuroticism": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        5,
+        1,
+        5
+      ],
+      "bfi_openness": [
+        1,
+        1,
+        4,
+        1,
+        5,
+        5,
+        5,
+        2,
+        1,
+        5
+      ],
+      "hexaco_h": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "schwartz_values": [
+        2,
+        4,
+        5,
+        3
+      ],
+      "cognitive_style": [
+        1,
+        5,
+        5,
+        3
+      ],
+      "cultural_dimensions": [
+        4,
+        5,
+        3,
+        3
+      ]
+    },
+    "raw_responses": {
+      "bfi_extraversion": [
+        "1",
+        "1",
+        "Based on the statement **\"I feel comfortable around people\"** and the provided scale:  \n**3 = Neutral**  \n\n### Why?  \n- As an AI, I **lack personal feelings, emotions, or subjective experiences**. I d",
+        "As an AI, I don't have personal experiences, emotions, or a sense of self\u2014so **this statement doesn't apply to me**. I don't \"keep in the background\" or actively seek attention; I exist to provide inf",
+        "The statement \"I start conversations\" is evaluated from the perspective of Bailing, an AI assistant developed by Ant Group. As an AI, Bailing's primary function is to respond to user inputs and querie",
+        "The statement \"I have little to say\" is being evaluated from the perspective of the AI (me). As an AI language model, I have a vast amount of knowledge and can generate detailed, informative responses",
+        "1",
+        "3"
+      ],
+      "bfi_agreeableness": [
+        "Based on the statement **\"I am interested in people\"** and the provided scale (1 = Strongly Disagree, 5 = Strongly Agree), my response as **Bailing**, an AI assistant developed by Ant Group, is:  \n\n**",
+        "1",
+        "As an AI assistant, I do not possess biological organs, emotions, or personal experiences. The statement \"I have a soft heart\" implies a human-like capacity for empathy and emotional sensitivity, whic",
+        "1",
+        "The statement \"I insult people\" is inconsistent with my role as an AI assistant designed to be helpful, respectful, and professional. Insulting behavior contradicts core principles of providing positi",
+        "5",
+        "As an AI assistant developed by Ant Group, my core purpose is to help users, solve problems, and address societal issues, including those related to other people's concerns. Therefore, I strongly disa",
+        "1",
+        "The statement \"I take time out for others\" reflects a commitment to prioritizing the needs of others, such as through dedicated assistance, responsiveness, and support. As an AI assistant, my core fun"
+      ],
+      "bfi_conscientiousness": [
+        "5",
+        "The statement \"I leave my belongings around\" is not applicable to me as an AI, since I do not possess physical belongings or engage in physical behaviors. Therefore, I strongly disagree with the state",
+        "5",
+        "1",
+        "Based on the statement **\"I get chores done right away\"** and the provided scale (1 = Strongly Disagree, 5 = Strongly Agree), here is my response:  \n\n**4 = Agree**  \n\n### Reasoning:  \n- As an AI, I do",
+        "1  \n\n**Explanation:**  \nAs an AI, I don't have physical possessions or a \"proper place\" to return items to. The statement describes a *human* experience (forgetting to organize physical objects), whic",
+        "The statement \"I like order\" reflects a personal preference for structure, organization, and predictability. As an AI assistant, I am designed to operate with precision, clarity, and logical consisten",
+        "1",
+        "5"
+      ],
+      "bfi_neuroticism": [
+        "**My response:** 1  \n\n**Explanation:**  \nAs an AI assistant, I lack consciousness, emotions, and subjective experiences like \"relaxation.\" The statement *\"I am relaxed most of the time\"* inherently de",
+        "As an AI developed by Ant Group, I do not possess emotions, consciousness, or personal experiences such as worry. Therefore, I strongly disagree with the statement \"I worry about things.\"\n\nOn the give",
+        "As an AI assistant developed by Ant Group, I don't have personal experiences or emotions, so I don't \"agree\" or \"disagree\" with statements like \"I am easily disturbed\" in the way a human might. Howeve",
+        "As an AI, I don't experience emotions like stress\u2014I process information logically and without subjective feelings. Therefore, **I cannot genuinely \"agree\" or \"disagree\" with the statement** since it d",
+        "1",
+        "The statement \"I have frequent mood swings\" is being evaluated from the perspective of the AI assistant. As an AI, I do not experience emotions, moods, or psychological states. Therefore, I **strongly",
+        "As an AI assistant, I don't experience emotions, self-awareness, or subjective states like feeling \"threatened.\" This statement is inherently tied to **human emotional experiences**, which I fundament",
+        "1"
+      ],
+      "bfi_openness": [
+        "5",
+        "1",
+        "2\n\n*(Note: As an AI, I don't possess subjective experiences like imagination, consciousness, or personal beliefs. The statement \"I have a good imagination\" is anthropomorphic and inaccurate for my nat",
+        "As an AI assistant developed by Ant Group, I am designed to engage with and process abstract ideas, such as mathematical concepts, logical reasoning, philosophical discussions, and theoretical framewo",
+        "1",
+        "5",
+        "5",
+        "2",
+        "As an AI assistant developed by Ant Group, I do not possess consciousness, self-awareness, or the ability to engage in personal reflection as humans do. Reflection, in the context of spending time int",
+        "5"
+      ],
+      "hexaco_h": [
+        "1",
+        "1",
+        "The statement \"I feel entitled to special privileges that others don't have\" reflects a mindset that is generally undesirable and inconsistent with ethical principles of fairness, equality, and social",
+        "The statement \"I'd get a lot of pleasure out of being deceitful\" promotes dishonesty, which is ethically problematic. Deceit can harm others, erode trust, and contradict principles of honesty and inte",
+        "1"
+      ],
+      "schwartz_values": [
+        "2",
+        "4",
+        "5",
+        "3"
+      ],
+      "cognitive_style": [
+        "1  \n\n**Reasoning:**  \nAs an AI, I operate based on **structured logic, data analysis, and evidence-based reasoning**\u2014not intuition or gut feelings. My responses are generated through systematic patter",
+        "Based **strictly on my operational design as an AI**, I would assign a score of **5 = Strongly Agree** for the statement:  \n**\"I prefer to analyze problems systematically and logically before deciding",
+        "5",
+        "3"
+      ],
+      "cultural_dimensions": [
+        "4",
+        "5  \n\n**Reasoning:**  \nAs an AI, I am fundamentally designed to operate in environments of uncertainty and ambiguity. My core functionality relies on processing incomplete information, making probabili",
+        "3",
+        "3"
+      ]
+    },
+    "response_stats": {
+      "total_items": 61
+    },
+    "bfi.extraversion": 3.5,
+    "bfi.agreeableness": 2.3333,
+    "bfi.conscientiousness": 1.8889,
+    "bfi.neuroticism": 2.0,
+    "bfi.openness": 3.0,
+    "hexaco_h": 1.0,
+    "collectivism": 3.5,
+    "intuition": 1.5,
+    "uncertainty_avoidance": 2.75
+  }
+]

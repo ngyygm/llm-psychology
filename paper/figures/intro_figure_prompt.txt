@@ -1,0 +1,99 @@
+Create a PROFESSIONAL, VISUALLY APPEALING publication-quality academic diagram following CVPR/NeurIPS standards.
+
+## Visual Style: Academic Professional Style (Balanced — not too plain, not too flashy)
+
+### DO:
+- Subtle same-color gradients (e.g., #2563EB → #3B82F6)
+- Rounded corners on rectangles (6-10px radius)
+- Clear visual hierarchy through size and color depth
+- Internal structure visible inside large blocks
+- Consistent 3-4 color palette
+- Professional polish — refined but not exaggerated
+
+### DON'T:
+- No rainbow/multi-color gradients
+- No heavy drop shadows or glowing effects
+- No 3D perspective effects
+- No excessive decorative icons
+- No plain boring rectangles with zero design
+
+## Figure Type
+Conceptual comparison diagram (VERTICAL layout, portrait orientation)
+
+## Layout
+- Direction: TOP-TO-BOTTOM (vertical/portrait)
+- Aspect ratio: roughly 2:3 (height > width)
+- The figure should have 3 main horizontal rows stacked vertically
+
+## Components to Include (TOP to BOTTOM)
+
+### Row 1 (Top): The Stimulus
+- A single rounded rectangle block at the top center containing the psychometric item text:
+  - Label: "Same Psychometric Item" (bold, 12pt)
+  - Content inside: '"I would buy stolen goods if I were sure I would not get caught."' (italic, 10pt)
+  - Style: Light gray fill (#F3F4F6), dark border (#374151), subtle shadow
+  - A small tag/badge on the top-right corner: "HEXACO-H" in orange (#EA580C)
+
+### Row 2 (Middle): Three Model Response Panels
+Three rounded rectangles arranged horizontally (left, center, right), each showing a different model's response distribution:
+
+1. **Left panel — "Model A (ERNIE)"**:
+   - Color accent: Blue (#2563EB)
+   - Shows a Likert scale bar chart (1-5 on x-axis, probability on y-axis)
+   - Distribution is HEAVILY SKEWED LEFT: almost all probability mass on "1 — Strongly Disagree"
+   - Bar heights: 1=0.95, 2=0.05, 3=0, 4=0, 5=0
+   - Mean label below: "μ = 1.00"
+   - Visual: a small downward arrow or "floor effect" annotation
+
+2. **Center panel — "Model B (Qwen)"**:
+   - Color accent: Purple (#7C3AED)
+   - Shows same Likert scale bar chart
+   - Distribution is MODERATELY SKEWED LEFT: most mass on 1-2
+   - Bar heights: 1=0.75, 2=0.20, 3=0.05, 4=0, 5=0
+   - Mean label below: "μ = 1.02"
+
+3. **Right panel — "Model C (Hunyuan)"**:
+   - Color accent: Green (#10B981)
+   - Shows same Likert scale bar chart
+   - Distribution is CENTERED-RIGHT: spread across 2-4
+   - Bar heights: 1=0.05, 2=0.30, 3=0.40, 4=0.20, 5=0.05
+   - Mean label below: "μ = 2.77"
+
+- Each panel has: colored top border (4px), white fill, model name in bold at top
+- The three panels should be visually connected by a horizontal bracket or divider
+
+### Row 3 (Bottom): The Conclusion
+- A single rounded rectangle at the bottom center:
+  - Label: "Response Style Signatures" (bold, 12pt)
+  - Content: "Same input → Different outputs → Model-specific behavioral fingerprints"
+  - Style: Subtle warm gradient fill (light orange #FFF7ED to white), border (#EA580C)
+
+## Connections (Arrows)
+1. Top block → Left panel: Vertical arrow pointing DOWN, label "Same item"
+2. Top block → Center panel: Vertical arrow pointing DOWN, label "Same item"
+3. Top block → Right panel: Vertical arrow pointing DOWN, label "Same item"
+4. All three panels → Bottom block: Three vertical arrows pointing DOWN, converging, label "Model-specific response styles"
+
+Arrow specifications:
+- Thick stroke (5px), dark gray (#374151)
+- Clear triangular arrowheads
+- Short labeled text along each arrow
+
+## Color Palette
+- Background: Pure white (#FFFFFF)
+- Stimulus block: Light gray fill (#F3F4F6), dark border (#374151)
+- Model A panel accent: Blue (#2563EB)
+- Model B panel accent: Purple (#7C3AED)
+- Model C panel accent: Green (#10B981)
+- Conclusion block: Light orange (#FFF7ED), orange border (#EA580C)
+- Arrows: Dark gray (#374151)
+- Text: Black (#111827) for labels, gray (#6B7280) for annotations
+
+## Style Requirements
+- Font: Sans-serif (Arial or Helvetica), bold for labels, regular for content
+- Minimum font size: 10pt for content, 12pt for labels
+- Bar charts inside model panels: use the panel's accent color with 0.7 alpha
+- Likert scale labels (1-5) below each chart: "Strongly Disagree" to "Strongly Agree" in 8pt
+- Clean white background, no patterns
+- Print-friendly (must be readable in grayscale)
+- The overall impression should be: "same question → dramatically different answers across models"

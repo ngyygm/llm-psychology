@@ -78,6 +78,12 @@ STUDY1_MODELS = {
     "Qwen/Qwen3-32B":                  { "model_id": "Qwen",      "arch": "Dense", "tier": "Free",  "study": 1},
     "zai-org/GLM-4.6":                 { "model_id": "Zhipu",     "arch": "Dense", "tier": "Free",  "study": 1},
     "inclusionAI/Ling-flash-2.0":      { "model_id": "inclusionAI","arch": "Dense", "tier": "Free",  "study": 1},
+    # --- Round 3 additions: expand n for C-N correlation significance ---
+    "Qwen/Qwen2.5-72B-Instruct":       { "model_id": "Qwen",      "arch": "Dense", "tier": "Free",  "study": 1},
+    "Qwen/QwQ-32B":                    { "model_id": "Qwen",      "arch": "Dense", "tier": "Free",  "study": 1},
+    "Qwen/Qwen3-Coder-480B-A35B-Instruct": { "model_id": "Qwen",  "arch": "MoE",  "tier": "Free", "study": 1},
+    "moonshotai/Kimi-K2-Instruct-0905": { "model_id": "Moonshot",  "arch": "Dense", "tier": "Free", "study": 1},
+    "THUDM/GLM-Z1-9B-0414":            { "model_id": "Zhipu",     "arch": "Dense", "tier": "Free",  "study": 1},
 }
 
 # Study 2: Cross-generational scale + reasoning model comparison

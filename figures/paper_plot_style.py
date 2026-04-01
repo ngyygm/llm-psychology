@@ -41,7 +41,7 @@ C_DISCRIMINATIVE = '#4C72B0'   # Blue
 C_ALIGNMENT = '#DD8452'         # Orange
 C_HIGHLIGHT = '#C44E52'         # Red
 C_NEUTRAL = '#55A868'           # Green
-C_VENDOR_COLORS = {
+C_MODEL_COLORS = {
     'Qwen': '#1f77b4',
     'DeepSeek': '#ff7f0e',
     'Zhipu': '#2ca02c',
@@ -102,7 +102,7 @@ def save_fig(fig, name, fmt=FORMAT):
 
 
 def load_study1_data():
-    """Load Study 1 + Study 3 data (cross-vendor comparison including international models)."""
+    """Load Study 1 + Study 3 data (cross-model comparison including international models)."""
     import json, glob
     all_results = []
     seen = set()
