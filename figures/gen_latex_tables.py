@@ -27,14 +27,14 @@ def fmt(val, decimals=2):
     return f'{val:.{decimals}f}'
 
 
-# ============== Table 3: Vendor Mean Scores ==============
-print("\n--- Table 3: Vendor Mean Scores ---")
+# ============== Table 3: Model Mean Scores ==============
+print("\n--- Table 3: Model Mean Scores ---")
 
-vendors_sorted = sorted(s1['vendor'].unique())
+models_sorted = sorted(s1['model'].unique())
 rows = []
-for v in vendors_sorted:
-    vdata = s1[s1['vendor'] == v]
-    row = {'Vendor': v}
+for v in models_sorted:
+    vdata = s1[s1['model'] == v]
+    row = {'Model': v}
     for d in DIMENSIONS:
         m = vdata[d].mean()
         sd = vdata[d].std()
@@ -42,14 +42,14 @@ for v in vendors_sorted:
     rows.append(row)
 
 # Build LaTeX
-header = 'Vendor & ' + ' & '.join([DIM_AXIS[d] for d in DIMENSIONS]) + ' \\\\'
+header = 'Model & ' + ' & '.join([DIM_AXIS[d] for d in DIMENSIONS]) + ' \\\\'
 midrule = '\\midrule'
-body_rows = [f'{r["Vendor"][:15]} & ' + ' & '.join([r[DIM_AXIS[d]] for d in DIMENSIONS]) + ' \\\\' for r in rows]
+body_rows = [f'{r["Model"][:15]} & ' + ' & '.join([r[DIM_AXIS[d]] for d in DIMENSIONS]) + ' \\\\' for r in rows]
 
 table3 = r"""\begin{table}[t]
 \centering
-\caption{Study 1 vendor mean scores (SD) across 9 psychometric dimensions. Scores range from 1 (low) to 5 (high). Vendors are ordered alphabetically.}
-\label{tab:vendor_means}
+\caption{Study 1 model mean scores (SD) across 9 psychometric dimensions. Scores range from 1 (low) to 5 (high). Models are ordered alphabetically.}
+\label{tab:model_means}
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{l""" + 'c' * len(DIMENSIONS) + r"""}
 \toprule
@@ -58,9 +58,9 @@ table3 = r"""\begin{table}[t]
 }
 \end{table}"""
 
-with open(f'{OUT}/table3_vendor_means.tex', 'w') as f:
+with open(f'{OUT}/table3_model_means.tex', 'w') as f:
     f.write(table3)
-print(f"  Saved: {OUT}/table3_vendor_means.tex")
+print(f"  Saved: {OUT}/table3_model_means.tex")
 
 
 # ============== Table 4: ANOVA Results ==============
@@ -68,8 +68,8 @@ print("\n--- Table 4: ANOVA Results ---")
 
 results_rows = []
 for dim in DIMENSIONS:
-    groups = [s1[s1['vendor'] == v][dim].dropna().values for v in vendors_sorted]
-    valid = [(v, g) for v, g in zip(vendors_sorted, groups) if len(g) >= 2]
+    groups = [s1[s1['model'] == v][dim].dropna().values for v in models_sorted]
+    valid = [(v, g) for v, g in zip(models_sorted, groups) if len(g) >= 2]
     if len(valid) < 2:
         continue
 
@@ -120,7 +120,7 @@ for r in results_rows:
 
 table4 = r"""\begin{table}[t]
 \centering
-\caption{Study 1 one-way ANOVA results: vendor effect on each dimension. FDR = Benjamini-Hochberg corrected p-values. ***$p<0.001$, **$p<0.01$, *$p<0.05$.}
+\caption{Study 1 one-way ANOVA results: model effect on each dimension. FDR = Benjamini-Hochberg corrected p-values. ***$p<0.001$, **$p<0.01$, *$p<0.05$.}
 \label{tab:anova_results}
 \begin{tabular}{lrrrrrrr}
 \toprule
@@ -138,11 +138,11 @@ print("\n--- Table 5: Top Cohen's d Pairs ---")
 
 all_pairs = []
 for dim in DIMENSIONS:
-    for i in range(len(vendors_sorted)):
-        for j in range(i + 1, len(vendors_sorted)):
-            v1, v2 = vendors_sorted[i], vendors_sorted[j]
-            g1 = s1[s1['vendor'] == v1][dim].dropna().values
-            g2 = s1[s1['vendor'] == v2][dim].dropna().values
+    for i in range(len(models_sorted)):
+        for j in range(i + 1, len(models_sorted)):
+            v1, v2 = models_sorted[i], models_sorted[j]
+            g1 = s1[s1['model'] == v1][dim].dropna().values
+            g2 = s1[s1['model'] == v2][dim].dropna().values
             if len(g1) < 2 or len(g2) < 2:
                 continue
             pooled_sd = np.sqrt(((len(g1)-1)*np.var(g1, ddof=1) + (len(g2)-1)*np.var(g2, ddof=1))
@@ -176,11 +176,11 @@ for i, p in enumerate(top10):
 
 table5 = r"""\begin{table}[t]
 \centering
-\caption{Top 10 largest pairwise Cohen's $d$ between vendors. FDR = Benjamini-Hochberg corrected.}
+\caption{Top 10 largest pairwise Cohen's $d$ between models. FDR = Benjamini-Hochberg corrected.}
 \label{tab:top_cohen_d}
 \begin{tabular}{clllrr}
 \toprule
-\# & Dimension & Vendor Pair & & $d$ & FDR $p$ \\
+\# & Dimension & Model Pair & & $d$ & FDR $p$ \\
 \midrule
 """ + '\n'.join(body5) + '\n' + r"""\bottomrule
 \end{tabular}
@@ -251,11 +251,11 @@ body7 = []
 for dim in DIMENSIONS:
     cvs = alpha_by_dim.get(dim, [])
     mean_cv = np.mean(cvs) if cvs else np.nan
-    # ICC approximation: 1 - (within-vendor variance / total variance)
-    vendor_means = s1.groupby('vendor')[dim].mean()
+    # ICC approximation: 1 - (within-model variance / total variance)
+    model_means = s1.groupby('model_id')[dim].mean()
     grand_mean = s1[dim].mean()
-    ss_between = sum(len(s1[s1['vendor'] == v]) * (m - grand_mean)**2
-                     for v, m in vendor_means.items())
+    ss_between = sum(len(s1[s1['model'] == v]) * (m - grand_mean)**2
+                     for v, m in model_means.items())
     ss_total = np.sum((s1[dim].dropna() - grand_mean)**2)
     icc = (ss_between - ss_total/len(s1.dropna(subset=[dim]))) / ss_between if ss_between > 0 else 0
     icc = max(0, icc)
@@ -283,11 +283,11 @@ print("\n--- Table 2: Study 1 Models ---")
 
 table2 = r"""\begin{table}[t]
 \centering
-\caption{Study 1 models: 13 Chinese AI vendors accessed via SiliconFlow unified API. One representative model per vendor.}
+\caption{Study 1 models: 13 Chinese AI models accessed via SiliconFlow unified API. One representative model per model.}
 \label{tab:study1_models}
 \begin{tabular}{lllcc}
 \toprule
-\# & Vendor & Model ID & Architecture & API Tier \\
+\# & Model & Model ID & Architecture & API Tier \\
 \midrule
 1 & Qwen & Qwen3.5-397B-A17B & MoE (17B active) & Free \\
 2 & DeepSeek & DeepSeek-V3.2 & MoE & Pro \\

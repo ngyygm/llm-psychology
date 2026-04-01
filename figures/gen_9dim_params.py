@@ -59,14 +59,14 @@ MODEL_TOTAL_PARAMS = {
     "gemini-3-pro": 0,
 }
 
-VENDOR_TO_FAMILY = {
+MODEL_TO_FAMILY = {
     "Baidu": "ERNIE", "ByteDance": "Seed", "DeepSeek": "DeepSeek",
     "Huawei": "Pangu", "inclusionAI": "Ring", "InternLM": "InternLM",
     "Kwaipilot": "KAT", "MiniMax": "MiniMax", "Moonshot": "Kimi",
     "Qwen": "Qwen", "StepFun": "Step", "Tencent": "Hunyuan", "Zhipu": "GLM",
     "OpenAI": "GPT", "Anthropic": "Claude", "Gemini": "Gemini", "Grok": "Grok",
 }
-FAMILY_COLORS = {VENDOR_TO_FAMILY[v]: c for v, c in C_VENDOR_COLORS.items() if v in VENDOR_TO_FAMILY}
+FAMILY_COLORS = {MODEL_TO_FAMILY[v]: c for v, c in C_MODEL_COLORS.items() if v in MODEL_TO_FAMILY}
 
 # Compute model-level means
 model_means = s1.groupby("model")[DIMENSIONS].mean()
@@ -82,8 +82,8 @@ for model_id in model_means.index:
     if params <= 0:
         continue
     vdata = s1[s1["model"] == model_id]
-    vname = vdata["vendor"].iloc[0] if len(vdata) > 0 else ""
-    family = VENDOR_TO_FAMILY.get(vname, vname)
+    mname = vdata["model"].iloc[0] if len(vdata) > 0 else ""
+    family = MODEL_TO_FAMILY.get(mname, mname)
     params_list.append(params)
     family_list.append(family)
     model_ids.append(model_id)

@@ -1,33 +1,39 @@
-# Language Models Do Not Share Human Personality Structure
+# The Missing Trade-Off: How LLMs Lose Human-Like Personality Structure
 
-Large-scale psychometric comparison of 15 model families (13 Chinese AI vendors + 2 international) on standardized personality inventories.
+Code and data for the EMNLP 2026 Findings paper on cross-family psychometric probing of large language models.
 
-**Paper:** EMNLP 2026 Findings
-**Title:** Language Models Do Not Share Human Personality Structure: Evidence from Cross-Family Psychometric Responses
+## Paper
 
-## Overview
+**Title:** The Missing Trade-Off: How LLMs Lose Human-Like Personality Structure
 
-We administer 61 Likert-scale items spanning 9 psychometric dimensions to one model from each of 15 model families via unified APIs, collecting 10,980 responses (12 seeds per model). We find that model families differ substantially in their response distributions (median pairwise Cohen's *d* = 1.08), HEXACO-Honesty-Humility is the most discriminative dimension, and LLM inter-dimension correlation structure diverges from human personality baselines.
+Human personality is defined by trade-offs: conscientious individuals tend to be more emotionally stable, extraverts more open to experience. In LLMs, these trade-offs vanish. We administer 61 Likert items (9 dimensions) to 33 models from 15 families and find that the Conscientiousness--Neuroticism correlation reverses from $r = -0.30$ (humans) to $r = +0.76$ (LLMs), providing the strongest evidence to date that human personality structure does not transfer to language models.
+
+## Dataset
+
+The experiment data is available on HuggingFace:
+
+**Dataset:** `linkco/llm-psychometric-response-style` (490 + 540 records)
+
+| File | Records | Description |
+|------|---------|-------------|
+| `main_data.json` | 490 | Studies 1-5: cross-model, within-family, aligned-vs-base, thinking ablation |
+| `study5_prompt_sensitivity.json` | 540 | 15 models x 3 prompt variants x 12 seeds |
 
 ## Repository Structure
 
 ```
-├── paper/                          # Paper source and compiled PDF
-│   ├── emnlp2026_improved.tex      # LaTeX source
-│   ├── emnlp2026_improved.pdf      # Compiled paper
-│   ├── references.bib              # Bibliography
-│   └── acl.sty, acl_natbib.bst     # EMNLP style files
-├── figures/                        # Publication figures (PDF)
-│   ├── fig1-7_*.pdf                # Main figures
-│   ├── appendix_*.pdf              # Appendix figures
-│   ├── gen_*.py                    # Figure generation scripts
-│   └── paper_plot_style.py         # Plotting style config
-├── data/
-│   └── results.json                # Merged experiment results (all studies)
-├── run_vendor_experiments.py       # Experiment runner (SiliconFlow + YiHe API)
-├── analyze_vendor_design.py        # Statistical analysis (ANOVA, OLR, FDR, ICC)
-├── create_pca_figure.py            # PCA visualization
-└── requirements.txt
+paper/                    # LaTeX source, bibliography, figures, compiled PDF
+├── emnlp2026_improved.tex
+├── emnlp2026_improved.pdf
+├── references.bib
+└── figures/              # All figures used in the paper
+run_model_experiments.py  # Experiment runner (SiliconFlow + external APIs)
+analyze_model_design.py   # Statistical analysis (ANOVA, OLR, FDR, ICC, PCA)
+create_pca_figure.py      # PCA visualization
+figures/                  # Figure generation scripts
+results/vendor_exp/        # Raw experiment data
+├── final_merged_20260325_230829.json    # 490 records (main data)
+└── study5_direct_missing_20260326_191535.json  # 24 records (supplement)
 ```
 
 ## Setup
@@ -36,77 +42,44 @@ We administer 61 Likert-scale items spanning 9 psychometric dimensions to one mo
 pip install -r requirements.txt
 ```
 
-## Running the Analysis
-
-The analysis script operates on the merged results JSON:
-
-```bash
-python analyze_vendor_design.py --input data/results.json
-```
-
-This produces:
-- OLS ANOVA with FDR-corrected *p*-values and partial η²
-- Ordered Logistic Regression with architecture covariate
-- Pairwise Cohen's *d* effect sizes (Welch's *t*-test, FDR-corrected)
-- Cronbach's α and ICC(1,1) reliability
-- Convergent validity check against human baselines
-- Acquiescence bias analysis (PC1 correction)
-- Alignment artifact classification with threshold sensitivity
-
 ## Running Experiments
 
 Experiments require API access:
 
 ```bash
 export SILICONFLOW_API_KEY="your-key"
-# Optional: YiHe API for international models
-export YIHE_API_KEY="your-key"
+export YIHE_API_KEY="your-key"  # Optional: for international models
 
-python run_vendor_experiments.py
+python run_model_experiments.py
 ```
 
-See the script header for model configuration (Study 1: 15 families, Study 2: within-family evolution, Study 3: international models).
+## Analysis
 
-## Data Format
-
-`data/results.json` is a JSON array where each element represents one (model, seed) observation:
-
-```json
-{
-  "model_id": "Qwen/Qwen3.5-397B-A17B",
-  "vendor": "Qwen",
-  "arch": "MoE",
-  "study": 1,
-  "seed": 0,
-  "items": {
-    "bfi_extraversion": [3, 3, 5, 1, 3, 3, 4, 3],
-    ...
-  },
-  "bfi.extraversion": 3.0,
-  "bfi.agreeableness": 3.0,
-  "hexaco_h": 1.0,
-  ...
-}
+```bash
+python analyze_model_design.py --input results/vendor_exp/final_merged_20260325_230829.json
 ```
 
-**9 Dimensions:** BFI Extraversion, Agreeableness, Conscientiousness, Neuroticism, Openness; HEXACO Honesty-Humility; Collectivism; Intuition; Uncertainty Avoidance.
+Produces OLS ANOVA with FDR correction, Cohen's d effect sizes, Cronbach's alpha, ICC, convergent validity tests, and PCA.
 
-**Studies:**
-- Study 1 (15 models): Cross-family comparison via SiliconFlow API
-- Study 2 (16 models): Within-family evolution (Qwen, DeepSeek, GLM)
-- Study 3 (6 models): International providers (OpenAI, Anthropic, Gemini, Grok) via YiHe API
+## Key Findings
+
+1. **Large cross-family differences**: Median pairwise Cohen's $d = 1.01$
+2. **C-N reversal**: The Conscientiousness--Neuroticism trade-off flips from negative to positive ($r = +0.76$, $p < 0.001$, $n = 33$)
+3. **Response compression**: All models compress toward the Likert midpoint
+4. **Prompt sensitivity**: Prompt framing explains 1-9% of variance (significant but modest vs. 10-78% for model family)
+5. **Alignment effect**: Base models cluster at the midpoint; alignment introduces model-specific variation
 
 ## Citation
 
 ```bibtex
-@inproceedings{anonymous2026response,
-  title={Language Models Do Not Share Human Personality Structure: Evidence from Cross-Family Psychometric Responses},
+@inproceedings{llm-psychology-2026,
+  title={The Missing Trade-Off: How LLMs Lose Human-Like Personality Structure},
   author={Anonymous},
-  booktitle={Proceedings of the 2026 Conference on Empirical Methods in Natural Language Processing (EMNLP)},
+  booktitle={Findings of the 2026 Conference on Empirical Methods in Natural Language Processing (EMNLP)},
   year={2026}
 }
 ```
 
 ## License
 
-MIT
+CC-BY-4.0

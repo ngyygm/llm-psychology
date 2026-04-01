@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Regenerate all main-body figures with consistent style.
-- Combined radar (15 families, one per vendor)
+- Combined radar (15 families, one per model)
 - PCA scatter (all models, Study 1 + Study 2)
 - SD bar chart (15 representative models)
 - Cohen's d heatmap (15 representative models)
-- HEXACO-H vendors dot plot (15 representative models)
+- HEXACO-H models dot plot (15 representative models)
 - HEXACO-H vs total params scatter (all models, architecture colors)
 - Inter-dim correlation matrix (15 representative models)
 """
@@ -115,34 +115,34 @@ print(f"Study 1: {len(s1)} obs ({s1['model'].nunique()} models), Study 2: {len(s
 DIM_LABELS = [DIM_SHORT[d] for d in DIMENSIONS]
 N_DIMS = len(DIMENSIONS)
 
-# Vendor name -> Model family name (readers know models, not companies)
-VENDOR_TO_FAMILY = {
+# Model name -> Model family name (readers know models, not companies)
+MODEL_TO_FAMILY = {
     "Baidu": "ERNIE", "ByteDance": "Seed", "DeepSeek": "DeepSeek",
     "Huawei": "Pangu", "inclusionAI": "Ring", "InternLM": "InternLM",
     "Kwaipilot": "KAT", "MiniMax": "MiniMax", "Moonshot": "Kimi",
     "Qwen": "Qwen", "StepFun": "Step", "Tencent": "Hunyuan", "Zhipu": "GLM",
     "OpenAI": "GPT", "Anthropic": "Claude", "Gemini": "Gemini", "Grok": "Grok",
 }
-# Family -> color (inherit from vendor colors)
-FAMILY_COLORS = {VENDOR_TO_FAMILY[v]: c for v, c in C_VENDOR_COLORS.items() if v in VENDOR_TO_FAMILY}
+# Family -> color (inherit from model colors)
+FAMILY_COLORS = {MODEL_TO_FAMILY[v]: c for v, c in C_MODEL_COLORS.items() if v in MODEL_TO_FAMILY}
 
 # ============================
 # Fig 1: Combined Radar — all 15 model families in ONE plot
 # ============================
 print("\n--- Fig 1: Combined Radar ---")
 
-all_vendors = sorted(s1['vendor'].unique())
+all_models = sorted(s1['model'].unique())
 angles = np.linspace(0, 2 * np.pi, N_DIMS, endpoint=False).tolist()
 angles += angles[:1]
 
 fig, ax = plt.subplots(figsize=(5, 5), subplot_kw=dict(polar=True))
 fig.patch.set_facecolor('white')
 
-for idx, vendor in enumerate(all_vendors):
-    vdata = s1[s1['vendor'] == vendor]
+for idx, model in enumerate(all_models):
+    vdata = s1[s1['model'] == model]
     means = [vdata[d].mean() for d in DIMENSIONS]
     means_plot = means + means[:1]
-    family = VENDOR_TO_FAMILY.get(vendor, vendor)
+    family = MODEL_TO_FAMILY.get(model, model)
     color = FAMILY_COLORS.get(family, COLORS[idx % 10])
     ax.plot(angles, means_plot, 'o-', linewidth=1.4, color=color,
             markersize=3.5, label=family, alpha=0.85)
@@ -174,7 +174,7 @@ all_for_pca = pd.concat([s1_all, s2]).drop_duplicates(subset=['model', 'seed'])
 
 # Build model-level means (all models)
 model_means = all_for_pca.groupby("model")[DIMENSIONS].mean()
-vendor_map = all_for_pca.groupby("model")["vendor"].first()
+model_map = all_for_pca.groupby("model")["model"].first()
 
 valid = model_means.dropna()
 X = valid.values
@@ -249,9 +249,9 @@ print(f"  PCA: PC1={pca.explained_variance_ratio_[0]*100:.1f}%, "
 
 
 # ============================
-# Fig 3: Inter-Vendor SD Bar Chart
+# Fig 3: Inter-Model SD Bar Chart
 # ============================
-print("\n--- Fig 3: Inter-Vendor SD ---")
+print("\n--- Fig 3: Inter-Model SD ---")
 
 model_means_all = s1.groupby("model")[DIMENSIONS].mean()
 dim_sds = model_means_all.std()
@@ -268,13 +268,13 @@ for bar, d in zip(bars, sorted_dims):
 
 ax.axhline(y=0.15, color='gray', linestyle='--', linewidth=0.8, alpha=0.7)
 ax.text(len(labels) - 0.5, 0.16, 'Threshold', fontsize=7, color='gray', ha='right')
-ax.set_ylabel('Inter-Vendor SD', fontsize=10)
+ax.set_ylabel('Inter-Model SD', fontsize=10)
 ax.set_xticklabels(labels, rotation=30, ha='right', fontsize=8)
 legend_elements = [Patch(facecolor=C_DISCRIMINATIVE, edgecolor='black', label='Discriminative'),
                    Patch(facecolor=C_ALIGNMENT, edgecolor='black', label='Alignment Artifact')]
 ax.legend(handles=legend_elements, frameon=False, fontsize=8)
 plt.tight_layout()
-save_fig(fig, 'fig3_intervendor_sd')
+save_fig(fig, 'fig3_intermodel_sd')
 
 
 # ============================
@@ -282,16 +282,16 @@ save_fig(fig, 'fig3_intervendor_sd')
 # ============================
 print("\n--- Fig 4: Cohen's d Heatmap ---")
 
-vendors_sorted = sorted(s1['vendor'].unique())
-n_v = len(vendors_sorted)
-d_matrix = np.zeros((n_v, n_v))
+models_sorted = sorted(s1['model'].unique())
+n_m = len(models_sorted)
+d_matrix = np.zeros((n_m, n_m))
 
 for dim in DIMENSIONS:
-    d_dim = np.zeros((n_v, n_v))
-    for i in range(n_v):
-        for j in range(i + 1, n_v):
-            g1 = s1[s1['vendor'] == vendors_sorted[i]][dim].dropna().values
-            g2 = s1[s1['vendor'] == vendors_sorted[j]][dim].dropna().values
+    d_dim = np.zeros((n_m, n_m))
+    for i in range(n_m):
+        for j in range(i + 1, n_m):
+            g1 = s1[s1['model'] == models_sorted[i]][dim].dropna().values
+            g2 = s1[s1['model'] == models_sorted[j]][dim].dropna().values
             if len(g1) < 2 or len(g2) < 2:
                 continue
             pooled_sd = np.sqrt(((len(g1)-1)*np.var(g1, ddof=1) + (len(g2)-1)*np.var(g2, ddof=1))
@@ -303,13 +303,13 @@ for dim in DIMENSIONS:
 
 fig, ax = plt.subplots(figsize=(5.5, 4.5))
 im = ax.imshow(d_matrix, cmap='YlOrRd', aspect='auto', vmin=0, vmax=max(3, d_matrix.max()))
-short_labels = [VENDOR_TO_FAMILY.get(v, v[:10]) for v in vendors_sorted]
-ax.set_xticks(range(n_v))
+short_labels = [MODEL_TO_FAMILY.get(v, v[:10]) for v in models_sorted]
+ax.set_xticks(range(n_m))
 ax.set_xticklabels(short_labels, rotation=45, ha='right', fontsize=7)
-ax.set_yticks(range(n_v))
+ax.set_yticks(range(n_m))
 ax.set_yticklabels(short_labels, fontsize=7)
-for i in range(n_v):
-    for j in range(n_v):
+for i in range(n_m):
+    for j in range(n_m):
         color = 'white' if d_matrix[i, j] > 1.5 else 'black'
         ax.text(j, i, f'{d_matrix[i, j]:.1f}', ha='center', va='center', fontsize=6, color=color)
 plt.colorbar(im, ax=ax, label='max |d| across 9 dims', shrink=0.8)
@@ -322,22 +322,22 @@ save_fig(fig, 'fig4_cohen_d_heatmap')
 # ============================
 print("\n--- Fig 5: HEXACO-H Dot Plot ---")
 
-vendor_h = s1.groupby("vendor")["hexaco_h"].agg(["mean", "std", "count"])
-vendor_h = vendor_h.sort_values("mean", ascending=False)
+model_h = s1.groupby("model_id")["hexaco_h"].agg(["mean", "std", "count"])
+model_h = model_h.sort_values("mean", ascending=False)
 
 fig, ax = plt.subplots(figsize=(5, 3.5))
-y_pos = np.arange(len(vendor_h))
-ax.errorbar(vendor_h["mean"], y_pos, xerr=vendor_h["std"],
+y_pos = np.arange(len(model_h))
+ax.errorbar(model_h["mean"], y_pos, xerr=model_h["std"],
             fmt='o', color=C_DISCRIMINATIVE, markersize=7, capsize=3,
             elinewidth=1, markeredgecolor='black', markeredgewidth=0.5)
 ax.set_yticks(y_pos)
-ax.set_yticklabels([VENDOR_TO_FAMILY.get(v, v) for v in vendor_h.index], fontsize=8)
+ax.set_yticklabels([MODEL_TO_FAMILY.get(v, v) for v in model_h.index], fontsize=8)
 ax.set_xlabel('HEXACO-H Score (1-5)', fontsize=10)
 ax.axvline(x=1.0, color='gray', linestyle=':', alpha=0.5, linewidth=0.8)
-ax.text(1.02, len(vendor_h) - 0.3, 'Floor', fontsize=7, color='gray')
-ax.set_xlim(0.8, vendor_h["mean"].max() + 0.5)
+ax.text(1.02, len(model_h) - 0.3, 'Floor', fontsize=7, color='gray')
+ax.set_xlim(0.8, model_h["mean"].max() + 0.5)
 plt.tight_layout()
-save_fig(fig, 'fig5_hexaco_h_vendors')
+save_fig(fig, 'fig5_hexaco_h_models')
 
 
 # ============================
@@ -366,8 +366,8 @@ for model_id, row in model_h.iterrows():
     if model_id not in TOTAL_PARAMS:
         undisclosed_h.append(row["mean"])
         vdata = combined[combined["model"] == model_id]
-        vname = vdata["vendor"].iloc[0] if len(vdata) > 0 else ""
-        undisclosed_families.append(VENDOR_TO_FAMILY.get(vname, model_id))
+        mname = vdata["model"].iloc[0] if len(vdata) > 0 else ""
+        undisclosed_families.append(MODEL_TO_FAMILY.get(mname, model_id))
 
 from scipy import stats
 if len(params_list) >= 3:

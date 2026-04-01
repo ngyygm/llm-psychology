@@ -1,0 +1,92 @@
+FRAMEWORK FIGURE PROMPT FOR AI IMAGE GENERATION
+================================================
+Paper: "The Missing Trade-Off: How LLMs Lose Human-Like Personality Structure"
+Figure type: Experimental pipeline / method overview (Figure 2 in paper)
+Target size: 0.95\textwidth (two-column figure in ACL format)
+Style: Clean, academic, flat design, minimal colors (blue/gray palette)
+
+---
+
+FIGURE 1: INTRO/CONCEPT FIGURE (fig:concept)
+=============================================
+Layout: Horizontal flow, 3 panels side by side
+
+Panel 1 - "Same Question":
+- Show a single Likert-scale item displayed on screen: "I worry about things." with 5-point scale (1=Strongly Disagree to 5=Strongly Agree)
+- Below: 3-4 chat bubble icons representing different LLMs
+
+Panel 2 - "Different Responses":
+- Show the same item with 3 different response patterns as horizontal bar charts or filled circles on the Likert scale:
+  - Model A (e.g., GPT): circle at position 2 (Disagree)
+  - Model B (e.g., DeepSeek): circle at position 4 (Agree)
+  - Model C (e.g., Claude): circle at position 3 (Neutral)
+- Use distinct colors for each model (blue, orange, green)
+
+Panel 3 - "Research Question":
+- A thought bubble or question mark icon
+- Text: "Personality trait or response style?"
+- Arrow pointing from the different responses to the question
+
+Style notes:
+- White background
+- No gradients
+- Font: sans-serif, clean
+- Scale labels: 1-5 with "Disagree" on left, "Agree" on right
+- Keep minimal - this is a concept figure, not a data figure
+
+---
+
+FIGURE 2: EXPERIMENTAL PIPELINE (fig:pipeline)
+===============================================
+Layout: Left-to-right flow with 4 major stages
+
+Stage 1 - "Model Selection" (leftmost):
+- Icon: grid of 15 model logos/names (Qwen, DeepSeek, GLM, Kimi, ERNIE, etc.)
+- Label below: "15 families, 33 models"
+- Sub-label: "SiliconFlow + OpenAI + Anthropic APIs"
+- Arrow pointing right →
+
+Stage 2 - "Data Collection" (center-left):
+- Icon: chat interface showing a Likert item being sent to a model
+- Details shown as stacked items:
+  - "61 items (9 dimensions)"
+  - "12 seeds per model"
+  - "Temperature = 0.7"
+  - "24,108 total responses"
+- Arrow pointing right →
+
+Stage 3 - "Analysis Framework" (center-right):
+- Show as a grid/matrix of analysis modules:
+  - Row 1: "One-way ANOVA" | "Cohen's d"
+  - Row 2: "Inter-dim correlations" | "Convergent validity"
+  - Row 3: "Reliability (α, ICC)" | "PCA"
+  - Row 4: "Prompt sensitivity" | "Variance decomposition"
+- Each module shown as a small rounded rectangle with icon
+- Arrow pointing right →
+
+Stage 4 - "Key Findings" (rightmost):
+- Three result boxes stacked vertically:
+  - Box 1 (highlighted): "C-N Reversal: r = -0.30 → +0.76" with a small scatter plot icon
+  - Box 2: "Median d = 1.01 between families"
+  - Box 3: "Prompt sensitivity: 1-9% variance"
+- Use accent color (red/orange) for the C-N reversal box
+
+Connecting elements:
+- Clean arrows between stages
+- Light gray background boxes for each stage
+- Stage labels above each box in bold
+
+Overall style:
+- White background, no shadows
+- Color palette: primary blue (#2563EB), accent orange (#F59E0B), gray (#6B7280)
+- Sans-serif font throughout
+- Minimal decorative elements
+- Clear hierarchy: stage labels > module names > detail text
+
+---
+
+SUPPLEMENTARY NOTES:
+- Both figures should be readable when printed in grayscale
+- Avoid 3D effects, drop shadows, or decorative elements
+- All text should be at least 8pt when rendered at target size
+- The pipeline figure (Figure 2) is the priority for replacement
