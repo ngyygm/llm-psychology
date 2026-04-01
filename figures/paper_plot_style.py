@@ -101,33 +101,50 @@ def save_fig(fig, name, fmt=FORMAT):
     return path
 
 
+def _load_merged_data():
+    """Load from final merged file (fallback when individual study files are absent)."""
+    import json, glob
+    merged = sorted(glob.glob('/home/linkco/exa/llm-psychology/results/vendor_exp/final_merged_*.json'))
+    if merged:
+        with open(merged[-1]) as fh:
+            return json.load(fh)
+    return []
+
+
 def load_study1_data():
     """Load Study 1 + Study 3 data (cross-model comparison including international models)."""
     import json, glob
     all_results = []
     seen = set()
-    for f in sorted(glob.glob('/home/linkco/exa/llm-psychology/results/vendor_exp/study1_*.json')):
-        with open(f) as fh:
-            for r in json.load(fh):
-                key = (r.get('model_id', ''), r.get('seed'), r.get('thinking_mode', 'chat'))
-                if key not in seen:
-                    seen.add(key)
-                    all_results.append(r)
-    for f in sorted(glob.glob('/home/linkco/exa/llm-psychology/results/vendor_exp/study3_*.json')):
-        if 'checkpoint' in f:
-            continue
-        with open(f) as fh:
-            for r in json.load(fh):
-                key = (r.get('model_id', ''), r.get('seed'), r.get('thinking_mode', 'chat'))
-                if key not in seen:
-                    seen.add(key)
-                    all_results.append(r)
+    # Try individual study files first
+    study_files = sorted(glob.glob('/home/linkco/exa/llm-psychology/results/vendor_exp/study1_*.json'))
+    study3_files = sorted(glob.glob('/home/linkco/exa/llm-psychology/results/vendor_exp/study3_*.json'))
+    if study_files or study3_files:
+        for f in study_files:
+            with open(f) as fh:
+                for r in json.load(fh):
+                    key = (r.get('model_id', ''), r.get('seed'), r.get('thinking_mode', 'chat'))
+                    if key not in seen:
+                        seen.add(key)
+                        all_results.append(r)
+        for f in study3_files:
+            if 'checkpoint' in f:
+                continue
+            with open(f) as fh:
+                for r in json.load(fh):
+                    key = (r.get('model_id', ''), r.get('seed'), r.get('thinking_mode', 'chat'))
+                    if key not in seen:
+                        seen.add(key)
+                        all_results.append(r)
+    else:
+        all_results = _load_merged_data()
     import pandas as pd
     df = pd.DataFrame(all_results)
-    if 'model_id' in df.columns and 'model' not in df.columns:
+    if 'model_id' in df.columns:
         df['model'] = df['model_id']
     # Filter chat mode only (study 1 and 3)
-    s1 = df[(df['study'].isin([1, 3])) & (df.get('thinking_mode', 'chat') == 'chat')].copy()
+    thinking = df['thinking_mode'] if 'thinking_mode' in df.columns else 'chat'
+    s1 = df[(df['study'].isin([1, 3])) & (thinking == 'chat')].copy()
     return s1
 
 
@@ -136,16 +153,20 @@ def load_study2_data():
     import json, glob
     all_results = []
     seen = set()
-    for f in sorted(glob.glob('/home/linkco/exa/llm-psychology/results/vendor_exp/study2_*.json')):
-        with open(f) as fh:
-            for r in json.load(fh):
-                key = (r.get('model_id', ''), r.get('seed'), r.get('thinking_mode', 'chat'))
-                if key not in seen:
-                    seen.add(key)
-                    all_results.append(r)
+    study2_files = sorted(glob.glob('/home/linkco/exa/llm-psychology/results/vendor_exp/study2_*.json'))
+    if study2_files:
+        for f in study2_files:
+            with open(f) as fh:
+                for r in json.load(fh):
+                    key = (r.get('model_id', ''), r.get('seed'), r.get('thinking_mode', 'chat'))
+                    if key not in seen:
+                        seen.add(key)
+                        all_results.append(r)
+    else:
+        all_results = _load_merged_data()
     import pandas as pd
     df = pd.DataFrame(all_results)
-    if 'model_id' in df.columns and 'model' not in df.columns:
+    if 'model_id' in df.columns:
         df['model'] = df['model_id']
     s2 = df[(df['study'] == 2) & (df.get('thinking_mode', 'chat') == 'chat')].copy()
     return s2
@@ -155,11 +176,15 @@ def load_study3_data():
     """Load Study 3 data (international models) from result JSON files."""
     import json, glob
     all_results = []
-    for f in sorted(glob.glob('/home/linkco/exa/llm-psychology/results/vendor_exp/study3_*.json')):
-        if 'checkpoint' in f:
-            continue
-        with open(f) as fh:
-            all_results.extend(json.load(fh))
+    study3_files = sorted(glob.glob('/home/linkco/exa/llm-psychology/results/vendor_exp/study3_*.json'))
+    if study3_files:
+        for f in study3_files:
+            if 'checkpoint' in f:
+                continue
+            with open(f) as fh:
+                all_results.extend(json.load(fh))
+    else:
+        all_results = _load_merged_data()
     import pandas as pd
     df = pd.DataFrame(all_results)
     if 'model_id' in df.columns and 'model' not in df.columns:

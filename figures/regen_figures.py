@@ -135,7 +135,11 @@ all_models = sorted(s1['model'].unique())
 angles = np.linspace(0, 2 * np.pi, N_DIMS, endpoint=False).tolist()
 angles += angles[:1]
 
-fig, ax = plt.subplots(figsize=(5, 5), subplot_kw=dict(polar=True))
+# Use 3 line styles for visual separation (5 models each)
+LINESTYLES = ['-', '--', ':']
+GROUP_SIZE = 5
+
+fig, ax = plt.subplots(figsize=(6.5, 5.5), subplot_kw=dict(polar=True))
 fig.patch.set_facecolor('white')
 
 for idx, model in enumerate(all_models):
@@ -144,17 +148,19 @@ for idx, model in enumerate(all_models):
     means_plot = means + means[:1]
     family = MODEL_TO_FAMILY.get(model, model)
     color = FAMILY_COLORS.get(family, COLORS[idx % 10])
-    ax.plot(angles, means_plot, 'o-', linewidth=1.4, color=color,
-            markersize=3.5, label=family, alpha=0.85)
-    ax.fill(angles, means_plot, alpha=0.06, color=color)
+    ls = LINESTYLES[idx // GROUP_SIZE]
+    ax.plot(angles, means_plot, linestyle=ls, marker='o', linewidth=1.3,
+            color=color, markersize=3, label=family, alpha=0.80)
+    # No fill to reduce clutter
 
 ax.set_xticks(angles[:-1])
-ax.set_xticklabels(DIM_LABELS, fontsize=8)
+ax.set_xticklabels(DIM_LABELS, fontsize=8.5)
 ax.set_ylim(1, 4.2)
 ax.set_yticks([2, 3, 4])
 ax.set_yticklabels(['2', '3', '4'], fontsize=7, color='gray')
-ax.legend(loc='upper center', bbox_to_anchor=(0.5, 1.30), fontsize=7,
-          framealpha=0.95, edgecolor='#cccccc', ncol=5)
+ax.legend(loc='upper center', bbox_to_anchor=(0.5, 1.28), fontsize=6.5,
+          framealpha=0.95, edgecolor='#cccccc', ncol=5, columnspacing=1.0,
+          handlelength=2.0)
 plt.tight_layout()
 save_fig(fig, 'fig1_radar_combined')
 
