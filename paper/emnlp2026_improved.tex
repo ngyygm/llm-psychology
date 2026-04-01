@@ -65,27 +65,19 @@ But a basic question has been largely overlooked: \emph{do these scores reproduc
 If LLM psychometric responses lack the correlational structure of human traits, if conscientious and neurotic no longer trade off, then applying personality labels to LLMs is, at best, misleading.
 
 We argue that LLM questionnaire responses are better understood as \textit{response styles}: systematic tendencies shaped by training data, alignment objectives, and deployment configurations, rather than genuine personality traits \citep{paulhus1991response, binz2023psychology}.
-If this is correct, two testable predictions follow: (1)~different models should exhibit systematically different response patterns, and (2)~the inter-dimension correlation structure should diverge from the human baseline. In particular, the characteristic trade-offs should be absent.
+If this is correct, two predictions follow: (1)~different models should produce systematically different response patterns, and (2)~the inter-dimension correlation structure should diverge from the human baseline.
 
 Existing work provides suggestive but incomplete evidence on this point.
 \citet{schaekermann2024personality} found moderate-to-large inter-model differences across 9 LLMs, and \citet{serapio-garcia2025personality} evaluated 18 models but with heterogeneous APIs and no structural validity testing.
 \citet{salecha2024social} and \citet{dominguez-olmedo2024questioning} documented compressed response distributions, while \citet{braun2025acquiescence} found systematic acquiescence bias.
-However, no study has tested whether the \emph{inter-dimension correlation structure} of LLM responses matches the human baseline, a necessary condition for claiming structural equivalence.
+However, no study has tested whether the \emph{inter-dimension correlation structure} of LLM responses matches the human baseline, a necessary condition for structural equivalence.
 
 We address this gap with the largest cross-family comparison to date: 33 models from 15 families, 9 psychometric dimensions, 61 Likert items, 12 seeds per model, all administered via unified APIs (Figure~\ref{fig:concept}).
-Our contributions are:
-
-\begin{enumerate}[leftmargin=*,nosep]
-    \item \textbf{The largest unified cross-family response style comparison.}
-    15 model families under controlled API conditions reveal large, systematic behavioral differences (median pairwise Cohen's $d = 1.01$), establishing that training and alignment leave measurable fingerprints on model responses.
-
-    \item \textbf{A structural validity test revealing a missing trade-off.}
-    The Conscientiousness--Neuroticism correlation, a robust negative trade-off in humans ($r = -0.30$) \citep{soto2017bfi2}, \textbf{reverses to strongly positive} in LLMs ($r = +0.76$, 95\% CI $[0.58, 0.88]$, $p < 0.001$, $n = 33$).
-    This reversal is individually significant, replicates across all subgroups, and constitutes the primary evidence that human personality trade-offs do not transfer to LLMs.
-
-    \item \textbf{Direct evidence against trait interpretation.}
-    Surface-level prompt changes produce modest but significant score shifts (prompt explains 1--9\% of variance vs.\ 10--78\% for model family), with some rank instability across framings, confirming that these measurements lack full measurement invariance.
-\end{enumerate}
+Our contributions are threefold.
+\textbf{First,} we provide the largest unified cross-family comparison to date: 15 model families under controlled API conditions reveal large behavioral differences (median pairwise Cohen's $d = 1.01$), showing that training and alignment leave measurable fingerprints on model responses.
+\textbf{Second,} we conduct a structural validity test that reveals a missing trade-off: the Conscientiousness--Neuroticism correlation, a robust negative trade-off in humans ($r = -0.30$) \citep{soto2017bfi2}, \textbf{reverses to strongly positive} in LLMs ($r = +0.76$, 95\% CI $[0.58, 0.88]$, $p < 0.001$, $n = 33$).
+This reversal is individually significant, replicates across all subgroups, and constitutes the primary evidence that human personality trade-offs do not transfer to LLMs.
+\textbf{Third,} we provide direct evidence against trait interpretation: surface-level prompt changes produce modest but significant score shifts (prompt explains 1--9\% of variance vs.\ 10--78\% for model family), with some rank instability across framings, confirming that these measurements lack full measurement invariance.
 
 Together, these findings challenge the interpretation of LLM psychometric scores as personality traits: model families do exhibit different behavioral fingerprints, but the structural architecture that defines human personality, its characteristic trade-offs, is absent.
 
@@ -175,12 +167,13 @@ Uncertainty Avoidance & Cultural Dimensions & 4 & 2 items \\
 \label{sec:response_style}
 
 We frame our measurements as \textbf{response style} rather than personality \citep{paulhus1991response, rammstedt2000response}.
-In psychometrics, response style refers to systematic tendencies in how respondents answer questionnaire items, independent of item content: acquiescence (yea-saying), midpoint responding, extreme responding, and socially desirable responding \citep{baumgartner2007modeling}.
+In psychometrics, response style refers to systematic tendencies in how respondents answer questionnaire items, independent of item content.
+Examples include acquiescence (always agreeing), midpoint responding (always choosing the middle option), extreme responding (always choosing endpoints), and socially desirable responding \citep{baumgartner2007modeling}.
 These styles are properties of the \emph{respondent}, not of the construct being measured.
 
-Crucially, personality is not defined by individual dimension scores alone; it is defined by the \textbf{trade-offs between dimensions}.
+Crucially, personality is not defined by individual dimension scores alone but by the \textbf{trade-offs between dimensions}.
 The finding that conscientious individuals tend to be less neurotic ($r = -0.30$) \citep{soto2017bfi2} reflects a genuine psychological tension, not a measurement artifact.
-If LLM psychometric scores do not reproduce these trade-offs, then the dimension labels (``Conscientiousness,'' ``Neuroticism'') do not denote the same constructs they denote in humans, regardless of how the individual scores distribute.
+If LLM psychometric scores do not reproduce these trade-offs, then the dimension labels (``Conscientiousness,'' ``Neuroticism'') do not denote the same constructs as in humans.
 
 We adopt the response style framing because LLMs lack the subjective experience that personality constructs presume.
 Our research question is therefore: \emph{do LLM responses reproduce the inter-dimension trade-offs that define human personality, or do they reflect prompt-dependent response styles?}
