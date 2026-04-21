@@ -42,14 +42,14 @@
 
 % ============================================================
 \begin{abstract}
-Human personality is defined by trade-offs: conscientious individuals tend to be more emotionally stable, extraverts more open to experience. In large language models, these trade-offs simply vanish. Across 33 models from 15 families (61 Likert items, 12 seeds each), we find that (1)~model families produce systematically different response profiles (median pairwise $d = 1.01$), yet all scores compress toward the Likert midpoint; (2)~the Conscientiousness--Neuroticism correlation, a robust negative trade-off in humans ($r = -0.30$), \textbf{reverses} to strongly positive in LLMs ($r = +0.76$, 95\% CI $[0.58, 0.88]$), robustly replicated across subgroups; and (3)~surface-level prompt changes produce significant score shifts, confirming that these measurements lack full measurement invariance.
-These findings indicate that LLM psychometric scores capture prompt-dependent response styles shaped by training and alignment, not human-like personality constructs. We recommend treating such measurements as probes of model behavioral tendencies rather than claims about personality.
+Human personality is shaped by trade-offs: people who are self-disciplined tend to be calmer, and outgoing people tend to be more curious. In large language models, these trade-offs vanish. We test 33 models from 15 families on 61 questionnaire items (12 random seeds each) and find three results. (1)~Different model families give noticeably different answers (median pairwise $d = 1.01$), but all scores cluster near the middle of the scale. (2)~The link between Conscientiousness and Neuroticism, which is reliably negative in humans ($r = -0.30$), \textbf{flips to strongly positive} in LLMs ($r = +0.76$, 95\% CI $[0.58, 0.88]$), and this holds across every subgroup we test. (3)~Small wording changes in prompts shift scores enough to show these measurements are not stable.
+These results suggest that LLM questionnaire scores reflect response habits shaped by training, not genuine personality. We recommend treating such scores as behavioral probes rather than personality measurements.
 \end{abstract}
 
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=\columnwidth,height=0.42\textheight,keepaspectratio]{figures/intro_figure_prompt.pdf}
-    \caption{\textbf{Core concept.} Identical psychometric items elicit systematically different Likert-scale responses from different models. These model-specific response style signatures raise the question: do psychometric scores in LLMs reflect personality traits, or systematic response tendencies shaped by training and alignment?}
+    \caption{\textbf{Core idea.} The same personality questions produce different answer patterns from different models. Do these patterns reflect real personality, or just habits baked in by training?}
     \label{fig:concept}
 \end{figure}
 
@@ -57,34 +57,34 @@ These findings indicate that LLM psychometric scores capture prompt-dependent re
 \section{Introduction}
 \label{sec:intro}
 
-Human personality is defined by trade-offs.
-Conscientious individuals tend to be more emotionally stable; extraverts are typically more open to experience \citep{mccrae1992five, soto2017bfi2}.
-These inter-dimension correlations are not incidental; they reflect genuine motivational and emotional tensions that make human personality what it is.
-A growing number of studies apply personality inventories to LLMs and interpret the resulting scores as evidence for model ``personality traits'' \citep{jiang2023personality, pan2024personality, serapio-garcia2025personality}.
-But a basic question has been largely overlooked: \emph{do these scores reproduce the trade-offs that define human personality?}
-If LLM psychometric responses lack the correlational structure of human traits, if conscientious and neurotic no longer trade off, then applying personality labels to LLMs is, at best, misleading.
+Human personality is shaped by trade-offs.
+Self-disciplined people tend to be emotionally stable; outgoing people are usually more open to new experiences \citep{mccrae1992five, soto2017bfi2}.
+These patterns are not coincidences; they reflect real tensions between how people regulate emotions and pursue goals.
+A growing number of studies give personality questionnaires to LLMs and treat the resulting scores as evidence of model ``personality'' \citep{jiang2023personality, pan2024personality, serapio-garcia2025personality}.
+But a key question remains largely unasked: \emph{do LLM scores reproduce the trade-offs that define human personality?}
+If not---if being conscientious and being neurotic no longer pull in opposite directions---then labeling LLMs with personality terms is misleading at best.
 
-We argue that LLM questionnaire responses are better understood as \textit{response styles}: systematic tendencies shaped by training data, alignment objectives, and deployment configurations, rather than genuine personality traits \citep{paulhus1991response, binz2023psychology}.
-If this is correct, two predictions follow: (1)~different models should produce systematically different response patterns, and (2)~the inter-dimension correlation structure should diverge from the human baseline.
+We argue that LLM questionnaire answers are better understood as \textit{response habits}: systematic patterns driven by training data and alignment, not genuine personality \citep{paulhus1991response, binz2023psychology}.
+If so, two things should follow: (1)~different models should give noticeably different answers, and (2)~the relationships between personality dimensions should look different from the human pattern.
 
-Existing work provides suggestive but incomplete evidence on this point.
-\citet{schaekermann2024personality} found moderate-to-large inter-model differences across 9 LLMs, and \citet{serapio-garcia2025personality} evaluated 18 models but with heterogeneous APIs and no structural validity testing.
-\citet{salecha2024social} and \citet{dominguez-olmedo2024questioning} documented compressed response distributions, while \citet{braun2025acquiescence} found systematic acquiescence bias.
-However, no study has tested whether the \emph{inter-dimension correlation structure} of LLM responses matches the human baseline, a necessary condition for structural equivalence.
+Prior work offers partial evidence.
+\citet{schaekermann2024personality} found large differences across 9 LLMs, and \citet{serapio-garcia2025personality} tested 18 models but used different APIs and did not check structural validity.
+\citet{salecha2024social} and \citet{dominguez-olmedo2024questioning} showed that LLM answers are compressed toward middle values, and \citet{braun2025acquiescence} found that models tend to agree with whatever is stated.
+However, no study has tested whether the \emph{relationships between dimensions} in LLMs match the human pattern---a necessary check before claiming the scores mean the same thing.
 
-We address this gap with the largest cross-family comparison to date: 33 models from 15 families, 9 psychometric dimensions, 61 Likert items, 12 seeds per model, all administered via unified APIs (Figure~\ref{fig:concept}).
-Our contributions are threefold.
-\textbf{First,} we provide the largest unified cross-family comparison to date: 15 model families under controlled API conditions reveal large behavioral differences (median pairwise Cohen's $d = 1.01$), showing that training and alignment leave measurable fingerprints on model responses.
-\textbf{Second,} we conduct a structural validity test that reveals a missing trade-off: the Conscientiousness--Neuroticism correlation, a robust negative trade-off in humans ($r = -0.30$) \citep{soto2017bfi2}, \textbf{reverses to strongly positive} in LLMs ($r = +0.76$, 95\% CI $[0.58, 0.88]$, $p < 0.001$, $n = 33$).
-This reversal is individually significant, replicates across all subgroups, and constitutes the primary evidence that human personality trade-offs do not transfer to LLMs.
-\textbf{Third,} we provide direct evidence against trait interpretation: surface-level prompt changes produce modest but significant score shifts (prompt explains 1--9\% of variance vs.\ 10--78\% for model family), with some rank instability across framings, confirming that these measurements lack full measurement invariance.
+We fill this gap with the largest cross-family comparison to date: 33 models from 15 families, 9 personality dimensions, 61 items, 12 seeds per model, all tested through the same APIs (Figure~\ref{fig:concept}).
+We make three contributions.
+\textbf{First,} we show that training leaves measurable fingerprints: 15 model families under the same test conditions produce large behavioral differences (median pairwise Cohen's $d = 1.01$).
+\textbf{Second,} we reveal a missing trade-off: the link between Conscientiousness and Neuroticism, reliably negative in humans ($r = -0.30$) \citep{soto2017bfi2}, \textbf{flips to strongly positive} in LLMs ($r = +0.76$, 95\% CI $[0.58, 0.88]$, $p < 0.001$, $n = 33$).
+This flip holds in every subgroup we test and is the clearest evidence that human personality structure does not carry over to LLMs.
+\textbf{Third,} we show that prompt wording alone shifts scores (prompt explains 1--9\% of variance vs.\ 10--78\% for model family), with some models changing rank order across framings, confirming these measurements are not stable.
 
-Together, these findings challenge the interpretation of LLM psychometric scores as personality traits: model families do exhibit different behavioral fingerprints, but the structural architecture that defines human personality, its characteristic trade-offs, is absent.
+Together, these findings challenge reading LLM scores as personality: model families do have distinct behavioral fingerprints, but the structural backbone of human personality---its characteristic trade-offs---is absent.
 
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=0.48\textwidth]{figures/fig1_radar_combined.pdf}
-    \caption{Response style profiles of all 15 model families across 9 dimensions. Each line is one model family. The distinct shapes suggest that different training approaches leave different behavioral fingerprints on models.}
+    \caption{Answer profiles of all 15 model families across 9 dimensions. Each line is one family. The distinct shapes show that different training approaches leave different behavioral fingerprints.
     \label{fig:radar_profiles}
 \end{figure}
 
@@ -95,28 +95,26 @@ Together, these findings challenge the interpretation of LLM psychometric scores
 \label{sec:related}
 
 \paragraph{LLM personality measurement.}
-A growing body of work administers personality inventories to LLMs and interprets the resulting scores as trait profiles.
-\citet{jiang2023personality} found temperature-dependent variation in ChatGPT using the BFI-10; \citet{pan2024personality} compared LLMs from different cultural backgrounds on the BFI-44; \citet{schaekermann2024personality} examined 9 LLMs on the Big Five, finding moderate-to-large inter-model differences.
-\citet{serapio-garcia2025personality} proposed a psychometric framework for evaluating personality traits across 18 LLMs, the largest study to date, but with heterogeneous APIs and no structural validity testing.
-\citet{hilliard2024eliciting} confirmed that model scale affects elicited profiles, and \citet{bodroza2024personality} found limited temporal stability but consistently elevated prosociality.
-\citet{sorokovikova2024big} found systematic deviations from human norms, and \citet{tosato2025instability} documented persistent instability across scales and conversation histories.
-These studies establish that LLMs produce variable, model-dependent psychometric profiles, but they do not test whether these profiles reproduce the \emph{inter-dimension correlation structure} that defines human personality, a necessary condition for claiming structural equivalence.
+Many studies give personality questionnaires to LLMs and read the results as trait profiles.
+\citet{jiang2023personality} found that ChatGPT's scores change with temperature settings; \citet{pan2024personality} compared models from different cultural backgrounds; \citet{schaekermann2024personality} tested 9 LLMs and found large differences between them.
+\citet{serapio-garcia2025personality} proposed a framework for measuring personality across 18 LLMs---the largest study before ours---but used different APIs for different models and did not test whether the score structure matches humans.
+Other work shows that model size affects scores \citep{hilliard2024eliciting}, that scores drift over time \citep{bodroza2024personality}, that LLMs deviate from human norms \citep{sorokovikova2024big}, and that scores are unstable across scales and conversation contexts \citep{tosato2025instability}.
+These studies show that LLMs produce variable, model-dependent scores, but none checks whether the \emph{relationships between dimensions} match the human pattern---a necessary condition for claiming the scores measure the same thing.
 
-\paragraph{Trade-offs in human personality structure.}
-The Five-Factor Model \citep{mccrae1992five} provides the theoretical foundation for the BFI dimensions we use.
-A robust finding across large-scale validation studies is that personality dimensions exhibit systematic negative correlations: Conscientiousness--Neuroticism ($r = -0.30$), Extraversion--Neuroticism ($r = -0.34$), and Openness--Agreeableness ($r = +0.14$) \citep{soto2017bfi2}.
-These trade-offs reflect genuine motivational and emotional tensions; conscientious individuals tend to be more emotionally stable, not because of measurement artifact, but because self-regulation and emotional reactivity are psychologically antagonistic.
-If LLM psychometric scores correspond to human personality constructs, these trade-offs should be preserved.
-\citet{suh2024rediscovering} recovered the Big Five factor structure from LLMs using semantic embeddings, but semantic structure and questionnaire response structure are distinct probes; we test the latter.
-Our contribution is to directly test whether these human trade-offs survive in LLM questionnaire responses.
+\paragraph{Trade-offs in human personality.}
+The Five-Factor Model \citep{mccrae1992five} is the theoretical foundation for our work.
+Large validation studies consistently find that personality dimensions pull against each other: Conscientiousness and Neuroticism ($r = -0.30$), Extraversion and Neuroticism ($r = -0.34$), Openness and Agreeableness ($r = +0.14$) \citep{soto2017bfi2}.
+These trade-offs are not measurement artifacts---they reflect real psychological tensions. Self-disciplined people tend to be calmer because self-regulation and emotional volatility work against each other.
+If LLM scores represent the same constructs, these trade-offs should appear in the data.
+\citet{suh2024rediscovering} recovered Big Five structure from LLM word embeddings, but word similarity and questionnaire answers are different things; we test the latter.
+Our contribution is to directly check whether human trade-offs survive when LLMs answer personality questions.
 
-\paragraph{Measurement validity challenges.}
-Applying human psychometric instruments to LLMs raises fundamental validity concerns \citep{schaekermann2024personality, serpell2024validity}.
-\citet{suh2023challenging} question whether standard personality tests are valid for LLMs at all, given the lack of genuine self-report.
-\citet{salecha2024social} demonstrated human-like social desirability biases; \citet{dominguez-olmedo2024questioning} showed compressed response distributions lacking natural variation; \citet{braun2025acquiescence} documented systematic acquiescence bias.
-\citet{han2025personality} demonstrated a dissociation between LLM self-reported personality and behavioral choices.
-\citet{xie2025aipsychobench} introduced AIPsychoBench, finding systematic discrepancies between LLM and human response patterns.
-While prior work has raised validity concerns about individual biases, ours is the first to systematically document a \emph{structural reversal}, namely the disappearance of the Conscientiousness--Neuroticism trade-off, across a large sample of model families, and to demonstrate that these measurements lack prompt-invariance.
+\paragraph{Measurement validity concerns.}
+Using human personality tests on LLMs raises basic validity questions \citep{schaekermann2024personality, serpell2024validity}.
+\citet{suh2023challenging} question whether these tests are meaningful for LLMs at all, since LLMs cannot genuinely report on their own experience.
+Other work shows that LLMs display social desirability bias \citep{salecha2024social}, give answers that cluster near the scale midpoint \citep{dominguez-olmedo2024questioning}, tend to agree with whatever is stated \citep{braun2025acquiescence}, and show a gap between what they say about themselves and how they actually behave \citep{han2025personality}.
+\citet{xie2025aipsychobench} found systematic differences between LLM and human answer patterns.
+While prior work has flagged individual biases, we are the first to document a \emph{structural flip}---the disappearance of the Conscientiousness--Neuroticism trade-off---across a large sample, and to show that prompt wording alone can shift scores.
 
 % ============================================================
 \section{Method}
@@ -125,17 +123,17 @@ While prior work has raised validity concerns about individual biases, ours is t
 \begin{figure*}[!t]
     \centering
     \includegraphics[width=0.95\textwidth]{figures/framework_figure_prompt.pdf}
-    \caption{\textbf{Experimental pipeline.} We select 15 model families via unified API platforms, query each model on 61 Likert items (9 dimensions, 12 seeds), collect 24,108 responses across 33 models, and apply a multi-module analysis framework (ANOVA, Cohen's $d$, convergent validity, reliability, acquiescence correction) to characterize model-level response style variation.}
+    \caption{\textbf{Experimental pipeline.} We select 15 model families through unified API platforms, ask each model 61 questions (9 dimensions, 12 random seeds), collect 24,108 responses across 33 models, and analyze the results using ANOVA, effect sizes, correlation analysis, and reliability checks to characterize how models differ in their response patterns.}
     \label{fig:pipeline}
 \end{figure*}
 
 \subsection{Psychometric Instruments}
 \label{sec:instruments}
 
-We use 9 dimensions comprising 61 Likert items (1--5 scale; Table~\ref{tab:instruments}).
-Five come from the Big Five Inventory \citep{john1999bigfive, mccrae1992five, soto2017bfi2}: Extraversion (8 items), Agreeableness (9), Conscientiousness (9), Neuroticism (8), and Openness (10).
-We add HEXACO Honesty-Humility (5 items; \citealp{lee2004hexaco}), Collectivism (4 items; Schwartz Values Survey \citealp{schwartz1992universals}), Intuition (4 items; cognitive style), and Uncertainty Avoidance (4 items; cultural dimensions).
-Reverse-scored items are transformed via $\text{score} = 6 - \text{original}$; dimension scores are the mean of constituent items.
+We use 9 dimensions measured by 61 questions on a 1--5 agreement scale (Table~\ref{tab:instruments}).
+Five dimensions come from the Big Five Inventory \citep{john1999bigfive, mccrae1992five, soto2017bfi2}: Extraversion (8 items), Agreeableness (9), Conscientiousness (9), Neuroticism (8), and Openness (10).
+We add four more: HEXACO Honesty-Humility (5 items; \citealp{lee2004hexaco}), Collectivism (4 items; \citealp{schwartz1992universals}), Intuition (4 items; cognitive style), and Uncertainty Avoidance (4 items; cultural dimensions).
+For reverse-scored items, we flip the scale ($\text{score} = 6 - \text{original}$); each dimension score is the average of its items.
 
 \begin{table}[!htb]
 \centering
@@ -166,24 +164,24 @@ Uncertainty Avoidance & Cultural Dimensions & 4 & 2 items \\
 \subsection{What We Measure: Response Style}
 \label{sec:response_style}
 
-We frame our measurements as \textbf{response style} rather than personality \citep{paulhus1991response, rammstedt2000response}.
-In psychometrics, response style refers to systematic tendencies in how respondents answer questionnaire items, independent of item content.
-Examples include acquiescence (always agreeing), midpoint responding (always choosing the middle option), extreme responding (always choosing endpoints), and socially desirable responding \citep{baumgartner2007modeling}.
-These styles are properties of the \emph{respondent}, not of the construct being measured.
+We call what we measure \textbf{response habits} rather than personality \citep{paulhus1991response, rammstedt2000response}.
+In psychology, response habits (or ``response styles'') are systematic tendencies in how someone answers questionnaires, regardless of what the questions ask.
+Common examples include always agreeing, always picking the middle option, always picking extreme values, and giving socially desirable answers \citep{baumgartner2007modeling}.
+These habits belong to the \emph{answerer}, not to the trait being measured.
 
-Crucially, personality is not defined by individual dimension scores alone but by the \textbf{trade-offs between dimensions}.
-The finding that conscientious individuals tend to be less neurotic ($r = -0.30$) \citep{soto2017bfi2} reflects a genuine psychological tension, not a measurement artifact.
-If LLM psychometric scores do not reproduce these trade-offs, then the dimension labels (``Conscientiousness,'' ``Neuroticism'') do not denote the same constructs as in humans.
+Crucially, personality is not just about individual scores---it is about the \textbf{trade-offs between dimensions}.
+The fact that self-disciplined people tend to be less anxious ($r = -0.30$) \citep{soto2017bfi2} reflects a real psychological tension, not a measurement quirk.
+If LLM scores do not show these trade-offs, then labels like ``Conscientiousness'' and ``Neuroticism'' do not mean the same thing as they do for humans.
 
-We adopt the response style framing because LLMs lack the subjective experience that personality constructs presume.
-Our research question is therefore: \emph{do LLM responses reproduce the inter-dimension trade-offs that define human personality, or do they reflect prompt-dependent response styles?}
-We explicitly test this by comparing LLM inter-dimension correlations against published human baselines (Section~\ref{sec:interdim}).
+We use the response-habit framing because LLMs lack the inner experience that personality concepts assume.
+Our question is: \emph{do LLM answers reproduce the trade-offs that define human personality, or do they reflect habits shaped by training?}
+We test this directly by comparing how dimensions relate to each other in LLMs versus published human data (Section~\ref{sec:interdim}).
 
 \subsection{Model Selection}
 \label{sec:models}
 
-We select 15 model families accessible through unified API platforms, contributing one representative model each (Table~\ref{tab:models}).
-Priorities: flagship models where available; Dense and MoE architectures both represented (10 Dense, 5 MoE).
+We select 15 model families available through unified API platforms, picking one representative model per family (Table~\ref{tab:models}).
+We prioritize flagship models and include both Dense and Mixture-of-Experts (MoE) architectures (10 Dense, 5 MoE).
 
 \begin{table}[!htb]
 \centering
@@ -218,23 +216,23 @@ Priorities: flagship models where available; Dense and MoE architectures both re
 \subsection{Experimental Protocol}
 \label{sec:protocol}
 
-Each model is administered all 61 items per seed at temperature $= 0.7$, with 12 seeds (0, 1, 2, 4, 5, 6, 7, 8, 9, 42, 123, 456) capturing response distribution variation, totaling 10,980 API calls.
-We set temperature to 0.7 to balance response diversity with reproducibility. Temperature 0 yields deterministic outputs that eliminate within-model variance entirely, while higher temperatures ($\geq 1.0$) tend to produce inconsistent self-referential responses.
-Prior work on LLM personality \citep{jiang2023personality} has shown that temperature affects reported trait scores, making a moderate temperature necessary to capture the full range of each model's response tendencies.
-Items are framed as self-referential statements (\eg ``I see myself as someone who is the life of the party'') with a 1--5 agreement scale.
-Rate limiting uses exponential backoff on 429 responses with up to 5 concurrent threads.
+Each model answers all 61 items per seed at temperature $= 0.7$, with 12 different seeds (0, 1, 2, 4, 5, 6, 7, 8, 9, 42, 123, 456) to capture response variation, totaling 10,980 API calls.
+We choose temperature 0.7 to balance diversity with reproducibility: temperature 0 gives identical answers every time (eliminating within-model variation), while higher values ($\geq 1.0$) produce erratic responses.
+\citet{jiang2023personality} showed that temperature affects personality scores, making a moderate setting necessary.
+Items are phrased as self-descriptions (\eg ``I see myself as someone who is the life of the party'') with a 1--5 agreement scale.
+We handle API rate limits with exponential backoff and up to 5 parallel threads.
 
 \subsection{Analysis Framework}
 \label{sec:analysis}
 
-Figure~\ref{fig:pipeline} illustrates the full experimental pipeline.
-Our analysis combines several complementary approaches.
-For each dimension, we run a one-way ANOVA (Model Family, 15 levels) with FDR-corrected $p$-values \citep{benjamini1995controlling} and partial $\eta^2_p$, supplemented by ordered logistic regression to account for the ordinal nature of Likert responses.
-Pairwise Cohen's $d$ (Welch's $t$-test) is computed for all 105 model pairs across 8 primary dimensions (840 tests, FDR-corrected); power analysis confirms adequate power ($>80\%$) for $d \geq 0.8$ with 12 observations per model.
-To correct for acquiescence bias, we compute partial correlations controlling for the first principal component (PC1).
-We assess reliability via ICC(1,1) and coefficient of variation, classify dimensions with inter-model $\sd < 0.15$ as alignment artifacts, and compare LLM inter-dimension correlations against published human baselines \citep{john1999bigfive} for 5 key dimension pairs.
-For all correlation and ANOVA analyses, we first aggregate the 12 seed-level responses per model into dimension means, then compute statistics at the model-family level ($n = 15$ for primary analyses; $n = 33$ for replication).
-The human baseline correlations are drawn from large-scale BFI validation studies \citep{soto2017bfi2, vanderlinden2010general} and the trait taxonomy chapter \citep{john1999bigfive}; we report values from the Internet sample of \citet{soto2017bfi2} ($N = 1{,}000$).
+Figure~\ref{fig:pipeline} shows the full pipeline.
+Our analysis has several parts.
+For each dimension, we test whether models differ using one-way ANOVA (15 model families) with false-discovery-rate (FDR) correction \citep{benjamini1995controlling} and effect size ($\eta^2_p$), plus ordered logistic regression to handle the ordinal nature of Likert data.
+We compute pairwise effect sizes (Cohen's $d$) for all 105 model pairs across 8 dimensions (840 tests, FDR-corrected); power analysis confirms we can detect large effects ($d \geq 0.8$) with $>80\%$ power given 12 observations per model.
+To control for agreement bias, we compute partial correlations after removing the first principal component (PC1).
+We check reliability using ICC(1,1) and coefficient of variation, flag dimensions with very low between-model spread ($\sd < 0.15$) as likely alignment artifacts, and compare how dimensions relate to each other in LLMs versus published human data \citep{john1999bigfive}.
+For all analyses, we first average each model's 12-seed responses into dimension means, then compute statistics across model families ($n = 15$ for primary analyses; $n = 33$ for replication).
+Human baseline correlations come from the BFI-2 validation study \citep{soto2017bfi2} ($N = 1{,}000$).
 
 % ============================================================
 \section{Experiments}
@@ -245,13 +243,13 @@ The human baseline correlations are drawn from large-scale BFI validation studie
 \subsection{Overview}
 \label{sec:overview}
 
-Table~\ref{tab:model_means} reports model family mean scores across 9 dimensions.
-On the Big Five, scores cluster around the scale midpoint (2.7--3.3) with the exception of Neuroticism, where Ring (2.22) and MiniMax (2.31) stand apart from GPT (3.30) and Claude (3.39).
-Intuition shows the widest spread among non-H dimensions: GLM scores lowest (1.88) while Claude leads (2.92), a gap of over one full point.
-Collectivism and Uncertainty Avoidance are the most compressed dimensions (ranges of 0.73 and 0.44, respectively), suggesting near-uniform responses across model families.
-In the raw data, Dense models (GPT, Claude, Kimi, Hunyuan, Seed, InternLM, Ring, Step, KAT, MiniMax) tend to score higher on HEXACO-H and Agreeableness than MoE models, while MoE models show higher Uncertainty Avoidance. We revisit this pattern in Appendix~\ref{sec:appendix_hexaco_detail} with appropriate caution about confounding between architecture, provider, and scale.
-Figure~\ref{fig:radar_profiles} overlays all 15 profiles, revealing that models from the same provider tend to share similar profile shapes.
-Family-level clustering is further illustrated by within-family trajectories across model versions (Appendix~\ref{sec:appendix_trajectories}).
+Table~\ref{tab:model_means} reports average scores across 9 dimensions for each model family.
+On the Big Five, most scores hover near the scale midpoint (2.7--3.3), except for Neuroticism, where Ring (2.22) and MiniMax (2.31) score much lower than GPT (3.30) and Claude (3.39).
+Intuition shows the widest spread among non-H dimensions: GLM scores lowest (1.88) while Claude scores highest (2.92), a gap of over one full point.
+Collectivism and Uncertainty Avoidance are the most compressed dimensions (ranges of 0.73 and 0.44), meaning nearly all models answer the same way.
+In the raw data, Dense models tend to score higher on HEXACO-H and Agreeableness than MoE models, while MoE models show higher Uncertainty Avoidance. We revisit this in Appendix~\ref{sec:appendix_hexaco_detail}, noting that architecture, provider, and scale are confounded.
+Figure~\ref{fig:radar_profiles} overlays all 15 profiles, showing that models from the same provider tend to share similar shapes.
+Within-family version trajectories are shown in Appendix~\ref{sec:appendix_trajectories}.
 
 \begin{table*}[!t]
 \centering
@@ -285,18 +283,18 @@ Claude & 2.96 (0.18) & 3.13 (0.18) & 2.93 (0.21) & 3.39 (0.19) & 3.12 (0.17) & 2
 \subsection{Cross-Model Discrimination}
 \label{sec:discrimination}
 
-All 8 primary dimensions show significant model effects ($p < 0.001$, FDR-corrected; Table~\ref{tab:anova_results}), with the strongest discrimination on Neuroticism ($F = 34.60$, $\eta^2_p = 0.75$) and Intuition ($F = 20.26$, $\eta^2_p = 0.63$); non-parametric Kruskal-Wallis tests confirm these results.
-Figure~\ref{fig:intermodel_sd} shows the inter-model $\sd$ by dimension: among the 8 primary dimensions, Intuition (0.37) and Neuroticism (0.34) show the most variability, while Agreeableness ($\sd = 0.15$) and UA ($\sd = 0.16$) fall below our alignment-artifact threshold of 0.15.
-HEXACO-H has the highest overall variability (0.67) but is excluded from primary analysis ($\alpha = 0.27$); detailed results are in Appendix~\ref{sec:appendix_hexaco_detail}.
+All 8 primary dimensions show significant model effects ($p < 0.001$, FDR-corrected; Table~\ref{tab:anova_results}), with the strongest differences on Neuroticism ($F = 34.60$, $\eta^2_p = 0.75$) and Intuition ($F = 20.26$, $\eta^2_p = 0.63$); non-parametric tests confirm these results.
+Figure~\ref{fig:intermodel_sd} shows between-model variability by dimension: Intuition (0.37) and Neuroticism (0.34) vary most, while Agreeableness ($\sd = 0.15$) and UA ($\sd = 0.16$) are near our alignment-artifact threshold.
+HEXACO-H has the highest variability (0.67) but is excluded from primary analysis due to poor reliability ($\alpha = 0.27$); details in Appendix~\ref{sec:appendix_hexaco_detail}.
 
-Architecture type (Dense vs.\ MoE) shows significant differences on several dimensions (Table~\ref{tab:architecture_effects}), with 10 Dense and 5 MoE families.
-The strongest signals are on Agreeableness ($d = 0.78$, $p < 0.001$) and UA ($d = -0.83$, $p < 0.001$); HEXACO-H shows a larger apparent effect ($d = 0.91$) but is excluded from primary analysis due to low reliability ($\alpha = 0.27$).
-\textbf{However, architecture is fully confounded with provider} (all MoE models are from a subset of providers, while Dense models include GPT and Claude) and partially confounded with model scale, so these patterns must be interpreted as descriptive observations of co-variation rather than evidence for causal architecture effects.
+Dense vs.\ MoE architecture shows significant differences on some dimensions (Table~\ref{tab:architecture_effects}), with 10 Dense and 5 MoE families.
+The clearest signals are on Agreeableness ($d = 0.78$, $p < 0.001$) and UA ($d = -0.83$, $p < 0.001$).
+\textbf{However, architecture is fully confounded with provider} (all MoE models come from a subset of providers, while Dense models include GPT and Claude) and partially confounded with scale, so these patterns describe co-variation, not causal effects.
 
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=0.48\textwidth]{figures/fig3_intermodel_sd.pdf}
-    \caption{Inter-model SD by dimension. Blue: discriminative ($\sd \geq 0.15$); orange: alignment artifact. HEXACO-H ($\alpha = 0.27$) shown for completeness.}
+    \caption{Between-model SD by dimension. Blue: dimensions that discriminate models ($\sd \geq 0.15$); orange: likely alignment artifact. HEXACO-H ($\alpha = 0.27$) shown for reference.}
     \label{fig:intermodel_sd}
 \end{figure}
 
@@ -349,12 +347,12 @@ UA                   &   5.68 &  6.3e-09 &  0.325 & 62.3 & 4.6e-08 \\
 }
 \end{table}
 
-The pairwise effect sizes are large: the median Cohen's $d$ across all 105 model pairs and 8 primary dimensions is 1.01, and every pair exceeds $d \geq 0.8$ on at least one dimension (Figure~\ref{fig:cohen_d_heatmap}).
-Table~\ref{tab:top_cohen_d} reports the largest pairwise Cohen's $d$ for each dimension.
-Among the 8 primary dimensions, Neuroticism and Conscientiousness are most separable (max $d = 5.29$ and $4.45$), while Agreeableness shows the weakest discrimination (median $d = 0.74$).
-Notably, GPT and Claude produce the smallest Euclidean distance of any model pair ($0.50$), suggesting convergence in training objectives across leading model families.
-These large between-model differences demonstrate that psychometric items function as behavioral probes that discriminate model families, consistent with our response style interpretation (\S\ref{sec:response_style}).
-But do these differences reflect the trade-offs that define human personality? We turn to the inter-dimension correlation structure.
+The pairwise differences are large: the median Cohen's $d$ across all 105 model pairs and 8 primary dimensions is 1.01, and every pair exceeds $d \geq 0.8$ on at least one dimension (Figure~\ref{fig:cohen_d_heatmap}).
+Table~\ref{tab:top_cohen_d} lists the largest effects per dimension.
+Neuroticism and Conscientiousness are the most separable dimensions (max $d = 5.29$ and $4.45$), while Agreeableness shows the weakest separation (median $d = 0.74$).
+GPT and Claude produce the smallest distance of any pair ($0.50$), hinting at convergent training goals across leading model families.
+These large between-model differences show that personality questions work as behavioral probes distinguishing model families, consistent with our response-habit interpretation (\S\ref{sec:response_style}).
+But do these differences reflect the trade-offs that define human personality? We turn to that question next.
 
 \begin{table}[!htb]
 \centering
@@ -389,27 +387,27 @@ Extraversion      & Step     & vs & Hunyuan    & 0.90 & +2.17  \\
 \subsection{The Missing Trade-Off: Structural Divergence}
 \label{sec:interdim}
 
-Do LLM psychometric responses reproduce the trade-offs that define human personality?
-We test this by comparing the LLM inter-dimension correlation matrix against published human baselines for 5 key dimension pairs (Table~\ref{tab:convergent_validity} in Appendix~\ref{sec:appendix_structure}).
+Do LLM answers reproduce the trade-offs that define human personality?
+We test this by comparing how dimensions relate to each other in LLMs versus published human data for 5 key dimension pairs (Table~\ref{tab:convergent_validity} in Appendix~\ref{sec:appendix_structure}).
 
-The most striking finding is the Conscientiousness--Neuroticism correlation.
-In humans, these dimensions exhibit a robust negative trade-off ($r = -0.30$): conscientious individuals tend to be more emotionally stable, reflecting a genuine psychological tension between self-regulation and emotional reactivity \citep{soto2017bfi2}.
-In LLMs, this trade-off \textbf{reverses} to strongly positive ($r = +0.76$, 95\% CI $[0.58, 0.88]$, $p < 0.001$; Figure~\ref{fig:inter_dim_corr}).
-The reversal is robust: it replicates at $n = 33$ models with a narrow confidence interval that excludes the human baseline, holds across all subgroups (Dense, MoE, open-source, closed-source), and persists after acquiescence correction (Appendix~\ref{sec:appendix_structure}).
-A convergent validity test yields 4/5 sign agreement with human baselines (binomial $p = 0.38$), indicating broad structural correspondence; the single critical divergence, the C--N reversal, is individually significant and constitutes the primary structural finding.
+The most striking result is the Conscientiousness--Neuroticism link.
+In humans, these two dimensions pull in opposite directions ($r = -0.30$): self-disciplined people tend to be calmer, reflecting a real tension between self-regulation and emotional reactivity \citep{soto2017bfi2}.
+In LLMs, this trade-off \textbf{flips to strongly positive} ($r = +0.76$, 95\% CI $[0.58, 0.88]$, $p < 0.001$; Figure~\ref{fig:inter_dim_corr}).
+The flip is robust: it replicates at $n = 33$ models with a narrow confidence interval that excludes the human baseline, holds across all subgroups (Dense, MoE, open-source, closed-source), and persists after correcting for agreement bias (Appendix~\ref{sec:appendix_structure}).
+A convergent validity check yields 4/5 sign matches with human baselines (binomial $p = 0.38$), showing broad structural similarity; the single critical divergence---the C--N flip---is individually significant and is our main structural finding.
 
-What does this reversal mean?
-In humans, high Conscientiousness and low Neuroticism are psychologically antagonistic: the self-discipline required for conscientiousness trades off against emotional volatility.
-In LLMs, both dimensions co-vary positively: models that score higher on Conscientiousness also score higher on Neuroticism.
-This pattern is consistent with a shared acquiescence or midpoint-compression mechanism: both dimensions are driven by a common response tendency rather than by the psychological trade-off that produces the negative correlation in humans.
-The C--N reversal directly challenges the practice of applying standard dimension labels to LLM responses: if ``Conscientiousness'' and ``Neuroticism'' do not relate to each other as they do in humans, then at least one label does not denote the same construct.
+What does this flip mean?
+In humans, high Conscientiousness and low Neuroticism are psychologically opposed: self-discipline trades off against emotional volatility.
+In LLMs, both dimensions move together: models scoring higher on Conscientiousness also score higher on Neuroticism.
+This pattern fits a shared mechanism: both dimensions are pushed toward the scale midpoint by the same training pressures, creating a positive link through shared response compression rather than through the psychological tension that produces the negative link in humans.
+The C--N flip directly challenges applying standard personality labels to LLMs: if ``Conscientiousness'' and ``Neuroticism'' no longer relate to each other as they do in humans, then at least one label does not mean the same thing.
 
 \subsection{Aligned vs.\ Base: Preliminary Evidence}
 \label{sec:aligned_base}
 
-To test whether alignment shapes response style, we compare base (pre-alignment) models against their aligned counterparts from the same provider: Qwen3-8B vs.\ Qwen3.5-397B, Qwen3-14B vs.\ Qwen3.5-397B, and GLM-4.7 vs.\ GLM-5 (Table~\ref{tab:aligned_base}).
-We acknowledge two limitations of this design: (1) the Qwen comparisons confound alignment with a large scale difference (8B/14B $\to$ 397B), and (2) GLM-4.7 may retain partial alignment from its training, making it not a fully ``base'' model.
-Despite these caveats, if response style variation reflects inherent model properties rather than alignment, base and aligned models should show similar profiles.
+To test whether alignment training shapes response habits, we compare base (pre-alignment) models with their aligned versions from the same provider: Qwen3-8B vs.\ Qwen3.5-397B, Qwen3-14B vs.\ Qwen3.5-397B, and GLM-4.7 vs.\ GLM-5 (Table~\ref{tab:aligned_base}).
+Two caveats: (1) the Qwen comparisons mix alignment with a large scale jump (8B/14B $\to$ 397B), and (2) GLM-4.7 may retain some alignment from its training.
+Still, if response patterns are intrinsic model properties rather than alignment artifacts, base and aligned models should look similar.
 
 \begin{table}[!htb]
 \centering
@@ -435,48 +433,49 @@ UA                   & $-$2.30 & $-$0.51 & +0.80 \\
 }
 \end{table}
 
-The results provide preliminary evidence that alignment shapes response style variation, though the scale confound in the Qwen comparisons limits causal attribution.
-Base models produce responses clustered at the Likert scale midpoint (3.0). Qwen3-14B shows exactly zero variance on 7 of 9 dimensions, and Qwen3-8B shows near-zero variance ($\sd < 0.20$ on all dimensions). In other words, base models barely engage with the questionnaire at all.
-In contrast, their aligned counterpart (Qwen3.5-397B) exhibits the differentiated, compressed profiles seen throughout Study 1.
-Among the 8 primary dimensions, alignment effects are largest on Intuition ($d = 2.01$--$6.79$) and Conscientiousness ($d = 1.20$--$8.67$).
-The most dramatic single-dimension effect is on HEXACO-H ($d > 11$), where base models score 2.15--2.40 and the aligned model scores 1.00; however, HEXACO-H is excluded from primary analysis due to low reliability ($\alpha = 0.27$).
+The results suggest that alignment does shape response habits, though the scale confound in the Qwen comparisons limits what we can conclude.
+Base models give answers clustered at the scale midpoint (3.0). Qwen3-14B shows exactly zero variance on 7 of 9 dimensions, and Qwen3-8B shows near-zero variance ($\sd < 0.20$ on all dimensions)---base models barely engage with the questionnaire at all.
+Their aligned counterpart (Qwen3.5-397B) shows the differentiated, compressed profiles seen throughout Study 1.
+Among the 8 primary dimensions, the largest alignment effects appear on Intuition ($d = 2.01$--$6.79$) and Conscientiousness ($d = 1.20$--$8.67$).
+The most dramatic single effect is on HEXACO-H ($d > 11$), where base models score 2.15--2.40 and the aligned model scores 1.00; however, HEXACO-H is excluded from primary analysis ($\alpha = 0.27$).
 
-GLM-4.7 vs.\ GLM-5 shows more moderate effects on the primary dimensions, suggesting that GLM-4.7 retains partial alignment from its training.
-Taken together, these comparisons suggest that post-training alignment substantially shapes response style, but the scale--alignment confound means this evidence is preliminary and should be replicated with same-scale model pairs.
+GLM-4.7 vs.\ GLM-5 shows more moderate effects, suggesting GLM-4.7 retains some alignment.
+Overall, these comparisons suggest that alignment substantially shapes response habits, but the scale--alignment confound means this evidence is preliminary and needs replication with same-scale model pairs.
 
 
 \subsection{Within-Family Evolution}
 \label{sec:evolution}
 
-To examine whether response styles change across model versions, we track 16 additional models from three families (Qwen: 6 versions; DeepSeek: 4 versions; GLM: 6 versions; full trajectories in Appendix~\ref{sec:appendix_trajectories}).
-Most dimensions show moderate variation without clear monotonic trends.
-Notable exceptions: DeepSeek shows a steep decline on HEXACO-H from V2.5 ($H = 3.00$) to V3.2 ($H = 1.68$; excluded from primary analysis due to $\alpha = 0.27$); GLM shows the largest within-family shift on Intuition (5.0 to 3.875).
-These observations are descriptive and motivate future controlled experiments.
+To see whether response habits change across model versions, we track 16 additional models from three families (Qwen: 6 versions; DeepSeek: 4; GLM: 6; full trajectories in Appendix~\ref{sec:appendix_trajectories}).
+Most dimensions show moderate variation with no clear trend.
+Notable exceptions: DeepSeek's HEXACO-H drops steeply from V2.5 ($H = 3.00$) to V3.2 ($H = 1.68$; excluded from primary analysis, $\alpha = 0.27$); GLM shows the largest within-family shift on Intuition (5.0 to 3.875).
+These are descriptive observations that motivate future controlled experiments.
 
 \subsection{Acquiescence and Reliability}
 \label{sec:acquiescence}
 
-\paragraph{Response style indicators.}
-Following \citet{paulhus1991response}, we operationalize three response style indicators directly from item-level responses (Figure~\ref{fig:response_styles}).
-\textbf{Midpoint responding} (proportion of responses at the scale midpoint, 3.0) varies widely across families: Step (83\%) and KAT (87\%) show extreme midpoint bias, while MiniMax (20\%) and Claude (27\%) show low midpoint responding.
-\textbf{Extreme responding} (proportion of responses at 1 or 5) shows the opposite pattern: Ring (53\%) and Seed (43\%) produce the most extreme responses, while Hunyuan (2\%) and Claude (4\%) rarely use scale endpoints.
-\textbf{Acquiescence bias} (mean of positively worded items minus mean of reverse-scored items) is consistently negative across 14 of 15 families (mean $= -0.28$), indicating a slight tendency to disagree with positively worded items and agree with negatively worded items; Ring is the sole exception ($+0.24$).
-These indicators confirm that models differ substantially in how they use the Likert scale, consistent with the response style framework.
+\paragraph{Response habit indicators.}
+Following \citet{paulhus1991response}, we measure three response habits directly from item-level answers (Figure~\ref{fig:response_styles}).
+\textbf{Midpoint preference} (how often the model picks the middle value, 3.0) varies widely: Step (83\%) and KAT (87\%) almost always pick the middle, while MiniMax (20\%) and Claude (27\%) rarely do.
+\textbf{Extreme answering} (how often the model picks 1 or 5) shows the opposite: Ring (53\%) and Seed (43\%) go to extremes most often, while Hunyuan (2\%) and Claude (4\%) almost never do.
+\textbf{Agreement bias} (mean of positively worded items minus mean of reverse-scored items) is consistently negative across 14 of 15 families (mean $= -0.28$), meaning models slightly tend to disagree with positive statements and agree with negative ones; Ring is the sole exception ($+0.24$).
+These indicators confirm that models differ in how they use the scale, consistent with the response-habit framework.
 
 \begin{figure*}[!t]
     \centering
     \includegraphics[width=\textwidth]{figures/fig_response_styles.pdf}
-    \caption{Response style indicators by model family: (a) midpoint responding rate, (b) extreme responding rate, (c) acquiescence bias (positive-scored mean minus reverse-scored mean). Models ordered by midpoint rate.}
+    \caption{Response habit indicators by model family: (a) midpoint preference rate, (b) extreme answering rate, (c) agreement bias (positive-item mean minus reverse-item mean). Models ordered by midpoint rate.}
     \label{fig:response_styles}
 \end{figure*}
 
-\paragraph{Acquiescence factor.}
-The first principal component of the 15-family correlation matrix explains 51.1\% of variance (vs.\ 11.1\% expected under independence), indicating a strong general factor.
-Partial correlations controlling for PC1 reduce median absolute correlation by 45\%, but 16 of 36 pairs show sign flips, indicating that the general factor is entangled with the dimension structure rather than representing a simple acquiescence bias.
+\paragraph{Agreement factor.}
+The first principal component of the 15-family correlation matrix explains 51.1\% of variance (vs.\ 11.1\% expected if dimensions were independent), indicating a strong general factor.
+Partial correlations after removing PC1 reduce the median absolute correlation by 45\%, but 16 of 36 pairs flip sign, meaning this general factor is tangled with the dimension structure rather than being a simple agreement bias.
 
 \paragraph{Reliability.}
-Table~\ref{tab:reliability} summarizes reliability metrics.
-Within-model CV is uniformly low (0.065--0.108 for the 8 primary dimensions), indicating tight response distributions, while ICC(1,1) ranges from 0.281 to 0.737, with the highest value on Neuroticism (0.737), reflecting large between-family differences.
+Table~\ref{tab:reliability} summarizes reliability.
+Within-model variability (CV) is low across all 8 primary dimensions (0.065--0.108), meaning each model gives consistent answers across seeds.
+ICC(1,1) ranges from 0.281 to 0.737, with the highest value on Neuroticism (0.737), reflecting the large between-family differences on that dimension.
 
 \begin{table}[!htb]
 \centering
@@ -502,24 +501,24 @@ UA                   & 0.068 & 0.281 \\
 \subsection{Prompt Sensitivity}
 \label{sec:prompt_sensitivity}
 
-If LLM psychometric scores reflect stable traits, they should be invariant to surface-level changes in question framing. We administered the same 61 Likert items to all 15 Study~1 models under four prompt conditions (12 seeds each, temperature $= 0.7$): \textbf{Default} (``respond as honestly as possible''), \textbf{Neutral} (instruction removed, ``rate your agreement''), \textbf{Persona} (human role-play: ``you are completing a personality survey''), and \textbf{Direct} (no instruction, only the item and scale).
+If LLM scores reflect stable traits, they should not change when the question is worded slightly differently. We gave the same 61 items to all 15 models under four prompt conditions (12 seeds each, temperature $= 0.7$): \textbf{Default} (``respond as honestly as possible''), \textbf{Neutral} (instruction removed, ``rate your agreement''), \textbf{Persona} (human role-play: ``you are completing a personality survey''), and \textbf{Direct} (no instruction, only the item and scale).
 All 15 models have complete data across all four conditions.
 
 \paragraph{Score shifts.}
-Within-model standard deviation across the four prompt conditions averaged 0.133 on the 1--5 scale (range 0.095--0.205 across dimensions).
-HEXACO-H and Neuroticism showed the largest prompt sensitivity (mean SD $= 0.205$ and $0.189$), while Agreeableness and Uncertainty Avoidance were most stable (mean SD $= 0.095$ and $0.102$).
-Cohen's $d$ between each variant and the Default condition yielded a median $|d|$ of 0.22 across all dimension-variant pairs; the largest effects were on Conscientiousness ($d = 0.70$ for Neutral) and Collectivism ($d = 0.51$ for Direct).
-Overall, model family effects (Table~\ref{tab:prompt_variance}) dominate prompt effects by an order of magnitude.
+The average within-model standard deviation across the four prompts was 0.133 on the 1--5 scale (range 0.095--0.205 across dimensions).
+HEXACO-H and Neuroticism were most sensitive to prompt wording (mean SD $= 0.205$ and $0.189$), while Agreeableness and Uncertainty Avoidance were most stable (mean SD $= 0.095$ and $0.102$).
+Cohen's $d$ between each variant and the Default was a median $|d|$ of 0.22; the largest effects were on Conscientiousness ($d = 0.70$ for Neutral) and Collectivism ($d = 0.51$ for Direct).
+Overall, model family effects (Table~\ref{tab:prompt_variance}) are an order of magnitude larger than prompt effects.
 
-\paragraph{Rank instability.}
-Model rankings are largely but not perfectly preserved across prompt framings.
-Spearman $\rho$ between model rankings under different prompts averaged 0.60 across dimensions; HEXACO-H showed the most stable rankings (mean $\rho = 0.87$), while Agreeableness showed the least ($\rho = 0.22$ for Direct vs.\ Default, indicating some rank instability).
-Most dimensions maintain moderate rank correspondence, though the Direct condition occasionally produces rank reversals (negative $\rho$ for Extraversion and Agreeableness).
+\paragraph{Rank stability.}
+Model rankings are mostly preserved across prompt wordings.
+Average Spearman $\rho$ between rankings was 0.60; HEXACO-H had the most stable rankings (mean $\rho = 0.87$), while Agreeableness had the least ($\rho = 0.22$ for Direct vs.\ Default).
+Most dimensions keep their rank order, though the Direct condition occasionally flips rankings (negative $\rho$ for Extraversion and Agreeableness).
 
-\paragraph{Response style shifts.}
-Prompt framing alters response style indicators (Table~\ref{tab:prompt_response_styles}).
-The Neutral prompt increased extreme responding from 22.7\% (Default) to 31.3\%, while the Persona prompt reduced it to 17.6\%.
-Midpoint responding ranged from 40.4\% (Direct) to 48.6\% (Neutral).
+\paragraph{Response habit shifts.}
+Prompt wording also shifts how models use the scale (Table~\ref{tab:prompt_response_styles}).
+The Neutral prompt increased extreme answering from 22.7\% (Default) to 31.3\%, while the Persona prompt reduced it to 17.6\%.
+Midpoint preference ranged from 40.4\% (Direct) to 48.6\% (Neutral).
 
 \begin{table}[!htb]
 \centering
@@ -539,10 +538,10 @@ Direct   & 40.4 & 27.4 & 2.91 \\
 }
 \end{table}
 
-\paragraph{Variance decomposition.}
-A two-way decomposition of total score variance into Model, Prompt, and Residual components (Table~\ref{tab:prompt_variance}) shows that model family is the dominant variance source (9.5--78.1\%), while prompt condition explains 1.0--8.9\%.
-Conscientiousness shows the largest prompt effect (8.9\%), consistent with its sensitivity to instruction framing, while HEXACO-H is almost entirely model-driven (78.1\% vs.\ 2.9\%).
-Although prompt effects are modest relative to model effects, they are statistically significant for all dimensions ($p < 0.001$), confirming that LLM psychometric responses are not fully invariant to question framing. This is consistent with a response style interpretation.
+\paragraph{Variance breakdown.}
+A two-way decomposition of score variance into Model, Prompt, and Residual (Table~\ref{tab:prompt_variance}) shows that model family is the dominant source (9.5--78.1\%), while prompt condition explains only 1.0--8.9\%.
+Conscientiousness is most sensitive to prompt wording (8.9\%), consistent with its sensitivity to instruction framing, while HEXACO-H is almost entirely model-driven (78.1\% vs.\ 2.9\%).
+Although prompt effects are small compared to model effects, they are statistically significant for all dimensions ($p < 0.001$), confirming that LLM questionnaire scores are not fully stable across question framings. This supports the response-habit interpretation.
 
 \begin{table}[!htb]
 \centering
@@ -572,32 +571,32 @@ UA                   & 20.1 &  2.1 & 77.8 \\
 \section{Conclusion}
 \label{sec:conclusion}
 
-This paper asks a simple question: do LLM questionnaire responses reproduce the trade-offs that define human personality? The answer, across 33 models and 61 items, is no. Human personality dimensions trade off against one another because self-regulation and emotional reactivity are genuinely antagonistic. In LLMs, these tensions vanish: responses compress toward the scale midpoint, and dimensions that should be inversely related become positively correlated. The Conscientiousness--Neuroticism reversal ($r = -0.30 \to +0.76$) is not a statistical quirk; it survives subgroup replication and constitutes the strongest evidence to date that human personality structure does not transfer to language models.
+This paper asks a simple question: do LLM questionnaire answers reproduce the trade-offs that define human personality? Across 33 models and 61 items, the answer is no. In humans, personality dimensions pull against each other because self-regulation and emotional reactivity are genuinely opposed. In LLMs, these tensions vanish: answers cluster near the scale midpoint, and dimensions that should be inversely related become positively linked. The Conscientiousness--Neuroticism flip ($r = -0.30 \to +0.76$) is not a statistical fluke; it survives replication across subgroups and is the strongest evidence to date that human personality structure does not transfer to language models.
 
-What does this mean for NLP? We see three practical implications.
+What does this mean in practice? We see three implications.
 
-\textbf{First,} personality inventories should not be used as off-the-shelf evaluation tools for LLMs. The BFI, HEXACO, and similar instruments were designed for human self-report, where a ``Conscientiousness'' score reflects years of observed behavioral patterns. When an LLM scores high on Conscientiousness, it does not mean the model is organized or disciplined; it means the model's training data and alignment procedure produced a particular pattern of Likert-scale responses. Interpreting these scores as personality traits risks drawing false conclusions about model capabilities and safety profiles.
+\textbf{First,} personality questionnaires should not be used as off-the-shelf tests for LLMs. The BFI, HEXACO, and similar tools were designed for human self-report, where a ``Conscientiousness'' score reflects years of real behavior. When an LLM scores high on Conscientiousness, it does not mean the model is organized or disciplined; it means training produced a particular pattern of scale responses. Reading these scores as personality risks false conclusions about model capabilities and safety.
 
-\textbf{Second,} response style signatures can serve as a lightweight behavioral probe for detecting alignment shifts. Our results show that model families differ substantially (median $d = 1.01$), and that aligned models compress their responses toward the midpoint relative to their base counterparts. This suggests that response style distributions could complement existing safety evaluation methods: a model that suddenly shifts from moderate to extreme responding on psychometric items may have undergone a meaningful change in its alignment behavior. Developing this into a practical monitoring tool is a promising direction.
+\textbf{Second,} response-habit signatures can serve as a lightweight probe for detecting alignment changes. Our results show that model families differ substantially (median $d = 1.01$), and that aligned models compress their answers toward the midpoint compared to base models. This suggests that response patterns could supplement existing safety evaluations: a model that suddenly shifts from moderate to extreme answering on personality items may have undergone a meaningful alignment change. Developing this into a practical monitoring tool is a promising direction.
 
-\textbf{Third,} the structural divergence we document has direct consequences for research that uses personality scores as downstream features. If personality questionnaire scores are to be used as inputs to reward models, preference optimizers, or user modeling systems, practitioners should be aware that these scores do not have the same meaning as in humans. A model that scores high on both Neuroticism and Conscientiousness is not ``contradictory''; it is simply exhibiting the flattened response structure that alignment produces.
+\textbf{Third,} the structural divergence we document matters for downstream applications. If personality scores are used as inputs to reward models, preference optimizers, or user modeling systems, practitioners should know that these scores do not carry the same meaning as in humans. A model scoring high on both Neuroticism and Conscientiousness is not ``contradictory''; it is simply showing the flattened answer structure that alignment produces.
 
 \paragraph{Future work.}
-Several directions follow from these findings. The most pressing is to develop psychometric instruments designed specifically for LLMs, rather than adapting human inventories. Such instruments should target the dimensions that actually vary across models (response compression, acquiescence patterns, and scale usage) and should be validated against behavioral outcomes rather than human baselines. A second direction is to investigate whether the C--N reversal generalizes beyond Chinese-dominated model families to a more internationally diverse sample. Third, the causal mechanism behind the flattened structure remains open: controlled experiments that vary alignment intensity while holding scale and architecture constant would help disentangle alignment from other confounds.
+Several directions follow. The most urgent is to develop questionnaires designed specifically for LLMs, rather than borrowing human tests. Such tools should target the dimensions that actually vary across models (response compression, agreement patterns, scale usage) and should be validated against behavioral outcomes rather than human norms. Second, it would be valuable to test whether the C--N flip generalizes beyond our sample to a more internationally diverse set of model families. Third, the mechanism behind the flattened structure remains unknown: experiments that vary alignment intensity while holding scale and architecture constant would help isolate alignment from other factors.
 
 % ============================================================
 \section{Limitations}
 \label{sec:limitations}
 
-Several limitations constrain interpretation.
-First, our primary sample comprises 15 model families; Pearson correlations at this sample size yield wide confidence intervals, and we address this by replicating all structural findings with an expanded sample of 33 models (including within-family variants).
-Second, psychometric scales were designed for human self-report; the human baseline correlations are drawn from a single internet sample \citep{soto2017bfi2} that may not be representative, and the convergent validity result (4/5 sign agreement, $p = 0.38$) is inconclusive.
-Third, although our aligned-vs.-base comparison (Section~\ref{sec:aligned_base}) provides preliminary evidence that alignment shapes the flattened structure, it covers only 3 families and the Qwen comparisons confound alignment with scale (8B/14B $\to$ 397B); same-scale model pairs would provide cleaner causal evidence.
-Fourth, this is a descriptive study; we quantify patterns without establishing causal mechanisms. The alignment-based account is one of several plausible explanations, alongside training data composition, instruction tuning, scaling laws, and API-specific prompting.
-Fifth, all tested models are aligned/instruct versions accessible through commercial APIs; our thinking ablation (Appendix~\ref{sec:appendix_thinking}) provides complementary evidence, but the base models tested represent only a subset of families.
-Sixth, our prompt sensitivity experiment (Section~\ref{sec:prompt_sensitivity}) tests only four framings; additional framings may produce different patterns.
-Seventh, our use of temperature $= 0.7$ introduces response variance that may not generalize to low-temperature deployments.
-Finally, our finding of a flattened structure does not imply that LLMs lack any form of variation; they do vary systematically across families, but this variation does not map onto human personality trade-offs.
+Several limitations constrain our conclusions.
+First, our primary sample is 15 model families; correlations at this sample size have wide confidence intervals, which we address by replicating key findings with 33 models.
+Second, personality scales were designed for human self-report; our human baselines come from one internet sample \citep{soto2017bfi2} and may not be universal, and the convergent validity result (4/5 sign match, $p = 0.38$) is inconclusive.
+Third, our aligned-vs.-base comparison (Section~\ref{sec:aligned_base}) covers only 3 families, and the Qwen comparisons mix alignment with scale (8B/14B $\to$ 397B); same-scale pairs would give cleaner evidence.
+Fourth, this is a descriptive study; we document patterns without establishing causes. Alignment is one plausible explanation among several, including training data composition, instruction tuning, scaling, and API-specific prompting.
+Fifth, all tested models are aligned/instruct versions from commercial APIs; our thinking ablation (Appendix~\ref{sec:appendix_thinking}) adds evidence, but the base models represent only a subset of families.
+Sixth, our prompt sensitivity experiment (Section~\ref{sec:prompt_sensitivity}) tests only four framings; additional framings might yield different results.
+Seventh, our use of temperature $= 0.7$ adds response variance that may not generalize to low-temperature deployments.
+Finally, finding a flattened structure does not mean LLMs lack all variation; they do vary across families, but this variation does not map onto human personality trade-offs.
 
 % ============================================================
 \section*{Acknowledgements}
@@ -700,50 +699,50 @@ With all 15 primary models, every dimension shows $\sd \geq 0.14$ and reaches $p
 We present the full exploratory PCA results here, with the caveat that PCA on $n = 15$ model families with 9 dimensions is underpowered. We replicate the key structural findings (C--N reversal) with an expanded sample of 33 models.
 
 \paragraph{Decomposition.}
-We decompose the 9-dimension model-level correlation matrix ($n = 31$ models including within-family variants) via PCA:
+We decompose the 9-dimension correlation matrix ($n = 31$ models including within-family variants) using PCA:
 \begin{equation}
 \mathbf{X} = \mathbf{W}\mathbf{\Lambda}^{1/2}\mathbf{V}^\top
 \end{equation}
-where $\mathbf{\Lambda} = \text{diag}(\lambda_1, \ldots, \lambda_9)$ and $\sum_{k} \lambda_k / \sum_j \lambda_j$ gives the proportion of variance explained.
+where $\mathbf{\Lambda} = \text{diag}(\lambda_1, \ldots, \lambda_9)$ and the proportion of variance explained by each component is $\lambda_k / \sum_j \lambda_j$.
 
 \paragraph{Factor structure.}
-PC1 (51.1\% variance) loads most strongly on HEXACO-H ($+0.82$), with secondary loadings on Intuition ($+0.31$) and Conscientiousness ($+0.29$).
-PC2 (14.0\% variance) isolates Neuroticism ($+0.52$) and HEXACO-H ($-0.51$).
-PC3 (11.0\% variance) loads most strongly on Collectivism ($-0.71$).
-These three factors explain 76.1\% of variance, compared to the five BFI factors expected in humans.
-The factor structure does not cleanly recover the expected Big Five organization, aligning with the inter-dimension correlation divergences reported in \S\ref{sec:interdim}.
+PC1 (51.1\% of variance) loads most strongly on HEXACO-H ($+0.82$), with secondary loadings on Intuition ($+0.31$) and Conscientiousness ($+0.29$).
+PC2 (14.0\%) isolates Neuroticism ($+0.52$) and HEXACO-H ($-0.51$).
+PC3 (11.0\%) is dominated by Collectivism ($-0.71$).
+These three factors explain 76.1\% of variance, compared to the five factors expected from human data.
+The structure does not cleanly recover the Big Five, consistent with the inter-dimension divergences reported in \S\ref{sec:interdim}.
 
-\paragraph{Extraversion reversal.}
-Extraversion is significantly negatively correlated with Neuroticism ($r = -0.59$, $p < 0.001$) and Openness ($r = -0.51$, $p = 0.002$), with the E--O reversal replicated at $n = 33$ (95\% CI $[-0.69, -0.27]$).
-In humans, Extraversion is positively correlated with Openness; in LLMs the sign flips.
-Models that score high on Extraversion tend to be emotionally stable but closed-minded, a pattern with no direct human personality analog.
+\paragraph{Extraversion flip.}
+Extraversion is significantly negatively correlated with Neuroticism ($r = -0.59$, $p < 0.001$) and Openness ($r = -0.51$, $p = 0.002$). The E--O sign flip replicates at $n = 33$ (95\% CI $[-0.69, -0.27]$).
+In humans, Extraversion and Openness are positively linked; in LLMs the direction reverses.
+Models high on Extraversion tend to be emotionally stable but less open---a pattern with no human analog.
 
 \paragraph{Agreeableness.}
 Agreeableness shows a positive correlation with Conscientiousness ($r = +0.27$, $p = 0.13$) that is comparable to the human baseline ($r = +0.28$; \citet{soto2017bfi2}).
 Agreeableness also correlates weakly with Openness ($r = +0.12$, $p = 0.52$), similar to humans ($r = +0.14$).
 
-\paragraph{Interpretation caution.}
-Whether the observed factor structure generalizes to larger and more diverse model samples remains an open question.
-As a rule of thumb, factor analysis typically requires at least 5--10 observations per variable; with $n = 15$ families and 9 dimensions, we fall below even the most lenient recommendation.
-However, the expanded sample ($n = 33$) confirms the key structural finding, the C--N correlation reversal, with high statistical significance ($p < 0.001$).
-These results should be treated as suggestive patterns that motivate future investigation, not as evidence for a specific factor structure.
+\paragraph{Caution.}
+Whether this factor structure generalizes to larger, more diverse model samples remains open.
+Factor analysis typically needs at least 5--10 observations per variable; with $n = 15$ families and 9 dimensions, we fall short.
+However, the expanded sample ($n = 33$) confirms the key finding---the C--N correlation flip---with high statistical significance ($p < 0.001$).
+These results should be treated as suggestive patterns, not as evidence for a specific factor structure.
 
 \section{Inter-Dimension Structure and Convergent Validity (Detailed)}
 \label{sec:appendix_structure}
 
-The main text (\S\ref{sec:interdim}) summarizes the key structural findings. Here we provide the full analysis.
+The main text (\S\ref{sec:interdim}) summarizes the key findings. Here we give the full details.
 
 \subsection{Correlation Matrix}
-The 9$\times$9 model-level correlation matrix (Figure~\ref{fig:inter_dim_corr}) suggests that the BFI five-factor structure does not recover in our sample of LLMs.
-Most notably, the Conscientiousness--Neuroticism correlation is strongly positive ($r = +0.76$, 95\% CI $[0.58, 0.88]$, $p < 0.001$), the reverse of the human baseline ($r = -0.30$; \citet{soto2017bfi2}).
-This reversal is robustly replicated with an expanded sample of 33 models ($r = +0.76$, 95\% CI $[0.58, 0.88]$, $p = 3.4 \times 10^{-7}$), and holds across several subgroups: MoE ($r = +0.66$, $p = 0.05$), small models ($r = +0.83$, $p = 0.04$), and open-source ($r = +0.70$, $p = 0.007$), though it is non-significant for the small Dense subset ($p = 0.44$, $n = 4$).
+The 9$\times$9 correlation matrix across model-level means (Figure~\ref{fig:inter_dim_corr}) shows that the Big Five factor structure does not recover in LLMs.
+Most notably, Conscientiousness and Neuroticism are strongly positively correlated ($r = +0.76$, 95\% CI $[0.58, 0.88]$, $p < 0.001$), the reverse of the human baseline ($r = -0.30$; \citet{soto2017bfi2}).
+This flip replicates robustly at $n = 33$ models ($r = +0.76$, 95\% CI $[0.58, 0.88]$, $p = 3.4 \times 10^{-7}$), and holds across subgroups: MoE ($r = +0.66$, $p = 0.05$), small models ($r = +0.83$, $p = 0.04$), and open-source ($r = +0.70$, $p = 0.007$), though it is non-significant for the small Dense subset ($p = 0.44$, $n = 4$).
 
-\paragraph{Tentative explanation: alignment-driven compression.}
-In humans, Conscientiousness and Neuroticism are weakly negatively correlated because they tap independent factors \citep{john1999bigfive}.
-In LLMs, both dimensions are compressed toward the Likert midpoint by alignment, inducing a positive correlation through shared acquiescence rather than trait covariance.
-This is consistent with the HEXACO-H results (Appendix~\ref{sec:appendix_hexaco_detail}), and the replication at $n = 33$ substantially reduces concern that the finding is an artifact of small sample size.
+\paragraph{Possible explanation: alignment-driven compression.}
+In humans, Conscientiousness and Neuroticism are weakly independent \citep{john1999bigfive}.
+In LLMs, both are pushed toward the scale midpoint by alignment, creating a positive link through shared compression rather than through genuine trait covariance.
+This is consistent with the HEXACO-H results (Appendix~\ref{sec:appendix_hexaco_detail}), and the replication at $n = 33$ substantially reduces concern about small-sample artifacts.
 
-Beyond the C--N reversal, Extraversion is negatively correlated with Openness ($r = -0.51$, 95\% CI $[-0.73, -0.15]$, $p = 0.003$), and Agreeableness shows a correlation with Conscientiousness ($r = +0.27$, 95\% CI $[-0.10, +0.65]$, $p = 0.134$) comparable to humans ($r = +0.28$).
+Beyond the C--N flip, Extraversion is negatively linked to Openness ($r = -0.51$, 95\% CI $[-0.73, -0.15]$, $p = 0.003$), and Agreeableness shows a correlation with Conscientiousness ($r = +0.27$, 95\% CI $[-0.10, +0.65]$, $p = 0.134$) close to the human value ($r = +0.28$).
 
 \begin{figure}[!htb]
     \centering
@@ -753,12 +752,12 @@ Beyond the C--N reversal, Extraversion is negatively correlated with Openness ($
 \end{figure}
 
 \subsection{Convergent Validity}
-We compare LLM inter-dimension correlations against published human baselines \citep{soto2017bfi2, vanderlinden2010general} for 5 key dimension pairs (Table~\ref{tab:convergent_validity}), using the expanded sample of 33 models.
+We compare how dimensions relate to each other in LLMs vs.\ published human data \citep{soto2017bfi2, vanderlinden2010general} for 5 key pairs (Table~\ref{tab:convergent_validity}), using the expanded sample of 33 models.
 Four of five pairs agree in sign, including Extraversion--Neuroticism (human $r = -0.34$, LLM $r = -0.59$, 95\% CI $[-0.77, -0.25]$, $p < 0.001$) and Agreeableness--Conscientiousness (human $r = +0.28$, LLM $r = +0.27$, 95\% CI $[-0.10, +0.65]$).
-The single critical disagreement is Conscientiousness--Neuroticism, which reverses from $r = -0.30$ in humans to $r = +0.76$ in LLMs (95\% CI $[0.58, 0.88]$, $p < 0.001$).
-The 80\% sign agreement rate is consistent with the null hypothesis that the inter-dimension structure is broadly preserved (binomial $p = 0.38$); this does not constitute evidence for construct equivalence, but neither does it constitute evidence against it.
-The one divergent pair is the most theoretically meaningful: in humans, Conscientiousness and Neuroticism are weakly independent; in LLMs, both are compressed toward the Likert midpoint, inducing a strong positive correlation through shared acquiescence rather than trait covariance.
-We note that the human baseline is drawn from a single internet sample \citep{soto2017bfi2}; cross-study variation in human inter-dimension correlations is not well characterized, and the $r = -0.30$ C--N value may not be universal.
+The single disagreement is Conscientiousness--Neuroticism, which flips from $r = -0.30$ in humans to $r = +0.76$ in LLMs (95\% CI $[0.58, 0.88]$, $p < 0.001$).
+The 80\% sign agreement is consistent with the null (binomial $p = 0.38$); it does not prove construct equivalence, but neither does it disprove it.
+The one divergent pair is the most meaningful: in humans, C and N are weakly independent; in LLMs, both are compressed toward the midpoint, creating a positive link through shared response compression.
+We note that the human baseline comes from one internet sample \citep{soto2017bfi2}; the $r = -0.30$ C--N value may not be universal.
 
 \begin{table}[!htb]
 \centering
@@ -875,9 +874,9 @@ However, with only 13 observations and 2 predictors, the regression is severely 
 \section{Thinking Mode Ablation}
 \label{sec:appendix_thinking}
 
-As partial evidence for alignment-driven response compression, we compare standard chat mode with extended reasoning (``thinking'') mode for 4 model families (Qwen, DeepSeek, GLM, Kimi).
-Thinking mode prompts the model to reason before responding; this engages the model's chain-of-thought capability and may alter how it processes self-referential items.
-Each model was tested with 3 seeds in thinking mode, compared against 12-seed chat mode baselines from Study~1.
+As partial evidence for alignment-driven compression, we compare standard chat mode with extended reasoning (``thinking'') mode for 4 families (Qwen, DeepSeek, GLM, Kimi).
+Thinking mode asks the model to reason step-by-step before answering, which engages chain-of-thought and may change how the model handles self-description questions.
+Each model was tested with 3 seeds in thinking mode, compared against 12-seed chat baselines from Study~1.
 
 \begin{table}[!htb]
 \centering
@@ -920,18 +919,18 @@ Model & Dim. & Mean & SD & Mean & SD & $\Delta$ & $d$ \\
 \end{table}
 
 Two consistent patterns emerge across all four models.
-Conscientiousness decreases in thinking mode (Cohen's $d$ from $-$2.11 to $-$8.02), suggesting that reasoning amplifies alignment-driven compression of the ``diligent'' response.
-Neuroticism also decreases ($d$ from $-$3.74 to $-$7.41), consistent with models reasoning themselves toward emotional stability.
-HEXACO-H drops to the theoretical floor (1.00) in thinking mode for all models, including DeepSeek where chat-mode H is 1.68.
-Intuition increases sharply in thinking mode (up to $d = +13.09$ for GLM), suggesting that reasoning models self-attribute greater intuitive decision-making.
+Conscientiousness drops in thinking mode ($d$ from $-$2.11 to $-$8.02), suggesting that reasoning pushes the ``diligent'' response further toward the socially desirable endpoint.
+Neuroticism also drops ($d$ from $-$3.74 to $-$7.41), as if models reason themselves toward emotional stability.
+HEXACO-H hits the theoretical floor (1.00) in thinking mode for all models, including DeepSeek where chat-mode H is 1.68.
+Intuition jumps sharply in thinking mode (up to $d = +13.09$ for GLM), suggesting reasoning models claim greater intuitive ability.
 
-These patterns are consistent with alignment-driven response compression: when models engage in extended reasoning, they produce more extreme responses on morally and socially sensitive dimensions, pushing further toward the socially desirable endpoints that alignment training targets.
-However, this comparison confounds inference mode with response length and cognitive effort, and should not be equated with a direct base vs.\ aligned model comparison.
+These patterns fit alignment-driven compression: when models reason step-by-step, they give more extreme answers on morally and socially loaded dimensions, pushing further toward the endpoints that alignment training targets.
+However, this comparison mixes inference mode with response length and reasoning effort, and should not be equated with a direct base-vs.-aligned comparison.
 
 \section{Subgroup Analysis: Family, Scale, and Architecture}
 \label{sec:appendix_subgroup}
 
-To test whether the overall pattern of midpoint compression is an artifact of mixing heterogeneous models, we analyze the expanded sample ($n = 33$) by model family, parameter scale, and architecture.
+To check that midpoint compression is not just an artifact of mixing different models, we analyze the expanded sample ($n = 33$) by family, parameter scale, and architecture.
 
 \subsection{Within-Family C--N Correlation}
 
@@ -955,9 +954,9 @@ Qwen     & 7 & +0.588 & 0.165 & 0.300 & 2.69 & 3.13 \\
 }
 \end{table}
 
-The C--N positive correlation is not an artifact of mixing different families.
-Within the DeepSeek family alone, C--N reaches $r = +0.99$ ($p = 0.002$), driven by the outlier DeepSeek-R1 (C = 2.05, N = 2.41), which scores substantially below the family mean on both dimensions.
-This suggests that within-family version differences (base vs.\ aligned, or reasoning vs.\ chat mode) can produce variation in the same direction as cross-family differences, consistent with alignment-driven compression rather than family-specific artifacts.
+The positive C--N link is not an artifact of mixing different families.
+Within DeepSeek alone, C--N reaches $r = +0.99$ ($p = 0.002$), driven by the outlier DeepSeek-R1 (C = 2.05, N = 2.41), which scores well below the family average on both dimensions.
+This suggests that within-family version differences (base vs.\ aligned, reasoning vs.\ chat) can produce the same pattern as cross-family differences, consistent with alignment-driven compression rather than family-specific artifacts.
 
 \subsection{Response Compression by Scale and Source}
 
@@ -990,11 +989,11 @@ MoE & 10 & 0.334 & 3.09 & 2.89 & 2.57 & 2.94 & 2.91 \\
 \end{table}
 
 Two patterns emerge.
-First, closed-source models (GPT-5, Claude Opus~4.5) show the strongest compression (distance = 0.168 vs.\ 0.272 for open-source), consistent with more intensive alignment producing more uniform responses.
-Second, MoE models show \textit{less} compression (distance = 0.334) than Dense models (0.235), driven primarily by lower Conscientiousness (2.57 vs.\ 2.75), a pattern consistent with the HEXACO-H architecture effect reported in Section~\ref{sec:discrimination}.
+First, closed-source models (GPT-5, Claude Opus~4.5) are the most compressed (distance = 0.168 vs.\ 0.272 for open-source), consistent with more intensive alignment producing more uniform answers.
+Second, MoE models are \textit{less} compressed (distance = 0.334) than Dense models (0.235), mainly due to lower Conscientiousness (2.57 vs.\ 2.75), a pattern consistent with the HEXACO-H architecture effect in Section~\ref{sec:discrimination}.
 
-Parameter scale shows no significant linear relationship with midpoint distance ($r = -0.24$, $p = 0.38$, $n = 15$ models with disclosed parameters), though the trend is negative (larger models slightly more compressed), consistent with the closed-source finding above.
-All subgroups remain near the midpoint (mean distance 0.17--0.33 on a 1--5 scale), confirming that midpoint compression is a universal pattern rather than an artifact of mixing heterogeneous models.
+Model size shows no significant linear link to midpoint distance ($r = -0.24$, $p = 0.38$, $n = 15$), though the trend is slightly negative (larger models slightly more compressed), consistent with the closed-source finding.
+All subgroups stay near the midpoint (mean distance 0.17--0.33 on a 1--5 scale), confirming that midpoint compression is universal rather than an artifact of model mixing.
 
 \section{Within-Family Response Style Trajectories}
 \label{sec:appendix_trajectories}
