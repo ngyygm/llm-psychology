@@ -140,12 +140,11 @@ angles += angles[:1]
 LINESTYLES = ['-', '--', ':']
 GROUP_SIZE = 5
 
-# Taller figure so the polar axis gets more room after the legend reserves
-# its strip; the legend is pushed to the bottom.
-fig = plt.figure(figsize=(7.2, 8.2))
+# Larger figure so dimension labels and legend can be read at print size.
+fig = plt.figure(figsize=(9.0, 10.5))
 fig.patch.set_facecolor('white')
-# Polar axis occupies the top ~76% of the figure; legend gets the bottom.
-ax = fig.add_axes([0.05, 0.22, 0.90, 0.76], projection='polar')
+# Polar axis occupies the top ~74% of the figure; legend gets the bottom.
+ax = fig.add_axes([0.06, 0.20, 0.88, 0.72], projection='polar')
 
 for idx, model in enumerate(all_models):
     vdata = s1[s1['model'] == model]
@@ -154,18 +153,19 @@ for idx, model in enumerate(all_models):
     family = MODEL_TO_FAMILY.get(model, model)
     color = FAMILY_COLORS.get(family, COLORS[idx % 10])
     ls = LINESTYLES[idx // GROUP_SIZE]
-    ax.plot(angles, means_plot, linestyle=ls, marker='o', linewidth=1.4,
-            color=color, markersize=3.5, label=family, alpha=0.85)
+    ax.plot(angles, means_plot, linestyle=ls, marker='o', linewidth=2.0,
+            color=color, markersize=5.0, label=family, alpha=0.88)
 
 ax.set_xticks(angles[:-1])
-ax.set_xticklabels(DIM_LABELS, fontsize=9)
+ax.set_xticklabels(DIM_LABELS, fontsize=14)
 ax.set_ylim(1, 4.2)
 ax.set_yticks([2, 3, 4])
-ax.set_yticklabels(['2', '3', '4'], fontsize=7.5, color='gray')
-# Legend at the bottom in 5 columns, 3 rows, kept compact but readable.
-ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.12), fontsize=7.5,
-          framealpha=0.95, edgecolor='#cccccc', ncol=5, columnspacing=1.2,
-          handlelength=2.0)
+ax.set_yticklabels(['2', '3', '4'], fontsize=11, color='gray')
+ax.tick_params(axis='x', pad=12)
+# Legend at the bottom in 5 columns, 3 rows, large enough for print readability.
+ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.10), fontsize=11,
+          framealpha=0.95, edgecolor='#cccccc', ncol=5, columnspacing=1.5,
+          handlelength=2.2, labelspacing=0.6)
 save_fig(fig, 'fig1_radar_combined')
 
 
