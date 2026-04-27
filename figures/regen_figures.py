@@ -10,7 +10,8 @@
 """
 
 import sys
-sys.path.insert(0, '/home/linkco/exa/llm-psychology/figures')
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parent))
 from paper_plot_style import *
 
 import json, glob, numpy as np, pandas as pd
@@ -139,8 +140,12 @@ angles += angles[:1]
 LINESTYLES = ['-', '--', ':']
 GROUP_SIZE = 5
 
-fig, ax = plt.subplots(figsize=(6.5, 5.5), subplot_kw=dict(polar=True))
+# Taller figure so the polar axis gets more room after the legend reserves
+# its strip; the legend is pushed to the bottom.
+fig = plt.figure(figsize=(7.2, 8.2))
 fig.patch.set_facecolor('white')
+# Polar axis occupies the top ~76% of the figure; legend gets the bottom.
+ax = fig.add_axes([0.05, 0.22, 0.90, 0.76], projection='polar')
 
 for idx, model in enumerate(all_models):
     vdata = s1[s1['model'] == model]
@@ -149,19 +154,18 @@ for idx, model in enumerate(all_models):
     family = MODEL_TO_FAMILY.get(model, model)
     color = FAMILY_COLORS.get(family, COLORS[idx % 10])
     ls = LINESTYLES[idx // GROUP_SIZE]
-    ax.plot(angles, means_plot, linestyle=ls, marker='o', linewidth=1.3,
-            color=color, markersize=3, label=family, alpha=0.80)
-    # No fill to reduce clutter
+    ax.plot(angles, means_plot, linestyle=ls, marker='o', linewidth=1.4,
+            color=color, markersize=3.5, label=family, alpha=0.85)
 
 ax.set_xticks(angles[:-1])
-ax.set_xticklabels(DIM_LABELS, fontsize=8.5)
+ax.set_xticklabels(DIM_LABELS, fontsize=9)
 ax.set_ylim(1, 4.2)
 ax.set_yticks([2, 3, 4])
-ax.set_yticklabels(['2', '3', '4'], fontsize=7, color='gray')
-ax.legend(loc='upper center', bbox_to_anchor=(0.5, 1.28), fontsize=6.5,
-          framealpha=0.95, edgecolor='#cccccc', ncol=5, columnspacing=1.0,
+ax.set_yticklabels(['2', '3', '4'], fontsize=7.5, color='gray')
+# Legend at the bottom in 5 columns, 3 rows, kept compact but readable.
+ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.12), fontsize=7.5,
+          framealpha=0.95, edgecolor='#cccccc', ncol=5, columnspacing=1.2,
           handlelength=2.0)
-plt.tight_layout()
 save_fig(fig, 'fig1_radar_combined')
 
 
