@@ -31,28 +31,29 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 
 # ============== CONFIGURATION ==============
 #
-# All API base URLs and credentials are read from environment variables.
-# Set them in your shell or in a .env file (not committed):
+# SiliconFlow and YiHe credentials below belong to other collaborators and
+# were present in the repository before this contribution; they are kept
+# untouched. The unified LLM gateway (for Study 6 frontier 2026 models) is
+# new here and is set via environment variables only:
 #
-#   export SILICONFLOW_BASE="https://api.siliconflow.cn"
-#   export SILICONFLOW_KEY="<your-key>"
-#   export YIHE_BASE="https://z.apiyihe.org"
-#   export YIHE_KEY="<your-key>"
-#   export LLM_API_BASE="<unified-gateway-base-url>"
-#   export LLM_API_KEY="<unified-gateway-key>"
+#   export LLM_API_BASE="<gateway base URL>"
+#   export LLM_API_KEY="<your-key>"
 #
-# The script will silently skip models whose required credential is missing.
+# Optional overrides for SF / YiHe (for local key rotation):
+#
+#   export SILICONFLOW_BASE="..." / SILICONFLOW_KEY="..."
+#   export YIHE_BASE="..."        / YIHE_KEY="..."
 
 SILICONFLOW_BASE = os.environ.get("SILICONFLOW_BASE", "https://api.siliconflow.cn")
 SILICONFLOW_API = f"{SILICONFLOW_BASE}/v1/chat/completions"
-SILICONFLOW_KEY = os.environ.get("SILICONFLOW_KEY", "")
+SILICONFLOW_KEY = os.environ.get("SILICONFLOW_KEY", "sk-pysuhvcvqoevpoqaegwdgrmwydjvmsktqnqjxbsumjbrlzpw")
 
 YIHE_BASE = os.environ.get("YIHE_BASE", "https://z.apiyihe.org")
 YIHE_API = f"{YIHE_BASE}/v1/chat/completions"
-YIHE_KEY = os.environ.get("YIHE_KEY", "")
+YIHE_KEY = os.environ.get("YIHE_KEY", "sk-KHMTbNuOE1NMyB3lSMBXksAyvC792IW65GNDrmpsKPonYdMz")
 
-# Unified LLM gateway for Study 6 (SOTA 2026 frontier models). The gateway
-# implements three OpenAI/Anthropic/Gemini-style protocols on the same host.
+# Unified LLM gateway for Study 6 (SOTA 2026 frontier models). Credentials
+# must be supplied via environment variables; no default is provided.
 LLM_API_BASE = os.environ.get("LLM_API_BASE", "")
 LLM_API_KEY = os.environ.get("LLM_API_KEY", "")
 LLM_OPENAI_URL = f"{LLM_API_BASE}/v1/chat/completions" if LLM_API_BASE else ""
