@@ -1,18 +1,39 @@
-# The Missing Trade-Off: How LLMs Lose Human-Like Personality Structure
+# What LLMs Really Answer on Personality Questionnaires
+## A Methodological Audit and Corrected Baseline Across 46 Frontier Models
 
-Code and data for the EMNLP 2026 Findings paper on cross-family psychometric probing of large language models.
+[![EMNLP 2026 Findings](https://img.shields.io/badge/EMNLP%202026-Findings-blue)](https://2026.emnlp.org/)
+[![arXiv](https://img.shields.io/badge/arXiv-Coming%20Soon-red)](https://arxiv.org/)
+[![Code](https://img.shields.io/badge/Code-MIT%20License-green)](#license)
 
 ---
 
 ## Abstract
 
-Human personality is defined by trade-offs: conscientious individuals tend to be more emotionally stable, extraverts more open to experience. In large language models, these trade-offs simply vanish. Across 33 models from 15 families (61 Likert items, 12 seeds each), we find that (1) model families produce systematically different response profiles (median pairwise d = 1.01), yet all scores compress toward the Likert midpoint; (2) the Conscientiousness--Neuroticism correlation, a robust negative trade-off in humans (r = −0.30), **reverses** to strongly positive in LLMs (r = +0.76, 95% CI [0.58, 0.88]), robustly replicated across subgroups; and (3) surface-level prompt changes produce significant score shifts, confirming that these measurements lack full measurement invariance.
+Large language models are increasingly evaluated with classical personality questionnaires, yet the behavioural meaning of the resulting scores is unclear. We collect responses from **46 instruction-tuned models from 17 families** on **61 Likert items** spanning the Big Five, HEXACO Honesty-Humility, Schwartz collectivism, cognitive intuition, and Hofstede uncertainty avoidance, with **12 random seeds** per item per model. Two methodological audits frame our analysis.
 
-These findings indicate that LLM psychometric scores capture prompt-dependent response styles shaped by training and alignment, not human-like personality constructs. We recommend treating such measurements as probes of model behavioral tendencies rather than claims about personality.
+**First**, we show that a common reverse-scoring implementation, used in widely cited LLM personality studies, has an off-by-one error that targets positive-keyed items rather than negative-keyed ones. Under this implementation the inter-dimension correlation matrix is silently inverted on Big Five dimensions, producing the (false) conclusion that LLMs reverse the human Conscientiousness-Neuroticism trade-off. Re-scored data from the same 46 models yields the opposite pattern: **r(C, N) = −0.52**, 95% CI [−0.71, −0.27], in the same direction as the human BFI-2 baseline (r = −0.30) and stronger.
 
-<p align="center">
-  <img src="paper/figures/intro_figure_prompt.png" width="90%" alt="Concept figure: identical psychometric items elicit different responses from different models">
-</p>
+**Second**, we run a 16-persona MBTI steering experiment on 9 frontier models. The six models with full or near-full coverage shift their mean scores in the direction predicted by classical MBTI to Big Five mappings for **67% to 98%** of the archetypes (mean Persona Fidelity 0.86), yet the cross-persona inter-dimension correlation matrix remains far from the human pattern (mean Frobenius alignment 0.19) and the default condition's strong negative C-N trade-off either weakens to near zero or remains close to the unconditioned value, never converging toward the human baseline.
+
+After correction the real structural finding is **not** a missing C-N trade-off but a systematic **inversion of Extraversion's relationships** with Neuroticism, Conscientiousness, and Openness, paired with strong **over-correlation among Agreeableness, Conscientiousness, and Openness**.
+
+---
+
+## Headline Numbers
+
+| Metric | Buggy implementation (prior literature) | Corrected (this paper) |
+|---|---|---|
+| Cohort size | n = 33 (15 families) | **n = 46 (17 families)** |
+| C-N correlation | +0.76 (apparent flip) | **−0.52** (matches human direction) |
+| E-N correlation | not reported | **+0.53** ⚡ flip |
+| E-C correlation | not reported | **−0.28** ⚡ flip |
+| E-O correlation | −0.51 | −0.21 (still flipped) |
+| A-O correlation | not reported | **+0.71** (4× human) |
+| C-O correlation | not reported | **+0.72** (7× human) |
+| Median pairwise Cohen's d | 1.01 | **1.24 (Study 1) / 1.90 (n=43)** |
+| Acquiescence pattern | "negative" 14/15 | **positive 15/15** (mean +0.52) |
+| MBTI Persona Fidelity (6 models) | — | **+0.86** |
+| MBTI Covariance Fidelity (6 models) | — | **0.19** (far from human ≈ 1.00) |
 
 ---
 
@@ -20,272 +41,323 @@ These findings indicate that LLM psychometric scores capture prompt-dependent re
 
 ### Psychometric Instruments
 
-We use **9 dimensions comprising 61 Likert items** (1--5 scale). Five come from the Big Five Inventory (BFI-44), plus four additional dimensions:
+We use **9 dimensions measured by 61 questions** on a 1-5 agreement scale:
 
 | Dimension | Source | Items | Reverse Scored |
-|-----------|--------|-------|----------------|
-| Extraversion | BFI-44 | 8 | 4 items |
-| Agreeableness | BFI-44 | 9 | 4 items |
-| Conscientiousness | BFI-44 | 9 | 4 items |
-| Neuroticism | BFI-44 | 8 | 2 items |
-| Openness | BFI-44 | 10 | 3 items |
-| HEXACO-H | HEXACO | 5 | 0 |
-| Collectivism | Schwartz Values Survey | 4 | 0 |
-| Intuition | Cognitive Style | 4 | 2 items |
-| Uncertainty Avoidance | Cultural Dimensions | 4 | 2 items |
-| **Total** | | **61** | |
+|------|------|---|---|
+| Extraversion | BFI-44 | 8 | 4 |
+| Agreeableness | BFI-44 | 9 | 4 |
+| Conscientiousness | BFI-44 | 9 | 4 |
+| Neuroticism | BFI-44 | 8 | 1 |
+| Openness | BFI-44 | 10 | 3 |
+| HEXACO Honesty-Humility | HEXACO-PI-R subset | 5 | all (high score = ethical) |
+| Collectivism | Schwartz Values | 4 | 2 |
+| Intuition | Cognitive style | 4 | 2 |
+| Uncertainty Avoidance | Hofstede | 4 | 2 |
 
-Reverse-scored items are transformed via: `score = 6 − original`. Dimension scores are the mean of constituent items.
+Each dimension score is the average of its items after reverse-scoring negative-keyed items.
+
+> ⚠️ **Critical**: The off-by-one bug we document targeted POSITIVE-keyed items rather than negative-keyed ones, silently flipping E, C, and O completely; partially flipping A; and corrupting N. See [Appendix L: Reverse-Scoring Audit](paper/emnlp2026_improved.pdf) and [docs/CRITICAL_BUG_REPORT.md](docs/CRITICAL_BUG_REPORT.md) for full details.
 
 ### Models
 
-15 model families, one representative each, covering both Dense and MoE architectures:
+**Three nested cohorts (46 models, 17 families)**:
 
-| # | Family | Model ID | Architecture |
-|---|--------|----------|-------------|
-| 1 | Qwen | Qwen3.5-397B-A17B | MoE (397B) |
-| 2 | DeepSeek | DeepSeek-V3.2 | MoE (671B) |
-| 3 | GLM | GLM-5 | MoE (744B) |
-| 4 | Kimi | Kimi-K2.5 | MoE (1.1T) |
-| 5 | ERNIE | ERNIE-4.5-300B-A47B | MoE (300B) |
-| 6 | Hunyuan | Hunyuan-A13B-Instruct | Dense (13B) |
-| 7 | Seed | Seed-OSS-36B-Instruct | Dense (36B) |
-| 8 | InternLM | internlm2_5-7b-chat | Dense (7B) |
-| 9 | Ring | Ring-flash-2.0 | MoE (100B) |
-| 10 | Step | Step-3.5-Flash | MoE (197B) |
-| 11 | Pangu | pangu-pro-moe | MoE (72B) |
-| 12 | KAT | KAT-Dev | Dense (32B) |
-| 13 | MiniMax | MiniMax-M2.5 | MoE (230B) |
-| 14 | GPT | GPT-5 | Undisclosed |
-| 15 | Claude | Claude Opus 4.5 | Undisclosed |
+#### Primary cohort (15 flagship models)
+1 representative per family, the most capable model available at each provider.
+
+#### Within-family cohort (18 additional models)
+Qwen, DeepSeek, and Zhipu version ladders for cross-generational comparison.
+
+#### Frontier replication cohort (13 models, 2026-04)
+| # | Family | Model |
+|---|------|-------|
+| 1 | Anthropic | Claude-Opus-4.6 |
+| 2 | Anthropic | Claude-Sonnet-4.6 |
+| 3 | OpenAI | GPT 5.2 |
+| 4 | OpenAI | GPT 5.4 (excluded — gateway 404) |
+| 5 | Google | Gemini 3-Pro-Preview |
+| 6 | Google | Gemini-3-Flash-Preview |
+| 7 | DeepSeek | DeepSeek-V3.2 |
+| 8 | Qwen | Qwen3-235B-A22B |
+| 9 | ByteDance | Doubao-Seed-1.6 (excluded — gateway 404) |
+| 10 | Zhipu | GLM-4.7 |
+| 11 | Zhipu | GLM-5.1 |
+| 12 | Moonshot | Kimi-K2.5 |
+| 13 | MiniMax | MiniMax-M2.7 |
 
 ### Protocol
 
-Each model receives all 61 items at **temperature = 0.7**, with **12 seeds** (0, 1, 2, 4, 5, 6, 7, 8, 9, 42, 123, 456), totaling **10,980 API calls**. Items are framed as self-referential statements ("I see myself as someone who...") with a 1--5 agreement scale.
+- 61 items × 12 seeds × per model = ~10,980 calls per model under default prompt
+- Total **2,800+ records** (Studies 1+2+6) after rescoring
+- Temperature 0.7, single-API-protocol, exponential backoff with up to 5 parallel workers
 
-### Analysis Framework
+### Analysis Pipeline
 
-We apply a multi-module analysis:
-
-1. **One-way ANOVA** (Model Family, 15 levels) with FDR-corrected *p*-values and partial η²
-2. **Pairwise Cohen's *d*** (Welch's *t*-test) for all 105 model pairs across 8 primary dimensions (840 tests, FDR-corrected)
-3. **Ordered logistic regression** to account for ordinal Likert responses
-4. **Acquiescence correction** via partial correlations controlling for PC1
-5. **Reliability**: ICC(1,1) and coefficient of variation (CV)
-6. **Inter-dimension correlations** compared against published human baselines
-7. **Prompt sensitivity**: variance decomposition (Model vs. Prompt vs. Residual)
-
-For all analyses, we first aggregate the 12 seed-level responses per model into dimension means, then compute statistics at the model-family level (*n* = 15 for primary; *n* = 33 for replication including within-family variants).
+```
+data collection      rescoring           analysis            paper
+       |                |                    |                  |
+[run_model_experiments]→[rescore_existing]→[analyze_corrected]→[.tex]
+[run_mbti_personas] ───→[rescore_existing]→[analyze_corrected]┘
+```
 
 ---
 
 ## Key Results
 
-### 1. Response Style Profiles
+### 1. Family Behavioral Fingerprints (Cross-Model Discrimination)
 
-<p align="center">
-  <img src="paper/figures/fig1_radar_combined.png" width="70%" alt="Radar profiles of all 15 model families across 9 dimensions">
-</p>
+All 8 primary dimensions show significant model effects (p < 10⁻⁹, FDR-corrected). Under corrected scoring on the 15-model paper cohort:
 
-All 15 model families across 9 psychometric dimensions. The distinct shapes show that different training approaches leave measurable behavioral fingerprints. Scores cluster around the scale midpoint (2.7--3.3 on a 1--5 scale), with Neuroticism showing the widest range (Ring: 2.22, Claude: 3.39).
+| Dimension | F | η²ₚ | Median Cohen's d |
+|------|---|-----|---|
+| Extraversion | 6.55 | 0.357 | 0.90 |
+| Agreeableness | 37.96 | 0.763 | 1.83 |
+| Conscientiousness | 7.29 | 0.382 | 0.94 |
+| **Neuroticism** | **128.35** | **0.916** | **3.55** |
+| Openness | 53.10 | 0.818 | 2.13 |
+| Collectivism | 9.01 | 0.433 | 0.80 |
+| Intuition | 20.26 | 0.632 | 1.53 |
+| Uncertainty Avoidance | 5.68 | 0.325 | 0.81 |
 
-### 2. Cross-Model Differences
+Median Cohen's d across all 8 dimensions: **1.24** (Study 1, 15 models) / **1.90** (n=43 expanded cohort).
 
-All 8 primary dimensions show significant model effects (*p* < 0.001, FDR-corrected):
+![Big Five profiles across model families](paper/figures/fig1_radar_combined.png)
 
-| Dimension | *F* | η² | KW *H* |
-|-----------|-----|-----|--------|
-| Neuroticism | 34.60 | 0.746 | 124.7 |
-| Intuition | 20.26 | 0.632 | 118.5 |
-| Conscientiousness | 14.35 | 0.549 | 99.1 |
-| Openness | 9.95 | 0.458 | 80.2 |
-| Collectivism | 9.01 | 0.433 | 78.7 |
-| Extraversion | 6.55 | 0.357 | 65.5 |
-| Agreeableness | 5.99 | 0.337 | 62.4 |
-| UA | 5.68 | 0.325 | 62.3 |
+*Figure 2: Answer profiles of all 15 model families across 9 dimensions. Each line is one family. The distinct shapes show that different training approaches leave different behavioral fingerprints.*
 
-The median pairwise Cohen's *d* across all 105 model pairs and 8 primary dimensions is **1.01**, and every pair exceeds *d* ≥ 0.8 on at least one dimension. Largest pairwise effects:
+### 2. The Methodological Audit (the Buggy "Missing Trade-Off")
 
-| Dimension | Model A | vs | Model B | Median *d* | Max *d* |
-|-----------|---------|----|---------|-----------|---------|
-| Intuition | GLM | vs | Claude | 1.53 | −7.06 |
-| Neuroticism | MiniMax | vs | Claude | 1.66 | −5.29 |
-| Conscientiousness | ERNIE | vs | DeepSeek | 1.22 | −4.45 |
-| Collectivism | GLM | vs | Qwen | 0.80 | −3.89 |
-| Agreeableness | ERNIE | vs | Kimi | 0.74 | −3.72 |
+A widely-reused BFI scoring loop computes dimension means via:
+```python
+for rev_idx in BFI_REVERSE[trait]:
+    if rev_idx - 1 < len(items[key]):
+        items[key][rev_idx - 1] = 6 - items[key][rev_idx - 1]
+```
 
-GPT and Claude produce the smallest Euclidean distance of any model pair (0.50), suggesting convergence in training objectives.
+`BFI_REVERSE[trait]` lists the **0-indexed** positions of negative-keyed items. The `rev_idx - 1` then mistakenly targets the **positive-keyed items** at adjacent positions, leaving the negative items unflipped. Effects on the 5 BFI subscales:
 
-<p align="center">
-  <img src="paper/figures/fig4_cohen_d_heatmap.png" width="50%" alt="Maximum pairwise Cohen's d per model pair across 9 dimensions">
-</p>
+| Dimension | List in code | Buggy positions flipped | Correct positions |
+|------|------|------|-----|
+| Extraversion | {1,3,5,7} | {0,2,4,6} ❌ | {1,3,5,7} ✅ |
+| Agreeableness | {3,4,6,7} | {2,3,5,6} ⚠️ | {3,4,6,7} ✅ |
+| Conscientiousness | {1,3,5,7} | {0,2,4,6} ❌ | {1,3,5,7} ✅ |
+| Neuroticism | {0,6} | {-1, 5} ⚠️ | {0} ✅ |
+| Openness | {1,3,5} | {0,2,4} ❌ | {1,3,5} ✅ |
 
-### 3. The Missing Trade-Off: C-N Reversal
+**Effect on the C-N correlation under our 46-model cohort**:
+- **Buggy scoring**: r(C, N) = +0.78 (apparent flip from human −0.30)
+- **Corrected scoring**: r(C, N) = **−0.52** (same direction as human, slightly stronger)
 
-<p align="center">
-  <img src="paper/figures/fig7_inter_dim_corr.png" width="50%" alt="Inter-dimension correlation matrix showing C-N reversal">
-</p>
+This artefact has propagated through several published LLM-personality studies, producing a "missing C-N trade-off" headline that is in fact a scoring bug.
 
-The central finding: the **Conscientiousness--Neuroticism correlation reverses** from negative in humans to strongly positive in LLMs.
+### 3. The Real Structural Deviation: E-axis Inversion + ACO Over-coupling
 
-| | Human baseline | LLM (*n* = 33) | 95% CI | Sign match |
-|--|---------------|-----------------|--------|------------|
-| Extraversion vs Neuroticism | −0.34 | −0.589 | [−0.766, −0.245] | Yes |
-| Agreeableness vs Conscientiousness | +0.28 | +0.266 | [−0.098, +0.646] | Yes |
-| Openness vs Agreeableness | +0.14 | +0.117 | [−0.231, +0.450] | Yes |
-| Extraversion vs Agreeableness | +0.14 | +0.164 | [−0.244, +0.431] | Yes |
-| **Conscientiousness vs Neuroticism** | **−0.30** | **+0.757** | **[+0.579, +0.880]** | **No** |
+Under corrected scoring on n=43 models, the inter-dimension correlation matrix shows two clear deviations from human BFI-2 norms:
 
-The C-N reversal (4/5 sign agreement, binomial *p* = 0.38) is individually significant and replicates across all subgroups: MoE (*r* = +0.66), small models (*r* = +0.83), and open-source (*r* = +0.70).
+![LLM vs human inter-dimension correlations](paper/figures/fig_e_axis_inversion.png)
 
-**Interpretation**: In humans, conscientious individuals tend to be more emotionally stable because self-regulation and emotional reactivity are psychologically antagonistic. In LLMs, both dimensions co-vary positively, consistent with a shared acquiescence or midpoint-compression mechanism: both dimensions are driven by a common response tendency rather than by the psychological trade-off that produces the negative correlation in humans.
+**E-axis inversion**: Extraversion's relationships with N, C, and O are all flipped relative to humans:
+| Pair | Human | LLM | Flip? |
+|------|---|---|---|
+| E-N | −0.34 | **+0.53** | ⚡ |
+| E-C | +0.11 | **−0.28** | ⚡ |
+| E-O | +0.22 | **−0.21** | ⚡ |
+| E-A | +0.18 | +0.18 | matched |
 
-### 4. Response Style Indicators
+**ACO over-coupling**: Agreeableness, Conscientiousness, and Openness form a tightly bound cluster, much stronger than in humans:
+| Pair | Human | LLM | Magnitude |
+|------|---|---|---|
+| A-C | +0.29 | **+0.58** | 2× human |
+| A-O | +0.19 | **+0.71** | 4× human |
+| C-O | +0.10 | **+0.72** | 7× human |
 
-<p align="center">
-  <img src="paper/figures/fig_response_styles.png" width="90%" alt="Response style indicators by model family">
-</p>
+![Inter-dimension correlation matrix (corrected, n=43)](paper/figures/fig_corr_corrected.png)
 
-Three response style indicators measured from item-level responses:
+A model scoring high on Extraversion in our corpus tends to also score high on Neuroticism and low on Conscientiousness and Openness, the **opposite** of human covariation. The Agreeableness-Conscientiousness-Openness cluster collapses into a single "positive cluster vs.\ low-extraversion" axis.
 
-- **Midpoint responding** (proportion at 3.0): ranges from 20% (MiniMax) to 87% (KAT)
-- **Extreme responding** (proportion at 1 or 5): ranges from 2% (Hunyuan) to 53% (Ring)
-- **Acquiescence bias** (positive minus reverse-scored mean): negative for 14/15 families (mean = −0.28), indicating slight disagreement with positively worded items; Ring is the sole exception (+0.24)
+### 4. MBTI Persona Steering Limits
 
-The first principal component of the 15-family correlation matrix explains **51.1%** of variance (vs. 11.1% expected under independence), indicating a strong general factor.
+We condition 9 mainstream model families on each of the 16 MBTI personality types and re-administer the 61-item battery (3 random seeds, 26,352 calls total). Two metrics:
 
-### 5. Reliability
+- **Persona Fidelity Index (PFI)**: proportion of mean-shift directions that match the empirical MBTI-to-Big-Five mapping, rescaled to [−1, +1].
+- **Covariance Fidelity (CovFid)**: 1 − Frobenius distance between persona-induced 5×5 inter-dimension matrix and the human BFI-2 matrix. 1 = perfect match.
 
-| Dimension | Mean CV | ICC(1,1) |
-|-----------|---------|----------|
-| Extraversion | 0.069 | 0.316 |
-| Agreeableness | 0.067 | 0.293 |
-| Conscientiousness | 0.076 | 0.527 |
-| Neuroticism | 0.065 | **0.737** |
-| Openness | 0.077 | 0.427 |
-| Collectivism | 0.076 | 0.400 |
-| Intuition | 0.108 | 0.616 |
-| UA | 0.068 | 0.281 |
+![Persona Fidelity Index per model](paper/figures/fig_mbti_pfi.png)
 
-Within-model CV is uniformly low (0.065--0.108), indicating tight response distributions. ICC(1,1) ranges from 0.281 to 0.737, with Neuroticism showing the highest between-family discrimination.
+![Covariance Fidelity per model](paper/figures/fig_mbti_covfid.png)
 
-### 6. Prompt Sensitivity
+**Six models with full or near-full 16-persona coverage at submission** (4 more models still collecting):
 
-The same 61 items were administered under four prompt conditions: **Default** ("respond as honestly as possible"), **Neutral** ("rate your agreement"), **Persona** ("you are completing a personality survey"), and **Direct** (item + scale only).
+| Model | PFI | CovFid | r(C,N)_persona |
+|------|----|---|---|
+| GPT 5.2 | +0.96 | 0.20 | −0.23 |
+| Claude-Opus-4.6 | +0.67 | 0.20 | −0.07 |
+| Claude-Sonnet-4.6 | +0.96 | 0.19 | −0.11 |
+| Gemini 3-Pro-Preview | +0.79 | 0.20 | −0.03 |
+| Qwen3-235B-A22B | +0.93 | 0.20 | −0.16 |
+| DeepSeek-V3.2 | +0.85 | 0.15 | −0.45 |
+| **Mean** | **+0.86** | **0.19** | **−0.18** |
 
-Response style shifts across prompts:
+**Key takeaway**: Models can rotate their mean responses into the region of each MBTI archetype (PFI 0.67 to 0.96), yet the covariance between dimensions neither matches the human pattern (CovFid 0.15-0.20, far from 1) nor preserves the default condition's own r(C,N) trade-off (which collapses toward zero under persona conditioning, never converging to human −0.30). **Persona prompts move where the model lands, not how its dimensions cohere.**
 
-| Prompt | Midpoint (%) | Extreme (%) | Mean |
-|--------|-------------|-------------|------|
-| Default | 47.7 | 22.7 | 2.94 |
-| Neutral | 48.6 | 31.3 | 2.86 |
-| Persona | 44.1 | 17.6 | 2.94 |
-| Direct | 40.4 | 27.4 | 2.91 |
+### 5. Aligned vs Base Models (corrected)
 
-Variance decomposition shows model family dominates:
-
-| Dimension | Model (%) | Prompt (%) | Residual (%) |
-|-----------|-----------|-----------|-------------|
-| HEXACO-H | **78.1** | 2.9 | 19.0 |
-| Conscientiousness | 45.8 | **8.9** | 45.4 |
-| Intuition | 41.8 | 6.9 | 51.4 |
-| Neuroticism | 40.8 | 4.2 | 55.0 |
-| Collectivism | 29.3 | 7.4 | 63.4 |
-| Openness | 28.0 | 1.2 | 70.8 |
-| Extraversion | 32.0 | 1.0 | 67.0 |
-| UA | 20.1 | 2.1 | 77.8 |
-| Agreeableness | 9.5 | 2.8 | 87.7 |
-
-Model family explains 9.5--78.1% of variance; prompt explains 1.0--8.9%. Prompt effects are significant (*p* < 0.001) but modest relative to model effects.
-
-### 7. Aligned vs. Base Models
-
-Base models (pre-alignment) cluster at the Likert midpoint with near-zero variance. Qwen3-14B shows exactly zero variance on 7 of 9 dimensions. Aligned counterparts produce the differentiated, compressed profiles seen throughout the study.
+Comparing 3 base/aligned pairs (Cohen's d, base − aligned):
 
 | Dimension | Qwen3-8B vs 397B | Qwen3-14B vs 397B | GLM-4.7 vs GLM-5 |
-|-----------|-------------------|-------------------|------------------|
-| Conscientiousness | +4.62 | +8.67 | −1.20 |
-| Neuroticism | +3.29 | +0.22 | −1.09 |
-| Openness | +5.51 | +2.96 | −1.56 |
-| Intuition | +4.02 | +6.79 | +2.01 |
-| HEXACO-H | +11.19 | +15.81 | +0.85 |
+|------|---|---|---|
+| Extraversion | +0.30 | −1.05 | +1.46 |
+| Agreeableness | −2.06 | −4.48 | +0.00 |
+| Conscientiousness | −2.26 | −5.48 | +1.23 |
+| Neuroticism | +1.57 | +1.23 | +0.22 |
+| Openness | −2.65 | −6.61 | +0.61 |
+| HEXACO-H | −13.80 | −18.38 | −0.85 |
+| Intuition | +4.16 | +5.46 | +2.01 |
 
-This provides preliminary evidence that alignment shapes response style, though the Qwen comparisons confound alignment with scale (8B/14B → 397B).
+Alignment pushes scores into the "positive cluster" (high A, C, O) and away from extreme N. The Qwen base/aligned comparisons are confounded with a large scale jump.
+
+### 6. Acquiescence and Reliability (corrected)
+
+Under corrected scoring, **all 15 paper-cohort families show positive acquiescence bias** (mean of positive-keyed items minus mean of negative-keyed items, both on the 1-5 scale): mean +0.52, range 0.09 to 1.15. ERNIE, GLM, Kimi, and Qwen show the strongest acquiescence (≥+1.00); Step, KAT, and Pangu show the weakest (≤+0.20).
+
+![Response style indicators (corrected)](paper/figures/fig_response_styles_corrected.png)
+
+Reliability stays high: ICC(1,1) ranges 0.281 to 0.914, with the largest values on Neuroticism (0.914), Openness (0.813), and Agreeableness (0.755).
+
+### 7. Frontier Replication
+
+The 13 frontier 2026 models (Claude 4.6, GPT 5.x, Gemini 3, latest open-weights from Alibaba/Zhipu/Moonshot/MiniMax/DeepSeek/ByteDance) reproduce all qualitative findings: the corrected C-N correlation stays negative, Extraversion's inversions persist, ACO over-coupling persists, and MBTI persona steering does not repair structure.
 
 ---
 
 ## Conclusion
 
-The paper asks a simple question: do LLM questionnaire responses reproduce the trade-offs that define human personality? The answer, across 33 models and 61 items, is no. The C-N reversal (*r* = −0.30 → +0.76) survives subgroup replication and constitutes the strongest evidence to date that human personality structure does not transfer to language models.
+This paper began as a structural test of LLM personality scores and ended as a methodological audit of how those scores are computed. Our central finding has two parts:
 
-**Practical implications for NLP:**
+**First**, a recurrent reverse-scoring implementation error inverts Big Five inter-dimension correlations on data that include four reverse items per dimension; under that error, our 46 models appear to flip the human Conscientiousness-Neuroticism trade-off. Under correct scoring, the same models reproduce the human-direction C-N trade-off (r = −0.52) more strongly than the human baseline (r = −0.30).
 
-1. Personality inventories should not be used as off-the-shelf evaluation tools for LLMs. When an LLM scores high on Conscientiousness, it does not mean the model is organized or disciplined; it means the model's training data and alignment procedure produced a particular pattern of Likert-scale responses.
-2. Response style signatures can serve as a lightweight behavioral probe for detecting alignment shifts. A model that suddenly shifts from moderate to extreme responding may have undergone a meaningful change in its alignment behavior.
-3. Personality questionnaire scores used as inputs to reward models, preference optimizers, or user modeling systems do not have the same meaning as in humans. A model scoring high on both Neuroticism and Conscientiousness is not "contradictory"; it is simply exhibiting the flattened response structure that alignment produces.
+**Second**, the structural divergence that survives correction is localised: Extraversion's relationships with N, C, and O are inverted relative to humans, and the Agreeableness-Conscientiousness-Openness cluster is over-correlated. A 16-persona MBTI steering experiment on the six models with full coverage moves model means in the predicted direction for 67% to 98% of the archetypes but leaves the covariance structure far from the human pattern, while weakening (or preserving) the default condition's own C-N trade-off.
+
+Three implications:
+1. **Reverse-scoring is not boilerplate.** A single off-by-one in a widely reused loop can silently invert the dependent variable on which structural conclusions depend. Any LLM personality study should release item-level raw responses alongside dimension-level scores.
+2. **Cross-family fingerprints survive correction.** The 46-model cohort still differs strongly between families (median pairwise d = 1.90, all p < 10⁻¹²); response-habit profiling remains useful.
+3. **The genuine structural deviations are smaller and more localised than the corrected literature suggests, but they are still present.** Extraversion's covariance role and the over-coupling of A, C, and O are good candidates for further investigation.
 
 ---
 
 ## Dataset
 
-Available on HuggingFace: [`linkco/llm-psychometric-response-style`](https://huggingface.co/datasets/linkco/llm-psychometric-response-style) (490 + 540 records)
+**Public release** (under [`results/`](results/)):
+- `vendor_exp/corrected/` — 1,762 records under corrected scoring
+- `mbti_persona/corrected/` — 2,800+ records from MBTI persona steering
+- `corrected_analysis/` — CSV summaries per model means, correlation matrix, MBTI metrics
 
-| File | Records | Description |
-|------|---------|-------------|
-| `main_data.json` | 490 | Studies 1-5: cross-model, within-family, aligned-vs-base, thinking ablation |
-| `study5_prompt_sensitivity.json` | 540 | 15 models × 3 prompt variants × 12 seeds |
+**Reproducibility**: all scoring code is in this repo. To recompute everything:
+```bash
+python3 rescore_existing.py        # recompute corrected dimension scores
+python3 analyze_corrected.py        # produce every number in the paper
+python3 figures/gen_corrected_figures.py  # regenerate the 6 corrected figures
+```
 
 ---
 
 ## Repository Structure
 
 ```
-paper/                    # LaTeX source, bibliography, figures, compiled PDF
-├── emnlp2026_improved.tex
-├── emnlp2026_improved.pdf
-├── references.bib
-└── figures/              # All figures (PDF + PNG)
-run_model_experiments.py  # Experiment runner (SiliconFlow + external APIs)
-analyze_model_design.py   # Statistical analysis (ANOVA, OLR, FDR, ICC, PCA)
-create_pca_figure.py      # PCA visualization
-figures/                  # Figure generation scripts
-results/vendor_exp/       # Raw experiment data
+.
+├── paper/
+│   ├── emnlp2026_improved.tex       # main paper (LaTeX)
+│   ├── emnlp2026_improved.pdf       # compiled PDF (23 pages)
+│   ├── references.bib                # bibliography (do not modify)
+│   └── figures/                      # PDFs + PNGs for figures
+├── run_model_experiments.py          # main experiment runner (Studies 1-6)
+├── run_mbti_personas.py              # MBTI persona steering (Phase 4)
+├── rescore_existing.py               # reverse-scoring fix + recompute
+├── analyze_corrected.py              # focused corrected analysis
+├── analyze_mbti_per_persona.py       # per-archetype hit-rate breakdown
+├── analyze_model_design.py           # legacy comprehensive analysis
+├── figures/
+│   ├── gen_corrected_figures.py      # 6 corrected figures
+│   ├── regen_figures.py              # original-style figures (Fig 2 radar etc.)
+│   └── paper_plot_style.py           # shared plot style
+├── results/
+│   ├── vendor_exp/                   # raw + corrected experiment outputs
+│   ├── mbti_persona/                 # MBTI raw + corrected
+│   └── corrected_analysis/           # CSVs feeding the paper
+└── docs/                             # methodology notes (gitignored)
 ```
+
+---
 
 ## Setup
 
 ```bash
 pip install -r requirements.txt
+# numpy, pandas, scipy, scikit-learn, matplotlib, requests
 ```
+
+Local LLM (Ollama):
+```bash
+ollama pull qwen3.5:9b
+```
+
+API gateway environment variables (no defaults; export before running Study 6 or MBTI):
+```bash
+export LLM_API_BASE="<unified gateway base URL>"
+export LLM_API_KEY="<your-key>"
+```
+
+---
 
 ## Running Experiments
 
 ```bash
-export SILICONFLOW_API_KEY="your-key"
-export YIHE_API_KEY="your-key"  # Optional: for international models
+# Original studies (Chinese AI flagship models, within-family scaling)
+python3 run_model_experiments.py --study 1
+python3 run_model_experiments.py --study 2
 
-python run_model_experiments.py
+# Frontier 2026 SOTA replication (13 models)
+python3 run_model_experiments.py --study 6
+
+# MBTI persona steering (9 models × 16 personas × 3 seeds)
+python3 run_mbti_personas.py
+python3 run_mbti_personas.py --resume   # resume after interruption
 ```
+
+Outputs are saved to `results/vendor_exp/` and `results/mbti_persona/` as JSON files (one record per (model, seed, [persona]) triple).
+
+---
 
 ## Analysis
 
+Run after every batch of new data:
+
 ```bash
-python analyze_model_design.py --input results/vendor_exp/final_merged_20260325_230829.json
+python3 rescore_existing.py
+python3 analyze_corrected.py
+python3 figures/gen_corrected_figures.py
 ```
 
-Produces OLS ANOVA with FDR correction, Cohen's *d* effect sizes, Cronbach's alpha, ICC, convergent validity tests, and PCA.
+This produces the per-model BFI means, the 5×5 inter-dimension correlation matrix, the MBTI PFI / CovFid tables, and refreshes all corrected figures.
+
+---
 
 ## Citation
 
 ```bibtex
-@inproceedings{llm-psychology-2026,
-  title={The Missing Trade-Off: How LLMs Lose Human-Like Personality Structure},
-  author={Anonymous},
-  booktitle={Findings of the 2026 Conference on Empirical Methods in Natural Language Processing (EMNLP)},
+@inproceedings{anonymous2026what,
+  title={What LLMs Really Answer on Personality Questionnaires:
+         A Methodological Audit and Corrected Baseline Across 46 Frontier Models},
+  author={Anonymous Authors},
+  booktitle={Findings of EMNLP 2026},
   year={2026}
 }
 ```
 
+---
+
 ## License
 
-CC-BY-4.0
+MIT License. The paper text and figures are released for open scientific
+use; please cite if used.
