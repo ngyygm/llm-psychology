@@ -13,3 +13,10 @@ __pycache__/
 *.synct.gz
 *.idea
 .claude/
+
+
+results/
+docs/
+findings.md
+progress.md
+task_plan.md

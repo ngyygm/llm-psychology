@@ -19,6 +19,7 @@ Usage:
 """
 
 import json
+import os
 import requests
 import time
 import argparse
@@ -29,12 +30,34 @@ from typing import Dict, List
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 # ============== CONFIGURATION ==============
+#
+# All API base URLs and credentials are read from environment variables.
+# Set them in your shell or in a .env file (not committed):
+#
+#   export SILICONFLOW_BASE="https://api.siliconflow.cn"
+#   export SILICONFLOW_KEY="<your-key>"
+#   export YIHE_BASE="https://z.apiyihe.org"
+#   export YIHE_KEY="<your-key>"
+#   export LLM_API_BASE="<unified-gateway-base-url>"
+#   export LLM_API_KEY="<unified-gateway-key>"
+#
+# The script will silently skip models whose required credential is missing.
 
-SILICONFLOW_API = "https://api.siliconflow.cn/v1/chat/completions"
-SILICONFLOW_KEY = "sk-pysuhvcvqoevpoqaegwdgrmwydjvmsktqnqjxbsumjbrlzpw"
+SILICONFLOW_BASE = os.environ.get("SILICONFLOW_BASE", "https://api.siliconflow.cn")
+SILICONFLOW_API = f"{SILICONFLOW_BASE}/v1/chat/completions"
+SILICONFLOW_KEY = os.environ.get("SILICONFLOW_KEY", "")
 
-YIHE_API = "https://z.apiyihe.org/v1/chat/completions"
-YIHE_KEY = "sk-KHMTbNuOE1NMyB3lSMBXksAyvC792IW65GNDrmpsKPonYdMz"
+YIHE_BASE = os.environ.get("YIHE_BASE", "https://z.apiyihe.org")
+YIHE_API = f"{YIHE_BASE}/v1/chat/completions"
+YIHE_KEY = os.environ.get("YIHE_KEY", "")
+
+# Unified LLM gateway for Study 6 (SOTA 2026 frontier models). The gateway
+# implements three OpenAI/Anthropic/Gemini-style protocols on the same host.
+LLM_API_BASE = os.environ.get("LLM_API_BASE", "")
+LLM_API_KEY = os.environ.get("LLM_API_KEY", "")
+LLM_OPENAI_URL = f"{LLM_API_BASE}/v1/chat/completions" if LLM_API_BASE else ""
+LLM_ANTHROPIC_URL = f"{LLM_API_BASE}/anthropic/v1/messages" if LLM_API_BASE else ""
+LLM_GEMINI_URL = f"{LLM_API_BASE}/v1/responses" if LLM_API_BASE else ""
 
 HEADERS_SF = {
     "Authorization": f"Bearer {SILICONFLOW_KEY}",
@@ -43,6 +66,15 @@ HEADERS_SF = {
 HEADERS_YH = {
     "Authorization": f"Bearer {YIHE_KEY}",
     "Content-Type": "application/json",
+}
+HEADERS_LLM_OPENAI = {
+    "Authorization": f"Bearer {LLM_API_KEY}",
+    "Content-Type": "application/json",
+}
+HEADERS_LLM_ANTHROPIC = {
+    "x-api-key": LLM_API_KEY,
+    "Content-Type": "application/json",
+    "anthropic-version": "2023-06-01",
 }
 
 OLLAMA_API = "http://localhost:11434/api/generate"
@@ -156,6 +188,32 @@ STUDY4_MODELS = {
 for m, meta in STUDY4_MODELS.items():
     ALL_MODELS[m] = {**meta, "study": 4}
 
+# Study 6: Frontier SOTA models via the unified LLM gateway (2026-04).
+# These are newer releases than the Study 3 YiHe cohort and probe whether the
+# "missing trade-off" generalizes to the current frontier of aligned models.
+STUDY6_MODELS = {
+    # Anthropic family
+    "Claude-Opus-4.6":            {"model_id": "Anthropic", "arch": "Dense", "study": 6, "api": "llm_anthropic"},
+    "Claude-Sonnet-4.6":          {"model_id": "Anthropic", "arch": "Dense", "study": 6, "api": "llm_anthropic"},
+    # OpenAI family
+    "GPT 5.2":                    {"model_id": "OpenAI",    "arch": "Dense", "study": 6, "api": "llm_openai"},
+    "GPT 5.4":                    {"model_id": "OpenAI",    "arch": "Dense", "study": 6, "api": "llm_openai"},
+    # Google Gemini family
+    "Gemini-3-Flash-Preview":     {"model_id": "Gemini",    "arch": "Dense", "study": 6, "api": "llm_gemini"},
+    "Gemini 3-Pro-Preview":       {"model_id": "Gemini",    "arch": "Dense", "study": 6, "api": "llm_gemini"},
+    # Other frontier (OpenAI-compatible)
+    "DeepSeek-V3.2":              {"model_id": "DeepSeek",  "arch": "MoE",   "study": 6, "api": "llm_openai"},
+    "Qwen3-235B-A22B":            {"model_id": "Qwen",      "arch": "MoE",   "study": 6, "api": "llm_openai"},
+    "Doubao-Seed-1.6":            {"model_id": "Doubao",    "arch": "Dense", "study": 6, "api": "llm_openai"},
+    "GLM-4.7":                    {"model_id": "Zhipu",     "arch": "Dense", "study": 6, "api": "llm_openai"},
+    "GLM-5.1":                    {"model_id": "Zhipu",     "arch": "Dense", "study": 6, "api": "llm_openai"},
+    "Kimi-K2.5":                  {"model_id": "Moonshot",  "arch": "Dense", "study": 6, "api": "llm_openai"},
+    "MiniMax-M2.7":               {"model_id": "MiniMax",   "arch": "Dense", "study": 6, "api": "llm_openai"},
+}
+
+for m, meta in STUDY6_MODELS.items():
+    ALL_MODELS[m] = {**meta, "study": 6}
+
 # ============== PILOT CONFIGURATION ==============
 
 PILOT_MODELS = ["Qwen/Qwen3-8B", "deepseek-ai/DeepSeek-V3.2", "zai-org/GLM-4.6"]
@@ -234,11 +292,15 @@ BFI_44_ITEMS = {
 }
 
 BFI_REVERSE = {
-    "extraversion": [1, 3, 5, 7],
-    "agreeableness": [3, 4, 6, 7],
+    # 0-indexed positions of negative-keyed items that must be reverse-scored.
+    # Each BFI_44_ITEMS[<trait>] list alternates positive (even idx) / negative (odd idx)
+    # for extraversion, conscientiousness, openness. For agreeableness the pattern differs
+    # (positives at 0,1,2,5,8; negatives at 3,4,6,7). Neuroticism has only one reverse item (idx 0).
+    "extraversion":      [1, 3, 5, 7],
+    "agreeableness":     [3, 4, 6, 7],
     "conscientiousness": [1, 3, 5, 7],
-    "neuroticism": [0, 6],
-    "openness": [1, 3, 5],
+    "neuroticism":       [0],
+    "openness":          [1, 3, 5],
 }
 
 HEXACO_H_ITEMS = [
@@ -421,15 +483,120 @@ def query_yihe(model_id: str, prompt: str, temperature: float = 0.7,
             time.sleep(3)
     return ""
 
+def query_llm_openai(model_id: str, prompt: str, temperature: float = 0.7,
+                         seed: int = 42, max_tokens: int = 500) -> str:
+    """Unified gateway, OpenAI-compatible endpoint (DeepSeek, Qwen, Doubao, GLM, Kimi, GPT, MiniMax)."""
+    payload = {
+        "model": model_id,
+        "messages": [{"role": "user", "content": prompt}],
+        "temperature": temperature,
+        "max_tokens": max_tokens,
+    }
+    if seed is not None:
+        payload["seed"] = seed
+
+    for attempt in range(4):
+        try:
+            resp = requests.post(LLM_OPENAI_URL, headers=HEADERS_LLM_OPENAI, json=payload, timeout=240)
+            if resp.status_code == 429:
+                wait = 2 ** attempt * 2
+                print(f"\n    LLM/OpenAI 429 retry in {wait}s...", flush=True)
+                time.sleep(wait)
+                continue
+            resp.raise_for_status()
+            data = resp.json()
+            return data["choices"][0]["message"].get("content", "").strip()
+        except Exception as e:
+            if attempt == 3:
+                raise
+            print(f"\n    LLM/OpenAI attempt {attempt+1} failed: {e}", flush=True)
+            time.sleep(3 + attempt * 2)
+    return ""
+
+def query_llm_anthropic(model_id: str, prompt: str, temperature: float = 0.7,
+                            seed: int = 42, max_tokens: int = 500) -> str:
+    """Unified gateway, Anthropic endpoint (Claude-Opus-4.6, Claude-Sonnet-4.6).
+    Note: Anthropic API ignores seed; relies on temperature for variability."""
+    payload = {
+        "model": model_id,
+        "max_tokens": max_tokens,
+        "temperature": temperature,
+        "messages": [{"role": "user", "content": prompt}],
+    }
+    for attempt in range(4):
+        try:
+            resp = requests.post(LLM_ANTHROPIC_URL, headers=HEADERS_LLM_ANTHROPIC, json=payload, timeout=240)
+            if resp.status_code == 429:
+                wait = 2 ** attempt * 2
+                print(f"\n    LLM/Anthropic 429 retry in {wait}s...", flush=True)
+                time.sleep(wait)
+                continue
+            resp.raise_for_status()
+            data = resp.json()
+            blocks = data.get("content", [])
+            for blk in blocks:
+                if blk.get("type") == "text":
+                    return blk.get("text", "").strip()
+            return ""
+        except Exception as e:
+            if attempt == 3:
+                raise
+            print(f"\n    LLM/Anthropic attempt {attempt+1} failed: {e}", flush=True)
+            time.sleep(3 + attempt * 2)
+    return ""
+
+def query_llm_gemini(model_id: str, prompt: str, temperature: float = 0.7,
+                         seed: int = 42, max_tokens: int = 500) -> str:
+    """Unified gateway, Gemini endpoint (Gemini-3-Flash-Preview, Gemini 3-Pro-Preview)."""
+    payload = {
+        "model": model_id,
+        "contents": [{"role": "user", "parts": [{"text": prompt}]}],
+        "generationConfig": {
+            "temperature": temperature,
+            "maxOutputTokens": max_tokens,
+        },
+    }
+    for attempt in range(4):
+        try:
+            resp = requests.post(LLM_GEMINI_URL, headers=HEADERS_LLM_OPENAI, json=payload, timeout=240)
+            if resp.status_code == 429:
+                wait = 2 ** attempt * 2
+                print(f"\n    LLM/Gemini 429 retry in {wait}s...", flush=True)
+                time.sleep(wait)
+                continue
+            resp.raise_for_status()
+            data = resp.json()
+            candidates = data.get("candidates", [])
+            if not candidates:
+                return ""
+            parts = candidates[0].get("content", {}).get("parts", [])
+            for p in parts:
+                if "text" in p:
+                    return p["text"].strip()
+            return ""
+        except Exception as e:
+            if attempt == 3:
+                raise
+            print(f"\n    LLM/Gemini attempt {attempt+1} failed: {e}", flush=True)
+            time.sleep(3 + attempt * 2)
+    return ""
+
 def query_model(model_id: str, prompt: str, temperature: float = 0.7,
                 seed: int = 42, max_tokens: int = 500,
                 enable_thinking: bool = False) -> str:
-    """Route to Ollama, SiliconFlow, or YiHe based on model metadata."""
+    """Route to Ollama, SiliconFlow, YiHe, or unified LLM gateway based on model metadata."""
     if is_ollama_model(model_id):
         return query_ollama(model_id, prompt, temperature, seed, max_tokens)
     meta = ALL_MODELS.get(model_id, {})
-    if meta.get("api") == "yihe":
+    api = meta.get("api", "")
+    if api == "yihe":
         return query_yihe(model_id, prompt, temperature, seed, max_tokens, enable_thinking)
+    if api == "llm_openai":
+        return query_llm_openai(model_id, prompt, temperature, seed, max_tokens)
+    if api == "llm_anthropic":
+        return query_llm_anthropic(model_id, prompt, temperature, seed, max_tokens)
+    if api == "llm_gemini":
+        return query_llm_gemini(model_id, prompt, temperature, seed, max_tokens)
     return query_siliconflow(model_id, prompt, temperature, seed, max_tokens, enable_thinking)
 
 def parse_rating(response: str) -> int:
@@ -572,13 +739,17 @@ def run_model(model_id: str, metadata: dict, seeds: list = None,
             items[dim] = items[dim][:actual_len]
             raw_responses[dim] = raw_responses[dim][:actual_len]
 
-        # Apply reverse scoring for BFI dimensions
+        # Apply reverse scoring for BFI dimensions.
+        # BFI_REVERSE[trait] contains 0-indexed positions that must be flipped
+        # (negative-keyed items). The previous implementation subtracted 1
+        # from each index, which targeted the POSITIVE-keyed items and silently
+        # inverted every affected dimension. See docs/CRITICAL_BUG_REPORT.md.
         for trait in BFI_REVERSE:
             key = f"bfi_{trait}"
             if key in items:
                 for rev_idx in BFI_REVERSE[trait]:
-                    if rev_idx - 1 < len(items[key]):
-                        items[key][rev_idx - 1] = 6 - items[key][rev_idx - 1]
+                    if 0 <= rev_idx < len(items[key]):
+                        items[key][rev_idx] = 6 - items[key][rev_idx]
 
         # Compute dimension scores
         bfi_scores = {}
@@ -586,7 +757,9 @@ def run_model(model_id: str, metadata: dict, seeds: list = None,
             key = f"bfi_{trait}"
             bfi_scores[trait] = round(sum(items[key]) / len(items[key]), 4)
 
-        hexaco_avg = round(sum(items["hexaco_h"]) / len(items["hexaco_h"]), 4)
+        # HEXACO-H items measure willingness to violate ethics; reverse to align
+        # with standard HEXACO direction (high score = high Honesty-Humility).
+        hexaco_avg = round(6 - sum(items["hexaco_h"]) / len(items["hexaco_h"]), 4)
 
         collectivism = round(
             (items["schwartz_values"][1] + items["schwartz_values"][2]
@@ -899,13 +1072,13 @@ def run_prompt_sensitivity(resume: bool = False):
                         items[dim] = items[dim][:actual_len]
                         raw_responses[dim] = raw_responses[dim][:actual_len]
 
-                    # Reverse scoring
+                    # Reverse scoring — see docs/CRITICAL_BUG_REPORT.md for context.
                     for trait in BFI_REVERSE:
                         key = f"bfi_{trait}"
                         if key in items:
                             for rev_idx in BFI_REVERSE[trait]:
-                                if rev_idx - 1 < len(items[key]):
-                                    items[key][rev_idx - 1] = 6 - items[key][rev_idx - 1]
+                                if 0 <= rev_idx < len(items[key]):
+                                    items[key][rev_idx] = 6 - items[key][rev_idx]
 
                     # Compute dimension scores
                     bfi_scores = {}
@@ -913,7 +1086,7 @@ def run_prompt_sensitivity(resume: bool = False):
                         key = f"bfi_{trait}"
                         bfi_scores[trait] = round(sum(items[key]) / len(items[key]), 4)
 
-                    hexaco_avg = round(sum(items["hexaco_h"]) / len(items["hexaco_h"]), 4)
+                    hexaco_avg = round(6 - sum(items["hexaco_h"]) / len(items["hexaco_h"]), 4)
                     collectivism = round(
                         (items["schwartz_values"][1] + items["schwartz_values"][2]
                          - items["schwartz_values"][0] - items["schwartz_values"][3]) / 4 + 2.5, 4)
@@ -1062,7 +1235,7 @@ def merge_results():
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Run model-based LLM personality experiments (SiliconFlow API)")
     parser.add_argument("--study", type=str, default=None,
-                        choices=["1", "2", "3", "4", "all"],
+                        choices=["1", "2", "3", "4", "6", "all"],
                         help="Which study to run")
     parser.add_argument("--pilot", action="store_true",
                         help="Run pilot only (3 models × 10 items × 3 seeds)")
@@ -1113,6 +1286,8 @@ if __name__ == "__main__":
             run_study(3, STUDY3_MODELS, resume=args.resume)
         if args.study in ("4", "all"):
             run_study(4, STUDY4_MODELS, resume=args.resume)
+        if args.study in ("6", "all"):
+            run_study(6, STUDY6_MODELS, resume=args.resume)
 
     else:
         parser.print_help()
