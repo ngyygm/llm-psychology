@@ -8,7 +8,7 @@ import numpy as np
 FONT_SIZE = 10
 DPI = 300
 FORMAT = "pdf"
-FIG_DIR = "/home/linkco/exa/llm-psychology/figures"
+FIG_DIR = "./figures"
 
 # ============== Global Style ==============
 matplotlib.rcParams.update({
@@ -104,7 +104,7 @@ def save_fig(fig, name, fmt=FORMAT):
 def _load_merged_data():
     """Load from final merged file (fallback when individual study files are absent)."""
     import json, glob
-    merged = sorted(glob.glob('/home/linkco/exa/llm-psychology/results/vendor_exp/final_merged_*.json'))
+    merged = sorted(glob.glob('./results/vendor_exp/final_merged_*.json'))
     if merged:
         with open(merged[-1]) as fh:
             return json.load(fh)
@@ -117,8 +117,8 @@ def load_study1_data():
     all_results = []
     seen = set()
     # Try individual study files first
-    study_files = sorted(glob.glob('/home/linkco/exa/llm-psychology/results/vendor_exp/study1_*.json'))
-    study3_files = sorted(glob.glob('/home/linkco/exa/llm-psychology/results/vendor_exp/study3_*.json'))
+    study_files = sorted(glob.glob('./results/vendor_exp/study1_*.json'))
+    study3_files = sorted(glob.glob('./results/vendor_exp/study3_*.json'))
     if study_files or study3_files:
         for f in study_files:
             with open(f) as fh:
@@ -153,7 +153,7 @@ def load_study2_data():
     import json, glob
     all_results = []
     seen = set()
-    study2_files = sorted(glob.glob('/home/linkco/exa/llm-psychology/results/vendor_exp/study2_*.json'))
+    study2_files = sorted(glob.glob('./results/vendor_exp/study2_*.json'))
     if study2_files:
         for f in study2_files:
             with open(f) as fh:
@@ -176,7 +176,7 @@ def load_study3_data():
     """Load Study 3 data (international models) from result JSON files."""
     import json, glob
     all_results = []
-    study3_files = sorted(glob.glob('/home/linkco/exa/llm-psychology/results/vendor_exp/study3_*.json'))
+    study3_files = sorted(glob.glob('./results/vendor_exp/study3_*.json'))
     if study3_files:
         for f in study3_files:
             if 'checkpoint' in f:
@@ -198,7 +198,7 @@ def load_all_data():
     """Load all non-pilot data."""
     import json, glob
     all_results = []
-    for f in sorted(glob.glob('/home/linkco/exa/llm-psychology/results/vendor_exp/*.json')):
+    for f in sorted(glob.glob('./results/vendor_exp/*.json')):
         if 'pilot' in f:
             continue
         if 'checkpoint' in f:
