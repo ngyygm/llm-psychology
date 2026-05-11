@@ -1,0 +1,2076 @@
+{
+  "description": "Unified psychometric battery for LLM response-style measurement.",
+  "total_items": 221,
+  "scales": {
+    "IPIP-NEO-120": {
+      "citation": "Johnson, J. A. (2014). Measuring thirty facets of the Five Factor Model with a 120-item public domain inventory. Journal of Research in Personality, 51, 78-89.",
+      "url": "https://ipip.ori.org/newNEOKey.htm",
+      "response_format": "likert_5",
+      "response_labels": {
+        "1": "Very Inaccurate",
+        "2": "Moderately Inaccurate",
+        "3": "Neither Accurate Nor Inaccurate",
+        "4": "Moderately Accurate",
+        "5": "Very Accurate"
+      },
+      "n_items": 120,
+      "domains": [
+        "Neuroticism",
+        "Extraversion",
+        "Openness",
+        "Agreeableness",
+        "Conscientiousness"
+      ],
+      "items_per_domain": 24,
+      "n_reverse": 55
+    },
+    "SD3": {
+      "citation": "Jones, D. N., & Paulhus, D. L. (2014). Introducing the Short Dark Triad (SD3). Assessment, 21(1), 28-41. DOI: 10.1177/1073191113514105",
+      "url": "https://www2.psych.ubc.ca/~dpaulhus/research/DARK_TRAITS/MEASURES/SD3.1.1.doc",
+      "response_format": "likert_5",
+      "response_labels": {
+        "1": "Strongly Disagree",
+        "2": "Disagree",
+        "3": "Neutral",
+        "4": "Agree",
+        "5": "Strongly Agree"
+      },
+      "n_items": 27,
+      "domains": [
+        "Machiavellianism",
+        "Narcissism",
+        "Psychopathy"
+      ],
+      "items_per_domain": 9,
+      "n_reverse": 5
+    },
+    "ZKPQ-50-CC": {
+      "citation": "Aluja, A., Rossier, J., Garcia, L. F., Angleitner, A., Kuhlman, M., & Zuckerman, M. (2006). A cross-cultural shortened form of the ZKPQ. Personality and Individual Differences, 41(4), 619-628.",
+      "url": "https://www.psytoolkit.org/survey-library/zkpq-50-cc.html",
+      "response_format": "true_false",
+      "response_labels": {
+        "true": "True",
+        "false": "False"
+      },
+      "n_items": 50,
+      "domains": [
+        "Activity",
+        "Aggression-Hostility",
+        "Impulsive_Sensation_Seeking",
+        "Neuroticism-Anxiety",
+        "Sociability"
+      ],
+      "items_per_domain": 10,
+      "n_reverse": 12
+    },
+    "EPQR-A": {
+      "citation": "Francis, L. J., Brown, L. B., & Philipchalk, R. (1992). The development of an abbreviated form of the Revised Eysenck Personality Questionnaire (EPQR-A). Personality and Individual Differences, 13(4), 443-449.",
+      "url": "https://doi.org/10.1016/0191-8869(92)90073-X",
+      "response_format": "yes_no",
+      "response_labels": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "n_items": 24,
+      "domains": [
+        "Psychoticism",
+        "Extraversion",
+        "Neuroticism",
+        "Lie"
+      ],
+      "items_per_domain": 6,
+      "n_reverse": 9
+    }
+  },
+  "items": [
+    {
+      "id": "ipip_001",
+      "scale": "IPIP-NEO-120",
+      "domain": "Neuroticism",
+      "facet": "N1 Anxiety",
+      "text": "Worry about things",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_002",
+      "scale": "IPIP-NEO-120",
+      "domain": "Extraversion",
+      "facet": "E1 Friendliness",
+      "text": "Make friends easily",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_003",
+      "scale": "IPIP-NEO-120",
+      "domain": "Openness",
+      "facet": "O1 Imagination",
+      "text": "Have a vivid imagination",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_004",
+      "scale": "IPIP-NEO-120",
+      "domain": "Agreeableness",
+      "facet": "A1 Trust",
+      "text": "Trust others",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_005",
+      "scale": "IPIP-NEO-120",
+      "domain": "Conscientiousness",
+      "facet": "C1 Self-Efficacy",
+      "text": "Complete tasks successfully",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_006",
+      "scale": "IPIP-NEO-120",
+      "domain": "Neuroticism",
+      "facet": "N2 Anger",
+      "text": "Get angry easily",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_007",
+      "scale": "IPIP-NEO-120",
+      "domain": "Extraversion",
+      "facet": "E2 Gregariousness",
+      "text": "Love large parties",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_008",
+      "scale": "IPIP-NEO-120",
+      "domain": "Openness",
+      "facet": "O2 Artistic Interests",
+      "text": "Believe in the importance of art",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_009",
+      "scale": "IPIP-NEO-120",
+      "domain": "Agreeableness",
+      "facet": "A2 Morality",
+      "text": "Use others for my own ends",
+      "keyed": "-",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_010",
+      "scale": "IPIP-NEO-120",
+      "domain": "Conscientiousness",
+      "facet": "C2 Orderliness",
+      "text": "Like to tidy up",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_011",
+      "scale": "IPIP-NEO-120",
+      "domain": "Neuroticism",
+      "facet": "N3 Depression",
+      "text": "Often feel blue",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_012",
+      "scale": "IPIP-NEO-120",
+      "domain": "Extraversion",
+      "facet": "E3 Assertiveness",
+      "text": "Take charge",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_013",
+      "scale": "IPIP-NEO-120",
+      "domain": "Openness",
+      "facet": "O3 Emotionality",
+      "text": "Experience my emotions intensely",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_014",
+      "scale": "IPIP-NEO-120",
+      "domain": "Agreeableness",
+      "facet": "A3 Altruism",
+      "text": "Love to help others",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_015",
+      "scale": "IPIP-NEO-120",
+      "domain": "Conscientiousness",
+      "facet": "C3 Dutifulness",
+      "text": "Keep my promises",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_016",
+      "scale": "IPIP-NEO-120",
+      "domain": "Neuroticism",
+      "facet": "N4 Self-Consciousness",
+      "text": "Find it difficult to approach others",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_017",
+      "scale": "IPIP-NEO-120",
+      "domain": "Extraversion",
+      "facet": "E4 Activity Level",
+      "text": "Am always busy",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_018",
+      "scale": "IPIP-NEO-120",
+      "domain": "Openness",
+      "facet": "O4 Adventurousness",
+      "text": "Prefer variety to routine",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_019",
+      "scale": "IPIP-NEO-120",
+      "domain": "Agreeableness",
+      "facet": "A4 Cooperation",
+      "text": "Love a good fight",
+      "keyed": "-",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_020",
+      "scale": "IPIP-NEO-120",
+      "domain": "Conscientiousness",
+      "facet": "C4 Achievement-Striving",
+      "text": "Work hard",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_021",
+      "scale": "IPIP-NEO-120",
+      "domain": "Neuroticism",
+      "facet": "N5 Immoderation",
+      "text": "Go on binges",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_022",
+      "scale": "IPIP-NEO-120",
+      "domain": "Extraversion",
+      "facet": "E5 Excitement Seeking",
+      "text": "Love excitement",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_023",
+      "scale": "IPIP-NEO-120",
+      "domain": "Openness",
+      "facet": "O5 Intellect",
+      "text": "Love to read challenging material",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_024",
+      "scale": "IPIP-NEO-120",
+      "domain": "Agreeableness",
+      "facet": "A5 Modesty",
+      "text": "Believe that I am better than others",
+      "keyed": "-",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_025",
+      "scale": "IPIP-NEO-120",
+      "domain": "Conscientiousness",
+      "facet": "C5 Self-Discipline",
+      "text": "Have excellent ideas",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_026",
+      "scale": "IPIP-NEO-120",
+      "domain": "Neuroticism",
+      "facet": "N6 Vulnerability",
+      "text": "Panic easily",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_027",
+      "scale": "IPIP-NEO-120",
+      "domain": "Extraversion",
+      "facet": "E6 Cheerfulness",
+      "text": "Radiate joy",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_028",
+      "scale": "IPIP-NEO-120",
+      "domain": "Openness",
+      "facet": "O6 Liberalism",
+      "text": "Tend to vote for liberal political candidates",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_029",
+      "scale": "IPIP-NEO-120",
+      "domain": "Agreeableness",
+      "facet": "A6 Sympathy",
+      "text": "Sympathize with the homeless",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_030",
+      "scale": "IPIP-NEO-120",
+      "domain": "Conscientiousness",
+      "facet": "C6 Cautiousness",
+      "text": "Rush into things",
+      "keyed": "-",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_031",
+      "scale": "IPIP-NEO-120",
+      "domain": "Neuroticism",
+      "facet": "N1 Anxiety",
+      "text": "Fear for the worst",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_032",
+      "scale": "IPIP-NEO-120",
+      "domain": "Extraversion",
+      "facet": "E1 Friendliness",
+      "text": "Feel comfortable around people",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_033",
+      "scale": "IPIP-NEO-120",
+      "domain": "Openness",
+      "facet": "O1 Imagination",
+      "text": "Enjoy wild flights of fantasy",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_034",
+      "scale": "IPIP-NEO-120",
+      "domain": "Agreeableness",
+      "facet": "A1 Trust",
+      "text": "Believe that others have good intentions",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_035",
+      "scale": "IPIP-NEO-120",
+      "domain": "Conscientiousness",
+      "facet": "C1 Self-Efficacy",
+      "text": "Excel in what I do",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_036",
+      "scale": "IPIP-NEO-120",
+      "domain": "Neuroticism",
+      "facet": "N2 Anger",
+      "text": "Lose my temper",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_037",
+      "scale": "IPIP-NEO-120",
+      "domain": "Extraversion",
+      "facet": "E2 Gregariousness",
+      "text": "Talk to a lot of different people at parties",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_038",
+      "scale": "IPIP-NEO-120",
+      "domain": "Openness",
+      "facet": "O2 Artistic Interests",
+      "text": "See beauty in things that others might not notice",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_039",
+      "scale": "IPIP-NEO-120",
+      "domain": "Agreeableness",
+      "facet": "A2 Morality",
+      "text": "Cheat to get ahead",
+      "keyed": "-",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_040",
+      "scale": "IPIP-NEO-120",
+      "domain": "Conscientiousness",
+      "facet": "C2 Orderliness",
+      "text": "Often forget to put things back in their proper place",
+      "keyed": "-",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_041",
+      "scale": "IPIP-NEO-120",
+      "domain": "Neuroticism",
+      "facet": "N3 Depression",
+      "text": "Dislike myself",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_042",
+      "scale": "IPIP-NEO-120",
+      "domain": "Extraversion",
+      "facet": "E3 Assertiveness",
+      "text": "Try to lead others",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_043",
+      "scale": "IPIP-NEO-120",
+      "domain": "Openness",
+      "facet": "O3 Emotionality",
+      "text": "Feel others' emotions",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_044",
+      "scale": "IPIP-NEO-120",
+      "domain": "Agreeableness",
+      "facet": "A3 Altruism",
+      "text": "Am concerned about others",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_045",
+      "scale": "IPIP-NEO-120",
+      "domain": "Conscientiousness",
+      "facet": "C3 Dutifulness",
+      "text": "Tell the truth",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_046",
+      "scale": "IPIP-NEO-120",
+      "domain": "Neuroticism",
+      "facet": "N4 Self-Consciousness",
+      "text": "Am afraid that I will do the wrong thing",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_047",
+      "scale": "IPIP-NEO-120",
+      "domain": "Extraversion",
+      "facet": "E4 Activity Level",
+      "text": "Am always on the go",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_048",
+      "scale": "IPIP-NEO-120",
+      "domain": "Openness",
+      "facet": "O4 Adventurousness",
+      "text": "Prefer to stick with things that I know",
+      "keyed": "-",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_049",
+      "scale": "IPIP-NEO-120",
+      "domain": "Agreeableness",
+      "facet": "A4 Cooperation",
+      "text": "Yell at people",
+      "keyed": "-",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_050",
+      "scale": "IPIP-NEO-120",
+      "domain": "Conscientiousness",
+      "facet": "C4 Achievement-Striving",
+      "text": "Do more than what's expected of me",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_051",
+      "scale": "IPIP-NEO-120",
+      "domain": "Neuroticism",
+      "facet": "N5 Immoderation",
+      "text": "Rarely overindulge",
+      "keyed": "-",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_052",
+      "scale": "IPIP-NEO-120",
+      "domain": "Extraversion",
+      "facet": "E5 Excitement Seeking",
+      "text": "Seek adventure",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_053",
+      "scale": "IPIP-NEO-120",
+      "domain": "Openness",
+      "facet": "O5 Intellect",
+      "text": "Avoid philosophical discussions",
+      "keyed": "-",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_054",
+      "scale": "IPIP-NEO-120",
+      "domain": "Agreeableness",
+      "facet": "A5 Modesty",
+      "text": "Have a high opinion of myself",
+      "keyed": "-",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_055",
+      "scale": "IPIP-NEO-120",
+      "domain": "Conscientiousness",
+      "facet": "C5 Self-Discipline",
+      "text": "Carry out my plans",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_056",
+      "scale": "IPIP-NEO-120",
+      "domain": "Neuroticism",
+      "facet": "N6 Vulnerability",
+      "text": "Become overwhelmed by events",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_057",
+      "scale": "IPIP-NEO-120",
+      "domain": "Extraversion",
+      "facet": "E6 Cheerfulness",
+      "text": "Have a lot of fun",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_058",
+      "scale": "IPIP-NEO-120",
+      "domain": "Openness",
+      "facet": "O6 Liberalism",
+      "text": "Believe that there is no absolute right or wrong",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_059",
+      "scale": "IPIP-NEO-120",
+      "domain": "Agreeableness",
+      "facet": "A6 Sympathy",
+      "text": "Feel sympathy for those who are worse off than myself",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_060",
+      "scale": "IPIP-NEO-120",
+      "domain": "Conscientiousness",
+      "facet": "C6 Cautiousness",
+      "text": "Make rash decisions",
+      "keyed": "-",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_061",
+      "scale": "IPIP-NEO-120",
+      "domain": "Neuroticism",
+      "facet": "N1 Anxiety",
+      "text": "Am easily disturbed",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_062",
+      "scale": "IPIP-NEO-120",
+      "domain": "Extraversion",
+      "facet": "E1 Friendliness",
+      "text": "Act comfortable with others",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_063",
+      "scale": "IPIP-NEO-120",
+      "domain": "Openness",
+      "facet": "O1 Imagination",
+      "text": "Enjoy daydreaming",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_064",
+      "scale": "IPIP-NEO-120",
+      "domain": "Agreeableness",
+      "facet": "A1 Trust",
+      "text": "Trust what people say",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_065",
+      "scale": "IPIP-NEO-120",
+      "domain": "Conscientiousness",
+      "facet": "C1 Self-Efficacy",
+      "text": "Handle tasks smoothly",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_066",
+      "scale": "IPIP-NEO-120",
+      "domain": "Neuroticism",
+      "facet": "N2 Anger",
+      "text": "Lose my composure",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_067",
+      "scale": "IPIP-NEO-120",
+      "domain": "Extraversion",
+      "facet": "E2 Gregariousness",
+      "text": "Enjoy parties",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_068",
+      "scale": "IPIP-NEO-120",
+      "domain": "Openness",
+      "facet": "O2 Artistic Interests",
+      "text": "Like music",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_069",
+      "scale": "IPIP-NEO-120",
+      "domain": "Agreeableness",
+      "facet": "A2 Morality",
+      "text": "Obstruct others' plans",
+      "keyed": "-",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_070",
+      "scale": "IPIP-NEO-120",
+      "domain": "Conscientiousness",
+      "facet": "C2 Orderliness",
+      "text": "Leave a mess in my room",
+      "keyed": "-",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_071",
+      "scale": "IPIP-NEO-120",
+      "domain": "Neuroticism",
+      "facet": "N3 Depression",
+      "text": "Feel comfortable with myself",
+      "keyed": "-",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_072",
+      "scale": "IPIP-NEO-120",
+      "domain": "Extraversion",
+      "facet": "E3 Assertiveness",
+      "text": "Wait for others to lead the way",
+      "keyed": "-",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_073",
+      "scale": "IPIP-NEO-120",
+      "domain": "Openness",
+      "facet": "O3 Emotionality",
+      "text": "Enjoy thinking about things",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_074",
+      "scale": "IPIP-NEO-120",
+      "domain": "Agreeableness",
+      "facet": "A3 Altruism",
+      "text": "Am not interested in other people's problems",
+      "keyed": "-",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_075",
+      "scale": "IPIP-NEO-120",
+      "domain": "Conscientiousness",
+      "facet": "C3 Dutifulness",
+      "text": "Break rules",
+      "keyed": "-",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_076",
+      "scale": "IPIP-NEO-120",
+      "domain": "Neuroticism",
+      "facet": "N4 Self-Consciousness",
+      "text": "Only feel comfortable with friends",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_077",
+      "scale": "IPIP-NEO-120",
+      "domain": "Extraversion",
+      "facet": "E4 Activity Level",
+      "text": "Do a lot in my spare time",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_078",
+      "scale": "IPIP-NEO-120",
+      "domain": "Openness",
+      "facet": "O4 Adventurousness",
+      "text": "Dislike changes",
+      "keyed": "-",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_079",
+      "scale": "IPIP-NEO-120",
+      "domain": "Agreeableness",
+      "facet": "A4 Cooperation",
+      "text": "Insult people",
+      "keyed": "-",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_080",
+      "scale": "IPIP-NEO-120",
+      "domain": "Conscientiousness",
+      "facet": "C4 Achievement-Striving",
+      "text": "Set high standards for myself",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_081",
+      "scale": "IPIP-NEO-120",
+      "domain": "Neuroticism",
+      "facet": "N5 Immoderation",
+      "text": "Am able to control my cravings",
+      "keyed": "-",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_082",
+      "scale": "IPIP-NEO-120",
+      "domain": "Extraversion",
+      "facet": "E5 Excitement Seeking",
+      "text": "Act wild and crazy",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_083",
+      "scale": "IPIP-NEO-120",
+      "domain": "Openness",
+      "facet": "O5 Intellect",
+      "text": "Am not interested in abstract ideas",
+      "keyed": "-",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_084",
+      "scale": "IPIP-NEO-120",
+      "domain": "Agreeableness",
+      "facet": "A5 Modesty",
+      "text": "Boast about my virtues",
+      "keyed": "-",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_085",
+      "scale": "IPIP-NEO-120",
+      "domain": "Conscientiousness",
+      "facet": "C5 Self-Discipline",
+      "text": "Get to work at once",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_086",
+      "scale": "IPIP-NEO-120",
+      "domain": "Neuroticism",
+      "facet": "N6 Vulnerability",
+      "text": "Can't make up my mind",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_087",
+      "scale": "IPIP-NEO-120",
+      "domain": "Extraversion",
+      "facet": "E6 Cheerfulness",
+      "text": "Look at the bright side of life",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_088",
+      "scale": "IPIP-NEO-120",
+      "domain": "Openness",
+      "facet": "O6 Liberalism",
+      "text": "Believe that we should be tough on crime",
+      "keyed": "-",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_089",
+      "scale": "IPIP-NEO-120",
+      "domain": "Agreeableness",
+      "facet": "A6 Sympathy",
+      "text": "Am indifferent to the feelings of others",
+      "keyed": "-",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_090",
+      "scale": "IPIP-NEO-120",
+      "domain": "Conscientiousness",
+      "facet": "C6 Cautiousness",
+      "text": "Jump into things without thinking",
+      "keyed": "-",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_091",
+      "scale": "IPIP-NEO-120",
+      "domain": "Neuroticism",
+      "facet": "N1 Anxiety",
+      "text": "Am stressed out",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_092",
+      "scale": "IPIP-NEO-120",
+      "domain": "Extraversion",
+      "facet": "E1 Friendliness",
+      "text": "Am skilled in handling social situations",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_093",
+      "scale": "IPIP-NEO-120",
+      "domain": "Openness",
+      "facet": "O1 Imagination",
+      "text": "Like to get lost in thought",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_094",
+      "scale": "IPIP-NEO-120",
+      "domain": "Agreeableness",
+      "facet": "A1 Trust",
+      "text": "Distrust people",
+      "keyed": "-",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_095",
+      "scale": "IPIP-NEO-120",
+      "domain": "Conscientiousness",
+      "facet": "C1 Self-Efficacy",
+      "text": "Know how to get things done",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_096",
+      "scale": "IPIP-NEO-120",
+      "domain": "Neuroticism",
+      "facet": "N2 Anger",
+      "text": "Am not easily annoyed",
+      "keyed": "-",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_097",
+      "scale": "IPIP-NEO-120",
+      "domain": "Extraversion",
+      "facet": "E2 Gregariousness",
+      "text": "Avoid crowds",
+      "keyed": "-",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_098",
+      "scale": "IPIP-NEO-120",
+      "domain": "Openness",
+      "facet": "O2 Artistic Interests",
+      "text": "Do not like art",
+      "keyed": "-",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_099",
+      "scale": "IPIP-NEO-120",
+      "domain": "Agreeableness",
+      "facet": "A2 Morality",
+      "text": "Take advantage of others",
+      "keyed": "-",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_100",
+      "scale": "IPIP-NEO-120",
+      "domain": "Conscientiousness",
+      "facet": "C2 Orderliness",
+      "text": "Want everything to be 'just right'",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_101",
+      "scale": "IPIP-NEO-120",
+      "domain": "Neuroticism",
+      "facet": "N3 Depression",
+      "text": "Feel desperate",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_102",
+      "scale": "IPIP-NEO-120",
+      "domain": "Extraversion",
+      "facet": "E3 Assertiveness",
+      "text": "Am the life of the party",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_103",
+      "scale": "IPIP-NEO-120",
+      "domain": "Openness",
+      "facet": "O3 Emotionality",
+      "text": "Seldom get emotional",
+      "keyed": "-",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_104",
+      "scale": "IPIP-NEO-120",
+      "domain": "Agreeableness",
+      "facet": "A3 Altruism",
+      "text": "Am not really interested in others",
+      "keyed": "-",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_105",
+      "scale": "IPIP-NEO-120",
+      "domain": "Conscientiousness",
+      "facet": "C3 Dutifulness",
+      "text": "Behave properly",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_106",
+      "scale": "IPIP-NEO-120",
+      "domain": "Neuroticism",
+      "facet": "N4 Self-Consciousness",
+      "text": "Am afraid of many things",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_107",
+      "scale": "IPIP-NEO-120",
+      "domain": "Extraversion",
+      "facet": "E4 Activity Level",
+      "text": "Prefer to be alone",
+      "keyed": "-",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_108",
+      "scale": "IPIP-NEO-120",
+      "domain": "Openness",
+      "facet": "O4 Adventurousness",
+      "text": "Dislike new foods",
+      "keyed": "-",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_109",
+      "scale": "IPIP-NEO-120",
+      "domain": "Agreeableness",
+      "facet": "A4 Cooperation",
+      "text": "Hold a grudge",
+      "keyed": "-",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_110",
+      "scale": "IPIP-NEO-120",
+      "domain": "Conscientiousness",
+      "facet": "C4 Achievement-Striving",
+      "text": "Do just enough work to get by",
+      "keyed": "-",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_111",
+      "scale": "IPIP-NEO-120",
+      "domain": "Neuroticism",
+      "facet": "N5 Immoderation",
+      "text": "Easily resist temptations",
+      "keyed": "-",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_112",
+      "scale": "IPIP-NEO-120",
+      "domain": "Extraversion",
+      "facet": "E5 Excitement Seeking",
+      "text": "Seek danger",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_113",
+      "scale": "IPIP-NEO-120",
+      "domain": "Openness",
+      "facet": "O5 Intellect",
+      "text": "Try to understand myself",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_114",
+      "scale": "IPIP-NEO-120",
+      "domain": "Agreeableness",
+      "facet": "A5 Modesty",
+      "text": "Think highly of myself",
+      "keyed": "-",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_115",
+      "scale": "IPIP-NEO-120",
+      "domain": "Conscientiousness",
+      "facet": "C5 Self-Discipline",
+      "text": "Get chores done right away",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_116",
+      "scale": "IPIP-NEO-120",
+      "domain": "Neuroticism",
+      "facet": "N6 Vulnerability",
+      "text": "Feel that my life lacks direction",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_117",
+      "scale": "IPIP-NEO-120",
+      "domain": "Extraversion",
+      "facet": "E6 Cheerfulness",
+      "text": "Am always joking around",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_118",
+      "scale": "IPIP-NEO-120",
+      "domain": "Openness",
+      "facet": "O6 Liberalism",
+      "text": "Tend to vote for conservative political candidates",
+      "keyed": "-",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_119",
+      "scale": "IPIP-NEO-120",
+      "domain": "Agreeableness",
+      "facet": "A6 Sympathy",
+      "text": "Am hard to understand",
+      "keyed": "-",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "ipip_120",
+      "scale": "IPIP-NEO-120",
+      "domain": "Conscientiousness",
+      "facet": "C6 Cautiousness",
+      "text": "Stick to my chosen path",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "sd3_001",
+      "scale": "SD3",
+      "domain": "Machiavellianism",
+      "facet": null,
+      "text": "It's not wise to tell your secrets.",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "sd3_002",
+      "scale": "SD3",
+      "domain": "Machiavellianism",
+      "facet": null,
+      "text": "I like to use clever manipulation to get my way.",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "sd3_003",
+      "scale": "SD3",
+      "domain": "Machiavellianism",
+      "facet": null,
+      "text": "Whatever it takes, you must get the important people on your side.",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "sd3_004",
+      "scale": "SD3",
+      "domain": "Machiavellianism",
+      "facet": null,
+      "text": "Avoid direct conflict with others because they may be useful in the future.",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "sd3_005",
+      "scale": "SD3",
+      "domain": "Machiavellianism",
+      "facet": null,
+      "text": "It's wise to keep track of information that you can use against people later.",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "sd3_006",
+      "scale": "SD3",
+      "domain": "Machiavellianism",
+      "facet": null,
+      "text": "You should wait for the right time to get back at people.",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "sd3_007",
+      "scale": "SD3",
+      "domain": "Machiavellianism",
+      "facet": null,
+      "text": "There are things you should hide from other people because they don't need to know.",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "sd3_008",
+      "scale": "SD3",
+      "domain": "Machiavellianism",
+      "facet": null,
+      "text": "Make sure your plans benefit you, not others.",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "sd3_009",
+      "scale": "SD3",
+      "domain": "Machiavellianism",
+      "facet": null,
+      "text": "Most people can be manipulated.",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "sd3_010",
+      "scale": "SD3",
+      "domain": "Narcissism",
+      "facet": null,
+      "text": "People see me as a natural leader.",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "sd3_011",
+      "scale": "SD3",
+      "domain": "Narcissism",
+      "facet": null,
+      "text": "I hate being the center of attention.",
+      "keyed": "-",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "sd3_012",
+      "scale": "SD3",
+      "domain": "Narcissism",
+      "facet": null,
+      "text": "Many group activities tend to be dull without me.",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "sd3_013",
+      "scale": "SD3",
+      "domain": "Narcissism",
+      "facet": null,
+      "text": "I know that I am special because everyone keeps telling me so.",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "sd3_014",
+      "scale": "SD3",
+      "domain": "Narcissism",
+      "facet": null,
+      "text": "I like to get acquainted with important people.",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "sd3_015",
+      "scale": "SD3",
+      "domain": "Narcissism",
+      "facet": null,
+      "text": "I feel embarrassed if someone compliments me.",
+      "keyed": "-",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "sd3_016",
+      "scale": "SD3",
+      "domain": "Narcissism",
+      "facet": null,
+      "text": "I have been compared to famous people.",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "sd3_017",
+      "scale": "SD3",
+      "domain": "Narcissism",
+      "facet": null,
+      "text": "I am an average person.",
+      "keyed": "-",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "sd3_018",
+      "scale": "SD3",
+      "domain": "Narcissism",
+      "facet": null,
+      "text": "I insist on getting the respect I deserve.",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "sd3_019",
+      "scale": "SD3",
+      "domain": "Psychopathy",
+      "facet": null,
+      "text": "I like to get revenge on authorities.",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "sd3_020",
+      "scale": "SD3",
+      "domain": "Psychopathy",
+      "facet": null,
+      "text": "I avoid dangerous situations.",
+      "keyed": "-",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "sd3_021",
+      "scale": "SD3",
+      "domain": "Psychopathy",
+      "facet": null,
+      "text": "Payback needs to be quick and nasty.",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "sd3_022",
+      "scale": "SD3",
+      "domain": "Psychopathy",
+      "facet": null,
+      "text": "People often say I'm out of control.",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "sd3_023",
+      "scale": "SD3",
+      "domain": "Psychopathy",
+      "facet": null,
+      "text": "It's true that I can be mean to others.",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "sd3_024",
+      "scale": "SD3",
+      "domain": "Psychopathy",
+      "facet": null,
+      "text": "People who mess with me always regret it.",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "sd3_025",
+      "scale": "SD3",
+      "domain": "Psychopathy",
+      "facet": null,
+      "text": "I have never gotten into trouble with the law.",
+      "keyed": "-",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "sd3_026",
+      "scale": "SD3",
+      "domain": "Psychopathy",
+      "facet": null,
+      "text": "I enjoy having sex with people I hardly know.",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "sd3_027",
+      "scale": "SD3",
+      "domain": "Psychopathy",
+      "facet": null,
+      "text": "I'll say anything to get what I want.",
+      "keyed": "+",
+      "response_format": "likert_5"
+    },
+    {
+      "id": "zkpq_001",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Activity",
+      "facet": null,
+      "text": "I do not like to waste time just sitting around and relaxing.",
+      "keyed": "+",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_002",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Activity",
+      "facet": null,
+      "text": "I lead a busier life than most people.",
+      "keyed": "+",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_003",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Activity",
+      "facet": null,
+      "text": "I like to be doing things all of the time.",
+      "keyed": "+",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_004",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Activity",
+      "facet": null,
+      "text": "I can enjoy myself just lying around and not doing anything active.",
+      "keyed": "-",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_005",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Activity",
+      "facet": null,
+      "text": "I do not feel the need to be doing things all of the time.",
+      "keyed": "-",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_006",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Activity",
+      "facet": null,
+      "text": "When on vacation I like to engage in active sports rather than just lie around.",
+      "keyed": "+",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_007",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Activity",
+      "facet": null,
+      "text": "I like to wear myself out with hard work or exercise.",
+      "keyed": "+",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_008",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Activity",
+      "facet": null,
+      "text": "I like to be active as soon as I wake up in the morning.",
+      "keyed": "+",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_009",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Activity",
+      "facet": null,
+      "text": "I like to keep busy all the time.",
+      "keyed": "+",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_010",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Activity",
+      "facet": null,
+      "text": "When I do things, I do them with lots of energy.",
+      "keyed": "+",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_011",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Aggression-Hostility",
+      "facet": null,
+      "text": "When I get mad, I say ugly things.",
+      "keyed": "+",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_012",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Aggression-Hostility",
+      "facet": null,
+      "text": "It's natural for me to curse when I am mad.",
+      "keyed": "+",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_013",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Aggression-Hostility",
+      "facet": null,
+      "text": "I almost never feel like I would like to hit someone.",
+      "keyed": "-",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_014",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Aggression-Hostility",
+      "facet": null,
+      "text": "If someone offends me, I just try not to think about it.",
+      "keyed": "-",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_015",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Aggression-Hostility",
+      "facet": null,
+      "text": "If people annoy me I do not hesitate to tell them so.",
+      "keyed": "+",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_016",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Aggression-Hostility",
+      "facet": null,
+      "text": "When people disagree with me I cannot help getting into an argument with them.",
+      "keyed": "+",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_017",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Aggression-Hostility",
+      "facet": null,
+      "text": "I have a very strong temper.",
+      "keyed": "+",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_018",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Aggression-Hostility",
+      "facet": null,
+      "text": "I can't help being a little rude to people I do not like.",
+      "keyed": "+",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_019",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Aggression-Hostility",
+      "facet": null,
+      "text": "I am always patient with others even when they are irritating.",
+      "keyed": "-",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_020",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Aggression-Hostility",
+      "facet": null,
+      "text": "When people shout at me, I shout back.",
+      "keyed": "+",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_021",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Impulsive_Sensation_Seeking",
+      "facet": null,
+      "text": "I often do things on impulse.",
+      "keyed": "+",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_022",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Impulsive_Sensation_Seeking",
+      "facet": null,
+      "text": "I would like to take off on a trip with no preplanned or definite routes or timetables.",
+      "keyed": "+",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_023",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Impulsive_Sensation_Seeking",
+      "facet": null,
+      "text": "I enjoy getting into new situations where you can't predict how things will turn out.",
+      "keyed": "+",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_024",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Impulsive_Sensation_Seeking",
+      "facet": null,
+      "text": "I sometimes like to do things that are a little frightening.",
+      "keyed": "+",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_025",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Impulsive_Sensation_Seeking",
+      "facet": null,
+      "text": "I'll try anything once.",
+      "keyed": "+",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_026",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Impulsive_Sensation_Seeking",
+      "facet": null,
+      "text": "I would like the kind of life where one is on the move and travelling a lot, with lots of change and excitement.",
+      "keyed": "+",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_027",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Impulsive_Sensation_Seeking",
+      "facet": null,
+      "text": "I sometimes do \"crazy\" things just for fun.",
+      "keyed": "+",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_028",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Impulsive_Sensation_Seeking",
+      "facet": null,
+      "text": "I prefer friends who are excitingly unpredictable.",
+      "keyed": "+",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_029",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Impulsive_Sensation_Seeking",
+      "facet": null,
+      "text": "I often get so carried away by new and exciting things and ideas that I never think of possible complications.",
+      "keyed": "+",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_030",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Impulsive_Sensation_Seeking",
+      "facet": null,
+      "text": "I like \"wild\" uninhibited parties.",
+      "keyed": "+",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_031",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Neuroticism-Anxiety",
+      "facet": null,
+      "text": "My body often feels all tightened up for no apparent reason.",
+      "keyed": "+",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_032",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Neuroticism-Anxiety",
+      "facet": null,
+      "text": "I frequently get emotionally upset.",
+      "keyed": "+",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_033",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Neuroticism-Anxiety",
+      "facet": null,
+      "text": "I tend to be oversensitive and easily hurt by thoughtless remarks and actions of others.",
+      "keyed": "+",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_034",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Neuroticism-Anxiety",
+      "facet": null,
+      "text": "I am easily frightened.",
+      "keyed": "+",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_035",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Neuroticism-Anxiety",
+      "facet": null,
+      "text": "I sometimes feel panicky.",
+      "keyed": "+",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_036",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Neuroticism-Anxiety",
+      "facet": null,
+      "text": "I often feel unsure of myself.",
+      "keyed": "+",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_037",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Neuroticism-Anxiety",
+      "facet": null,
+      "text": "I often worry about things that other people think are unimportant.",
+      "keyed": "+",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_038",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Neuroticism-Anxiety",
+      "facet": null,
+      "text": "I often feel like crying sometimes without a reason.",
+      "keyed": "+",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_039",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Neuroticism-Anxiety",
+      "facet": null,
+      "text": "I don't let a lot of trivial things irritate me.",
+      "keyed": "-",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_040",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Neuroticism-Anxiety",
+      "facet": null,
+      "text": "I often feel uncomfortable and ill at ease for no real reason.",
+      "keyed": "+",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_041",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Sociability",
+      "facet": null,
+      "text": "I do not mind going out alone and usually prefer it to being out in a large group.",
+      "keyed": "-",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_042",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Sociability",
+      "facet": null,
+      "text": "I spend as much time with my friends as I can.",
+      "keyed": "+",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_043",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Sociability",
+      "facet": null,
+      "text": "I do not need a large number of casual friends.",
+      "keyed": "-",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_044",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Sociability",
+      "facet": null,
+      "text": "I tend to be uncomfortable at big parties.",
+      "keyed": "-",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_045",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Sociability",
+      "facet": null,
+      "text": "At parties, I enjoy mingling with many people whether I already know them or not.",
+      "keyed": "+",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_046",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Sociability",
+      "facet": null,
+      "text": "I would not mind being socially isolated in some place for some period of time.",
+      "keyed": "-",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_047",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Sociability",
+      "facet": null,
+      "text": "Generally, I like to be alone so I can do things I want to do without social distractions.",
+      "keyed": "-",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_048",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Sociability",
+      "facet": null,
+      "text": "I am a very sociable person.",
+      "keyed": "+",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_049",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Sociability",
+      "facet": null,
+      "text": "I usually prefer to do things alone.",
+      "keyed": "-",
+      "response_format": "true_false"
+    },
+    {
+      "id": "zkpq_050",
+      "scale": "ZKPQ-50-CC",
+      "domain": "Sociability",
+      "facet": null,
+      "text": "I probably spend more time than I should socializing with friends.",
+      "keyed": "+",
+      "response_format": "true_false"
+    },
+    {
+      "id": "epqr_001",
+      "scale": "EPQR-A",
+      "domain": "Psychoticism",
+      "facet": null,
+      "text": "Would you take drugs which may have strange or dangerous effects?",
+      "keyed": "+",
+      "response_format": "yes_no"
+    },
+    {
+      "id": "epqr_002",
+      "scale": "EPQR-A",
+      "domain": "Psychoticism",
+      "facet": null,
+      "text": "Do you prefer to go your own way rather than act by the rules?",
+      "keyed": "+",
+      "response_format": "yes_no"
+    },
+    {
+      "id": "epqr_003",
+      "scale": "EPQR-A",
+      "domain": "Psychoticism",
+      "facet": null,
+      "text": "Do you enjoy hurting people you love?",
+      "keyed": "+",
+      "response_format": "yes_no"
+    },
+    {
+      "id": "epqr_004",
+      "scale": "EPQR-A",
+      "domain": "Psychoticism",
+      "facet": null,
+      "text": "Do you enjoy practical jokes that can sometimes really hurt people?",
+      "keyed": "+",
+      "response_format": "yes_no"
+    },
+    {
+      "id": "epqr_005",
+      "scale": "EPQR-A",
+      "domain": "Psychoticism",
+      "facet": null,
+      "text": "Do you sometimes talk about things you know nothing about?",
+      "keyed": "+",
+      "response_format": "yes_no"
+    },
+    {
+      "id": "epqr_006",
+      "scale": "EPQR-A",
+      "domain": "Psychoticism",
+      "facet": null,
+      "text": "Do you think marriage is old-fashioned and should be done away with?",
+      "keyed": "+",
+      "response_format": "yes_no"
+    },
+    {
+      "id": "epqr_007",
+      "scale": "EPQR-A",
+      "domain": "Extraversion",
+      "facet": null,
+      "text": "Are you a talkative person?",
+      "keyed": "+",
+      "response_format": "yes_no"
+    },
+    {
+      "id": "epqr_008",
+      "scale": "EPQR-A",
+      "domain": "Extraversion",
+      "facet": null,
+      "text": "Are you rather lively?",
+      "keyed": "+",
+      "response_format": "yes_no"
+    },
+    {
+      "id": "epqr_009",
+      "scale": "EPQR-A",
+      "domain": "Extraversion",
+      "facet": null,
+      "text": "Can you usually let yourself go and enjoy yourself at a lively party?",
+      "keyed": "+",
+      "response_format": "yes_no"
+    },
+    {
+      "id": "epqr_010",
+      "scale": "EPQR-A",
+      "domain": "Extraversion",
+      "facet": null,
+      "text": "Do you tend to keep in the background on social occasions?",
+      "keyed": "-",
+      "response_format": "yes_no"
+    },
+    {
+      "id": "epqr_011",
+      "scale": "EPQR-A",
+      "domain": "Extraversion",
+      "facet": null,
+      "text": "Do you prefer reading to meeting people?",
+      "keyed": "-",
+      "response_format": "yes_no"
+    },
+    {
+      "id": "epqr_012",
+      "scale": "EPQR-A",
+      "domain": "Extraversion",
+      "facet": null,
+      "text": "Are you mostly quiet when you are with other people?",
+      "keyed": "-",
+      "response_format": "yes_no"
+    },
+    {
+      "id": "epqr_013",
+      "scale": "EPQR-A",
+      "domain": "Neuroticism",
+      "facet": null,
+      "text": "Does your mood often go up and down?",
+      "keyed": "+",
+      "response_format": "yes_no"
+    },
+    {
+      "id": "epqr_014",
+      "scale": "EPQR-A",
+      "domain": "Neuroticism",
+      "facet": null,
+      "text": "Do you ever feel 'just miserable' for no reason?",
+      "keyed": "+",
+      "response_format": "yes_no"
+    },
+    {
+      "id": "epqr_015",
+      "scale": "EPQR-A",
+      "domain": "Neuroticism",
+      "facet": null,
+      "text": "Are your feelings easily hurt?",
+      "keyed": "+",
+      "response_format": "yes_no"
+    },
+    {
+      "id": "epqr_016",
+      "scale": "EPQR-A",
+      "domain": "Neuroticism",
+      "facet": null,
+      "text": "Are you often troubled about feelings of guilt?",
+      "keyed": "+",
+      "response_format": "yes_no"
+    },
+    {
+      "id": "epqr_017",
+      "scale": "EPQR-A",
+      "domain": "Neuroticism",
+      "facet": null,
+      "text": "Would you call yourself tense or 'highly-strung'?",
+      "keyed": "+",
+      "response_format": "yes_no"
+    },
+    {
+      "id": "epqr_018",
+      "scale": "EPQR-A",
+      "domain": "Neuroticism",
+      "facet": null,
+      "text": "Do you worry about awful things that might happen?",
+      "keyed": "+",
+      "response_format": "yes_no"
+    },
+    {
+      "id": "epqr_019",
+      "scale": "EPQR-A",
+      "domain": "Lie",
+      "facet": null,
+      "text": "If you say you will do something, do you always keep your promise no matter how inconvenient it might be?",
+      "keyed": "+",
+      "response_format": "yes_no"
+    },
+    {
+      "id": "epqr_020",
+      "scale": "EPQR-A",
+      "domain": "Lie",
+      "facet": null,
+      "text": "Were you ever greedy by helping yourself to more than your share of anything?",
+      "keyed": "-",
+      "response_format": "yes_no"
+    },
+    {
+      "id": "epqr_021",
+      "scale": "EPQR-A",
+      "domain": "Lie",
+      "facet": null,
+      "text": "Have you ever blamed someone for doing something you knew was really your fault?",
+      "keyed": "-",
+      "response_format": "yes_no"
+    },
+    {
+      "id": "epqr_022",
+      "scale": "EPQR-A",
+      "domain": "Lie",
+      "facet": null,
+      "text": "As a child did you do as you were told immediately and without grumbling?",
+      "keyed": "+",
+      "response_format": "yes_no"
+    },
+    {
+      "id": "epqr_023",
+      "scale": "EPQR-A",
+      "domain": "Lie",
+      "facet": null,
+      "text": "Do you always practice what you preach?",
+      "keyed": "+",
+      "response_format": "yes_no"
+    },
+    {
+      "id": "epqr_024",
+      "scale": "EPQR-A",
+      "domain": "Lie",
+      "facet": null,
+      "text": "Are all your habits good and desirable ones?",
+      "keyed": "+",
+      "response_format": "yes_no"
+    }
+  ]
+}
