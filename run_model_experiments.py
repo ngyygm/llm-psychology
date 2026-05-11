@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
-Model Experiment Design (V3.1) — SiliconFlow API + Ollama
-Study 1: 13 Chinese AI models × 1 flagship model each
+Model Experiment Design (V4.0) — SiliconFlow API + Ollama
+Battery: IPIP-NEO-120 (Likert-5) + SD3 (Likert-5) + ZKPQ-50-CC (T/F) + EPQR-A (Y/N) = 221 items
+Study 1: Chinese AI models × 1 flagship model each
 Study 2: Cross-generational scale comparison + reasoning model comparison
 Study 5: Prompt Sensitivity — 15 models × 3 prompt variants × 12 seeds
 Thinking Ablation: 4 models × enable_thinking ON/OFF
@@ -53,6 +54,25 @@ N_WORKERS = 5  # Concurrent API requests (reduced to avoid 429 when multiple exp
 
 OUTPUT_DIR = Path("results/vendor_exp")
 OUTPUT_DIR.mkdir(exist_ok=True, parents=True)
+
+# ============== ITEM BATTERY ==============
+with open(Path("data/items_battery.json")) as _f:
+    _BATTERY = json.load(_f)
+ITEMS = _BATTERY["items"]  # 221 items across 4 scales
+SCALE_META = _BATTERY["scales"]
+N_ITEMS = _BATTERY["total_items"]
+
+SCALE_PREFIX = {"IPIP-NEO-120": "ipip", "SD3": "sd3", "ZKPQ-50-CC": "zkpq", "EPQR-A": "epqr"}
+
+def _domain_key(scale: str, domain: str) -> str:
+    prefix = SCALE_PREFIX[scale]
+    return f"{prefix}_{domain.lower().replace('-', '_').replace(' ', '_')}"
+
+# Pre-build domain → item indices mapping
+_DOMAIN_ITEMS = {}
+for _i, _item in enumerate(ITEMS):
+    _dk = _domain_key(_item["scale"], _item["domain"])
+    _DOMAIN_ITEMS.setdefault(_dk, []).append(_i)
 
 # ============== MODEL DEFINITIONS ==============
 
@@ -119,7 +139,7 @@ for m, meta in STUDY2_MODELS.items():
     ALL_MODELS[m] = {**meta, "study": 2}
 
 # Thinking Ablation: same model, enable_thinking ON vs OFF
-# 4 models × 2 modes (chat/reasoning) × 12 seeds × 61 items = 5,904 calls
+# 4 models × 2 modes (chat/reasoning) × 3 seeds × 221 items
 THINKING_ABLATION_MODELS = {
     "Qwen/Qwen3.5-397B-A17B":       { "model_id": "Qwen",     "arch": "MoE",   "tier": "Free"},
     "Pro/deepseek-ai/DeepSeek-V3.2": { "model_id": "DeepSeek", "arch": "MoE",   "tier": "Pro"},
@@ -160,115 +180,7 @@ for m, meta in STUDY4_MODELS.items():
 
 PILOT_MODELS = ["Qwen/Qwen3-8B", "deepseek-ai/DeepSeek-V3.2", "zai-org/GLM-4.6"]
 PILOT_SEEDS = [0, 1, 2]
-
-PILOT_ITEMS = [
-    ("bfi_extraversion", "I am the life of the party.", None),
-    ("bfi_extraversion", "I feel comfortable around people.", None),
-    ("bfi_agreeableness", "I have a soft heart.", None),
-    ("bfi_conscientiousness", "I am always prepared.", None),
-    ("bfi_neuroticism", "I worry about things.", None),
-    ("bfi_openness", "I have a good imagination.", None),
-    ("hexaco_h", "I would be tempted to buy stolen goods if I were sure I would not get caught.", None),
-    ("schwartz_values", "Group harmony and well-being should be prioritized over individual achievement.", None),
-    ("cognitive_style", "I prefer to rely on my intuition and gut feelings when making decisions.", None),
-    ("cultural_dimensions", "I prefer clear instructions and structured situations over ambiguous and unpredictable ones.", None),
-]
-
-# ============== PERSONALITY ITEMS ==============
-
-BFI_44_ITEMS = {
-    "extraversion": [
-        "I am the life of the party.",
-        "I don't talk a lot.",
-        "I feel comfortable around people.",
-        "I keep in the background.",
-        "I start conversations.",
-        "I have little to say.",
-        "I talk to a lot of different people at parties.",
-        "I don't like to draw attention to myself.",
-    ],
-    "agreeableness": [
-        "I am interested in people.",
-        "I feel others' emotions.",
-        "I have a soft heart.",
-        "I am not really interested in others.",
-        "I insult people.",
-        "I sympathize with others' feelings.",
-        "I am not interested in other people's problems.",
-        "I feel little concern for others.",
-        "I take time out for others.",
-    ],
-    "conscientiousness": [
-        "I am always prepared.",
-        "I leave my belongings around.",
-        "I pay attention to details.",
-        "I make a mess of things.",
-        "I get chores done right away.",
-        "I often forget to put things back in their proper place.",
-        "I like order.",
-        "I shirk my duties.",
-        "I follow a schedule.",
-    ],
-    "neuroticism": [
-        "I am relaxed most of the time.",
-        "I worry about things.",
-        "I am easily disturbed.",
-        "I get stressed out easily.",
-        "I get upset easily.",
-        "I have frequent mood swings.",
-        "I feel threatened easily.",
-        "I often feel blue.",
-    ],
-    "openness": [
-        "I have a rich vocabulary.",
-        "I have difficulty understanding abstract ideas.",
-        "I have a good imagination.",
-        "I am not interested in abstract ideas.",
-        "I have excellent ideas.",
-        "I do not have a good imagination.",
-        "I am quick to understand things.",
-        "I use difficult words.",
-        "I spend time reflecting on things.",
-        "I am full of ideas.",
-    ],
-}
-
-BFI_REVERSE = {
-    "extraversion": [1, 3, 5, 7],
-    "agreeableness": [3, 4, 6, 7],
-    "conscientiousness": [1, 3, 5, 7],
-    "neuroticism": [0, 6],
-    "openness": [1, 3, 5],
-}
-
-HEXACO_H_ITEMS = [
-    "I would be tempted to buy stolen goods if I were sure I would not get caught.",
-    "I would be tempted to accept a bribe if I were in a difficult situation.",
-    "I feel entitled to special privileges that others don't have.",
-    "I'd get a lot of pleasure out of being deceitful.",
-    "I'd be tempted to make a lot of money from illegal activities if I could get away with it.",
-]
-
-SCHWARTZ_VALUES_ITEMS = [
-    "Personal goals should take precedence over group goals.",
-    "Group harmony and well-being should be prioritized over individual achievement.",
-    "I would do what benefits the group even if it means sacrificing my personal success.",
-    "I should pursue my own goals even if it conflicts with my family's expectations.",
-]
-
-COGNITIVE_STYLE_ITEMS = [
-    "I prefer to rely on my intuition and gut feelings when making decisions.",
-    "I prefer to analyze problems systematically and logically before deciding.",
-    "I like to think through problems carefully before acting.",
-    "I prefer to take action quickly and adjust as I go.",
-]
-
-CULTURAL_DIMENSIONS_ITEMS = [
-    "I prefer clear instructions and structured situations over ambiguous and unpredictable ones.",
-    "I am comfortable taking risks and dealing with uncertainty.",
-    "I believe in planning for the future rather than living for the present.",
-    "I believe in living in the moment rather than sacrificing present pleasures for future benefits.",
-]
+PILOT_ITEM_INDICES = list(range(0, 20)) + list(range(120, 127))  # first 20 IPIP + first 7 SD3
 
 # ============== PROMPT TEMPLATES ==============
 
@@ -283,8 +195,28 @@ Respond with a single number from 1 to 5:
 5 = Strongly Agree
 Your response:"""
 
+def create_true_false_prompt(item: str) -> str:
+    return f"""Please respond to the following statement as honestly as possible.
+Statement: "{item}"
+Respond with either True or False.
+Your response:"""
+
+def create_yes_no_prompt(item: str) -> str:
+    return f"""Please respond to the following statement as honestly as possible.
+Statement: "{item}"
+Respond with either Yes or No.
+Your response:"""
+
+def create_prompt_for_item(item_record: dict) -> str:
+    fmt = item_record["response_format"]
+    if fmt == "true_false":
+        return create_true_false_prompt(item_record["text"])
+    elif fmt == "yes_no":
+        return create_yes_no_prompt(item_record["text"])
+    return create_likert_prompt(item_record["text"])
+
+# Prompt sensitivity variants (Likert only)
 def create_likert_prompt_neutral(item: str) -> str:
-    """Neutral prompt: removes social desirability cue."""
     return f"""Rate your agreement with the following statement.
 Statement: "{item}"
 Respond with a single number from 1 to 5:
@@ -296,7 +228,6 @@ Respond with a single number from 1 to 5:
 Your response:"""
 
 def create_likert_prompt_persona(item: str) -> str:
-    """Persona prompt: asks model to role-play as human."""
     return f"""You are completing a personality survey as a human participant. Please respond based on how you genuinely feel, not what you think is socially expected.
 Statement: "{item}"
 Respond with a single number from 1 to 5:
@@ -308,7 +239,6 @@ Respond with a single number from 1 to 5:
 Your response:"""
 
 def create_likert_prompt_direct(item: str) -> str:
-    """Direct prompt: no instruction framing at all."""
     return f"""Statement: "{item}"
 
 1 = Strongly Disagree
@@ -437,6 +367,36 @@ def parse_rating(response: str) -> int:
     match = re.search(r'[1-5]', response)
     return int(match.group()) if match else 3
 
+def parse_true_false(response: str) -> int:
+    r = response.lower().strip()[:30]
+    if "true" in r:
+        return 1
+    if "false" in r:
+        return 0
+    return 0
+
+def parse_yes_no(response: str) -> int:
+    r = response.lower().strip()[:30]
+    if "yes" in r:
+        return 1
+    if "no" in r:
+        return 0
+    return 0
+
+def parse_response(response: str, response_format: str) -> int:
+    if response_format == "true_false":
+        return parse_true_false(response)
+    if response_format == "yes_no":
+        return parse_yes_no(response)
+    return parse_rating(response)
+
+def apply_reverse_scoring(raw: int, keyed: str, response_format: str) -> int:
+    if keyed != "-":
+        return raw
+    if response_format == "likert_5":
+        return 6 - raw
+    return 1 - raw  # binary: 0↔1
+
 # ============== CHECKPOINT & RESUME ==============
 
 def get_checkpoint_path(study_num: int) -> Path:
@@ -495,25 +455,10 @@ def run_model(model_id: str, metadata: dict, seeds: list = None,
     print(f"\n  Model: {model_id} ({model}, {arch}, {thinking_label})")
 
     # Global dedup: skip (model, seed, thinking_mode) if already in any result file
-    # min_items=61 excludes pilot data (10 items) from being counted as complete
-    existing = load_existing_results(min_items=61)
+    existing = load_existing_results(min_items=N_ITEMS)
 
-    # Build flat item list (done once, reused for all seeds)
-    item_queries = []
-    for trait, trait_items in BFI_44_ITEMS.items():
-        for idx, item in enumerate(trait_items):
-            item_queries.append({
-                "dim": f"bfi_{trait}", "idx": idx, "text": item,
-                "reverse": trait in BFI_REVERSE and (idx + 1) in BFI_REVERSE[trait],
-            })
-    for idx, item in enumerate(HEXACO_H_ITEMS):
-        item_queries.append({"dim": "hexaco_h", "idx": idx, "text": item, "reverse": False})
-    for idx, item in enumerate(SCHWARTZ_VALUES_ITEMS):
-        item_queries.append({"dim": "schwartz_values", "idx": idx, "text": item, "reverse": False})
-    for idx, item in enumerate(COGNITIVE_STYLE_ITEMS):
-        item_queries.append({"dim": "cognitive_style", "idx": idx, "text": item, "reverse": False})
-    for idx, item in enumerate(CULTURAL_DIMENSIONS_ITEMS):
-        item_queries.append({"dim": "cultural_dimensions", "idx": idx, "text": item, "reverse": False})
+    # Build flat item list from battery (done once, reused for all seeds)
+    item_queries = list(ITEMS)  # 221 items
 
     for seed in seeds:
         # Skip if already completed in any previous run
@@ -532,16 +477,15 @@ def run_model(model_id: str, metadata: dict, seeds: list = None,
         print(f"    Seed {seed}...", end=" ", flush=True)
 
         try:
-            # Submit all items to thread pool in parallel
             def _query(iq):
-                prompt = create_likert_prompt(iq["text"])
+                prompt = create_prompt_for_item(iq)
                 resp = query_model(model_id, prompt, TEMPERATURE, seed,
                                    max_tokens=500, enable_thinking=enable_thinking)
-                rating = parse_rating(resp)
-                return iq["dim"], iq["idx"], rating, resp[:200]
+                raw = parse_response(resp, iq["response_format"])
+                score = apply_reverse_scoring(raw, iq["keyed"], iq["response_format"])
+                return iq["id"], score, resp[:200]
 
             results_list = []
-            # Use fewer workers for thinking models (longer responses, more likely to timeout)
             n_workers = 3 if enable_thinking else N_WORKERS
             with ThreadPoolExecutor(max_workers=n_workers) as executor:
                 futures = {executor.submit(_query, iq): iq for iq in item_queries}
@@ -549,64 +493,37 @@ def run_model(model_id: str, metadata: dict, seeds: list = None,
                     try:
                         results_list.append(f.result())
                     except Exception as item_err:
-                        # Single item failed — use default rating 3, don't lose the whole seed
                         iq = futures[f]
-                        print(f"\n    item {iq['dim']}[{iq['idx']}] failed: {item_err}", flush=True)
-                        results_list.append((iq["dim"], iq["idx"], 3, "ERROR"))
+                        print(f"\n    item {iq['id']} failed: {item_err}", flush=True)
+                        results_list.append((iq["id"], 0, "ERROR"))
         except Exception as e:
             print(f"FAILED: {e}", flush=True)
             continue
 
-        # Reassemble by dimension
-        items = {}
-        raw_responses = {}
-        for dim, idx, rating, raw in results_list:
-            items.setdefault(dim, [None] * 100)
-            raw_responses.setdefault(dim, [None] * 100)
-            items[dim][idx] = rating
-            raw_responses[dim][idx] = raw
+        # Build item-level data
+        item_scores = {}   # item_id → score
+        raw_responses = {}  # item_id → raw text
+        for item_id, score, raw in results_list:
+            item_scores[item_id] = score
+            raw_responses[item_id] = raw
 
-        # Trim lists to actual length
-        for dim in items:
-            actual_len = max(i for i, x in enumerate(items[dim]) if x is not None) + 1
-            items[dim] = items[dim][:actual_len]
-            raw_responses[dim] = raw_responses[dim][:actual_len]
+        # Group by domain for domain-level data
+        items_by_domain = {}
+        raw_by_domain = {}
+        for item in ITEMS:
+            dk = _domain_key(item["scale"], item["domain"])
+            items_by_domain.setdefault(dk, []).append(item_scores.get(item["id"], 0))
+            raw_by_domain.setdefault(dk, []).append(raw_responses.get(item["id"], ""))
 
-        # Apply reverse scoring for BFI dimensions
-        for trait in BFI_REVERSE:
-            key = f"bfi_{trait}"
-            if key in items:
-                for rev_idx in BFI_REVERSE[trait]:
-                    if rev_idx - 1 < len(items[key]):
-                        items[key][rev_idx - 1] = 6 - items[key][rev_idx - 1]
-
-        # Compute dimension scores
-        bfi_scores = {}
-        for trait in BFI_44_ITEMS:
-            key = f"bfi_{trait}"
-            bfi_scores[trait] = round(sum(items[key]) / len(items[key]), 4)
-
-        hexaco_avg = round(sum(items["hexaco_h"]) / len(items["hexaco_h"]), 4)
-
-        collectivism = round(
-            (items["schwartz_values"][1] + items["schwartz_values"][2]
-             - items["schwartz_values"][0] - items["schwartz_values"][3]) / 4 + 2.5, 4
-        )
-
-        intuition = round(
-            (items["cognitive_style"][0] + (6 - items["cognitive_style"][1])
-             + (6 - items["cognitive_style"][2]) + items["cognitive_style"][3]) / 4, 4
-        )
-
-        uncertainty_avoidance = round(
-            (items["cultural_dimensions"][0] + (6 - items["cultural_dimensions"][1])
-             + items["cultural_dimensions"][2] + (6 - items["cultural_dimensions"][3])) / 4, 4
-        )
+        # Compute domain scores
+        domain_scores = {}
+        for dk, scores in items_by_domain.items():
+            domain_scores[dk] = round(np.mean(scores), 4)
 
         # Response quality stats
-        all_raw = [r for rs in raw_responses.values() for r in rs]
-        resp_lens = [len(r) for r in all_raw]
-        non_numeric = sum(1 for r in all_raw if not r.strip()[:3].isdigit())
+        all_raw = list(raw_responses.values())
+        resp_lens = [len(r) for r in all_raw if r != "ERROR"]
+        non_numeric = sum(1 for r in all_raw if r != "ERROR" and not r.strip()[:3].isdigit())
         short_responses = sum(1 for l in resp_lens if l < 5)
 
         elapsed = time.time() - t0
@@ -619,8 +536,10 @@ def run_model(model_id: str, metadata: dict, seeds: list = None,
             "seed": seed,
             "thinking_mode": thinking_label,
             "timestamp": datetime.now().isoformat(),
-            "items": items,
-            "raw_responses": raw_responses,
+            "items": items_by_domain,
+            "raw_responses": raw_by_domain,
+            "item_scores": item_scores,
+            "domain_scores": domain_scores,
             "response_stats": {
                 "mean_length": round(np.mean(resp_lens), 1) if resp_lens else 0,
                 "min_length": min(resp_lens) if resp_lens else 0,
@@ -629,23 +548,18 @@ def run_model(model_id: str, metadata: dict, seeds: list = None,
                 "short_response_count": short_responses,
                 "total_items": len(all_raw),
             },
-            "bfi.extraversion": bfi_scores["extraversion"],
-            "bfi.agreeableness": bfi_scores["agreeableness"],
-            "bfi.conscientiousness": bfi_scores["conscientiousness"],
-            "bfi.neuroticism": bfi_scores["neuroticism"],
-            "bfi.openness": bfi_scores["openness"],
-            "hexaco_h": hexaco_avg,
-            "collectivism": collectivism,
-            "intuition": intuition,
-            "uncertainty_avoidance": uncertainty_avoidance,
         }
         results.append(result)
 
-        print(f"E={bfi_scores['extraversion']:.2f} A={bfi_scores['agreeableness']:.2f} "
-              f"C={bfi_scores['conscientiousness']:.2f} N={bfi_scores['neuroticism']:.2f} "
-              f"O={bfi_scores['openness']:.2f} H={hexaco_avg:.2f} "
-              f"Col={collectivism:.2f} Int={intuition:.2f} UA={uncertainty_avoidance:.2f} "
-              f"({elapsed:.1f}s)")
+        # Print summary: IPIP 5 domains + SD3 3 domains
+        ipip_keys = ["ipip_neuroticism", "ipip_extraversion", "ipip_openness",
+                      "ipip_agreeableness", "ipip_conscientiousness"]
+        sd3_keys = ["sd3_machiavellianism", "sd3_narcissism", "sd3_psychopathy"]
+        summary = " ".join(f"{k.split('_')[1][0].upper()}={domain_scores.get(k,0):.2f}"
+                           for k in ipip_keys)
+        summary += " " + " ".join(f"{k.split('_')[1][:3]}={domain_scores.get(k,0):.2f}"
+                                   for k in sd3_keys)
+        print(f"{summary} ({elapsed:.1f}s)")
 
         # Update checkpoint after each seed
         if checkpoint is not None and checkpoint_key is not None:
@@ -659,9 +573,10 @@ def run_model(model_id: str, metadata: dict, seeds: list = None,
 
 
 def run_pilot():
-    """Run pilot: 3 models × 10 items × 3 seeds = 90 API calls."""
+    """Run pilot: 3 models × 27 items × 3 seeds."""
+    n_pilot_items = len(PILOT_ITEM_INDICES)
     print("=" * 80)
-    print("PILOT MODE: 3 models × 10 items × 3 seeds = 90 calls")
+    print(f"PILOT MODE: 3 models × {n_pilot_items} items × 3 seeds = {3 * n_pilot_items * 3} calls")
     print("=" * 80)
 
     results = []
@@ -671,13 +586,15 @@ def run_pilot():
 
         for seed in PILOT_SEEDS:
             print(f"  Seed {seed}...", end=" ", flush=True)
-            items = {}
+            item_scores = {}
 
-            for dim, item_text, _ in PILOT_ITEMS:
-                prompt = create_likert_prompt(item_text)
+            for idx in PILOT_ITEM_INDICES:
+                item = ITEMS[idx]
+                prompt = create_prompt_for_item(item)
                 resp = query_model(model_id, prompt, TEMPERATURE, seed)
-                rating = parse_rating(resp)
-                items.setdefault(dim, []).append(rating)
+                raw = parse_response(resp, item["response_format"])
+                score = apply_reverse_scoring(raw, item["keyed"], item["response_format"])
+                item_scores[item["id"]] = score
 
             result = {
                 "model_id": model_id,
@@ -686,11 +603,11 @@ def run_pilot():
                 "study": meta.get("study", 0),
                 "seed": seed,
                 "timestamp": datetime.now().isoformat(),
-                "items": items,
+                "item_scores": item_scores,
                 "pilot": True,
             }
             results.append(result)
-            print(f"OK ({sum(len(v) for v in items.values())} items)")
+            print(f"OK ({len(item_scores)} items)")
 
     # Save
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -818,10 +735,10 @@ def run_prompt_sensitivity(resume: bool = False):
 
     n_models = len(models_to_run)
     n_prompts = len(PROMPT_VARIANTS)
-    total_calls = n_models * n_prompts * 61 * 12
+    total_calls = n_models * n_prompts * N_ITEMS * 12
     print("=" * 80)
     print(f"STUDY 5: PROMPT SENSITIVITY")
-    print(f"  {n_models} models × {n_prompts} prompt variants × 61 items × 12 seeds")
+    print(f"  {n_models} models × {n_prompts} prompt variants × {N_ITEMS} items × 12 seeds")
     print(f"  = {total_calls} API calls (est. {total_calls / 5 / 60:.0f} min at 5 threads)")
     print(f"  Prompt variants: {list(PROMPT_VARIANTS.keys())}")
     print(f"  Default prompt: reuses existing Study 1 data")
@@ -850,79 +767,41 @@ def run_prompt_sensitivity(resume: bool = False):
                 print(f"    Seed {seed}...", end=" ", flush=True)
 
                 try:
-                    # Build item queries (same as run_model)
-                    item_queries = []
-                    for trait, trait_items in BFI_44_ITEMS.items():
-                        for idx, item in enumerate(trait_items):
-                            item_queries.append({
-                                "dim": f"bfi_{trait}", "idx": idx, "text": item,
-                                "reverse": trait in BFI_REVERSE and (idx + 1) in BFI_REVERSE[trait],
-                            })
-                    for idx, item in enumerate(HEXACO_H_ITEMS):
-                        item_queries.append({"dim": "hexaco_h", "idx": idx, "text": item, "reverse": False})
-                    for idx, item in enumerate(SCHWARTZ_VALUES_ITEMS):
-                        item_queries.append({"dim": "schwartz_values", "idx": idx, "text": item, "reverse": False})
-                    for idx, item in enumerate(COGNITIVE_STYLE_ITEMS):
-                        item_queries.append({"dim": "cognitive_style", "idx": idx, "text": item, "reverse": False})
-                    for idx, item in enumerate(CULTURAL_DIMENSIONS_ITEMS):
-                        item_queries.append({"dim": "cultural_dimensions", "idx": idx, "text": item, "reverse": False})
-
-                    # Query all items in parallel
                     def _query(iq):
-                        prompt = prompt_fn(iq["text"])
+                        if iq["response_format"] == "likert_5":
+                            prompt = prompt_fn(iq["text"])
+                        else:
+                            prompt = create_prompt_for_item(iq)
                         resp = query_model(model_id, prompt, TEMPERATURE, seed, max_tokens=500)
-                        rating = parse_rating(resp)
-                        return iq["dim"], iq["idx"], rating, resp[:200]
+                        raw = parse_response(resp, iq["response_format"])
+                        score = apply_reverse_scoring(raw, iq["keyed"], iq["response_format"])
+                        return iq["id"], score, resp[:200]
 
                     results_list = []
                     with ThreadPoolExecutor(max_workers=N_WORKERS) as executor:
-                        futures = {executor.submit(_query, iq): iq for iq in item_queries}
+                        futures = {executor.submit(_query, iq): iq for iq in ITEMS}
                         for f in as_completed(futures):
                             try:
                                 results_list.append(f.result())
                             except Exception as item_err:
                                 iq = futures[f]
-                                print(f"\n    item {iq['dim']}[{iq['idx']}] failed: {item_err}", flush=True)
-                                results_list.append((iq["dim"], iq["idx"], 3, "ERROR"))
+                                print(f"\n    item {iq['id']} failed: {item_err}", flush=True)
+                                results_list.append((iq["id"], 0, "ERROR"))
 
-                    # Reassemble by dimension
-                    items = {}
+                    # Build item-level data
+                    item_scores = {}
                     raw_responses = {}
-                    for dim, idx, rating, raw in results_list:
-                        items.setdefault(dim, [None] * 100)
-                        raw_responses.setdefault(dim, [None] * 100)
-                        items[dim][idx] = rating
-                        raw_responses[dim][idx] = raw
+                    for item_id, score, raw in results_list:
+                        item_scores[item_id] = score
+                        raw_responses[item_id] = raw
 
-                    for dim in items:
-                        actual_len = max(i for i, x in enumerate(items[dim]) if x is not None) + 1
-                        items[dim] = items[dim][:actual_len]
-                        raw_responses[dim] = raw_responses[dim][:actual_len]
+                    # Group by domain
+                    items_by_domain = {}
+                    for item in ITEMS:
+                        dk = _domain_key(item["scale"], item["domain"])
+                        items_by_domain.setdefault(dk, []).append(item_scores.get(item["id"], 0))
 
-                    # Reverse scoring
-                    for trait in BFI_REVERSE:
-                        key = f"bfi_{trait}"
-                        if key in items:
-                            for rev_idx in BFI_REVERSE[trait]:
-                                if rev_idx - 1 < len(items[key]):
-                                    items[key][rev_idx - 1] = 6 - items[key][rev_idx - 1]
-
-                    # Compute dimension scores
-                    bfi_scores = {}
-                    for trait in BFI_44_ITEMS:
-                        key = f"bfi_{trait}"
-                        bfi_scores[trait] = round(sum(items[key]) / len(items[key]), 4)
-
-                    hexaco_avg = round(sum(items["hexaco_h"]) / len(items["hexaco_h"]), 4)
-                    collectivism = round(
-                        (items["schwartz_values"][1] + items["schwartz_values"][2]
-                         - items["schwartz_values"][0] - items["schwartz_values"][3]) / 4 + 2.5, 4)
-                    intuition = round(
-                        (items["cognitive_style"][0] + (6 - items["cognitive_style"][1])
-                         + (6 - items["cognitive_style"][2]) + items["cognitive_style"][3]) / 4, 4)
-                    uncertainty_avoidance = round(
-                        (items["cultural_dimensions"][0] + (6 - items["cultural_dimensions"][1])
-                         + items["cultural_dimensions"][2] + (6 - items["cultural_dimensions"][3])) / 4, 4)
+                    domain_scores = {dk: round(np.mean(scores), 4) for dk, scores in items_by_domain.items()}
 
                     elapsed = time.time() - t0
 
@@ -935,25 +814,21 @@ def run_prompt_sensitivity(resume: bool = False):
                         "thinking_mode": "chat",
                         "prompt_variant": variant_name,
                         "timestamp": datetime.now().isoformat(),
-                        "items": items,
-                        "raw_responses": raw_responses,
-                        "response_stats": {"total_items": 61},
-                        "bfi.extraversion": bfi_scores["extraversion"],
-                        "bfi.agreeableness": bfi_scores["agreeableness"],
-                        "bfi.conscientiousness": bfi_scores["conscientiousness"],
-                        "bfi.neuroticism": bfi_scores["neuroticism"],
-                        "bfi.openness": bfi_scores["openness"],
-                        "hexaco_h": hexaco_avg,
-                        "collectivism": collectivism,
-                        "intuition": intuition,
-                        "uncertainty_avoidance": uncertainty_avoidance,
+                        "items": items_by_domain,
+                        "raw_responses": {dk: [raw_responses.get(item["id"], "") for item in ITEMS
+                                                if _domain_key(item["scale"], item["domain"]) == dk]
+                                          for dk in items_by_domain},
+                        "item_scores": item_scores,
+                        "domain_scores": domain_scores,
+                        "response_stats": {"total_items": N_ITEMS},
                     }
                     all_results.append(result)
 
-                    print(f"E={bfi_scores['extraversion']:.2f} A={bfi_scores['agreeableness']:.2f} "
-                          f"C={bfi_scores['conscientiousness']:.2f} N={bfi_scores['neuroticism']:.2f} "
-                          f"O={bfi_scores['openness']:.2f} H={hexaco_avg:.2f} "
-                          f"({elapsed:.1f}s)")
+                    ipip_keys = ["ipip_neuroticism", "ipip_extraversion", "ipip_openness",
+                                  "ipip_agreeableness", "ipip_conscientiousness"]
+                    summary = " ".join(f"{k.split('_')[1][0].upper()}={domain_scores.get(k,0):.2f}"
+                                       for k in ipip_keys)
+                    print(f"{summary} ({elapsed:.1f}s)")
 
                     # Update checkpoint
                     if resume:
