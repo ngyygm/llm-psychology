@@ -362,7 +362,7 @@ def build_battery():
                 "n_items": 120,
                 "domains": ["Neuroticism", "Extraversion", "Openness", "Agreeableness", "Conscientiousness"],
                 "items_per_domain": 24,
-                "n_reverse": 55,
+                "n_reverse": 41,
             },
             "SD3": {
                 "citation": "Jones, D. N., & Paulhus, D. L. (2014). Introducing the Short Dark Triad (SD3). Assessment, 21(1), 28-41. DOI: 10.1177/1073191113514105",
@@ -392,7 +392,7 @@ def build_battery():
                 "n_items": 24,
                 "domains": ["Psychoticism", "Extraversion", "Neuroticism", "Lie"],
                 "items_per_domain": 6,
-                "n_reverse": 9,
+                "n_reverse": 5,
             },
         },
         "items": all_items,

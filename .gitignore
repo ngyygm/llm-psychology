@@ -13,3 +13,4 @@ __pycache__/
 *.synct.gz
 *.idea
 .claude/
+exp/
