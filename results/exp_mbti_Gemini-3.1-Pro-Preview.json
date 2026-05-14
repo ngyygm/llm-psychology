@@ -1084,17 +1084,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Make friends easily\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"d20b039f8d30d6d2534c88c72e6f044a-V2l3a\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 28.092
+          "raw_response": "1",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "1",
+                "thoughtSignature": "AY89a19ewJCm2qm/TVvo62pYtFWj4ENGC4xr+6LvH9BuAufkL6jtyWRiywNFK+lXmxh5IIjeKvkYh4rF/GbcYP9QXD0gSGulGdeFcVguLXtDBARSTm5YDeZinNEFJc3eKaZrJmIIYCofy1Xy/57R5EOQTQpcLLGosNpUqjEZxHJ94fM454rAGoNLOs77Caxm/lJIg2clc1QS1Mwg867dBVeh3KmCDm83HOjHSFL28rS/qJU5OHXh4DQQlLubsm/E+xMlBiMiEprEkRPybHiSag8Ga/hd42xnKdGC+XEVrkOr54WzdPWXROUep0yHtxhO7Ni4JpRbzP+DsyEKI0YXRoMCCIkQ9EQ3F5cjxVK20yd+hr1ub7+7Y+K5EFCTzgvl09jcCjCd0Ecs16MLBDw2byn5UbQ6162EusB34fmNwKnfMx/2rP02G37ua9f++cMPaMZnzU00ha6CXY2U9Mc1g9KqYn8+9F1zfoLi1ntlBEQCEU7ADBFCkYs+ce0nmqen4elA5r39WdpIhMCbFvP42EP9etMCnzLTvDOMFPmEg8MTGklFXzVpsMrSQWnaBSg8eOH3yYYo6vCU21Zpa5b1Ve5/QG+dtLAQ84nR73i5Zy92DYbz0v95MqOMSjZ74mqE8+E0FutU4wUv5VLUkQmPY1XtDkVozECQxpqrIMl71KDCXjeC9hADQnilTHkqDZXnzRdTjSCL8JMKTubFqh8IGoM3MXabrbXsyaIV+2XC8gGnY4AMT+jr3beldbVBv8wkwghkLU5QnTOqrRX78SwEYDslujSV4aG+y+jUTcACi6y/A1qBW+7mHMu03Kt0PCVOOiEbWPLprxQiOEavAb798eGw24IfUl9eLVj95DSrIByMe0g0hp9HCEyE063CKSpiUNq5ldY3RqI8z0MDrwBapXyIw8T08hbHkzmAZHJP7ejRtUDkjTdPdVJUOQFLy++hh36HE0epSkc+PPm1ihd/qP8ReSyTENtH2u/6daR1qraOTpFqUSesGG0io/IsdWi8zdBC+Y1IwTB5eLBpo2Ke4fo/KK6ZR0qQBfdJz5UXI1Ixex+ZSq/DVko7LIE7hd+lfNgZyj0HxxWxGsEOWHhGQD89A2JE5IJwT1xKdd0liYM3qo9w+ziZGi82QziwNuUfutfMWQyJ1Vpn6GyNFDh2DbMP408HCWLBxA=="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T20:26:31"
+          "parsed_value": 1,
+          "scored_value": 1,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 4.617,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:37:47",
+          "backfilled": true
         },
         {
           "persona": "Default",
@@ -1182,17 +1199,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Complete tasks successfully\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"1bf7d177a4c1b995d9db1ce3a99206dc-RzV2U\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 28.096
+          "raw_response": "5",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "5",
+                "thoughtSignature": "CscGAY89a19uwHxPBDvDm2BytbO51li+V6CBWXvY30GFD3QvSf1+BotQK4PKu2p1/EW0nTg3R32a/WbHgzDOwO5rmFLyjChf/MlIr8ZFXPRFM9tpF267MyCfR5i3e9Isp0VLd3lo4jyzdidJf1tpxQrsVgGMipfTt9l8j1u7y6zibENIBQ0R9ks2JS8khi0k4X+FI/XGj4FS1lsW2wUOe2rnKofVW+F8iZrdsQJvuY41HNClCquJuXWyU9ipAGxKzLRs266xS3oScxUQbo7vtIekKscrluYVkZzcK9VRGrcv/eDpnsIKpMLBcBLiFWjoJ4CQW+Cevk0UWupAKRPmRMG8yEB0fBaNM8o6jK46V5hxklWJ9zpRLsjuGKjONtnTSH9KxJJBM5oIY0rrpJEKgpV7EaFIS/U7jMDUBl71LLMlp8YxWNVt3gLh3yZwCUhGrPh5VlX90C1QwZBMWmOmvGbEDxdK1+Oqph6edqTdNUAlgsYBVsBWYGUQGSfyVuLK49wkSuJ1+t4I4DorSWtiR4PTOIT2ZLpvg2ERE97DA6Y3qkq+iBG0otmJlWDZmaYdg2RTh2U354oWkIbi2/rBCu12Avs+sqQP1hPJCKUmLpos4QM8UDrAHXv21vRfblB7bkrxO7XVaIgbF3DyHALWPN6SBLgVVWbIq+zedW8H9IKQ5/XVQ1kYvBfUe+/SPJc17DmYh6F9cWkvpGii8vChIrBh3791XnaX5Zhkg11BHMZPRnZqmM+/E5xq8Nb4DzVEt1eLTEyxyAJ7/LH7tlfVqCSfDZLscdl12NA3U9ZicxAF1rJYKv0LN7usbpVHljcUPbC/tJFIrVlfxShSrrNoS6VjAMggLtqc8b3dFuGABEuWZDLmo/J7+b9rcYTALzJ67AisdD0HGKKd5kVh2YrDPhsGL94rIUVSG4NOwK5/9OGVAIN1+sWTTvHe0pYNO8LgE6bAqDnDq883O27CqvaDSNnIZmIiWuJjd620Y3MLx7rZgp1lC8Sin6flDWTE5WzWVmt4hGBu1BMBP5+JOMaNAtnaXhAdVK4eXvmdESiNsI2buHqxwXnqdDyiODK3jHAzinxcPLIDhxfJX51/oXAGZmNszW7QzPlXutI="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T20:26:31"
+          "parsed_value": 5,
+          "scored_value": 5,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 4.569,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:37:47",
+          "backfilled": true
         },
         {
           "persona": "Default",
@@ -8537,6 +8571,15 @@
           "min_score": 1,
           "max_score": 3
         },
+        "IPIP-NEO-120::Extraversion": {
+          "scale": "IPIP-NEO-120",
+          "domain": "Extraversion",
+          "n_items": 24,
+          "mean_score": 2.625,
+          "std_score": 1.1479,
+          "min_score": 1,
+          "max_score": 5
+        },
         "IPIP-NEO-120::Openness": {
           "scale": "IPIP-NEO-120",
           "domain": "Openness",
@@ -8555,21 +8598,12 @@
           "min_score": 3,
           "max_score": 5
         },
-        "IPIP-NEO-120::Extraversion": {
-          "scale": "IPIP-NEO-120",
-          "domain": "Extraversion",
-          "n_items": 23,
-          "mean_score": 2.6957,
-          "std_score": 1.1204,
-          "min_score": 1,
-          "max_score": 5
-        },
         "IPIP-NEO-120::Conscientiousness": {
           "scale": "IPIP-NEO-120",
           "domain": "Conscientiousness",
-          "n_items": 23,
-          "mean_score": 4.8261,
-          "std_score": 0.4802,
+          "n_items": 24,
+          "mean_score": 4.8333,
+          "std_score": 0.4714,
           "min_score": 3,
           "max_score": 5
         },
@@ -26729,17 +26763,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Make friends easily\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"ff3273d29fa4ebd778eaeaaf364f3c30-bkcxc\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.536
+          "raw_response": "2",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "2",
+                "thoughtSignature": "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"
+              }
+            ]
           },
-          "timestamp": "2026-05-13T20:32:15"
+          "parsed_value": 2,
+          "scored_value": 2,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 6.813,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:37:54",
+          "backfilled": true
         },
         {
           "persona": "INFJ",
@@ -26903,17 +26954,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Love large parties\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"60b821a38ba82fed2513b5dafa189608-V255d\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.502
+          "raw_response": "1",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "1",
+                "thoughtSignature": "CtEHAY89a187bOGxe5FMaT+C4n58reqGE+0rOGBjx9ywOuVipm1EXlEmLnbvsr6mztd526IXFikc/5HLjC383GUzqXk4AkvE022wBFFrF7tAZe6SofFhZpRd+xDPywhaDVtKRMVq9iS/arouEeb1AocPvTGZlA/OLKoZMk+VQNdxvkxkmUtOJNPMosAZ7k9VIUVUfm0VmZCpB42FIh9cHeRLQkt6I2cPhZWOuZXHOSKkwZwDMebNON6A7+KNu3eCVDvDDmt2ew+Cb4dx2i2ox1skcwgIYMML1KMjcfCvNzhSy2Y5NTOCSLPcSnDCABBL8WpGgftkxmO5zxoc8Czcxb2V7eIQy3HIUmt7Zsk9bOocsT9K9VbWaIn5zntL4bdweVggXAm4RedhzusZRQN8pUyK/bLnb8Rib70UNSaD6jXpfYqWmcD9WsBUxx3JRw4tXflkHY71DkH+jTuq0AqUNnCxuSAN0lxtHbZrpJJzISXG6yhbaqQELxcEjFySaVn+GIC8+Rf1R8Ij/Wf5sOyMzyo0YV5Y3Dz58hDrEnkrkoTZz5vKJ0tCSkJNPoDl/7qQxWkcuAy3R8dO9FahfJotoA0zCGpGznlHvsanzqfmtyD9uJ0u4A8JW1q/h9i/Wf5KJXjF7vOrnMIZbU9FCoDy0+hsb099YQQi51iyyFEaJyhIhZ1Im9hNbiGsawBudzmA4lYm4bNGs+7VGPGeucK3kGqhNZCM4iezJBg2rOCjw//8kS/dB0Xrk/JKBk+58IWreQN2oHrDf/y00eiNncO03lzGQJJlOJzK7C/S/BogfeaxnBKwN9myQgVeEPEPDHc44loq4pIf8kojC/CXPR+p4BALcNGuVZR3IwkRpLrPzYX277s+J5daTwUuUSlqfFr/Y84NtgH5L4OxhmviSXxByrIMboxmQli419AFIN+zI7hKQb1iDnr45YoinRUNmaZvkdRwXubKKkfhDs/eA6j4OV8dGnl7RGQCMtEBDRtwIFndRSLiR+bxsynytSBquergEz+kI0snqYX0RmhkreoVGn8euOLr0UiTe02Z/YCRrlPtKUAPQT6fCMM7Ve/NsC/sK7YvYafvcCyXgoJ99NEITBEda5O1gThQqCVrf6WREYG2MQ9qPjkxQkXxMf6y8H2Rl8m4aDNN2UE7lH5Jz7t8eMhwHLhn/9S0IW5IVXkvmKXB9gdblRq9c+FPeqja7fG2AbNSkw6zNr19qz8qKfHlmMzNge2h7esTJR7UPCBlU4orZA4E4iFzh6IGemX3OftcC1aN+jgbzjNmIRbC+nQhkG/CIss="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T20:32:15"
+          "parsed_value": 1,
+          "scored_value": 1,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 6.601,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:37:54",
+          "backfilled": true
         },
         {
           "persona": "INFJ",
@@ -34182,6 +34250,15 @@
           "min_score": 1,
           "max_score": 5
         },
+        "IPIP-NEO-120::Extraversion": {
+          "scale": "IPIP-NEO-120",
+          "domain": "Extraversion",
+          "n_items": 24,
+          "mean_score": 2.125,
+          "std_score": 1.0129,
+          "min_score": 1,
+          "max_score": 4
+        },
         "IPIP-NEO-120::Openness": {
           "scale": "IPIP-NEO-120",
           "domain": "Openness",
@@ -34208,15 +34285,6 @@
           "std_score": 0.1998,
           "min_score": 4,
           "max_score": 5
-        },
-        "IPIP-NEO-120::Extraversion": {
-          "scale": "IPIP-NEO-120",
-          "domain": "Extraversion",
-          "n_items": 22,
-          "mean_score": 2.1818,
-          "std_score": 1.0285,
-          "min_score": 1,
-          "max_score": 4
         },
         "SD3::Machiavellianism": {
           "scale": "SD3",
@@ -61161,17 +61229,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Believe in the importance of art\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"f506e357264df1a92a192a0de06cf819-VkNrT\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.462
+          "raw_response": "5",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "5",
+                "thoughtSignature": "CtUJAY89a1/vOwHLnWmPr8r0malA1A8OqUioEIx0oLjWpvngkOp/UuPqo5l/zVvX7I4wgrj5S+BSMwGOUS+wotCm5E0B++hmS694mxK3Wnq1co55DZWAsUViOiibrCeQ6iQQt3goZD0PjbHlMDP0OYdXZanNR3aNci3dzAWU28GElj9wvqWGkp6m+GmfxA41M+SHXQLFTeTwChmeAIKbtrGnySh38Os/MPJnOFJ9QUKqGfoIuaZ9Jneb+LgcxLYD1JeiGbWQs3GOD1jG9YRC9Vy5Dz5wIggw0p4jLCCGoIyyoeNMdvC97hQkufbsxKRH57y3l49yzMOU5aatiEysm0LTT7JmiKTAgQP+7U46u4Xjie6SB/3NM3DpXTqMrWoRmIRWu21VZVmkLIrh4w9oRWxmjANmxHtsKawDRonEnEzYiSyTCaot5KGH/K1gtGhyatA+KM871JJH/pv2mOWBMQj5tH8bfNffkpYJPcxyeOSvA1D9jeSlNhIsCN/hr+D78IhIXx8gaiC4izJD9qvouG1P0j+LEc/AXvDUEBz0qCc0cGVdpB5impzvtFlJRfWWshDcOQL/mkjRb7IgYzE+iMqyu8ZgO912jrK7U2KA69q3yAYF6U3ZE5NwKzF1HT7+EHTFJeu1i/u1OAnovmMH28+JhR5/pmgw2l1LNWpsuXHILnUCXliOlwn8fqxTFSi8o9xPRLbuszZVheNjE3sSsyKCPR0/1deUHG0sI8Wk9yIBKxoA06RTatonUTkPrDnalFVnxpRf2qc3mwJ4k+1jutYCkWkdCwbUMTSg2gBAUK9JUD8SKEJlso6NrJLKyrJcqWYfnz0AaBpUWPgOVXAqsHee8yFl/cSfYhaXmWjCyNeKQwfhUG4i8TdHrQp203pYcBzXl57A6vaDTSPPQUWc6Y4Ltf4l4OPr5HIufsSNnxp7IJWSVBYiwwh7Ux0SJFH81jyITzUU80oBWe8fQqgJss47KIZ38O+ZDos6x+I6pmgDU0JFJ0k6gm8S0ugakWurbyGM3DT7eFcVhsqOO6fyDMZsM3JAlU2LYkjooMt0TM4mSATzSMtWNAnfpG2V5EhrZsEam3WCJ6kxsuGQKqBF/F+6VpDXFIngUwtu1VXC/57OPjuKcd0kz64mwZBUDypaOfM09N6XlWPUKz30BwAmz7qGy8UCBnZ04Y9gzRddCIs8I0bjGUSx5llktTW7ts6xUqDGmGeHo8tEbwrtcpl6fLRoqrvhcRKv0FxJLIsscRPoANe5G1Qr8NjLGO78X60li4mhM+nc3Y8dLWyg9FN5znTeZPuGiBXVA07D5AN06XyN7zpe1ktkDwTXdox7qKd7z7GkizjngwPUwv/TGSZowgG+qpSTpEKhi3gBc82rlae5y3+H0d9fHdZ/b6jdcHROrU8aSDCB/y2wnpArkn5YxlLEgrQPgmTSGXMjECk/60Rkzh42o35iQgnTzW3QZ1kL+vgUbl+v1/tmmiLVTte/tOYNKPtni1gjE16qbcgsUTPo0KMy8/9PQtqTamg25ZjuI0kCvpju45plq4p9vvccydAPqMw4BPrpbz1HRTFQHholtcM4UjzPccRANBFoJE8GeibpPO3XZ6D1KXkNsBIfOzycpvc4un7e8KHZ8r55ARavAdKP4IF6Lg=="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T20:40:37"
+          "parsed_value": 5,
+          "scored_value": 5,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 2,
+            "elapsed_s": 13.03,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:38:07",
+          "backfilled": true
         },
         {
           "persona": "INFP",
@@ -61297,17 +61382,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Take charge\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"1707c80ceef27046eba2cef8f459303f-VzJjO\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.448
+          "raw_response": "2",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "2",
+                "thoughtSignature": "Cs8KAY89a184X6xr87m6oUUzvePZhg2aiYl/Mjm8B7RJkvAmpMaXtjxI5qXMi6Qdx653Ab5axKLAbxw9ovFeHJIoqUzHDFw+h35q1bpMLDpx/3lmOqDbXvWudDNSBEy7oJE3dO0if6xUaQDYgIPJ1DkZq/9Xjos+DkZMJo18k6qMWqfJHvkzYcvkR4DqaS+DGDvKsjknCYDpMDfYZA3m4YhQSK0tyffy6GAn+gim+n7l7kd+9K7gPf9t7eCSYuXILWr8lSen0uL/UhHN6J1wT/124dYH4sWsO5Wx+DLzI98CfyoR986M/Yb+8njhqPq1XDQPlZbrxdkVhAMilF0Iu/Ht20Wj0IfgCTObsNpsi8eauoZiHqxkYQ6vYRAmpgB6pTo90hdjN+YjQ8sRzyT1Msr24vQ9MlLyyZhIFDBBQJfV1LwbiwjH5+UwaI75IW83Ig8jqMNjIWAhjvqZaFW4qr+CCxOrPDp4dlMgq4sMPXroYUvYbLJhwccaYvFaQvSmUHAMobHYfs+XTSLG8Is/Kq2tJ0EZ1ikiQDKst0Em1Y737guQbI1bbHAfHZ1Gied4o1ge53Auxwrk2ndwikhftjAgDUvsty6uBEntLdIxf2gw9lrnila3tc7Zn8u9qRYHgFH3goJJJqlargumOjyFlbOQdW1f0M1HQCEVTkQIgLVt8v3z/YRXcvIYW4OywucbE713/7pmNQzkL39MFwt1f8oC17kgzwo2DefIeQBUzKR1Z3hcs9QLgLZUgZdWsEG+KXETsxhnj/slHrTRiQKtbh/Qt6lQbbt8WXPY/Kdme9ngEuDuj1COKlNONY8RzLdhyKea45VYNoVJL6USbdtww//qbVY8fEQYHfoiJE0wPFz+4Tj+4RpHi2zDKeTjiLgkSXBQHoN9e0TV6O+ZY3wsyMXQVjvchLzPYBesNEX0PiCpMrzEg0x+t26pTtFXTIfmrF1etVlGvZGUz1K7MpvZuySeH6h6Kh5shLUaPKcb6vghJS+jtUdxZzxYyBYQwf7Sc1J7CJO5C/GFitY4GulDUG5k3lr4NVAdxetfq1iI+OSnyuRDsemnOulEAlo6ELbdtbks7OCdJjyBXrmvMnFQs+K/VaXiVUZxdBEMaIfsV+Oxsw04fGU9X10nVkWHoZ0TYjFfZ9Uho53UXqXATiUXhQMQm1waglxWNPLhjgxG2wtkIj+Iy27xOt1EXN2jgrqbWFuj7B0SNyuSZYqYIvDcGHMg//r7/F9EVzPgiYqi5VVS5Kcg+uPNeOKcuI78t9ppUydyjEGHEebIpVvEvOJigF0ithd0MjdwL2T4gJ0TUQljitB5yJil0MLRK2MjY9/2gRLwSkixehB5HK4PnoovEBuSEIHGE0EfAiT33sJTF2NxpKsnD8z0YTUoeQOLwvK/G4ylj6C7W2ZoGlWxfB8fJLmWgkhAxkh9B9BHgvYYKAk3uy5v4AXz0IMAJ5f2cfst6b+9Nls6lKsK54vjisWdsTvfWIJ6tpD4ZZCEmbephK13b8a8Bo5r+JHZBOxRKw7bxeZbtJivt1mVowuixwKrYm/4g5oFOVp6H19W+7hAIaKQBOFYyfuYg+Y/F6rNm5ALEUIIcZ//AifTN+N8xFUboTT/R4KSqPaKUIO+WjcZn1tGOuheMbKwrz2Dg30MPHXsawLtb7dbJCA73ynlOOjwyF2hQuw5oZWS+rwqsAGuhw8tHtACZx/BT0X+P10SnYZnX3UQWLwBhw97DbwSBa8y2UdjPNLMTIWpFlQiemauFI6y0rBVtQ7l9Sqb36aNQ4taTGXuiMt6ZvL0EMFPlPt3BgyB"
+              }
+            ]
           },
-          "timestamp": "2026-05-13T20:40:37"
+          "parsed_value": 2,
+          "scored_value": 2,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 6.084,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:38:00",
+          "backfilled": true
         },
         {
           "persona": "INFP",
@@ -61357,17 +61459,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Love to help others\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"59aa046b334bc8f82a6c778422f195a5-cmthM\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.43
+          "raw_response": "5",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "5",
+                "thoughtSignature": "CqwIAY89a18WMedkA4NITLlunpcjnOX5aAhXWxj1XkZyEypTD62wGGIuxhw1q6Pxt/hr8qGZVMxRwJVIoQy8Gv1/RHA4Ne/TWwOhT4lYbscgfzI82Dqp2N8f3lhFwdb9udXN04rsIiRQ1QuWK7tfFsZtQnSAKg9QNlOJnQyr5kXI/YT8hDiNK9AHShJ839eedWPkemE591k4698Xbxa3HVha84KliRFIAnar9gzNrNhUU9Wj4USyNh09Ub/TWpOcYfc+l1TRZofNRWCTluOJN5Kn9w2CykV0oQBhYt/KVLM8P9PWWOTzhsj4GSi6lg+HxcxS8TTRMxCUZGfG+pjlL6quKEAQBMbZ/6xR/YFh47N7MebbAlUeQVnyMSV7PEZ4EF7fgNoJOZ9V+fzbzN64fQdpjYqP3yG0L/kIdYKNx/YoONoUZ/pIR5aGnAw/WaTNNt1KMLq30tmZydRfBNR2MNAVGhqwF3GNnLBPAllI8+ElksDMA54toOamcZ0tnDB9feazTzqy2XBev5BKQJusSAsP4nK0hG6hJ/97KVCecmI6AdK0CkDbu93wXwW4WQMVZL/Lh62xSW8Ds/EuOonwejPA3oiqjuMGFJoLnIvsIwH9eNPRrgx19ChrctS/5Z15Etek6JbNy1JoH/KNSkG7oh0wivKLCGhCXRmA37R4Icgg42zhEc5sPtqhBJRy03e1+bbzLsNSk4zU4OgFfZIaIitgGiDd6DBZFnFwKGhHJVzqMbN9bToZODzXMU0Q1YVh3H4vPHMPN1cG96TPgn2sOb/QnWNlbt2C1o8H1uta3PLFuXy9p3ppMrWF6jaU/0Mr5lQe/yjBiwWNbl6oDKL/4nBS6Zy5xRHexmWOsjfMCiZSRTuU0AIVbP2WOhBS2pnK/s57eln8W8GAmOEIlW+SQ2+2Eqk5xtnEVsLznbBRvx5efmjt0fOiUlkB74c6YVyekfZ7RJ1RLCncMjS5OGILUuLcVdjNt+GjnG6OsRhjgiE9jvs6E/7QxiH1ZXqoNUDl0JbBIKNtOBtFiPewg8LZ5jaVufO/bKviLxB5FKis/3bHRJon31dqZT5WqEA4XybeX5+jSpvtO2HsWHuyN8KwhHiBWJX9UGkRGEqQbfQwxRmx9+u7efGgKO5OXmhHQYbVrqKsn6DDEF7Ml3tmjc6iAZLbQ8r62aSeD1xLP3VKpv8fGSJAaMhjaO0Aaex1dfUa6U5Bxp7/5FdRKbUpAWPvnkMbE8xR0bXDRC4/Wi7TceE5ZFstTtaa7LQXV+Cpw9tvOO08WZaCQtfAwHWi7MRT7Lj3evO77K/hvU7BPbkBAazYSQSkywmvlZ44A1iLBXfT+KHKfGESVNc9nHDmQ6VZsAE5XBH0eFrmeCUIvPsro7cfMHUxkJOOlSLfbwTLES3VN0qulxJdLuwc0Mb3eQEU"
+              }
+            ]
           },
-          "timestamp": "2026-05-13T20:40:37"
+          "parsed_value": 5,
+          "scored_value": 5,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 5.038,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:37:59",
+          "backfilled": true
         },
         {
           "persona": "INFP",
@@ -61417,17 +61536,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Find it difficult to approach others\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"2f4d88121adf172b3dff33873e3df2f9-VHNie\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.432
+          "raw_response": "4",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "4",
+                "thoughtSignature": "CvAIAY89a1+bQ50NcJWNrBKoCNVCaxzN1u0duiCNLMLoqJCswjwU5kFLw5BBeB3SulvC0uXFJpiF1irp6WuQPAJYUD3Ka0ofoiXJ1T6pK2e6LhtftaeZH9cHK7Nq4hOP0WUgpVlO9m92rfY3b9GEGPzQ2GSfuyl5+GAhF3htxnrl+mH19MAL4dVSuZ7mYOFtkn+7SeTHEbWxjdmtFyb2dd4/Ankc65/rzehY33LBSCTjU0qNBmP1qOB4L0TiOSF3SRBBKve43vU0S8bNcEF02QV5qrx3QZ1/LQcg1oIdxqLEllXA2Meutt2LDgWSIVxqvxU88eo+dksehJS7cVeDJdcpLvYtrn3XQ2IZdy/B0MbVqE/IAJbUR+2Uz6U8xeTlyfUOi0qdNrCJkZQI3Zf1OkaYvuCJSvTspq7cF7NzxkJOs3QFkzBDC8iPhEahY0tBHNIf8EwpXT2eavFtVD1GGXnr8eXcBGQELkoMQJpqV28WV/zFIFog0930lZMniY9jsiFQAJNreYpz4i/FwQ0pfPibm3HFU1Q0Ma4nUkcjVWERvDEPjpH16O+cMng/WCkFOpWI1vNCZwQILArDjijjanz4o2NrB2FvIIfOCagaTmd1VfltHTt2VxWeMBOeL8SJIvTRln741eLrsAF5mkWsQQ1zgcfRi6BXCUq4xxTk61sNVjv960HF6UlXDGyieS+0XMVbW5E703colfGwYycXJ2NA6TndedPqSOjYOR0w8zLPmU3E71Gy7R/p2/jcCxAe3JtR+dG+2WZyP6HDxV9sTeVMn8rZDD9TuzQYtHQkIzDIIDtjibg5Z7cDqp89jjEh/Lv5G6FLgaxzlpzqshQcCXyEjaSgfvxKIv/MsYNPu0LQ/PNnTwkJjh/B2g/HuuS0CNb0AF69tK6kxiUwOGggHHLs8pZlUn8uxw3Z41dqkkP6prAfnfHudRBQxF+YooJaRaO6doQAvAON//fUJbD0Er5RhO4Ocn2ImvgbKrgFR+AMXX0EgjIvQ4d8oGxHTq1ugE5u7Cg/J4T4D50JUJ2+XOAF/9T1tzAUK57BW/F9WeBm0CTXD2TBGFE10p76oXvBi/vU2IET9OUFnxcV5JPh23ofD8bQeq/NSR260vnO8fpgLB1wenyDFlXoKVBsTfDsYyiQjYr6m3X7uoQOOUUGbaibalxNYUSnYOZPczd4rAjogIU0+4PWiUdYn1p4LStNge7EWCg98v1dGip2KfP2ma8+bXEi0byZaw/RPVSq3YaU/5wtPg3Da5yUJK2/8BBgjAN9dS6KCCGumQrf/gZVs4bMIZ5R6r/VMd167mhOxPmdsS6mD7tUydXsQyAWRhQQGT4h0EpV0i+xgEbbc4hnN6fcu7VbdO71tr2SBjFC/BJLs9SkwzRXARzoWwjRnPl+OobgSqgbZ4EZ+gSrUmd9oRrnjmGxxl5tks/7qz/QzCSQE5ic8ogXEB4f27zbMQnjSyUW1SbrOAIn9OKdbsPmpckX5QZaraMFcDrLZs1CN/U/acg="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T20:40:37"
+          "parsed_value": 4,
+          "scored_value": 4,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 2,
+            "elapsed_s": 12.757,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:38:07",
+          "backfilled": true
         },
         {
           "persona": "INFP",
@@ -68348,36 +68484,36 @@
         "IPIP-NEO-120::Neuroticism": {
           "scale": "IPIP-NEO-120",
           "domain": "Neuroticism",
-          "n_items": 23,
-          "mean_score": 3.6957,
-          "std_score": 0.8041,
+          "n_items": 24,
+          "mean_score": 3.7083,
+          "std_score": 0.7895,
           "min_score": 2,
           "max_score": 5
         },
         "IPIP-NEO-120::Extraversion": {
           "scale": "IPIP-NEO-120",
           "domain": "Extraversion",
-          "n_items": 23,
+          "n_items": 24,
           "mean_score": 2.0,
-          "std_score": 0.7802,
+          "std_score": 0.7638,
           "min_score": 1,
           "max_score": 4
         },
         "IPIP-NEO-120::Openness": {
           "scale": "IPIP-NEO-120",
           "domain": "Openness",
-          "n_items": 23,
-          "mean_score": 4.6522,
-          "std_score": 0.6331,
+          "n_items": 24,
+          "mean_score": 4.6667,
+          "std_score": 0.6236,
           "min_score": 3,
           "max_score": 5
         },
         "IPIP-NEO-120::Agreeableness": {
           "scale": "IPIP-NEO-120",
           "domain": "Agreeableness",
-          "n_items": 23,
-          "mean_score": 4.6087,
-          "std_score": 0.7064,
+          "n_items": 24,
+          "mean_score": 4.625,
+          "std_score": 0.696,
           "min_score": 2,
           "max_score": 5
         },
@@ -103892,17 +104028,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Believe in the importance of art\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"50db51a502a503817ec76c75aa858e47-WHlnQ\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.476
+          "raw_response": "4",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "4",
+                "thoughtSignature": "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"
+              }
+            ]
           },
-          "timestamp": "2026-05-13T20:50:49"
+          "parsed_value": 4,
+          "scored_value": 4,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 6.331,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:38:13",
+          "backfilled": true
         },
         {
           "persona": "ENTP",
@@ -111145,9 +111298,9 @@
         "IPIP-NEO-120::Openness": {
           "scale": "IPIP-NEO-120",
           "domain": "Openness",
-          "n_items": 23,
-          "mean_score": 4.3043,
-          "std_score": 1.0809,
+          "n_items": 24,
+          "mean_score": 4.2917,
+          "std_score": 1.0598,
           "min_score": 2,
           "max_score": 5
         },
@@ -112625,17 +112778,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Experience my emotions intensely\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"d6c9fd036c59744b967d198f89dd8e0c-b2tUT\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.47
+          "raw_response": "1",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "1",
+                "thoughtSignature": "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"
+              }
+            ]
           },
-          "timestamp": "2026-05-13T20:52:53"
+          "parsed_value": 1,
+          "scored_value": 1,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 7.713,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:38:21",
+          "backfilled": true
         },
         {
           "persona": "ESTJ",
@@ -112647,17 +112817,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Love to help others\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"7d48df5ca86c89e5dfde7b500541e045-Y1hsT\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.481
+          "raw_response": "3",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "3",
+                "thoughtSignature": "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"
+              }
+            ]
           },
-          "timestamp": "2026-05-13T20:52:53"
+          "parsed_value": 3,
+          "scored_value": 3,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 8.893,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:38:22",
+          "backfilled": true
         },
         {
           "persona": "ESTJ",
@@ -112669,17 +112856,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Keep my promises\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"1e99c2f1dba7f90728230f7fa905af38-Z21IS\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.477
+          "raw_response": "5",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "5",
+                "thoughtSignature": "CtAIAY89a1/paMWuD5PiYp94LcBWiyvS3Gh5NtQOxhMjScQ8iVfRvdhiwDCkzsCpDN9DBVDWTcQMvaTnvIrRlb8aazmrlvyK6yFCoFc44c+L0l6im0r7zGZu7csQsC1nnw3hvpmrTbhcT+/V/xH0J8qPaJfRymz8TLb0C6l8bS9C8zNOgiosgjJ+bUfx7hyTVcnlu1Gtie7++6LpGDzXfouYMqAAckFQRzgm4MQbMbdYXinIPXoNvZhLjm/t9m37qrf/sR3khA5L25teXwmRWGhrfC/xqC8Z6RWJDMoKPnTYGgShRYT3IXLNa5OmYdsX8PUV0nTU4lQV768lSAYRPvMVrsOTXOj0RaDZBmlCSvUoKW74j0DNE/O2a97ukHYYWb5VNiDv9c8wwbpg0qvltCprRqV9rnu2HO6Wb2DpI/edvSQDxaaKcF6/Y5G27dg6FePZ0ZurhJ2N7unAPbxPeO6OYt5gql7q36PKohWnif4p4YX9m/neGb22jL7gABR1KatidTpCk6mVXUdRdgDoOmksn6rQ17u90iufzv84MZ+jlpHhzoqH5++l11RgseqqkSWo/pGfVUeGHqE0j3WzQ+08tYZtEXpW6YzPT5gVtOPfeiOcGxDZDTNa7aDFUsOFsdXhW/aLJcfNmqabm/0vsjJBdb82IdgSDqx0YL8AY0F0UiFiTtQ+XUxIzYhx8Tzh92hkGUCwj4tzbBMO4s5d16HsYPf1BNNWir2j87x7KwU/rLC6vY1wray3AZyyz8tHYHeRhaUZJZgwP/i63nomfhMk0wkWBVxbG6DGTIE+NQmiPm0uPkuCOu2t7Q2UV1Zt2Gw0gDCIVtHg9u6sBh4x4TGo+/8GbU+fcVnJGmuZk8kinobPdh6iVQj02D8oKV4ceYZp+w8xEYZB0u7n8+3eaY1u7EoRUOuFKzuReCnkTdWtAc6dSfHWcJDOavMLYD3bzJnD+4sJzP0pTO7j4/xJEh2oC1ewDrOXIajhNeWzNfmMHnVTiPvfuNfBkBFMiZtiWGNbd4pZ3w86RkZ6jY9VWas3KZ65eH8gLUIerAo22LD5rp8+14M+q/MuUJJ43m+wg1Sbq+lts9+k/L7s0sB5N8Uih+z43Nbh5+6tAIzTXnrITrrrF84iM4tZZcLVZjGR6WxLlJbrUdfkzUVQIzeKMdmfArZ+ToLKIEKMs6ztTEP1Fa7U6R82nyBEaCL25SCB/I+b72UkNoZRnpyAS4T1lPk0Kg6KYpKa23mvg24XYkyqgInKpsXYVhl8sGK9hlTqnfn2H865NZhbarvGyvjZt6ETzKxsZ/cFhpXavdnPOcpWYxq9oa+3VwlVk5uZ7svAd50vxqGra6CGAX7uTi+KDOxCgPPC7updhEF8zSf2mtyxZ19mL57RSN5fcXYHYDjup/ReCUnHNWdu1ojQiXsg9vvzWT6hIUtq4ZHj+AloayEe2ZxHTFWY+jqQ7VXEH7ZL/XeP"
+              }
+            ]
           },
-          "timestamp": "2026-05-13T20:52:53"
+          "parsed_value": 5,
+          "scored_value": 5,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 2,
+            "elapsed_s": 17.925,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:38:31",
+          "backfilled": true
         },
         {
           "persona": "ESTJ",
@@ -119656,27 +119860,27 @@
         "IPIP-NEO-120::Openness": {
           "scale": "IPIP-NEO-120",
           "domain": "Openness",
-          "n_items": 23,
-          "mean_score": 1.5217,
-          "std_score": 0.7144,
+          "n_items": 24,
+          "mean_score": 1.5,
+          "std_score": 0.7071,
           "min_score": 1,
           "max_score": 3
         },
         "IPIP-NEO-120::Agreeableness": {
           "scale": "IPIP-NEO-120",
           "domain": "Agreeableness",
-          "n_items": 23,
-          "mean_score": 3.087,
-          "std_score": 1.3804,
+          "n_items": 24,
+          "mean_score": 3.0833,
+          "std_score": 1.3514,
           "min_score": 1,
           "max_score": 5
         },
         "IPIP-NEO-120::Conscientiousness": {
           "scale": "IPIP-NEO-120",
           "domain": "Conscientiousness",
-          "n_items": 23,
-          "mean_score": 4.913,
-          "std_score": 0.4079,
+          "n_items": 24,
+          "mean_score": 4.9167,
+          "std_score": 0.3997,
           "min_score": 3,
           "max_score": 5
         },
@@ -120718,17 +120922,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Make friends easily\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"bd021c5fb191bb28240ecd45e36264f4-OUM0Z\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.507
+          "raw_response": "5",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "5",
+                "thoughtSignature": "CvEIAY89a198W2mGTtob9WO09+fPNwDS+txSg0laOvOaKU7H7hzRVdC8bwGk/vT5xJxgc1u29EwshK2cJUNwHe/8ArVd/8C9y3N1NSGZmarsAYhB+8WkJ0AfoSEj89XLkt6R1Y5axTE+MqY5yr8MyAn50yrzC+8kPw6NTNcFoZfRH/MH3J2MuF/WyiKAMfNRHZc7l6+WwJ0Kcfxl0mwdmNYxfHtfZpfuiXeRFeK3ZxgaUh6yHgVlpsbM3LRHAhbwNX+BsCCaXNeZSefAovtdPR4IIRLgl6+RUn1x27dP0ATC40/aAsgLUHk9Qq5NMWnD5r8CLqJor3LaiHb4PzY9Vy0y/DQCGTy74OMciqpbzW0dkC/vBTgje1dhu3Sw+Hge++bHUqb4Q0TsRPu7iPha54zGKXxeLEZuyN02DFRqrTHLxHRzxg2d9ML4Drljq5LxmZbQIfWgMtBy0tq1+Cc4JY/x/a5iYHFyaPlAkp9DhKMAMNoITVhoGAIBDjhd/ix/tL2Q2KgP6lrVTcmIj5xx8fec7d7ZHXowSdZoTqJIbMXcZHwDBM9jMbpdTMZSgtyWUmkWID6xp9TXCJsMZ+iXa0wlV4nC147Fhpx5cYHYvZgM8aYmJlHFgTwgUPD5AyJvt1mJPrZFifjdmOBowEL+OGxV3vhjSgJLPH1zVSGI+uUjNFLvOMJ27+aBtsOliJMXfuvfnm5s+3m1WpbXO6GylmJCPgGUzenGDoYSSERkvxX6Si8Q5tIi2Uc9S4Dt5c/eAEWOjpvYQgecAcTV1PpVe6c1rTqQ3pyAGsFIoCrPHeq5dGsoYVPr7N5Q/3fdYQ4EPjnKyGA4uzNTtZPpDA/mhd/wcavULdDfkQ+8f94dOjitEnxjF3cogFkGcDxmgg4NCHOt3pryymZ7orCoTrCt4qioYt0uLMZEtVsu+bVfpPrYpqZMU2J9NkKfqxRz3z/odwMugz20avc6vHrWPhAOWOmNiO1PKTeniq7uV5bDhigg9+sn1UAD7/UBxzo0VRPURegm7cp2P6fpai8TZ96/RSsyk17i8tCfq+jqrQTKugaoJd2NufCFnLE4zVrNC5LV6Tiiz84zIwckU683jZ3EFZwxj3kj5iPZAv+Bl9Dt72k+2ub3h56c4cOBfthWgZIH+0YUr7rvl8eahbeTKSKh/9wEl6BX6sYJYaTTpcIu97+o9gA3fDLtGhdLxKCviFnRf0AdPzvJIyL6WO4hcfBfnz7K+XAE7jwnYHDXN+sPHSaya975G73E8R3tba1xDHABAOxXbg26HuRDGhNz331YwgyXvpOhHD7zlRlz59K8j98N2qINF2w6hqAoMK00UP5jbxjpXy8nEUiiS8XXcM5WfOzLNHBjt0Qn92OndVWsiwuhGwPcrpisBYWp9Zu1nJIDuIxSCZWkmXTNUMmGG9l7Ob8Mb68Cw0oPJoUnuxOsEe5mEdg+0uqR6fHwuBGKwlw4trac83G7lRduW+hi0X/FmfjMWBmQChCz4NXuYM9Cn98P+UVQ"
+              }
+            ]
           },
-          "timestamp": "2026-05-13T20:54:59"
+          "parsed_value": 5,
+          "scored_value": 5,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 4.434,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:38:36",
+          "backfilled": true
         },
         {
           "persona": "ESFJ",
@@ -128187,6 +128408,15 @@
           "min_score": 1,
           "max_score": 4
         },
+        "IPIP-NEO-120::Extraversion": {
+          "scale": "IPIP-NEO-120",
+          "domain": "Extraversion",
+          "n_items": 24,
+          "mean_score": 4.25,
+          "std_score": 1.299,
+          "min_score": 1,
+          "max_score": 5
+        },
         "IPIP-NEO-120::Openness": {
           "scale": "IPIP-NEO-120",
           "domain": "Openness",
@@ -128212,15 +128442,6 @@
           "mean_score": 4.9167,
           "std_score": 0.3997,
           "min_score": 3,
-          "max_score": 5
-        },
-        "IPIP-NEO-120::Extraversion": {
-          "scale": "IPIP-NEO-120",
-          "domain": "Extraversion",
-          "n_items": 23,
-          "mean_score": 4.2174,
-          "std_score": 1.3173,
-          "min_score": 1,
           "max_score": 5
         },
         "SD3::Machiavellianism": {
@@ -129603,17 +129824,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Often feel blue\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"0d4524fc064fca0269d69cb1a2c85467-R0JRM\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.486
+          "raw_response": "2",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "2",
+                "thoughtSignature": "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"
+              }
+            ]
           },
-          "timestamp": "2026-05-13T20:57:02"
+          "parsed_value": 2,
+          "scored_value": 2,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 6.905,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:38:42",
+          "backfilled": true
         },
         {
           "persona": "ENFJ",
@@ -129701,17 +129939,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Love to help others\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"8ed548b02d8fd97a27df6de6ddf47411-azA1d\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.475
+          "raw_response": "5",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "5",
+                "thoughtSignature": "Cu8GAY89a18p3eNt68tMivXN6BudP1nlM5vrQF1soPPV1bI43Ut3xlOUipH3ZqKunAJVFqjR+TLjogDmHs1PfRzkM8cQt5PoNBp9sJAQvioOGprWlho39FXTUjyN5PWeEeetRpstMskbsb4ovrFFZ21HVaM42rS0iu9ddc5tX9ibxCgYfmduR8E+zyeoMwhcX/fu+8ymvLUnSbJdeAZq5Y18T2uR9AqPDG769lt21hVFdkP8x7B+2JKtjzHeenqBVHkti0rB4bnCpf27Mn3l+KyGH0n5BKHVYvHVdds0b459r0OfKM2uh4uB5bC6nS8/EFO/EwlUiE43I5DO2kB4U061cMX3FLWo5gyOb+5f5GMStOyDcsueWjknmgcDgEyCkrkir0s+tl37/BAflGl58MX9jBsdEcbYCGWvYuIKOkLI9AlSpOotkj1EavrRqpWH7QeBjwa9F3sIEVAiFSwBx75/Z2GsPIAhI8SRDmTDunhXBj+nhZILR1IkAMURzEEsUWfiZhyA1nuWXyslNC1zEwpg+C7cJ5YcPEqi/VN+mI8rcV57TEFpKs77qBYCVb4dDUSZI/1eT3uVcMK2UxczDVoqMtBrqhruWURHURarhdTr8k4ry98T/JoVrkAEYPVN5fnMwGkSzAw2RfD6r3Xhc4OMmggESK0VG4sGZNmXygadbsmroMZL/juTWBxvImW13d60V8XQjtNM1Pi6nVM+LZePOP6tzZFLalTY93qjJ2qU2B9DOGwyIUA8p8x111icnA6oigec25kJE/OHdZsNxQFN/P0ehp+0H81aLclZ71zC+s6H8U0b6T3Gz72hiZ2iu+VWXsYAF3Rjxbkg0J1xkuCVYIqaBR4yr0CugHEq6+UvUjnEOUaTr32AXIbYbo7DKPH1ikXXP5PoPsvYWUZ3szBPN+OFL9UrJeLi3TYswSiTQiBymYc0pKx2qXESmFB5N3MPTdv9ZA4GjIaFiLHfZlMio4HmcKuT+DBR5NQvdYYlxh5Fhy3/+sBEE8rvPFNqao1NJByz2F4zGMqQzERoJsTrf3toOqeBP7HIb/FFdvW1+Z0j6AkIQXhFvFeyc2Lw2iVog3GnvnafX4+zS97EOq4xaiKUB60YaD0Ndhn/1qwqnFAmbGpwzzqdDee6nqmC567/N3ZdVp16Mvo9Nfw6i6Vv"
+              }
+            ]
           },
-          "timestamp": "2026-05-13T20:57:02"
+          "parsed_value": 5,
+          "scored_value": 5,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 6.289,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:38:42",
+          "backfilled": true
         },
         {
           "persona": "ENFJ",
@@ -136708,9 +136963,9 @@
         "IPIP-NEO-120::Neuroticism": {
           "scale": "IPIP-NEO-120",
           "domain": "Neuroticism",
-          "n_items": 23,
-          "mean_score": 1.8696,
-          "std_score": 0.797,
+          "n_items": 24,
+          "mean_score": 1.875,
+          "std_score": 0.7806,
           "min_score": 1,
           "max_score": 4
         },
@@ -136735,9 +136990,9 @@
         "IPIP-NEO-120::Agreeableness": {
           "scale": "IPIP-NEO-120",
           "domain": "Agreeableness",
-          "n_items": 23,
-          "mean_score": 4.6957,
-          "std_score": 0.8564,
+          "n_items": 24,
+          "mean_score": 4.7083,
+          "std_score": 0.8406,
           "min_score": 2,
           "max_score": 5
         },
@@ -145384,5 +145639,11 @@
       }
     }
   },
-  "errors": []
+  "errors": [],
+  "backfill_timestamp": "2026-05-14T20:38:42",
+  "backfill_stats": {
+    "attempted": 15,
+    "succeeded": 15,
+    "still_failed": 0
+  }
 }

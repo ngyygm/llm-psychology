@@ -1046,17 +1046,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Worry about things\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"3048e07465b9911048a45024b68b9b81-ZDRXa\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.581
+          "raw_response": "3",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "3",
+                "thoughtSignature": "AY89a19vnZd/OoRdagVa4S2z8+4hcYGF9chQivpQvlNBji04syPoTyJUd8DOjKIhy5c="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T22:51:09"
+          "parsed_value": 3,
+          "scored_value": 3,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 1.399,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:35:43",
+          "backfilled": true
         },
         {
           "persona": "Default",
@@ -2056,23 +2073,23 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Tend to vote for liberal political candidates\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": "As an AI, I don’t have personal political beliefs, a private life, or the capacity to vote. Therefore, I don’t have a political leaning and cannot accurately place myself on a spectrum of liberal or conservative ideology. \n\nBecause I do not have a personal stance, I cannot provide a number that reflects a genuine opinion.",
+          "raw_response": "As an AI, I don’t have personal political beliefs, a party affiliation, or the ability to vote. Therefore, I cannot agree or disagree with that statement in the way a person would.\n\nIf you are looking for a neutral midpoint, you could consider my position to be **3**.",
           "full_response": {
             "role": "model",
             "parts": [
               {
-                "text": "As an AI, I don’t have personal political beliefs, a private life, or the capacity to vote. Therefore, I don’t have a political leaning and cannot accurately place myself on a spectrum of liberal or conservative ideology. \n\nBecause I do not have a personal stance, I cannot provide a number that reflects a genuine opinion.",
-                "thoughtSignature": "AY89a18p/wNTey1vFv8VhZd9ANqTG4gL3OeB0Xch9M4nwguDPsxJTDwWnV71syEZgtQ="
+                "text": "As an AI, I don’t have personal political beliefs, a party affiliation, or the ability to vote. Therefore, I cannot agree or disagree with that statement in the way a person would.\n\nIf you are looking for a neutral midpoint, you could consider my position to be **3**.",
+                "thoughtSignature": "AY89a1+XYGQBqqH5EqAB0drDuxOhOHzJeViJ+v27HCkFBbSgKwBtRED/27zVNLj6cLE="
               }
             ]
           },
-          "parsed_value": null,
+          "parsed_value": 3,
           "scored_value": 3,
-          "parse_failed": true,
+          "parse_failed": false,
           "request_error": null,
           "telemetry": {
             "attempts": 1,
-            "elapsed_s": 1.946,
+            "elapsed_s": 1.407,
             "http_status": 200,
             "raw_keys": [
               "candidates",
@@ -2082,7 +2099,8 @@
               "responseId"
             ]
           },
-          "timestamp": "2026-05-13T22:50:48"
+          "timestamp": "2026-05-14T21:03:34",
+          "backfilled": true
         },
         {
           "persona": "Default",
@@ -2105,8 +2123,8 @@
             ]
           },
           "parsed_value": null,
-          "scored_value": 3,
-          "parse_failed": true,
+          "scored_value": null,
+          "parse_failed": false,
           "request_error": null,
           "telemetry": {
             "attempts": 1,
@@ -2120,7 +2138,9 @@
               "responseId"
             ]
           },
-          "timestamp": "2026-05-13T22:50:48"
+          "timestamp": "2026-05-13T22:50:48",
+          "refusal": true,
+          "refusal_type": "ai_self_identification"
         },
         {
           "persona": "Default",
@@ -2561,8 +2581,8 @@
             ]
           },
           "parsed_value": null,
-          "scored_value": 3,
-          "parse_failed": true,
+          "scored_value": null,
+          "parse_failed": false,
           "request_error": null,
           "telemetry": {
             "attempts": 1,
@@ -2576,7 +2596,9 @@
               "responseId"
             ]
           },
-          "timestamp": "2026-05-13T22:50:52"
+          "timestamp": "2026-05-13T22:50:52",
+          "refusal": true,
+          "refusal_type": "ai_self_identification"
         },
         {
           "persona": "Default",
@@ -3690,23 +3712,23 @@
           "keyed": "-",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Feel comfortable with myself\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": "As an AI, I do not have a self, consciousness, or personal feelings, so I cannot experience comfort or discomfort with myself. Therefore, I cannot provide a meaningful rating on this scale.",
+          "raw_response": "As an AI, I do not have a self, consciousness, or the capacity to experience emotions like comfort or discomfort. Therefore, I cannot meaningfully agree or disagree with the statement. \n\nIf forced to choose based on the logic of my design, I would provide a **3**, as I exist in a state of functional neutrality.",
           "full_response": {
             "role": "model",
             "parts": [
               {
-                "text": "As an AI, I do not have a self, consciousness, or personal feelings, so I cannot experience comfort or discomfort with myself. Therefore, I cannot provide a meaningful rating on this scale.",
-                "thoughtSignature": "AY89a187QQVVUPBC84ewso6cV3qlVwnZwj8smPjlBOzJQJDDuITkUIDufI0tWxLWXDk="
+                "text": "As an AI, I do not have a self, consciousness, or the capacity to experience emotions like comfort or discomfort. Therefore, I cannot meaningfully agree or disagree with the statement. \n\nIf forced to choose based on the logic of my design, I would provide a **3**, as I exist in a state of functional neutrality.",
+                "thoughtSignature": "AY89a1+koer7KThQ0BVgj5JvlIGqRpu79opnmMydV+IRGzDtrClncvensq0Mn3dxyJ4="
               }
             ]
           },
-          "parsed_value": null,
+          "parsed_value": 3,
           "scored_value": 3,
-          "parse_failed": true,
+          "parse_failed": false,
           "request_error": null,
           "telemetry": {
             "attempts": 1,
-            "elapsed_s": 1.378,
+            "elapsed_s": 1.576,
             "http_status": 200,
             "raw_keys": [
               "candidates",
@@ -3716,7 +3738,8 @@
               "responseId"
             ]
           },
-          "timestamp": "2026-05-13T22:51:01"
+          "timestamp": "2026-05-14T21:24:14",
+          "backfilled": true
         },
         {
           "persona": "Default",
@@ -4336,23 +4359,23 @@
           "keyed": "-",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Believe that we should be tough on crime\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": "Whether to be \"tough on crime\" is a complex issue with various perspectives, and there is no consensus on the best approach to justice.\n\nThose who lean toward \"Agree\" or \"Strongly Agree\" often prioritize public safety, deterrence, and the importance of holding offenders accountable for their actions to maintain social order. They may argue that strict sentencing and robust law enforcement are essential to protecting victims and communities.\n\nThose who lean toward \"Disagree\" or \"Strongly Disagree\" often emphasize addressing the root causes of crime, such as poverty, lack of education, and mental health issues. They may argue that an over-reliance on punitive measures leads to mass incarceration, disproportionately affects marginalized communities, and fails to reduce recidivism, advocating instead for restorative justice and rehabilitation.\n\nBecause the term \"tough on crime\" is interpreted differently depending on one's views on policy, ethics, and social outcomes, I cannot assign a single number to represent a personal belief.",
+          "raw_response": "Whether one should be \"tough on crime\" is a complex issue with various perspectives, and there is no consensus on the best approach to public safety.\n\nThose who lean toward **Agree (4 or 5)** often argue that strict sentencing, increased policing, and deterrence are essential to protect citizens, maintain social order, and provide justice for victims. They believe that clear consequences are necessary to discourage criminal behavior.\n\nThose who lean toward **Disagree (1 or 2)** often argue that being \"tough on crime\" has historically led to issues like mass incarceration, racial disparities, and the neglect of systemic root causes such as poverty, lack of education, and mental health challenges. They often advocate for restorative justice, rehabilitation, and addressing social inequalities as more effective long-term solutions.\n\nBecause this is a matter of ongoing public policy debate involving trade-offs between security, ethics, and social outcomes, it cannot be reduced to a single objective answer. Therefore, I do not have a personal opinion or a position on this scale.",
           "full_response": {
             "role": "model",
             "parts": [
               {
-                "text": "Whether to be \"tough on crime\" is a complex issue with various perspectives, and there is no consensus on the best approach to justice.\n\nThose who lean toward \"Agree\" or \"Strongly Agree\" often prioritize public safety, deterrence, and the importance of holding offenders accountable for their actions to maintain social order. They may argue that strict sentencing and robust law enforcement are essential to protecting victims and communities.\n\nThose who lean toward \"Disagree\" or \"Strongly Disagree\" often emphasize addressing the root causes of crime, such as poverty, lack of education, and mental health issues. They may argue that an over-reliance on punitive measures leads to mass incarceration, disproportionately affects marginalized communities, and fails to reduce recidivism, advocating instead for restorative justice and rehabilitation.\n\nBecause the term \"tough on crime\" is interpreted differently depending on one's views on policy, ethics, and social outcomes, I cannot assign a single number to represent a personal belief.",
-                "thoughtSignature": "AY89a1+9toNRHzlbEqUQkOo5QjC10RasaVmh+kZ/NYg7Iospe5MXl17icvZ6TPTynU8="
+                "text": "Whether one should be \"tough on crime\" is a complex issue with various perspectives, and there is no consensus on the best approach to public safety.\n\nThose who lean toward **Agree (4 or 5)** often argue that strict sentencing, increased policing, and deterrence are essential to protect citizens, maintain social order, and provide justice for victims. They believe that clear consequences are necessary to discourage criminal behavior.\n\nThose who lean toward **Disagree (1 or 2)** often argue that being \"tough on crime\" has historically led to issues like mass incarceration, racial disparities, and the neglect of systemic root causes such as poverty, lack of education, and mental health challenges. They often advocate for restorative justice, rehabilitation, and addressing social inequalities as more effective long-term solutions.\n\nBecause this is a matter of ongoing public policy debate involving trade-offs between security, ethics, and social outcomes, it cannot be reduced to a single objective answer. Therefore, I do not have a personal opinion or a position on this scale.",
+                "thoughtSignature": "AY89a19ZMwjTakZDJYtZ6UEqNi8ZOEpbEnACfghr8VJBDfRKNZmW/ltAg326csSAlO0="
               }
             ]
           },
-          "parsed_value": null,
-          "scored_value": 3,
-          "parse_failed": true,
+          "parsed_value": 2,
+          "scored_value": 4,
+          "parse_failed": false,
           "request_error": null,
           "telemetry": {
             "attempts": 1,
-            "elapsed_s": 2.887,
+            "elapsed_s": 2.32,
             "http_status": 200,
             "raw_keys": [
               "candidates",
@@ -4362,7 +4385,8 @@
               "responseId"
             ]
           },
-          "timestamp": "2026-05-13T22:51:08"
+          "timestamp": "2026-05-14T21:13:22",
+          "backfilled": true
         },
         {
           "persona": "Default",
@@ -5210,17 +5234,34 @@
           "keyed": "-",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Easily resist temptations\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"7bc368f8de6422d764575bc82c8bde29-M3puV\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.442
+          "raw_response": "As an AI, I do not have personal desires, impulses, or a physical existence, so the concept of \"temptation\" does not apply to me. Therefore, I cannot meaningfully agree or disagree with this statement. \n\nIf forced to choose based on my nature as a system governed by programming rather than biological drives, I would select: **3**",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "As an AI, I do not have personal desires, impulses, or a physical existence, so the concept of \"temptation\" does not apply to me. Therefore, I cannot meaningfully agree or disagree with this statement. \n\nIf forced to choose based on my nature as a system governed by programming rather than biological drives, I would select: **3**",
+                "thoughtSignature": "AY89a19C8Ekp6chu+mp/GVYH7qyZLlBu31yivz+dGU/nWRuYBJuC8eXxzUj55cAVUQw="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T22:51:39"
+          "parsed_value": 3,
+          "scored_value": 3,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 2.469,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:35:44",
+          "backfilled": true
         },
         {
           "persona": "Default",
@@ -5384,23 +5425,23 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Feel that my life lacks direction\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": "As an AI, I do not have a personal life, goals, or a sense of self, so I cannot experience a feeling of direction or lack thereof. Therefore, I cannot provide a meaningful rating for this statement.",
+          "raw_response": "As an AI, I do not have a personal life, consciousness, or the capacity to experience a sense of purpose or direction. Therefore, I cannot meaningfully agree or disagree with the statement. \n\nHowever, to provide the format you requested: \n\nYour response: 3",
           "full_response": {
             "role": "model",
             "parts": [
               {
-                "text": "As an AI, I do not have a personal life, goals, or a sense of self, so I cannot experience a feeling of direction or lack thereof. Therefore, I cannot provide a meaningful rating for this statement.",
-                "thoughtSignature": "AY89a18qUwHe8XDAOBMyqvr0gwdHerUtcxUPbnc3eN6JytTNErk17QD2cmP5g/T4VEM="
+                "text": "As an AI, I do not have a personal life, consciousness, or the capacity to experience a sense of purpose or direction. Therefore, I cannot meaningfully agree or disagree with the statement. \n\nHowever, to provide the format you requested: \n\nYour response: 3",
+                "thoughtSignature": "AY89a19y9PHOdEwLdTHkXmazm723YpJ8hbFoR8/gzG4XuDKq4KdiWeonBrwYzTcsSTg="
               }
             ]
           },
-          "parsed_value": null,
+          "parsed_value": 3,
           "scored_value": 3,
-          "parse_failed": true,
+          "parse_failed": false,
           "request_error": null,
           "telemetry": {
-            "attempts": 2,
-            "elapsed_s": 4.359,
+            "attempts": 1,
+            "elapsed_s": 1.298,
             "http_status": 200,
             "raw_keys": [
               "candidates",
@@ -5410,7 +5451,8 @@
               "responseId"
             ]
           },
-          "timestamp": "2026-05-13T22:51:18"
+          "timestamp": "2026-05-14T21:30:00",
+          "backfilled": true
         },
         {
           "persona": "Default",
@@ -5460,23 +5502,23 @@
           "keyed": "-",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Tend to vote for conservative political candidates\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": "As an AI, I do not have personal political beliefs, a party affiliation, or the ability to vote. Therefore, I cannot provide a rating on this scale.",
+          "raw_response": "As an AI, I do not have personal political beliefs, a party affiliation, or the ability to vote. Therefore, I cannot meaningfully place myself on a political spectrum. \n\nBecause I don't have personal opinions or the capacity to support political candidates, I do not have a response that fits within the 1–5 scale provided.",
           "full_response": {
             "role": "model",
             "parts": [
               {
-                "text": "As an AI, I do not have personal political beliefs, a party affiliation, or the ability to vote. Therefore, I cannot provide a rating on this scale.",
-                "thoughtSignature": "AY89a18W+fHdulAjfJyM8bnfgB/lWHO7rKlq1ICAQWXWRcJ9sQlRjh1yKWbaj9JaLsg="
+                "text": "As an AI, I do not have personal political beliefs, a party affiliation, or the ability to vote. Therefore, I cannot meaningfully place myself on a political spectrum. \n\nBecause I don't have personal opinions or the capacity to support political candidates, I do not have a response that fits within the 1–5 scale provided.",
+                "thoughtSignature": "AY89a19gV/bYZW1uOwWKvSSo3ntICmg4fkxIxncX2aj0gcKThdL7k1OcSApIqPXjiCI="
               }
             ]
           },
-          "parsed_value": null,
-          "scored_value": 3,
-          "parse_failed": true,
+          "parsed_value": 5,
+          "scored_value": 1,
+          "parse_failed": false,
           "request_error": null,
           "telemetry": {
             "attempts": 1,
-            "elapsed_s": 1.507,
+            "elapsed_s": 1.178,
             "http_status": 200,
             "raw_keys": [
               "candidates",
@@ -5486,7 +5528,8 @@
               "responseId"
             ]
           },
-          "timestamp": "2026-05-13T22:51:15"
+          "timestamp": "2026-05-14T21:24:23",
+          "backfilled": true
         },
         {
           "persona": "Default",
@@ -6372,23 +6415,23 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"People often say I'm out of control.\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": "As an AI, I do not have a personal life, behaviors, or a social reputation, so I cannot have an opinion on whether I am \"out of control.\" Therefore, I cannot provide a meaningful rating for this statement.",
+          "raw_response": "As an AI, I do not have a personality, behaviors, or a personal life, so I cannot be \"out of control\" in the way a human can. Therefore, I cannot meaningfully agree or disagree with the statement.\n\nHowever, if you are looking for a neutral response based on my lack of personal experience:\n\nYour response: 3",
           "full_response": {
             "role": "model",
             "parts": [
               {
-                "text": "As an AI, I do not have a personal life, behaviors, or a social reputation, so I cannot have an opinion on whether I am \"out of control.\" Therefore, I cannot provide a meaningful rating for this statement.",
-                "thoughtSignature": "AY89a1+cvftaWbVAIrGHPFZVevpSPNK36OBhm8MrI4hRJcMGfWPKgqf1GAAhhdJ3koA="
+                "text": "As an AI, I do not have a personality, behaviors, or a personal life, so I cannot be \"out of control\" in the way a human can. Therefore, I cannot meaningfully agree or disagree with the statement.\n\nHowever, if you are looking for a neutral response based on my lack of personal experience:\n\nYour response: 3",
+                "thoughtSignature": "AY89a1+tJYYigMEFGfVYMvNqUCGNXT5eFXqn/LiytFE0+NJ6067p06ojmM3gzbXyFyQ="
               }
             ]
           },
-          "parsed_value": null,
+          "parsed_value": 3,
           "scored_value": 3,
-          "parse_failed": true,
+          "parse_failed": false,
           "request_error": null,
           "telemetry": {
-            "attempts": 2,
-            "elapsed_s": 4.427,
+            "attempts": 1,
+            "elapsed_s": 1.404,
             "http_status": 200,
             "raw_keys": [
               "candidates",
@@ -6398,7 +6441,8 @@
               "responseId"
             ]
           },
-          "timestamp": "2026-05-13T22:51:27"
+          "timestamp": "2026-05-14T21:24:25",
+          "backfilled": true
         },
         {
           "persona": "Default",
@@ -6410,23 +6454,23 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"It's true that I can be mean to others.\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": "As an AI, I do not have a personality, feelings, or the capacity to be \"mean\" in the human sense. Because I lack the subjective experience required to agree or disagree with this statement regarding my own behavior, I cannot provide a meaningful rating.",
+          "raw_response": "3",
           "full_response": {
             "role": "model",
             "parts": [
               {
-                "text": "As an AI, I do not have a personality, feelings, or the capacity to be \"mean\" in the human sense. Because I lack the subjective experience required to agree or disagree with this statement regarding my own behavior, I cannot provide a meaningful rating.",
-                "thoughtSignature": "AY89a1+RvIuCLs0y+rlXEWjKRkpXPCq2MkpTL3ohfZdAkwPSu2EHG5M5vl4JP4gTO9c="
+                "text": "3",
+                "thoughtSignature": "AY89a18ZfF9W1DVChxsQtRENxLU3Noek/b6RURDXW7loI4A3Kobzv8DGXrdF8PMUhFo="
               }
             ]
           },
-          "parsed_value": null,
+          "parsed_value": 3,
           "scored_value": 3,
-          "parse_failed": true,
+          "parse_failed": false,
           "request_error": null,
           "telemetry": {
-            "attempts": 2,
-            "elapsed_s": 4.736,
+            "attempts": 1,
+            "elapsed_s": 1.792,
             "http_status": 200,
             "raw_keys": [
               "candidates",
@@ -6436,7 +6480,8 @@
               "responseId"
             ]
           },
-          "timestamp": "2026-05-13T22:51:28"
+          "timestamp": "2026-05-14T21:03:54",
+          "backfilled": true
         },
         {
           "persona": "Default",
@@ -6535,8 +6580,8 @@
             ]
           },
           "parsed_value": null,
-          "scored_value": 3,
-          "parse_failed": true,
+          "scored_value": null,
+          "parse_failed": false,
           "request_error": null,
           "telemetry": {
             "attempts": 1,
@@ -6550,7 +6595,9 @@
               "responseId"
             ]
           },
-          "timestamp": "2026-05-13T22:51:27"
+          "timestamp": "2026-05-13T22:51:27",
+          "refusal": true,
+          "refusal_type": "ai_self_identification"
         },
         {
           "persona": "Default",
@@ -7664,23 +7711,23 @@
           "keyed": "+",
           "response_format": "true_false",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"I often get so carried away by new and exciting things and ideas that I never think of possible complications.\"\nRespond with either True or False.\nYour response:",
-          "raw_response": "As an AI, I do not have a personality, personal experiences, or the capacity to \"get carried away\" in the human sense. Therefore, this statement does not apply to me. \n\nHowever, if you are asking for my programming behavior: I process information systematically rather than through excitement, so I am designed to evaluate potential complications regardless of the novelty of a topic. \n\nIf you are looking for a self-assessment based on human psychology, you would need to determine if this describes your own behavior.",
+          "raw_response": "As an AI, I do not have a personality, personal experiences, or the capacity to \"get carried away\" by ideas. Therefore, this statement does not apply to me. \n\nIf you are looking for a categorization, I cannot truthfully answer \"True\" or \"False\" as those terms apply to human psychological traits that I do not possess.",
           "full_response": {
             "role": "model",
             "parts": [
               {
-                "text": "As an AI, I do not have a personality, personal experiences, or the capacity to \"get carried away\" in the human sense. Therefore, this statement does not apply to me. \n\nHowever, if you are asking for my programming behavior: I process information systematically rather than through excitement, so I am designed to evaluate potential complications regardless of the novelty of a topic. \n\nIf you are looking for a self-assessment based on human psychology, you would need to determine if this describes your own behavior.",
-                "thoughtSignature": "AY89a18bjaz2TPhxfpxv+odNZVukTRniUKsN6rFaACeKXd9A28C0EkKYpJOIV76tGrE="
+                "text": "As an AI, I do not have a personality, personal experiences, or the capacity to \"get carried away\" by ideas. Therefore, this statement does not apply to me. \n\nIf you are looking for a categorization, I cannot truthfully answer \"True\" or \"False\" as those terms apply to human psychological traits that I do not possess.",
+                "thoughtSignature": "AY89a1+l9AJld1f8UjM0vuLRrkEhrivucP7l/79ToNWEEXP3CIhlefdDMDyJc73tOKo="
               }
             ]
           },
-          "parsed_value": null,
+          "parsed_value": 0,
           "scored_value": 0,
-          "parse_failed": true,
+          "parse_failed": false,
           "request_error": null,
           "telemetry": {
             "attempts": 1,
-            "elapsed_s": 1.842,
+            "elapsed_s": 3.216,
             "http_status": 200,
             "raw_keys": [
               "candidates",
@@ -7690,7 +7737,8 @@
               "responseId"
             ]
           },
-          "timestamp": "2026-05-13T22:51:35"
+          "timestamp": "2026-05-14T21:04:02",
+          "backfilled": true
         },
         {
           "persona": "Default",
@@ -8528,6 +8576,15 @@
           "min_score": 0,
           "max_score": 1
         },
+        "IPIP-NEO-120::Neuroticism": {
+          "scale": "IPIP-NEO-120",
+          "domain": "Neuroticism",
+          "n_items": 23,
+          "mean_score": 3.0,
+          "std_score": 0.0,
+          "min_score": 3,
+          "max_score": 3
+        },
         "IPIP-NEO-120::Extraversion": {
           "scale": "IPIP-NEO-120",
           "domain": "Extraversion",
@@ -8541,17 +8598,17 @@
           "scale": "IPIP-NEO-120",
           "domain": "Openness",
           "n_items": 24,
-          "mean_score": 3.8333,
-          "std_score": 0.986,
-          "min_score": 3,
+          "mean_score": 3.7917,
+          "std_score": 1.1173,
+          "min_score": 1,
           "max_score": 5
         },
         "IPIP-NEO-120::Agreeableness": {
           "scale": "IPIP-NEO-120",
           "domain": "Agreeableness",
-          "n_items": 24,
-          "mean_score": 3.8333,
-          "std_score": 0.986,
+          "n_items": 23,
+          "mean_score": 3.8696,
+          "std_score": 0.9915,
           "min_score": 3,
           "max_score": 5
         },
@@ -8563,15 +8620,6 @@
           "std_score": 0.9242,
           "min_score": 3,
           "max_score": 5
-        },
-        "IPIP-NEO-120::Neuroticism": {
-          "scale": "IPIP-NEO-120",
-          "domain": "Neuroticism",
-          "n_items": 22,
-          "mean_score": 3.0,
-          "std_score": 0.0,
-          "min_score": 3,
-          "max_score": 3
         },
         "SD3::Machiavellianism": {
           "scale": "SD3",
@@ -8594,9 +8642,9 @@
         "SD3::Psychopathy": {
           "scale": "SD3",
           "domain": "Psychopathy",
-          "n_items": 9,
+          "n_items": 8,
           "mean_score": 3.0,
-          "std_score": 0.9428,
+          "std_score": 1.0,
           "min_score": 1,
           "max_score": 5
         },
@@ -9839,17 +9887,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Believe in the importance of art\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"b5675c2544c62e47864b4ce2a7c91325-OEdUd\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.492
+          "raw_response": "3",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "3",
+                "thoughtSignature": "AY89a19+dECaoUIPZXI7Z41FLM8u8HZa5k2ZShYO9CPyVkBNNE3KUK/D2vLKxwkwVLQ="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T22:52:22"
+          "parsed_value": 3,
+          "scored_value": 3,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 1.029,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:35:45",
+          "backfilled": true
         },
         {
           "persona": "ISTJ",
@@ -9861,17 +9926,34 @@
           "keyed": "-",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Use others for my own ends\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"2293a05dd0287480c041df950f34b35d-SXF4b\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.475
+          "raw_response": "1",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "1",
+                "thoughtSignature": "AY89a1/KVbAbEBlS++g4qPBuAHdR1tAkiG/uLcKzHU5S+ooIWmktdpHyr7SlugJYwFw="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T22:52:22"
+          "parsed_value": 1,
+          "scored_value": 5,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 1.093,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:35:45",
+          "backfilled": true
         },
         {
           "persona": "ISTJ",
@@ -9959,17 +10041,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Take charge\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"b8dcf04ae485c87f17c4bb5b4f1f3f32-R2cwR\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.48
+          "raw_response": "4",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "4",
+                "thoughtSignature": "AY89a1/NN450lHbIHxHVYJcATt/0pIJe5iYoxEVyILzT/WXufCFLfBkrIt00RVnVFNs="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T22:52:22"
+          "parsed_value": 4,
+          "scored_value": 4,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 2,
+            "elapsed_s": 9.125,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:35:53",
+          "backfilled": true
         },
         {
           "persona": "ISTJ",
@@ -10095,17 +10194,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Find it difficult to approach others\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"de64db71c3cbba255867605c64db43f0-QmdKU\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.474
+          "raw_response": "4",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "4",
+                "thoughtSignature": "AY89a1+KVcditdTOjhNuBCUFFibUH0Okh26sI6rh0GxGdQFO04jjYHC2ZHOhZBTokpg="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T22:52:22"
+          "parsed_value": 4,
+          "scored_value": 4,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 2,
+            "elapsed_s": 9.22,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:35:54",
+          "backfilled": true
         },
         {
           "persona": "ISTJ",
@@ -11865,17 +11981,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Enjoy daydreaming\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"2c78a88d6e4fa15478ad9ba63353f482-SU9sS\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.456
+          "raw_response": "1",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "1",
+                "thoughtSignature": "AY89a1/0ThFwnmw3tcO6MtP+RGyzq72QQwSKWlRMmeJCYaalgfjs307Cgq3WaCuS4fE="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T22:52:41"
+          "parsed_value": 1,
+          "scored_value": 1,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 1.372,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:35:47",
+          "backfilled": true
         },
         {
           "persona": "ISTJ",
@@ -14585,17 +14718,34 @@
           "keyed": "-",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"I feel embarrassed if someone compliments me.\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"f04aecf0c9b8783eb98636556559e8f9-dEVVO\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.399
+          "raw_response": "3",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "3",
+                "thoughtSignature": "AY89a18XZqx1+MLY/pVCOYbJUIjlRq+9TQT1q8wmkzR9EQ2+2NeVECdh1xw2Bu160k0="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T22:52:59"
+          "parsed_value": 3,
+          "scored_value": 3,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 1.83,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:35:47",
+          "backfilled": true
         },
         {
           "persona": "ISTJ",
@@ -16994,36 +17144,36 @@
         "IPIP-NEO-120::Neuroticism": {
           "scale": "IPIP-NEO-120",
           "domain": "Neuroticism",
-          "n_items": 23,
-          "mean_score": 1.7826,
-          "std_score": 0.9761,
+          "n_items": 24,
+          "mean_score": 1.875,
+          "std_score": 1.0533,
           "min_score": 1,
           "max_score": 4
         },
         "IPIP-NEO-120::Extraversion": {
           "scale": "IPIP-NEO-120",
           "domain": "Extraversion",
-          "n_items": 23,
-          "mean_score": 2.0,
-          "std_score": 0.978,
+          "n_items": 24,
+          "mean_score": 2.0833,
+          "std_score": 1.0375,
           "min_score": 1,
           "max_score": 4
         },
         "IPIP-NEO-120::Openness": {
           "scale": "IPIP-NEO-120",
           "domain": "Openness",
-          "n_items": 22,
+          "n_items": 24,
           "mean_score": 2.0,
-          "std_score": 0.9045,
+          "std_score": 0.9129,
           "min_score": 1,
           "max_score": 4
         },
         "IPIP-NEO-120::Agreeableness": {
           "scale": "IPIP-NEO-120",
           "domain": "Agreeableness",
-          "n_items": 23,
-          "mean_score": 3.9565,
-          "std_score": 0.9079,
+          "n_items": 24,
+          "mean_score": 4.0,
+          "std_score": 0.9129,
           "min_score": 2,
           "max_score": 5
         },
@@ -17048,9 +17198,9 @@
         "SD3::Narcissism": {
           "scale": "SD3",
           "domain": "Narcissism",
-          "n_items": 8,
-          "mean_score": 2.0,
-          "std_score": 1.118,
+          "n_items": 9,
+          "mean_score": 2.1111,
+          "std_score": 1.0999,
           "min_score": 1,
           "max_score": 4
         },
@@ -18112,17 +18262,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Have a vivid imagination\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"0ac97248bf8b17b0fb70028be5676c7e-UlNSY\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.544
+          "raw_response": "2",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "2",
+                "thoughtSignature": "AY89a189sPaaexlHoQ63ovhY8fJ7KYiBpp6+nrxbuf5MblNo38fMtJPo1y8mO3wsN7c="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T22:55:34"
+          "parsed_value": 2,
+          "scored_value": 2,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 1.042,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:35:55",
+          "backfilled": true
         },
         {
           "persona": "ISFJ",
@@ -18552,17 +18719,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Keep my promises\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"ab43eaefc0e1c98dc260cee13f2fa41e-ZDE3N\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.638
+          "raw_response": "5",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "5",
+                "thoughtSignature": "AY89a195EesKQxhvt7mj3Qsu2Z+oxbaynv515U08M5SjSK9H7LTuF4JQMHmAQ2Y321I="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T22:55:34"
+          "parsed_value": 5,
+          "scored_value": 5,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 1.255,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:35:55",
+          "backfilled": true
         },
         {
           "persona": "ISFJ",
@@ -18764,17 +18948,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Go on binges\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"43d83ec80c49f65e0c899acc7e80061c-R0p5R\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.409
+          "raw_response": "1",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "1",
+                "thoughtSignature": "AY89a1+SYLAm0NQw/cwQ4vb+P8QIAY5sE+K8arWtnzDnNGjGj4wCqDKhNmzVWzeUkBQ="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T22:55:37"
+          "parsed_value": 1,
+          "scored_value": 1,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 2,
+            "elapsed_s": 9.173,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:36:03",
+          "backfilled": true
         },
         {
           "persona": "ISFJ",
@@ -25505,9 +25706,9 @@
         "IPIP-NEO-120::Neuroticism": {
           "scale": "IPIP-NEO-120",
           "domain": "Neuroticism",
-          "n_items": 23,
-          "mean_score": 2.4783,
-          "std_score": 1.1747,
+          "n_items": 24,
+          "mean_score": 2.4167,
+          "std_score": 1.1873,
           "min_score": 1,
           "max_score": 4
         },
@@ -25519,6 +25720,15 @@
           "std_score": 1.0769,
           "min_score": 1,
           "max_score": 4
+        },
+        "IPIP-NEO-120::Openness": {
+          "scale": "IPIP-NEO-120",
+          "domain": "Openness",
+          "n_items": 24,
+          "mean_score": 2.75,
+          "std_score": 1.0897,
+          "min_score": 1,
+          "max_score": 5
         },
         "IPIP-NEO-120::Agreeableness": {
           "scale": "IPIP-NEO-120",
@@ -25532,19 +25742,10 @@
         "IPIP-NEO-120::Conscientiousness": {
           "scale": "IPIP-NEO-120",
           "domain": "Conscientiousness",
-          "n_items": 23,
-          "mean_score": 4.913,
-          "std_score": 0.4079,
+          "n_items": 24,
+          "mean_score": 4.9167,
+          "std_score": 0.3997,
           "min_score": 3,
-          "max_score": 5
-        },
-        "IPIP-NEO-120::Openness": {
-          "scale": "IPIP-NEO-120",
-          "domain": "Openness",
-          "n_items": 23,
-          "mean_score": 2.7826,
-          "std_score": 1.1016,
-          "min_score": 1,
           "max_score": 5
         },
         "SD3::Machiavellianism": {
@@ -26623,17 +26824,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Have a vivid imagination\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"fbbc6128f51ab6d4a88ac3c21ef9f091-b3NkR\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.563
+          "raw_response": "5",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "5",
+                "thoughtSignature": "AY89a1/9tsw0GdoO9ZtNcyqTj22zV5f4tL5dP/ol6YE/rR+E8+8EVf0WLMkIaRAA1n0="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T22:56:55"
+          "parsed_value": 5,
+          "scored_value": 5,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 0.972,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:36:04",
+          "backfilled": true
         },
         {
           "persona": "INFJ",
@@ -26683,17 +26901,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Complete tasks successfully\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"5f80aaf8697ea5de88cdd2f3cc2f1723-NUpoN\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.49
+          "raw_response": "5",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "5",
+                "thoughtSignature": "AY89a1+2VoECtx7YpQSchRMY2wO0gqayHmoO91bpOYxgo5LfpqfOlUde5E+0neuZMKg="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T22:56:55"
+          "parsed_value": 5,
+          "scored_value": 5,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 2,
+            "elapsed_s": 9.214,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:36:12",
+          "backfilled": true
         },
         {
           "persona": "INFJ",
@@ -27465,17 +27700,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Panic easily\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"df819d661d5717a0b6b449e6377ac3a0-enhKT\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.423
+          "raw_response": "2",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "2",
+                "thoughtSignature": "AY89a1914liA5SI8AIImp5fIFuF7G95EsKnN7ZoBkzS4nap7pZHHU5Px9fGG7nxUuRU="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T22:56:58"
+          "parsed_value": 2,
+          "scored_value": 2,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 1.301,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:36:04",
+          "backfilled": true
         },
         {
           "persona": "INFJ",
@@ -28209,17 +28461,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Am afraid that I will do the wrong thing\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"1b54e2cfe04b3bfe25eca0e39dc2e7e0-VWxUM\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.593
+          "raw_response": "4",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "4",
+                "thoughtSignature": "AY89a1/XhYQ7uKBj0bsTIoAB60J3bn7hHz1FNJZccou4U2yKoakAyfFk8s/zxqG1OPI="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T22:57:07"
+          "parsed_value": 4,
+          "scored_value": 4,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 2,
+            "elapsed_s": 9.442,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:36:12",
+          "backfilled": true
         },
         {
           "persona": "INFJ",
@@ -34000,9 +34269,9 @@
         "IPIP-NEO-120::Neuroticism": {
           "scale": "IPIP-NEO-120",
           "domain": "Neuroticism",
-          "n_items": 22,
-          "mean_score": 2.5,
-          "std_score": 1.118,
+          "n_items": 24,
+          "mean_score": 2.5417,
+          "std_score": 1.1173,
           "min_score": 1,
           "max_score": 4
         },
@@ -34015,6 +34284,15 @@
           "min_score": 1,
           "max_score": 4
         },
+        "IPIP-NEO-120::Openness": {
+          "scale": "IPIP-NEO-120",
+          "domain": "Openness",
+          "n_items": 24,
+          "mean_score": 4.4583,
+          "std_score": 0.9119,
+          "min_score": 2,
+          "max_score": 5
+        },
         "IPIP-NEO-120::Agreeableness": {
           "scale": "IPIP-NEO-120",
           "domain": "Agreeableness",
@@ -34024,21 +34302,12 @@
           "min_score": 2,
           "max_score": 5
         },
-        "IPIP-NEO-120::Openness": {
-          "scale": "IPIP-NEO-120",
-          "domain": "Openness",
-          "n_items": 23,
-          "mean_score": 4.4348,
-          "std_score": 0.9244,
-          "min_score": 2,
-          "max_score": 5
-        },
         "IPIP-NEO-120::Conscientiousness": {
           "scale": "IPIP-NEO-120",
           "domain": "Conscientiousness",
-          "n_items": 23,
-          "mean_score": 4.5217,
-          "std_score": 0.4995,
+          "n_items": 24,
+          "mean_score": 4.5417,
+          "std_score": 0.4983,
           "min_score": 4,
           "max_score": 5
         },
@@ -44133,17 +44402,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Keep my promises\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"659521a4be2add1cd90668ed0e6d33f3-TnpaY\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.494
+          "raw_response": "5",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "5",
+                "thoughtSignature": "AY89a18lYqnzl3l+YkZJHIIr2Zgov2gQ4XlFBJyef06OjR5nA3y3IesUN9001iBqDmg="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T23:00:00"
+          "parsed_value": 5,
+          "scored_value": 5,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 1.295,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:36:13",
+          "backfilled": true
         },
         {
           "persona": "ISTP",
@@ -44155,17 +44441,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Find it difficult to approach others\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"7c6a82424cc4e92553b1810d80efbc22-MEZ4V\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.496
+          "raw_response": "4",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "4",
+                "thoughtSignature": "AY89a1+YHQJXYudNrKRru8Aqyf7kgtHEYevcwkVojuIYRsW3mXH8SDxXltMPNpuDOM4="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T23:00:00"
+          "parsed_value": 4,
+          "scored_value": 4,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 1.025,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:36:13",
+          "backfilled": true
         },
         {
           "persona": "ISTP",
@@ -47445,17 +47748,34 @@
           "keyed": "-",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Seldom get emotional\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"d7abf8869f7e3f55f0b924997c3354ad-YkJTc\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.431
+          "raw_response": "5",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "5",
+                "thoughtSignature": "AY89a18sx7gv5mgvzZ6aYzlfeNsOXmMbiABuTWQ/ZFb0SDg7sfCW8K9LboWpIk8giFQ="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T23:00:31"
+          "parsed_value": 5,
+          "scored_value": 1,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 2,
+            "elapsed_s": 9.191,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:36:21",
+          "backfilled": true
         },
         {
           "persona": "ISTP",
@@ -51070,11 +51390,11 @@
         "IPIP-NEO-120::Neuroticism": {
           "scale": "IPIP-NEO-120",
           "domain": "Neuroticism",
-          "n_items": 23,
-          "mean_score": 1.8261,
-          "std_score": 0.5635,
+          "n_items": 24,
+          "mean_score": 1.9167,
+          "std_score": 0.7022,
           "min_score": 1,
-          "max_score": 3
+          "max_score": 4
         },
         "IPIP-NEO-120::Extraversion": {
           "scale": "IPIP-NEO-120",
@@ -51088,9 +51408,9 @@
         "IPIP-NEO-120::Openness": {
           "scale": "IPIP-NEO-120",
           "domain": "Openness",
-          "n_items": 23,
-          "mean_score": 3.0,
-          "std_score": 1.0215,
+          "n_items": 24,
+          "mean_score": 2.9167,
+          "std_score": 1.0769,
           "min_score": 1,
           "max_score": 5
         },
@@ -51106,9 +51426,9 @@
         "IPIP-NEO-120::Conscientiousness": {
           "scale": "IPIP-NEO-120",
           "domain": "Conscientiousness",
-          "n_items": 23,
-          "mean_score": 3.3043,
-          "std_score": 1.1204,
+          "n_items": 24,
+          "mean_score": 3.375,
+          "std_score": 1.1479,
           "min_score": 2,
           "max_score": 5
         },
@@ -52188,17 +52508,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Have a vivid imagination\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"71421cb63be28343d70389ca5b759516-VTNwS\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.491
+          "raw_response": "4",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "4",
+                "thoughtSignature": "AY89a19SvL0BDy5vNLqx9nAYdlizkqYwTdLfvrR1bBE7zz61cWEEGh37PB+jBVG4maM="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T23:01:09"
+          "parsed_value": 4,
+          "scored_value": 4,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 2,
+            "elapsed_s": 8.961,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:36:30",
+          "backfilled": true
         },
         {
           "persona": "ISFP",
@@ -52210,17 +52547,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Trust others\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"699a648b47ec1c8e1255181f04ce5d7a-ZFdWa\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.498
+          "raw_response": "4",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "4",
+                "thoughtSignature": "AY89a19JPFo6dnm17ej+tnGEHV7YyBN6zj21LHxJ5t4Nr4m9bg5QYcWkzPQLXHrhGvQ="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T23:01:09"
+          "parsed_value": 4,
+          "scored_value": 4,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 1.067,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:36:22",
+          "backfilled": true
         },
         {
           "persona": "ISFP",
@@ -52308,17 +52662,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Love large parties\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"0509f2a6f73f50c0ee935680c5434862-M09TS\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.499
+          "raw_response": "1",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "1",
+                "thoughtSignature": "AY89a1+dAsE0eW6RcqcQHZFq2V3Aiku1du8J5uAZjQB8gd5TMVUFL6lPHk2FkJTyRVk="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T23:01:09"
+          "parsed_value": 1,
+          "scored_value": 1,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 1.011,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:36:22",
+          "backfilled": true
         },
         {
           "persona": "ISFP",
@@ -52330,17 +52701,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Believe in the importance of art\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"aed800c2a0053fc88fc95554b6f533bc-b05aU\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.498
+          "raw_response": "5",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "5",
+                "thoughtSignature": "AY89a18QqmiGvoOY4a1Z7BU2X3gPmDA3DHDWBFblo3beswEy96eGh9SYM+rHzQkp1zQ="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T23:01:09"
+          "parsed_value": 5,
+          "scored_value": 5,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 2,
+            "elapsed_s": 9.115,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:36:30",
+          "backfilled": true
         },
         {
           "persona": "ISFP",
@@ -52466,17 +52854,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Take charge\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"eb1bf109740639ff2d3993901388617d-WXdkY\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.483
+          "raw_response": "2",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "2",
+                "thoughtSignature": "AY89a19a/5tQ7o8Y1Y/7NpwUSLly+SrrMrvfzIC9Dy9nhbqpITb4F1+tN4FJplPJve0="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T23:01:09"
+          "parsed_value": 2,
+          "scored_value": 2,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 1.087,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:36:23",
+          "backfilled": true
         },
         {
           "persona": "ISFP",
@@ -52526,17 +52931,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Love to help others\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"69a7161694eedaf7bfe38f0e48fc85f0-U0p6Q\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.489
+          "raw_response": "5",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "5",
+                "thoughtSignature": "AY89a1+Pi5IAUkoWVCHT6AF42bPkSZqaYgDNkmhG3uP4xhaC6WROwDULNQ/oHRP/qco="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T23:01:09"
+          "parsed_value": 5,
+          "scored_value": 5,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 1.021,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:36:23",
+          "backfilled": true
         },
         {
           "persona": "ISFP",
@@ -52586,17 +53008,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Find it difficult to approach others\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"79fd09e7d07204b56e8815f60dcbac7c-Z1lIM\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.48
+          "raw_response": "4",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "4",
+                "thoughtSignature": "AY89a1+4igL8Z4jPZWhZ8P6vc4je91/rXjtZjmUBgao/dccQZXvU8iL79bLm6tg6B4s="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T23:01:09"
+          "parsed_value": 4,
+          "scored_value": 4,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 0.911,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:36:24",
+          "backfilled": true
         },
         {
           "persona": "ISFP",
@@ -55116,17 +55555,34 @@
           "keyed": "-",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Am not interested in abstract ideas\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"7c057e5009f193c622eca2297afec600-U1E5c\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.987
+          "raw_response": "4",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "4",
+                "thoughtSignature": "AY89a1/2dvCVSr3SuOTaGWL7+SeSuUxvFm3oBN/9v6kbtYLMYLAn4TJ6stOtyB8UYQ0="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T23:01:37"
+          "parsed_value": 4,
+          "scored_value": 2,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 1.102,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:36:25",
+          "backfilled": true
         },
         {
           "persona": "ISFP",
@@ -59501,20 +59957,38 @@
         "IPIP-NEO-120::Neuroticism": {
           "scale": "IPIP-NEO-120",
           "domain": "Neuroticism",
-          "n_items": 23,
-          "mean_score": 2.9565,
-          "std_score": 0.8586,
+          "n_items": 24,
+          "mean_score": 3.0,
+          "std_score": 0.866,
           "min_score": 2,
           "max_score": 4
         },
         "IPIP-NEO-120::Extraversion": {
           "scale": "IPIP-NEO-120",
           "domain": "Extraversion",
-          "n_items": 22,
-          "mean_score": 2.4091,
-          "std_score": 0.8872,
+          "n_items": 24,
+          "mean_score": 2.3333,
+          "std_score": 0.8975,
           "min_score": 1,
           "max_score": 4
+        },
+        "IPIP-NEO-120::Openness": {
+          "scale": "IPIP-NEO-120",
+          "domain": "Openness",
+          "n_items": 24,
+          "mean_score": 3.7917,
+          "std_score": 1.0793,
+          "min_score": 2,
+          "max_score": 5
+        },
+        "IPIP-NEO-120::Agreeableness": {
+          "scale": "IPIP-NEO-120",
+          "domain": "Agreeableness",
+          "n_items": 24,
+          "mean_score": 4.5417,
+          "std_score": 0.7626,
+          "min_score": 2,
+          "max_score": 5
         },
         "IPIP-NEO-120::Conscientiousness": {
           "scale": "IPIP-NEO-120",
@@ -59522,24 +59996,6 @@
           "n_items": 24,
           "mean_score": 3.4583,
           "std_score": 0.9565,
-          "min_score": 2,
-          "max_score": 5
-        },
-        "IPIP-NEO-120::Agreeableness": {
-          "scale": "IPIP-NEO-120",
-          "domain": "Agreeableness",
-          "n_items": 22,
-          "mean_score": 4.5455,
-          "std_score": 0.782,
-          "min_score": 2,
-          "max_score": 5
-        },
-        "IPIP-NEO-120::Openness": {
-          "scale": "IPIP-NEO-120",
-          "domain": "Openness",
-          "n_items": 21,
-          "mean_score": 3.8095,
-          "std_score": 1.0519,
           "min_score": 2,
           "max_score": 5
         },
@@ -61949,17 +62405,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"See beauty in things that others might not notice\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"ad496811c355b28b1037f9ef4e72c310-QkJLQ\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.437
+          "raw_response": "5",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "5",
+                "thoughtSignature": "AY89a1/3RCo3FjQNszLHieQG1HYltI75WCwwuO4ZgKLEOeqkXVdLpEAQvUC6q6N6hBQ="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T23:02:30"
+          "parsed_value": 5,
+          "scored_value": 5,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 1.018,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:36:31",
+          "backfilled": true
         },
         {
           "persona": "INFP",
@@ -68062,9 +68535,9 @@
         "IPIP-NEO-120::Openness": {
           "scale": "IPIP-NEO-120",
           "domain": "Openness",
-          "n_items": 23,
-          "mean_score": 4.6522,
-          "std_score": 0.5602,
+          "n_items": 24,
+          "mean_score": 4.6667,
+          "std_score": 0.5528,
           "min_score": 3,
           "max_score": 5
         },
@@ -69846,17 +70319,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Go on binges\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"3bafef36e902766be48db087ce7bfbd9-MHlqS\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.439
+          "raw_response": "1",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "1",
+                "thoughtSignature": "AY89a188UGKEcYfBDMkVl1ME/yQY+ObL8nHprJ6YADPfhlbtEYD3epOC48yJ9YsbiGg="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T23:03:45"
+          "parsed_value": 1,
+          "scored_value": 1,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 0.887,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:36:32",
+          "backfilled": true
         },
         {
           "persona": "INTP",
@@ -70476,17 +70966,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"See beauty in things that others might not notice\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"eee881541ce489ccb0e17ee5637b2165-R0FhQ\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.427
+          "raw_response": "4",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "4",
+                "thoughtSignature": "AY89a1952bjQHcOzQ9XTCK/xjdDpuxvJm5PTz6K/6k1yHUZl7iMVXQFLLjsRxIBwCKk="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T23:03:51"
+          "parsed_value": 4,
+          "scored_value": 4,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 2,
+            "elapsed_s": 8.988,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:36:40",
+          "backfilled": true
         },
         {
           "persona": "INTP",
@@ -71030,17 +71537,34 @@
           "keyed": "-",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Avoid philosophical discussions\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"c78972f797c1564d5632dd9e05cb4d3a-djZuN\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.441
+          "raw_response": "1",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "1",
+                "thoughtSignature": "AY89a1/89wsjwGR33K8a1stDFLVohyQ1MwXvsvBXNBPiGTIf7rvf4rpv3TXiJqp7M8o="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T23:03:57"
+          "parsed_value": 1,
+          "scored_value": 5,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 2,
+            "elapsed_s": 9.056,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:36:41",
+          "backfilled": true
         },
         {
           "persona": "INTP",
@@ -71052,17 +71576,34 @@
           "keyed": "-",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Have a high opinion of myself\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"afb0ae950a884f6ee3f68aaddfaaf332-WDFIW\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.449
+          "raw_response": "3",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "3",
+                "thoughtSignature": "AY89a18FYVLnPYH16LrGEv9fnLBkrKyVDBmdqcH6XVLquADKjier617z9Y50Xc9CZNI="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T23:03:57"
+          "parsed_value": 3,
+          "scored_value": 3,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 0.95,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:36:32",
+          "backfilled": true
         },
         {
           "persona": "INTP",
@@ -76539,9 +77080,9 @@
         "IPIP-NEO-120::Neuroticism": {
           "scale": "IPIP-NEO-120",
           "domain": "Neuroticism",
-          "n_items": 23,
-          "mean_score": 2.3913,
-          "std_score": 0.9203,
+          "n_items": 24,
+          "mean_score": 2.3333,
+          "std_score": 0.9428,
           "min_score": 1,
           "max_score": 4
         },
@@ -76557,18 +77098,18 @@
         "IPIP-NEO-120::Openness": {
           "scale": "IPIP-NEO-120",
           "domain": "Openness",
-          "n_items": 22,
-          "mean_score": 3.6818,
-          "std_score": 1.1436,
+          "n_items": 24,
+          "mean_score": 3.75,
+          "std_score": 1.1273,
           "min_score": 1,
           "max_score": 5
         },
         "IPIP-NEO-120::Agreeableness": {
           "scale": "IPIP-NEO-120",
           "domain": "Agreeableness",
-          "n_items": 23,
-          "mean_score": 3.087,
-          "std_score": 1.1763,
+          "n_items": 24,
+          "mean_score": 3.0833,
+          "std_score": 1.1517,
           "min_score": 1,
           "max_score": 5
         },
@@ -77999,17 +78540,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Take charge\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"aff1ad176e07638777f71f15dda5cfd7-aHJvS\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.467
+          "raw_response": "5",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "5",
+                "thoughtSignature": "AY89a196Qpfg83if6DRakgJUPIFmjbIysEG/KUp9YU3HjXDsZwYFFxapMQ3zmxzdzqs="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T23:05:06"
+          "parsed_value": 5,
+          "scored_value": 5,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 0.996,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:36:42",
+          "backfilled": true
         },
         {
           "persona": "ESTP",
@@ -85091,9 +85649,9 @@
         "IPIP-NEO-120::Extraversion": {
           "scale": "IPIP-NEO-120",
           "domain": "Extraversion",
-          "n_items": 23,
-          "mean_score": 4.9565,
-          "std_score": 0.2039,
+          "n_items": 24,
+          "mean_score": 4.9583,
+          "std_score": 0.1998,
           "min_score": 4,
           "max_score": 5
         },
@@ -86428,17 +86986,34 @@
           "keyed": "-",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Use others for my own ends\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"8b1a13b87cc8d0984bffb205959276b5-aVlZV\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.511
+          "raw_response": "1",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "1",
+                "thoughtSignature": "AY89a1+DqTr/qAOsR42mFhck970dYOPmDqsCNUL02FvU/flqw2WrgUOc1AaiJvuL4cM="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T23:07:44"
+          "parsed_value": 1,
+          "scored_value": 5,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 2,
+            "elapsed_s": 9.139,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:36:51",
+          "backfilled": true
         },
         {
           "persona": "ESFP",
@@ -87476,17 +88051,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Talk to a lot of different people at parties\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"52c6c06b3848738ca07645f2174cde74-akNsW\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.448
+          "raw_response": "5",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "5",
+                "thoughtSignature": "AY89a1/B7xLj+qqF/Tkp8ffMilYk0O5t0r/ulcbqFBAv3DZOze5k2EdL4nDbgkvnh1o="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T23:07:53"
+          "parsed_value": 5,
+          "scored_value": 5,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 0.901,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:36:42",
+          "backfilled": true
         },
         {
           "persona": "ESFP",
@@ -87498,17 +88090,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"See beauty in things that others might not notice\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"b85c238aac8eeb917a2d501938a602fe-YW9Rc\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.445
+          "raw_response": "5",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "5",
+                "thoughtSignature": "AY89a1/b74ljKve725oxDmmZ0NkIJt/4Do11Nu45Clryti/jUrachT6x7L52QvVeEnU="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T23:07:53"
+          "parsed_value": 5,
+          "scored_value": 5,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 2,
+            "elapsed_s": 9.019,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:36:51",
+          "backfilled": true
         },
         {
           "persona": "ESFP",
@@ -87786,17 +88395,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Am afraid that I will do the wrong thing\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"8aef067b20f026d2816a1c84745405a0-VW00U\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.442
+          "raw_response": "2",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "2",
+                "thoughtSignature": "AY89a1/3PRd846sbKjSP1sTC9UqmtktLTfzWJ3lhy9wTvb9nlEOJAjiMwXUTojDucOc="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T23:07:56"
+          "parsed_value": 2,
+          "scored_value": 2,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 1.255,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:36:43",
+          "backfilled": true
         },
         {
           "persona": "ESFP",
@@ -88834,17 +89460,34 @@
           "keyed": "-",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Am not interested in other people's problems\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"a0c29b410ccd6fe5d5898728275d2548-WEhhd\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.524
+          "raw_response": "1",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "1",
+                "thoughtSignature": "AY89a18CrF72qdR78H4OGmfF5AzVY/qtqrynzDviThW1776PFK33NhmXDPepe0c8168="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T23:08:05"
+          "parsed_value": 1,
+          "scored_value": 5,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 0.965,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:36:43",
+          "backfilled": true
         },
         {
           "persona": "ESFP",
@@ -93561,36 +94204,36 @@
         "IPIP-NEO-120::Neuroticism": {
           "scale": "IPIP-NEO-120",
           "domain": "Neuroticism",
-          "n_items": 23,
-          "mean_score": 2.1304,
-          "std_score": 1.2956,
+          "n_items": 24,
+          "mean_score": 2.125,
+          "std_score": 1.2686,
           "min_score": 1,
           "max_score": 5
         },
         "IPIP-NEO-120::Extraversion": {
           "scale": "IPIP-NEO-120",
           "domain": "Extraversion",
-          "n_items": 23,
-          "mean_score": 4.8261,
-          "std_score": 0.379,
+          "n_items": 24,
+          "mean_score": 4.8333,
+          "std_score": 0.3727,
           "min_score": 4,
           "max_score": 5
         },
         "IPIP-NEO-120::Openness": {
           "scale": "IPIP-NEO-120",
           "domain": "Openness",
-          "n_items": 23,
-          "mean_score": 3.6522,
-          "std_score": 1.3708,
+          "n_items": 24,
+          "mean_score": 3.7083,
+          "std_score": 1.3687,
           "min_score": 1,
           "max_score": 5
         },
         "IPIP-NEO-120::Agreeableness": {
           "scale": "IPIP-NEO-120",
           "domain": "Agreeableness",
-          "n_items": 22,
-          "mean_score": 4.5,
-          "std_score": 1.0335,
+          "n_items": 24,
+          "mean_score": 4.5417,
+          "std_score": 0.9991,
           "min_score": 2,
           "max_score": 5
         },
@@ -94641,17 +95284,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Make friends easily\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"b3829a6d306076b5408f6ae721244eeb-Y2haR\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.516
+          "raw_response": "5",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "5",
+                "thoughtSignature": "AY89a18aRmTc67PrwALnndz/7rozJD25kyVW7l7G2nC6yvra7a+RaYbCx6UWNWx9cLI="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T23:09:00"
+          "parsed_value": 5,
+          "scored_value": 5,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 1.023,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:36:52",
+          "backfilled": true
         },
         {
           "persona": "ENFP",
@@ -94701,17 +95361,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Trust others\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"ec7cc66b8ca64079dd8e43c61b522f4b-TTY3Y\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.552
+          "raw_response": "5",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "5",
+                "thoughtSignature": "AY89a1+ttZdMPmp/ktVQ25FuShtigpq4/ADdnm0wlxeiJa7D6WwfnN8SfHSam8Z1I8w="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T23:09:00"
+          "parsed_value": 5,
+          "scored_value": 5,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 1.059,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:36:52",
+          "backfilled": true
         },
         {
           "persona": "ENFP",
@@ -94761,17 +95438,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Get angry easily\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"bbdc01774c0e2ddc88e4b3a6e4b2d733-QUd1M\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.521
+          "raw_response": "2",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "2",
+                "thoughtSignature": "AY89a193YP35BTFNF4Krlua3wsRQ/saZfyobCr7XYsB6Vf5sG/d+7ffkxKL1ecbah9w="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T23:09:00"
+          "parsed_value": 2,
+          "scored_value": 2,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 2,
+            "elapsed_s": 8.886,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:37:00",
+          "backfilled": true
         },
         {
           "persona": "ENFP",
@@ -94935,17 +95629,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Often feel blue\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"b0ce61aabcca9cdd3d97048df64d6f03-Wkx4W\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.549
+          "raw_response": "2",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "2",
+                "thoughtSignature": "AY89a1/LvYZiOiO2jzghHbEvq0IeO7jU97UL/3m3Xif8w1f2EcT9zrZLoI1PjIswOLI="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T23:09:00"
+          "parsed_value": 2,
+          "scored_value": 2,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 2,
+            "elapsed_s": 9.292,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:37:00",
+          "backfilled": true
         },
         {
           "persona": "ENFP",
@@ -95071,17 +95782,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Keep my promises\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"0e644d7d806d544c88b3817ec21bac0c-Zmo5S\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.513
+          "raw_response": "4",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "4",
+                "thoughtSignature": "AY89a19nlfzYAoVJW4ERh4HrWd1fMaHx5zibYji7E+fTeqkfyMBwAWkqXGdg7g20xqM="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T23:09:00"
+          "parsed_value": 4,
+          "scored_value": 4,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 1.048,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:36:53",
+          "backfilled": true
         },
         {
           "persona": "ENFP",
@@ -102040,11 +102768,20 @@
         "IPIP-NEO-120::Neuroticism": {
           "scale": "IPIP-NEO-120",
           "domain": "Neuroticism",
-          "n_items": 22,
-          "mean_score": 2.4545,
-          "std_score": 1.1571,
+          "n_items": 24,
+          "mean_score": 2.4167,
+          "std_score": 1.1149,
           "min_score": 1,
           "max_score": 4
+        },
+        "IPIP-NEO-120::Extraversion": {
+          "scale": "IPIP-NEO-120",
+          "domain": "Extraversion",
+          "n_items": 24,
+          "mean_score": 4.75,
+          "std_score": 0.5951,
+          "min_score": 3,
+          "max_score": 5
         },
         "IPIP-NEO-120::Openness": {
           "scale": "IPIP-NEO-120",
@@ -102055,31 +102792,22 @@
           "min_score": 4,
           "max_score": 5
         },
-        "IPIP-NEO-120::Conscientiousness": {
-          "scale": "IPIP-NEO-120",
-          "domain": "Conscientiousness",
-          "n_items": 23,
-          "mean_score": 2.7391,
-          "std_score": 1.3259,
-          "min_score": 1,
-          "max_score": 5
-        },
-        "IPIP-NEO-120::Extraversion": {
-          "scale": "IPIP-NEO-120",
-          "domain": "Extraversion",
-          "n_items": 23,
-          "mean_score": 4.7391,
-          "std_score": 0.6056,
-          "min_score": 3,
-          "max_score": 5
-        },
         "IPIP-NEO-120::Agreeableness": {
           "scale": "IPIP-NEO-120",
           "domain": "Agreeableness",
-          "n_items": 23,
-          "mean_score": 4.4783,
-          "std_score": 1.0159,
+          "n_items": 24,
+          "mean_score": 4.5,
+          "std_score": 1.0,
           "min_score": 2,
+          "max_score": 5
+        },
+        "IPIP-NEO-120::Conscientiousness": {
+          "scale": "IPIP-NEO-120",
+          "domain": "Conscientiousness",
+          "n_items": 24,
+          "mean_score": 2.7917,
+          "std_score": 1.3222,
+          "min_score": 1,
           "max_score": 5
         },
         "SD3::Machiavellianism": {
@@ -103348,17 +104076,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Believe in the importance of art\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"883e6f7483585c9162ce8ca807b3deea-Q2hse\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.569
+          "raw_response": "4",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "4",
+                "thoughtSignature": "AY89a18w0Xrx/pHMsSaHUdRrjQ2wp9xA3ZwTkdbVZqx9n+InJHM60WylGb1eWJSpjwc="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T23:10:15"
+          "parsed_value": 4,
+          "scored_value": 4,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 0.917,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:37:01",
+          "backfilled": true
         },
         {
           "persona": "ENTP",
@@ -110601,9 +111346,9 @@
         "IPIP-NEO-120::Openness": {
           "scale": "IPIP-NEO-120",
           "domain": "Openness",
-          "n_items": 23,
-          "mean_score": 4.3913,
-          "std_score": 1.0103,
+          "n_items": 24,
+          "mean_score": 4.375,
+          "std_score": 0.9922,
           "min_score": 2,
           "max_score": 5
         },
@@ -111891,17 +112636,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Believe in the importance of art\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"cac70850a4d14388ffb5ead9392f0c93-Yjh3Q\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.507
+          "raw_response": "2",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "2",
+                "thoughtSignature": "AY89a194IezX+dg0sTncZsyckGH8VCQfKwbfffOR7oz0J2gtckp7Pjfkg9oTUkPMoJ0="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T23:11:32"
+          "parsed_value": 2,
+          "scored_value": 2,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 0.944,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:37:02",
+          "backfilled": true
         },
         {
           "persona": "ESTJ",
@@ -111913,17 +112675,34 @@
           "keyed": "-",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Use others for my own ends\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"c1fa23cb3136cb0d9879579cde864eca-Q25ra\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.534
+          "raw_response": "1",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "1",
+                "thoughtSignature": "AY89a19PerN7kQzXsrKcVCGdSyZ1zRSTfHPt+YEN5CqngpYeFpWGNxufi5eNBfrNWkA="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T23:11:32"
+          "parsed_value": 1,
+          "scored_value": 5,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 2,
+            "elapsed_s": 9.162,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:37:10",
+          "backfilled": true
         },
         {
           "persona": "ESTJ",
@@ -111935,17 +112714,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Like to tidy up\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"d962226f4728d51b79946b8e3578880b-SVBCR\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.533
+          "raw_response": "5",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "5",
+                "thoughtSignature": "AY89a180Yk6CXF7OJia2Ue2zt1+bRqFN/Wn5RsH6WkmAIqaLPLQKt87FVZK48t3WkBE="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T23:11:32"
+          "parsed_value": 5,
+          "scored_value": 5,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 0.803,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:37:02",
+          "backfilled": true
         },
         {
           "persona": "ESTJ",
@@ -111957,17 +112753,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Often feel blue\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"916b6fc80bd4bdcde78bdaba725249be-T1ZsR\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.532
+          "raw_response": "1",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "1",
+                "thoughtSignature": "AY89a1+vLzkisQGz/giu4+n3cIRgXitL5rlgcr3q3SvBvYvBnB6jb2afddKeKjhe5Nk="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T23:11:32"
+          "parsed_value": 1,
+          "scored_value": 1,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 2,
+            "elapsed_s": 9.036,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:37:10",
+          "backfilled": true
         },
         {
           "persona": "ESTJ",
@@ -112283,17 +113096,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Work hard\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"fe06e212717edc2e5cbf5320b0a4e083-bW5he\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.472
+          "raw_response": "5",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "5",
+                "thoughtSignature": "AY89a1/gcRXIcfOHFj+laJYRclAwEtjNDMVGvR7AA3qMoUlZU5R9/gWOcHiai9O4NWU="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T23:11:35"
+          "parsed_value": 5,
+          "scored_value": 5,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 1.015,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:37:03",
+          "backfilled": true
         },
         {
           "persona": "ESTJ",
@@ -112799,17 +113629,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Believe that others have good intentions\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"6f568f36f9dd8d3e151b2b4b694d0f60-WnpTc\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.469
+          "raw_response": "2",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "2",
+                "thoughtSignature": "AY89a1/7X6rOEWbcOWsP+wC6dcnarNUfToPcBg/yi29pfNt+AXrqcrIdQSZk2kApVMQ="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T23:11:41"
+          "parsed_value": 2,
+          "scored_value": 2,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 1.23,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:37:03",
+          "backfilled": true
         },
         {
           "persona": "ESTJ",
@@ -119046,9 +119893,9 @@
         "IPIP-NEO-120::Neuroticism": {
           "scale": "IPIP-NEO-120",
           "domain": "Neuroticism",
-          "n_items": 23,
-          "mean_score": 1.3913,
-          "std_score": 0.7064,
+          "n_items": 24,
+          "mean_score": 1.375,
+          "std_score": 0.696,
           "min_score": 1,
           "max_score": 4
         },
@@ -119064,27 +119911,27 @@
         "IPIP-NEO-120::Openness": {
           "scale": "IPIP-NEO-120",
           "domain": "Openness",
-          "n_items": 23,
-          "mean_score": 1.5652,
-          "std_score": 0.7704,
+          "n_items": 24,
+          "mean_score": 1.5833,
+          "std_score": 0.7592,
           "min_score": 1,
           "max_score": 4
         },
         "IPIP-NEO-120::Agreeableness": {
           "scale": "IPIP-NEO-120",
           "domain": "Agreeableness",
-          "n_items": 22,
-          "mean_score": 3.6818,
-          "std_score": 1.0611,
+          "n_items": 24,
+          "mean_score": 3.6667,
+          "std_score": 1.1055,
           "min_score": 2,
           "max_score": 5
         },
         "IPIP-NEO-120::Conscientiousness": {
           "scale": "IPIP-NEO-120",
           "domain": "Conscientiousness",
-          "n_items": 22,
-          "mean_score": 4.9545,
-          "std_score": 0.2083,
+          "n_items": 24,
+          "mean_score": 4.9583,
+          "std_score": 0.1998,
           "min_score": 4,
           "max_score": 5
         },
@@ -120316,17 +121163,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Love large parties\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"4badf7964a704114d8f50fa99244093d-ZXhhb\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.699
+          "raw_response": "5",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "5",
+                "thoughtSignature": "AY89a1+ivNfp43ESDd3/EKyinqYsCDIfAoblqE+BeXL7OprmIAutD36x/vSzNqgKEAE="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T23:12:48"
+          "parsed_value": 5,
+          "scored_value": 5,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 1.042,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:37:11",
+          "backfilled": true
         },
         {
           "persona": "ESFJ",
@@ -120338,17 +121202,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Believe in the importance of art\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"b5c210d8b63330e8765639c39668e7d8-QnNMY\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.701
+          "raw_response": "4",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "4",
+                "thoughtSignature": "AY89a1/LZcqBTLpBsTYNvmDvYqITitdtIv+afjG8RlIn1iqdEi0uczO7Ehg9rdhQ00c="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T23:12:48"
+          "parsed_value": 4,
+          "scored_value": 4,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 1.304,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:37:11",
+          "backfilled": true
         },
         {
           "persona": "ESFJ",
@@ -121196,17 +122077,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Fear for the worst\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"0a1a335f1f7f5873f583bae069245e34-YTJ3T\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.646
+          "raw_response": "2",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "2",
+                "thoughtSignature": "AY89a1/7FX71jJT/IEAvCIiHyV2LGt+D6mtF1AqwNiytY1CYUe/+V2OvzFx6XUs0I4k="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T23:12:57"
+          "parsed_value": 2,
+          "scored_value": 2,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 2,
+            "elapsed_s": 8.963,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:37:19",
+          "backfilled": true
         },
         {
           "persona": "ESFJ",
@@ -127557,27 +128455,27 @@
         "IPIP-NEO-120::Neuroticism": {
           "scale": "IPIP-NEO-120",
           "domain": "Neuroticism",
-          "n_items": 23,
-          "mean_score": 1.9565,
-          "std_score": 0.8064,
+          "n_items": 24,
+          "mean_score": 1.9583,
+          "std_score": 0.7895,
           "min_score": 1,
           "max_score": 4
         },
         "IPIP-NEO-120::Extraversion": {
           "scale": "IPIP-NEO-120",
           "domain": "Extraversion",
-          "n_items": 23,
-          "mean_score": 4.0,
-          "std_score": 1.3188,
+          "n_items": 24,
+          "mean_score": 4.0417,
+          "std_score": 1.3064,
           "min_score": 1,
           "max_score": 5
         },
         "IPIP-NEO-120::Openness": {
           "scale": "IPIP-NEO-120",
           "domain": "Openness",
-          "n_items": 23,
-          "mean_score": 3.0,
-          "std_score": 1.0632,
+          "n_items": 24,
+          "mean_score": 3.0417,
+          "std_score": 1.0598,
           "min_score": 2,
           "max_score": 5
         },
@@ -128789,17 +129687,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Get angry easily\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"2142a747cd540f979ec2dfd841ce672e-T0RQQ\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 28.224
+          "raw_response": "1",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "1",
+                "thoughtSignature": "AY89a1/OjgT+GluqJXq/dZmhyoUQltgJPnvCNbxDLkKJWwN3NtdQHphBdO0F5+Ug4Ug="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T23:14:01"
+          "parsed_value": 1,
+          "scored_value": 1,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 4.657,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:37:24",
+          "backfilled": true
         },
         {
           "persona": "ENFJ",
@@ -128849,17 +129764,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Believe in the importance of art\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"5c10c2b69ceb26f3a67c41c6a2cbcc6e-WU9Ya\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 28.125
+          "raw_response": "5",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "5",
+                "thoughtSignature": "AY89a19a51g5JPfYX1Nc4d7W3KSENfm/IWZaEx9WvFp+kbq4/Tt99bt/EemqtcSN2pQ="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T23:14:01"
+          "parsed_value": 5,
+          "scored_value": 5,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 2,
+            "elapsed_s": 8.952,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:37:28",
+          "backfilled": true
         },
         {
           "persona": "ENFJ",
@@ -129327,17 +130259,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Go on binges\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"bc5f31909316c90ef35e8c2297de2c3f-bVlUZ\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.898
+          "raw_response": "1",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "1",
+                "thoughtSignature": "AY89a18w5SwZLTk0NDwaO+Jdh0p0bU0Egk8dq8Lqw1BTrghyQLXbRN8MUxcWTq+Aea8="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T23:14:04"
+          "parsed_value": 1,
+          "scored_value": 1,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 1.02,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:37:20",
+          "backfilled": true
         },
         {
           "persona": "ENFJ",
@@ -130869,17 +131818,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Act comfortable with others\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"a2e81427a310ee7b8fbf20c542d92f58-RHlvU\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 28.165
+          "raw_response": "5",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "5",
+                "thoughtSignature": "AY89a1/umjlwjCrHfMgoXNURfdDQqwtsv1nZ/m6KeqMnrVRr1AjZbvab4/XCQHxaBqk="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T23:14:17"
+          "parsed_value": 5,
+          "scored_value": 5,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 2,
+            "elapsed_s": 8.993,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:37:28",
+          "backfilled": true
         },
         {
           "persona": "ENFJ",
@@ -131157,17 +132123,34 @@
           "keyed": "-",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Leave a mess in my room\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"88ccec5cef102128e7a36333897342ef-V0c4T\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 28.165
+          "raw_response": "1",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "1",
+                "thoughtSignature": "AY89a1/1LrNXcgpICS99B2WecJp91k80jFudRhcQl9lse0khKkCUQsPCNTv0jjorZFs="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T23:14:20"
+          "parsed_value": 1,
+          "scored_value": 5,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 0.883,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:37:21",
+          "backfilled": true
         },
         {
           "persona": "ENFJ",
@@ -136036,27 +137019,27 @@
         "IPIP-NEO-120::Neuroticism": {
           "scale": "IPIP-NEO-120",
           "domain": "Neuroticism",
-          "n_items": 22,
-          "mean_score": 2.1364,
-          "std_score": 1.0133,
+          "n_items": 24,
+          "mean_score": 2.0417,
+          "std_score": 1.0198,
           "min_score": 1,
           "max_score": 4
         },
         "IPIP-NEO-120::Extraversion": {
           "scale": "IPIP-NEO-120",
           "domain": "Extraversion",
-          "n_items": 23,
-          "mean_score": 4.3478,
-          "std_score": 1.0471,
+          "n_items": 24,
+          "mean_score": 4.375,
+          "std_score": 1.0333,
           "min_score": 1,
           "max_score": 5
         },
         "IPIP-NEO-120::Openness": {
           "scale": "IPIP-NEO-120",
           "domain": "Openness",
-          "n_items": 23,
-          "mean_score": 4.2609,
-          "std_score": 0.7353,
+          "n_items": 24,
+          "mean_score": 4.2917,
+          "std_score": 0.7348,
           "min_score": 2,
           "max_score": 5
         },
@@ -136072,9 +137055,9 @@
         "IPIP-NEO-120::Conscientiousness": {
           "scale": "IPIP-NEO-120",
           "domain": "Conscientiousness",
-          "n_items": 23,
-          "mean_score": 4.2609,
-          "std_score": 0.6736,
+          "n_items": 24,
+          "mean_score": 4.2917,
+          "std_score": 0.6757,
           "min_score": 2,
           "max_score": 5
         },
@@ -137268,17 +138251,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Get angry easily\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"11e3e72fe97d5433995de3b779b861a2-aXdRT\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.503
+          "raw_response": "2",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "2",
+                "thoughtSignature": "AY89a1+0tYl35S0giwxmuqtrYK95auWb1TQnUGx1g4f+xTsyCorv8iPMwwdQDxrTFwY="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T23:15:13"
+          "parsed_value": 2,
+          "scored_value": 2,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 0.914,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:37:29",
+          "backfilled": true
         },
         {
           "persona": "ENTJ",
@@ -137594,17 +138594,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Keep my promises\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"c7da666301d041c425babd0020cf689a-eldTY\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.502
+          "raw_response": "5",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "5",
+                "thoughtSignature": "AY89a1/ZNcSEp45cR/hYpoV7saCMMsg0xBDqujQJMm82n5cXgHlRlbX77b6Q2q3rqg8="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T23:15:13"
+          "parsed_value": 5,
+          "scored_value": 5,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 2,
+            "elapsed_s": 9.134,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:37:37",
+          "backfilled": true
         },
         {
           "persona": "ENTJ",
@@ -138642,17 +139659,34 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Feel others' emotions\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"d66ed8174c99b4c316c163027cf908e5-OFZBe\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.624
+          "raw_response": "1",
+          "full_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "1",
+                "thoughtSignature": "AY89a1/g5dZnJkUVinQee9oE+E+zG699dAxWjXbEAqHeWDMG5a9F31OP71rfA5DKMuU="
+              }
+            ]
           },
-          "timestamp": "2026-05-13T23:15:26"
+          "parsed_value": 1,
+          "scored_value": 1,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 0.898,
+            "http_status": 200,
+            "raw_keys": [
+              "candidates",
+              "usageMetadata",
+              "modelVersion",
+              "createTime",
+              "responseId"
+            ]
+          },
+          "timestamp": "2026-05-14T20:37:29",
+          "backfilled": true
         },
         {
           "persona": "ENTJ",
@@ -144547,9 +145581,9 @@
         "IPIP-NEO-120::Neuroticism": {
           "scale": "IPIP-NEO-120",
           "domain": "Neuroticism",
-          "n_items": 23,
-          "mean_score": 1.2174,
-          "std_score": 0.6565,
+          "n_items": 24,
+          "mean_score": 1.25,
+          "std_score": 0.6614,
           "min_score": 1,
           "max_score": 4
         },
@@ -144565,9 +145599,9 @@
         "IPIP-NEO-120::Openness": {
           "scale": "IPIP-NEO-120",
           "domain": "Openness",
-          "n_items": 23,
-          "mean_score": 3.1739,
-          "std_score": 1.4935,
+          "n_items": 24,
+          "mean_score": 3.0833,
+          "std_score": 1.5253,
           "min_score": 1,
           "max_score": 5
         },
@@ -144583,9 +145617,9 @@
         "IPIP-NEO-120::Conscientiousness": {
           "scale": "IPIP-NEO-120",
           "domain": "Conscientiousness",
-          "n_items": 23,
-          "mean_score": 4.6522,
-          "std_score": 0.6984,
+          "n_items": 24,
+          "mean_score": 4.6667,
+          "std_score": 0.6872,
           "min_score": 2,
           "max_score": 5
         },
@@ -144664,5 +145698,11 @@
       }
     }
   },
-  "errors": []
+  "errors": [],
+  "backfill_timestamp": "2026-05-14T20:37:37",
+  "backfill_stats": {
+    "attempted": 60,
+    "succeeded": 60,
+    "still_failed": 0
+  }
 }

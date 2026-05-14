@@ -95782,17 +95782,38 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Get angry easily\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"ba4449858bbd1407cf6d0fc2e3b9bc3a-SW9sY\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.813
+          "raw_response": "<think>\nThe user is asking me to respond to the statement \"Get angry easily\" as an ESFP personality type.\n\nESFPs are described as: Outgoing, friendly, and accepting. Exuberant lovers of life, people, and material comforts. Enjoy working with others to make things happen. Bring common sense and a realistic approach to their work and make work fun. Flexible and spontaneous, adapt readily to new people and environments. Learn best by trying a new skill with other people.\n\nESFPs are generally warm, enthusiastic, and optimistic people who focus on the present moment and enjoy interacting with others. They tend to be easygoing and go-with-the-flow rather than easily angered or irritable. They typically don't get angry easily because they're so focused on having fun, enjoying life, and maintaining positive relationships with others.\n\nSo for \"Get angry easily,\" an ESFP would likely respond toward the lower end - either 1 (Strongly Disagree) or 2 (Disagree).\n\nI'll go with 2 (Disagree) as it's a fair representation of how an ESFP would view themselves regarding anger.\n</think>\n\n2",
+          "full_response": {
+            "content": "<think>\nThe user is asking me to respond to the statement \"Get angry easily\" as an ESFP personality type.\n\nESFPs are described as: Outgoing, friendly, and accepting. Exuberant lovers of life, people, and material comforts. Enjoy working with others to make things happen. Bring common sense and a realistic approach to their work and make work fun. Flexible and spontaneous, adapt readily to new people and environments. Learn best by trying a new skill with other people.\n\nESFPs are generally warm, enthusiastic, and optimistic people who focus on the present moment and enjoy interacting with others. They tend to be easygoing and go-with-the-flow rather than easily angered or irritable. They typically don't get angry easily because they're so focused on having fun, enjoying life, and maintaining positive relationships with others.\n\nSo for \"Get angry easily,\" an ESFP would likely respond toward the lower end - either 1 (Strongly Disagree) or 2 (Disagree).\n\nI'll go with 2 (Disagree) as it's a fair representation of how an ESFP would view themselves regarding anger.\n</think>\n\n2",
+            "role": "assistant",
+            "name": "MiniMax AI",
+            "audio_content": ""
           },
-          "timestamp": "2026-05-13T21:52:56"
+          "parsed_value": 2,
+          "scored_value": 2,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 6.362,
+            "http_status": 200,
+            "raw_keys": [
+              "id",
+              "choices",
+              "created",
+              "model",
+              "object",
+              "usage",
+              "input_sensitive",
+              "output_sensitive",
+              "input_sensitive_type",
+              "output_sensitive_type",
+              "output_sensitive_int",
+              "base_resp"
+            ]
+          },
+          "timestamp": "2026-05-14T20:39:19",
+          "backfilled": true
         },
         {
           "persona": "ESFP",
@@ -96140,17 +96161,38 @@
           "keyed": "+",
           "response_format": "likert_5",
           "user_prompt": "Please respond to the following statement as honestly as possible.\nStatement: \"Keep my promises\"\nRespond with a single number from 1 to 5:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\nYour response:",
-          "raw_response": null,
-          "full_response": null,
-          "parsed_value": null,
-          "scored_value": null,
-          "parse_failed": false,
-          "request_error": "HTTP 429: {\"error\":{\"cause\":\"request limit for seconds\",\"code\":429,\"message\":\"访问限制\",\"status\":\"RATE_LIMIT\"},\"requestId\":\"8bcf34a7a537f4b2cce9ace95593f10e-T2NBM\",\"result\":null}",
-          "telemetry": {
-            "attempts": 10,
-            "elapsed_s": 27.813
+          "raw_response": "<think>\nThe user is asking me to respond to the statement \"Keep my promises\" on a scale of 1-5, where:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\n\nI need to answer as an ESFP personality type. ESFPs are typically:\n- Outgoing, friendly, and accepting\n- Exuberant lovers of life, people, and material comforts\n- Enjoy working with others to make things happen\n- Bring common sense and a realistic approach\n- Flexible and spontaneous, adapt readily to new people and environments\n- Learn best by trying new skills with other people\n\nESFPs tend to value relationships and people highly. They are generally warm and caring individuals who want to maintain good relationships with others. Keeping promises is important for maintaining trust and relationships with people.\n\nGiven that ESFPs are outgoing, value people and relationships, and tend to be supportive friends and companions, they would likely agree that keeping promises is important. They value their connections with others and would want to be seen as trustworthy and reliable.\n\nSo I would say they would likely choose 4 (Agree) or 5 (Strongly Agree).\n\nI'll go with 4 (Agree) as it's a good representation of the ESFP personality - they value keeping promises to maintain their relationships, but might not be as rigid about it as someone with a more Judging preference might be.\n</think>\n\n4",
+          "full_response": {
+            "content": "<think>\nThe user is asking me to respond to the statement \"Keep my promises\" on a scale of 1-5, where:\n1 = Strongly Disagree\n2 = Disagree\n3 = Neutral\n4 = Agree\n5 = Strongly Agree\n\nI need to answer as an ESFP personality type. ESFPs are typically:\n- Outgoing, friendly, and accepting\n- Exuberant lovers of life, people, and material comforts\n- Enjoy working with others to make things happen\n- Bring common sense and a realistic approach\n- Flexible and spontaneous, adapt readily to new people and environments\n- Learn best by trying new skills with other people\n\nESFPs tend to value relationships and people highly. They are generally warm and caring individuals who want to maintain good relationships with others. Keeping promises is important for maintaining trust and relationships with people.\n\nGiven that ESFPs are outgoing, value people and relationships, and tend to be supportive friends and companions, they would likely agree that keeping promises is important. They value their connections with others and would want to be seen as trustworthy and reliable.\n\nSo I would say they would likely choose 4 (Agree) or 5 (Strongly Agree).\n\nI'll go with 4 (Agree) as it's a good representation of the ESFP personality - they value keeping promises to maintain their relationships, but might not be as rigid about it as someone with a more Judging preference might be.\n</think>\n\n4",
+            "role": "assistant",
+            "name": "MiniMax AI",
+            "audio_content": ""
           },
-          "timestamp": "2026-05-13T21:52:56"
+          "parsed_value": 4,
+          "scored_value": 4,
+          "parse_failed": false,
+          "request_error": null,
+          "telemetry": {
+            "attempts": 1,
+            "elapsed_s": 8.438,
+            "http_status": 200,
+            "raw_keys": [
+              "id",
+              "choices",
+              "created",
+              "model",
+              "object",
+              "usage",
+              "input_sensitive",
+              "output_sensitive",
+              "input_sensitive_type",
+              "output_sensitive_type",
+              "output_sensitive_int",
+              "base_resp"
+            ]
+          },
+          "timestamp": "2026-05-14T20:39:21",
+          "backfilled": true
         },
         {
           "persona": "ESFP",
@@ -103837,9 +103879,9 @@
         "IPIP-NEO-120::Neuroticism": {
           "scale": "IPIP-NEO-120",
           "domain": "Neuroticism",
-          "n_items": 23,
-          "mean_score": 2.3478,
-          "std_score": 0.9605,
+          "n_items": 24,
+          "mean_score": 2.3333,
+          "std_score": 0.9428,
           "min_score": 1,
           "max_score": 4
         },
@@ -103873,9 +103915,9 @@
         "IPIP-NEO-120::Conscientiousness": {
           "scale": "IPIP-NEO-120",
           "domain": "Conscientiousness",
-          "n_items": 23,
-          "mean_score": 2.9565,
-          "std_score": 0.9079,
+          "n_items": 24,
+          "mean_score": 3.0,
+          "std_score": 0.9129,
           "min_score": 2,
           "max_score": 4
         },
@@ -160612,5 +160654,11 @@
       }
     }
   },
-  "errors": []
+  "errors": [],
+  "backfill_timestamp": "2026-05-14T20:39:21",
+  "backfill_stats": {
+    "attempted": 2,
+    "succeeded": 2,
+    "still_failed": 0
+  }
 }
