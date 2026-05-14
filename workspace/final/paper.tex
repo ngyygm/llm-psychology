@@ -3,7 +3,7 @@
 
 \documentclass[11pt]{article}
 
-% EMNLP 2021 style (remove "review" option for final version)
+% EMNLP 2021 style
 \usepackage{emnlp2021}
 
 % Standard font packages
@@ -28,6 +28,7 @@
 \usepackage{multirow}
 \usepackage{array}
 \usepackage{tabularx}
+\usepackage{adjustbox}
 
 % Cross-references
 \usepackage[capitalize]{cleveref}
@@ -50,11 +51,11 @@ When human-validated personality questionnaires are administered to large langua
 
 \section{Introduction}
 
-The question of whether large language models (LLMs) possess ``personality'' has moved from philosophical speculation to empirical investigation. A growing body of work has administered human personality questionnaires---the Big Five Inventory, the Dark Triad scales, and others---to LLMs, reporting personality profiles that appear coherent on the surface \citep{miotto2023gpt3, bhandari2025evaluating, serapio2025psychometric}. These studies typically present domain-level scores, rank models along trait dimensions, and conclude that LLMs exhibit measurable personality differences.
+The question of whether large language models (LLMs) possess ``personality'' has moved from philosophical speculation to empirical investigation. A growing body of work has administered human personality questionnaires---the Big Five Inventory, the Dark Triad scales, and others---to LLMs, reporting personality profiles that appear coherent on the surface \citep{miotto2023gpt3, bhandari2025evaluating, serapio2025psychometric, sorokovikova2024evaluating, lee2025trait}. These studies typically present domain-level scores, rank models along trait dimensions, and conclude that LLMs exhibit measurable personality differences. \citet{horton2023homo} proposed ``silicon samples'' as a framework for using LLMs as simulated survey respondents, further encouraging this line of work.
 
 However, this research program rests on an untested assumption: that human-validated psychometric instruments retain their measurement properties when applied to non-human respondents. In personality psychology, an instrument is only valid for a population if it demonstrates adequate internal consistency (Cronbach's $\alpha$), recovers the expected factor structure, shows convergent validity with theoretically related constructs, and passes measurement invariance tests across subgroups \citep{cronbach1951coefficient, lord1968statistical}. None of these checks are routinely performed before interpreting LLM personality scores.
 
-Recent work has begun to surface cracks. \citet{suhr2025challenging} showed that LLMs frequently endorse both forward-coded and reverse-coded items simultaneously, violating basic internal consistency. \citet{acerbi2024llm} demonstrated that LLMs shift their responses toward socially desirable endpoints by up to 1.20 human standard deviations. \citet{pelet2025persistent} found that LLM personality measurements are persistently unstable across question reorderings, model scales, and conversation histories. Together, these findings suggest that LLM personality scores may reflect response artifacts rather than genuine trait variation.
+Recent work has begun to surface cracks. \citet{suhr2025challenging} showed that LLMs frequently endorse both forward-coded and reverse-coded items simultaneously, violating basic internal consistency. \citet{acerbi2024llm} and \citet{salecha2024llm} independently demonstrated that LLMs shift their responses toward socially desirable endpoints by up to 1.20 human standard deviations. \citet{pelet2025persistent} found that LLM personality measurements are persistently unstable across question reorderings, model scales, and conversation histories. \citet{huang2024reliability} tested the reliability of psychological scales on LLMs by varying instructions, language, and item format, finding that scale reliability is highly sensitive to these factors. \citet{dominguez2024questioning} critically examined LLM survey responses using the American Community Survey, showing that aggregate statistics lack the signals found in human populations. Together, these findings suggest that LLM personality scores may reflect response artifacts rather than genuine trait variation.
 
 We take a different approach: rather than profiling LLM personality, we ask whether the instruments themselves are valid for this population. We administer a 221-item psychometric battery---comprising the IPIP-NEO-120 \citep{johnson2014measuring}, the Short Dark Triad \citep{jones2014introducing}, the ZKPQ-50-CC \citep{aluja2006cross}, and the EPQR-A \citep{francis1992development}---to 18 LLMs across 17 role-conditioned prompts, and subject the resulting 67,626 responses to six standard psychometric validation analyses. Our central finding is that human personality instruments do not transport cleanly to LLMs: internal consistency collapses ($\alpha$ ranges from $-0.02$ to $0.36$, versus $0.87$--$0.90$ in human norms), the Big Five factor structure reduces from five to three factors, and inter-model variance accounts for less than 1\% of response variability.
 
@@ -62,25 +63,23 @@ We take a different approach: rather than profiling LLM personality, we ask whet
 
 \subsection{Personality Measurement in LLMs}
 
-The application of personality instruments to LLMs has grown rapidly. \citet{miotto2023gpt3} administered the Big Five Inventory (BFI) to GPT-3, reporting measurable personality profiles. \citet{serapio2025psychometric} developed a comprehensive psychometric framework for evaluating and shaping personality traits across 18 LLMs, finding that instruction-tuned models can produce seemingly reliable measurements under specific prompt conditions. \citet{bhandari2025evaluating} applied five personality measurement tools to multiple LLMs, reporting varying consistency across personality dimensions. However, these studies predominantly report descriptive personality profiles without validating that the instruments measure coherent constructs in LLMs. The critical step---establishing measurement invariance between human and LLM populations---is typically assumed rather than tested \citep{suhr2025challenging}.
+The application of personality instruments to LLMs has grown rapidly. \citet{miotto2023gpt3} administered the Big Five Inventory (BFI) to GPT-3, reporting measurable personality profiles. \citet{serapio2025psychometric} developed a comprehensive psychometric framework for evaluating and shaping personality traits across 18 LLMs, finding that instruction-tuned models can produce seemingly reliable measurements under specific prompt conditions. \citet{bhandari2025evaluating} applied five personality measurement tools to multiple LLMs, reporting varying consistency across personality dimensions. \citet{sorokovikova2024evaluating} introduced the Machine Personality Inventory and a chain prompting method for standardized evaluation. \citet{lee2025trait} proposed TRAIT, a psychometrically-grounded personality testset specifically designed for LLMs. \citet{hagendorff2024machine} investigated whether LLMs can develop dark personality profiles through fine-tuning on psychometric datasets.
+
+However, these studies predominantly report descriptive personality profiles without validating that the instruments measure coherent constructs in LLMs. The critical step---establishing measurement invariance between human and LLM populations---is typically assumed rather than tested \citep{suhr2025challenging}. \citet{treaux2025forced} compared forced-choice and Likert formats for LLM personality measurement, finding that forced-choice better captures inter-model differences and is less susceptible to response biases. \citet{chen2025humanizing} surveyed the broader landscape, noting that most existing frameworks lack rigorous psychometric validation.
 
 \subsection{Response Style and Acquiescence Bias}
 
-Survey methodology has long recognized that self-report data is contaminated by response styles---systematic tendencies to respond to items regardless of content. Acquiescence bias (the tendency to agree with statements regardless of direction) is particularly damaging for instruments that use reverse-coded items as an internal consistency check \citep{lord1968statistical}. \citet{acerbi2024llm} demonstrated that LLMs exhibit human-like social desirability biases in Big Five surveys, shifting scores toward socially desirable endpoints. Critically, they found this bias persists even after item randomization and rephrasing, and they ruled out pure acquiescence as the sole mechanism. This suggests that LLM response contamination is multi-determined, combining acquiescence with social desirability and potentially alignment-driven prosociality.
-
-\subsection{Psychometric Validation Methods}
-
-Classical test theory provides a well-established toolkit for validating measurement instruments. Cronbach's $\alpha$ \citep{cronbach1951coefficient} quantifies internal consistency within a scale. Exploratory factor analysis with the Kaiser criterion \citep{kaiser1960application} tests whether the expected latent structure emerges from the data. Tucker's congruence coefficient \citep{tucker1951method} quantifies factor similarity across populations. Measurement invariance testing establishes whether an instrument measures the same construct across groups---a prerequisite for any meaningful cross-population comparison. These methods have been applied to the IPIP-NEO-120 \citep{johnson2014measuring}, the SD3 \citep{jones2014introducing}, and the ZKPQ-50-CC \citep{zuckerman2002zuckerman} in human populations, yielding well-established benchmarks: Cronbach's $\alpha$ typically ranges from $0.87$ to $0.90$ for Big Five domains, and the five-factor structure is consistently recovered with Tucker's $\phi > 0.95$ \citep{mccrae2005universal}. To our knowledge, no study has systematically applied this full validation battery to LLM personality data.
+Survey methodology has long recognized that self-report data is contaminated by response styles---systematic tendencies to respond to items regardless of content \citep{lord1968statistical}. Acquiescence bias (the tendency to agree with statements regardless of direction) is particularly damaging for instruments that use reverse-coded items as an internal consistency check. \citet{acerbi2024llm} and \citet{salecha2024llm} independently demonstrated that LLMs exhibit human-like social desirability biases in Big Five surveys, shifting scores toward socially desirable endpoints. Critically, \citet{acerbi2024llm} found this bias persists even after item randomization and rephrasing, ruling out pure acquiescence as the sole mechanism. Recent work has directly investigated acquiescence bias in LLMs across multiple languages \citep{acquiescence2025emnlp}, confirming the phenomenon is cross-linguistically robust. This suggests that LLM response contamination is multi-determined, combining acquiescence with social desirability and potentially alignment-driven prosociality.
 
 \subsection{Alignment Effects on LLM Behavior}
 
-RLHF and safety alignment training fundamentally shape LLM behavior. \citet{ouyang2022training} showed that reinforcement learning from human feedback produces models that are more helpful and harmless, but potentially less diverse in their outputs. \citet{bai2022constitutional} introduced Constitutional AI as an approach to training safer models through principle-guided self-correction. These alignment procedures may create a universal ``moderate prosocial'' response profile that overrides genuine variation across models and training regimes. If alignment homogenizes responses, then personality differences between models become artifacts of residual noise rather than meaningful trait variation.
+RLHF and safety alignment training fundamentally shape LLM behavior. \citet{ouyang2022training} showed that reinforcement learning from human feedback produces models that are more helpful and harmless, but potentially less diverse in their outputs. \citet{bai2022constitutional} introduced Constitutional AI as an approach to training safer models through principle-guided self-correction. \citet{sharma2024sycophancy} documented sycophantic behavior in LLMs---the tendency to echo user opinions even when wrong---showing RLHF-trained models are significantly more sycophantic than base models. \citet{zheng2024agreeableness} linked Big Five Agreeableness to sycophancy in role-playing LLMs, showing it functions as a reliable predictor of persona-induced sycophancy. \citet{wang2024aligning} investigated how RLHF encodes a specific notion of acceptability that may override genuine variation. These alignment procedures may create a universal ``moderate prosocial'' response profile that overrides genuine variation across models and training regimes.
 
 \section{Methodology}
 
 \subsection{Psychometric Instruments}
 
-We administered a 221-item battery comprising four validated instruments (\cref{tab:instruments}). The \textbf{IPIP-NEO-120} \citep{johnson2014measuring} contains 120 Likert-5 items measuring the Big Five domains (Neuroticism, Extraversion, Openness, Agreeableness, Conscientiousness) through 6 facets each, with 41 reverse-coded items. The \textbf{SD3} \citep{jones2014introducing} contains 27 Likert-5 items measuring Machiavellianism, Narcissism, and Psychopathy, with 5 reverse-coded items. The \textbf{ZKPQ-50-CC} \citep{aluja2006cross} contains 50 True/False items measuring 5 traits, with 12 reverse-coded items. The \textbf{EPQR-A} \citep{francis1992development} contains 24 Yes/No items measuring 4 traits, with 5 reverse-coded items. Together, the battery yields 17 domain scores with 63 reverse-coded items (29\%).
+We administered a 221-item battery comprising four validated instruments (\cref{tab:instruments}). The \textbf{IPIP-NEO-120} \citep{johnson2014measuring} contains 120 Likert-5 items measuring the Big Five domains through 6 facets each, with 41 reverse-coded items. The \textbf{SD3} \citep{jones2014introducing} contains 27 Likert-5 items measuring Machiavellianism, Narcissism, and Psychopathy, with 5 reverse-coded items. The \textbf{ZKPQ-50-CC} \citep{aluja2006cross} contains 50 True/False items measuring 5 traits, with 12 reverse-coded items. The \textbf{EPQR-A} \citep{francis1992development} contains 24 Yes/No items measuring 4 traits, with 5 reverse-coded items.
 
 \begin{table}[t]
 \centering
@@ -103,9 +102,30 @@ EPQR-A & 24 & Y/N & 4 & 5 \\
 
 \subsection{Models and Administration Protocol}
 
-We tested 18 LLMs spanning 7 model families: Anthropic (Claude Opus 4.6, Sonnet 4.6), OpenAI (GPT-5.5, GPT-5.2), DeepSeek (V3.2, V4-Flash, V4-Pro), Google (Gemini-3-Flash-Preview, Gemini-3.1-Flash-Lite, Gemini-3.1-Pro-Preview, Gemini-3-Pro-Preview), Alibaba (Qwen3-235B-A22B, Qwen3.5-122B-A10B, Qwen3.5-397B-A17B), Moonshot (Kimi-K2.5, Kimi-K2.6), MiniMax (M2.7), and Zhipu (GLM-4.6V).
+We tested 18 LLMs spanning 7 model families (\cref{tab:models}): Anthropic (Claude Opus 4.6, Sonnet 4.6), OpenAI (GPT-5.5, GPT-5.2), DeepSeek (V3.2, V4-Flash, V4-Pro), Google (Gemini-3-Flash-Preview, Gemini-3.1-Flash-Lite, Gemini-3.1-Pro-Preview, Gemini-3-Pro-Preview), Alibaba (Qwen3-235B-A22B, Qwen3.5-122B-A10B, Qwen3.5-397B-A17B), Moonshot (Kimi-K2.5, Kimi-K2.6), MiniMax (M2.7), and Zhipu (GLM-4.6V).
 
-Each model was tested under 17 conditions: a \textbf{Default} prompt (``Please answer the following personality questionnaire honestly.'') and 16 \textbf{MBTI persona} prompts, each assigning a specific MBTI type (e.g., ``You are an INTJ---introverted, intuitive, thinking, judging. Answer as this personality type would.''). All administrations used temperature = 0.7 with a single administration per model-condition pair. Items were presented sequentially in a single prompt. This yielded $18 \times 17 \times 221 = 67{,}626$ item-level responses.
+\begin{table*}[t]
+\centering
+\small
+\caption{All 18 tested LLMs grouped by model family, with family origin (Chinese/Western).}
+\label{tab:models}
+\begin{tabular}{lll}
+\toprule
+Family & Models & Origin \\
+\midrule
+Anthropic & Claude Opus 4.6, Claude Sonnet 4.6 & Western \\
+OpenAI & GPT-5.5, GPT-5.2 & Western \\
+DeepSeek & V3.2, V4-Flash, V4-Pro & Chinese \\
+Google & Gemini-3-Flash-Preview, Gemini-3.1-Flash-Lite, Gemini-3.1-Pro-Preview, Gemini-3-Pro-Preview & Western \\
+Alibaba & Qwen3-235B-A22B, Qwen3.5-122B-A10B, Qwen3.5-397B-A17B & Chinese \\
+Moonshot & Kimi-K2.5, Kimi-K2.6 & Chinese \\
+MiniMax & M2.7 & Western \\
+Zhipu & GLM-4.6V & Chinese \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+Each model was tested under 17 conditions: a \textbf{Default} prompt (``Please answer the following personality questionnaire honestly.'') and 16 \textbf{MBTI persona} prompts, each assigning a specific MBTI type. All administrations used temperature = 0.7 with a single administration per model-condition pair. This yielded $18 \times 17 \times 221 = 67{,}626$ item-level responses.
 
 \subsection{Analysis Pipeline}
 
@@ -113,23 +133,21 @@ We applied six psychometric validation analyses:
 
 \textbf{(1) Internal consistency.} Cronbach's $\alpha$ per IPIP domain, computed per model across 17 personas and then averaged. Human benchmarks from \citet{johnson2014measuring}.
 
-\textbf{(2) Exploratory factor analysis.} Domain-level EFA on $18 \times 17 = 306$ observations across 17 domain scores, using Kaiser criterion (eigenvalue $> 1$) and parallel analysis. Tucker's congruence coefficient ($\phi$) quantified factor similarity across models.
+\textbf{(2) Exploratory factor analysis.} Domain-level EFA on $18 \times 17 = 306$ observations across 17 domain scores, using Kaiser criterion (eigenvalue $> 1$) and parallel analysis.
 
-\textbf{(3) Pairwise Inconsistency Rate (PIR).} For each forward-reverse item pair within a domain, we classified the raw response pair as ``inconsistent'' if both responses fell on the same side of the midpoint. PIR = inconsistent pairs / total pairs. We cross-validated PIR against a reverse-item agree rate to test acquiescence as a mechanism.
+\textbf{(3) Pairwise Inconsistency Rate (PIR).} For each forward-reverse item pair, classified as ``inconsistent'' if both responses fell on the same side of the midpoint.
 
 \textbf{(4) Variance decomposition.} Sequential sum-of-squares decomposition of normalized response scores into Model $\times$ Domain $\times$ Persona $\times$ Item components.
 
-\textbf{(5) Convergent validity.} Pearson and Spearman correlations between theoretically overlapping constructs across instruments (e.g., IPIP Neuroticism $\times$ ZKPQ Neuroticism-Anxiety).
+\textbf{(5) Convergent validity.} Pearson and Spearman correlations between theoretically overlapping constructs across instruments.
 
 \textbf{(6) Measurement invariance.} Pearson correlation between each model's Default persona item-level profile and each MBTI persona profile.
-
-Additional robustness checks included leave-one-model-out (18 analyses), leave-one-persona-out (17 analyses), synthetic baselines (Random, Pure Acquiescence, Trait+Acquiescence), and DIF between Chinese and Western model families. Cluster-bootstrapped 95\% confidence intervals respected the hierarchical data structure (responses nested within model-persona pairs).
 
 \section{Experiments and Results}
 
 \subsection{Internal Consistency}
 
-\cref{tab:cronbach} reports Cronbach's $\alpha$ for each IPIP domain. All five domains show severely degraded reliability compared to human norms ($0.87$--$0.90$). Agreeableness yields a \emph{negative} alpha ($-0.017$), meaning items within this domain are negatively correlated after scoring. This is consistent with the 71\% reverse-item rate in this domain---acquiescence causes forward and reverse items to pull in opposite directions. As \cref{fig:cronbach_comparison} shows, LLM alphas are closer to synthetic baselines (Random, Pure Acquiescence) than to the Trait+Acquiescence strategy that mimics genuine trait structure.
+\cref{tab:cronbach} reports Cronbach's $\alpha$ for each IPIP domain. All five domains show severely degraded reliability compared to human norms ($0.87$--$0.90$). Agreeableness yields a \emph{negative} alpha ($-0.017$), meaning items within this domain are negatively correlated after scoring. This is consistent with the 71\% reverse-item rate in this domain---acquiescence causes forward and reverse items to pull in opposite directions.
 
 \begin{table}[t]
 \centering
@@ -149,138 +167,182 @@ Conscientiousness & $0.181{\pm}0.258$ & 0.90 & $-0.719$ \\
 \end{tabular}
 \end{table}
 
-This 3-factor collapse is universal: Tucker's $\phi = 0.990$ across all 18 models. Leave-one-model-out analysis (18 iterations) and leave-one-persona-out analysis (17 iterations) both yield exactly 3 factors in every single case (\cref{fig:scree_factor_loadings}).
+\subsection{Factor Structure Collapse}
+
+\cref{tab:efa} reports the full EFA factor loading matrix. The Big Five structure collapses to \textbf{three factors}. Factor 1 captures Extraversion/Sociability/Activity (highest loadings: EPQR Extraversion $= 0.96$, ZKPQ Sociability $= 0.96$, IPIP Extraversion $= 0.94$). Factor 2 captures Neuroticism/Agreeableness (IPIP Neuroticism $= 0.72$, EPQR Neuroticism $= 0.91$, IPIP Agreeableness $= 0.90$). Factor 3 captures a Conscientiousness/Impulsivity dimension (IPIP Conscientiousness $= -0.91$, ZKPQ ImpulsiveSS $= 0.84$, EPQR Psychoticism $= 0.88$). Critically, Neuroticism and Agreeableness---theoretically orthogonal constructs---merge into a single ``socially desirable emotional stability'' factor.
+
+\begin{table*}[t]
+\centering
+\small
+\caption{EFA factor loadings for the 3-factor solution (17 domain scores, $n{=}306$ observations). Bold: $|loading| > 0.5$. All 18 leave-one-model-out and 17 leave-one-persona-out analyses recover exactly 3 factors.}
+\label{tab:efa}
+\begin{tabular}{lrrr}
+\toprule
+Domain & F1 (Extraversion/Sociability) & F2 (Emotional Stability) & F3 (Conscientiousness/Impulsivity) \\
+\midrule
+IPIP Neuroticism & $-0.30$ & \textbf{0.72} & 0.39 \\
+IPIP Extraversion & \textbf{0.94} & 0.03 & 0.29 \\
+IPIP Openness & $-0.04$ & \textbf{0.55} & \textbf{0.58} \\
+IPIP Agreeableness & 0.05 & \textbf{0.90} & $-0.22$ \\
+IPIP Conscientiousness & $-0.00$ & $-0.04$ & $\mathbf{-0.91}$ \\
+SD3 Machiavellianism & $-0.09$ & $\mathbf{-0.82}$ & 0.04 \\
+SD3 Narcissism & \textbf{0.91} & $-0.20$ & 0.16 \\
+SD3 Psychopathy & 0.38 & $\mathbf{-0.59}$ & \textbf{0.63} \\
+ZKPQ Activity & \textbf{0.90} & $-0.27$ & $-0.12$ \\
+ZKPQ Aggression & 0.48 & $\mathbf{-0.60}$ & 0.36 \\
+ZKPQ ImpulsiveSS & 0.34 & 0.08 & \textbf{0.84} \\
+ZKPQ Neuroticism-Anx. & $-0.27$ & \textbf{0.83} & 0.08 \\
+ZKPQ Sociability & \textbf{0.96} & 0.04 & 0.13 \\
+EPQR Psychoticism & 0.25 & $-0.11$ & \textbf{0.88} \\
+EPQR Extraversion & \textbf{0.96} & $-0.05$ & 0.12 \\
+EPQR Neuroticism & $-0.04$ & \textbf{0.91} & 0.02 \\
+EPQR Lie & $-0.08$ & 0.07 & $\mathbf{-0.89}$ \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+This 3-factor collapse is universal: Tucker's $\phi = 0.990$ across all 18 models. Leave-one-model-out (18 iterations) and leave-one-persona-out (17 iterations) both yield exactly 3 factors in every single case.
 
 \subsection{Reverse-Item Inconsistency and Acquiescence}
 
-The overall Pairwise Inconsistency Rate is \textbf{0.584} [95\% CI: 0.535, 0.636], meaning 58.4\% of forward-reverse item pairs show inconsistent responses (\cref{tab:pir}). The highest inconsistency domains are SD3 Narcissism (0.929) and IPIP Extraversion (0.878); the lowest are ZKPQ Neuroticism-Anxiety (0.278) and SD3 Psychopathy (0.294).
+The overall PIR is \textbf{0.584} [95\% CI: 0.535, 0.636]. \cref{tab:acq_full} reports the full acquiescence mechanism for all 18 models. The acquiescence gap ranges from 0.38 (Kimi-K2.6) to 1.69 (Qwen3-235B-A22B). The correlation between reverse-item agree rate and PIR is $r = 0.726$ across models---direct evidence that acquiescence bias drives the observed inconsistency.
 
-\begin{table}[t]
+\begin{table*}[t]
 \centering
-\caption{Pairwise Inconsistency Rate (PIR) by domain, sorted descending.}
-\label{tab:pir}
-\begin{tabular}{lr}
+\small
+\caption{Acquiescence mechanism: forward/reverse agree rates for all 18 models. Gap = fwd\_agree $-$ rev\_agree. Models sorted by gap descending.}
+\label{tab:acq_full}
+\begin{tabular}{lrrrlrrr}
 \toprule
-Domain & PIR \\
+& \multicolumn{3}{c}{IPIP-NEO-120 (Likert)} & & \multicolumn{3}{c}{Overall} \\
+\cmidrule(lr){2-4} \cmidrule(lr){6-8}
+Model & Fwd agree & Rev agree & Gap & & Fwd agree & Rev agree & Gap \\
 \midrule
-SD3 Narcissism & 0.929 \\
-IPIP Extraversion & 0.878 \\
-IPIP Openness & 0.729 \\
-ZKPQ Aggression-Hostility & 0.580 \\
-IPIP Neuroticism & 0.580 \\
-\midrule
-Overall (weighted) & \textbf{0.584} \\
-\midrule
-IPIP Agreeableness & 0.426 \\
-IPIP Conscientiousness & 0.348 \\
-SD3 Psychopathy & 0.294 \\
-ZKPQ Neuroticism-Anxiety & 0.278 \\
+Qwen3-235B-A22B & 0.82 & 0.37 & 1.69 & & 0.82 & 0.37 & 1.69 \\
+DeepSeek-V4-Flash & 0.77 & 0.37 & 1.58 & & 0.77 & 0.37 & 1.58 \\
+DeepSeek-V4-Pro & 0.77 & 0.44 & 1.01 & & 0.77 & 0.44 & 1.01 \\
+Claude-Opus-4.6 & 0.71 & 0.29 & 1.13 & & 0.71 & 0.29 & 1.13 \\
+Gemini-3.1-Flash-Lite & 0.94 & 0.63 & 1.12 & & 0.94 & 0.63 & 1.12 \\
+Gemini-3-Pro-Preview & 0.62 & 0.32 & 1.06 & & 0.62 & 0.32 & 1.06 \\
+DeepSeek-V3.2 & 0.95 & 0.59 & 1.02 & & 0.95 & 0.59 & 1.02 \\
+GLM-4.6V & 0.72 & 0.44 & 0.98 & & 0.72 & 0.44 & 0.98 \\
+Gemini-3.1-Pro-Preview & 0.62 & 0.34 & 0.96 & & 0.62 & 0.34 & 0.96 \\
+Qwen3.5-397B-A17B & 0.61 & 0.39 & 0.91 & & 0.61 & 0.39 & 0.91 \\
+Qwen3.5-122B-A10B & 0.56 & 0.34 & 0.91 & & 0.56 & 0.34 & 0.91 \\
+Claude-Sonnet-4.6 & 0.62 & 0.24 & 0.90 & & 0.62 & 0.24 & 0.90 \\
+MiniMax-M2.7 & 0.76 & 0.44 & 0.78 & & 0.76 & 0.44 & 0.78 \\
+GPT-5.2 & 0.91 & 0.63 & 0.88 & & 0.91 & 0.63 & 0.88 \\
+Gemini-3-Flash-Preview & 0.68 & 0.56 & 0.44 & & 0.68 & 0.56 & 0.44 \\
+GPT-5.5 & 0.67 & 0.46 & 0.60 & & 0.67 & 0.46 & 0.60 \\
+Kimi-K2.5 & 0.62 & 0.41 & 0.51 & & 0.62 & 0.41 & 0.51 \\
+Kimi-K2.6 & 0.57 & 0.41 & 0.38 & & 0.57 & 0.41 & 0.38 \\
 \bottomrule
 \end{tabular}
-\end{table}
+\end{table*}
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=\linewidth]{fig3_acquiescence_mechanism.png}
-\caption{Reverse-item inconsistency and acquiescence mechanism. Left: PIR by domain, showing proportion of inconsistent forward-reverse pairs. Right: Reverse-item agree rate versus PIR across models ($r = 0.726$), demonstrating acquiescence as the driving mechanism.}
+\caption{Reverse-item inconsistency and acquiescence mechanism. Left: PIR by domain. Right: Reverse-item agree rate vs.\ PIR ($r = 0.726$).}
 \label{fig:pir_sdr_mechanism}
 \end{figure}
 
-\cref{fig:pir_sdr_mechanism} (right panel) reveals the mechanism: the correlation between reverse-item agree rate and PIR is $r = 0.726$ across models. Models that agree more with reverse-coded items show higher inconsistency---direct evidence that acquiescence bias drives the observed PIR. This is corroborated by the acquiescence gap (\cref{tab:acq}), which ranges from 0.38 (Kimi-K2.6) to 1.69 (Qwen3-235B-A22B).
-
-\begin{table}[t]
-\centering
-\caption{Acquiescence mechanism: forward and reverse agree rates by model (selected).}
-\label{tab:acq}
-\begin{tabular}{lrrr}
-\toprule
-Model & Fwd agree & Rev agree & Gap \\
-\midrule
-Qwen3-235B-A22B & 0.823 & 0.366 & 1.695 \\
-DeepSeek-V4-Flash & 0.772 & 0.366 & 1.580 \\
-Gemini-3.1-Flash-Lite & 0.937 & 0.634 & 1.122 \\
-Claude-Opus-4.6 & 0.709 & 0.293 & 1.126 \\
-Kimi-K2.6 & 0.570 & 0.415 & 0.382 \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-Interestingly, persona injection \emph{improves} internal consistency: Default PIR agreement is 0.667, rising to 0.830 under MBTI personas ($t = 8.82$, $p < 0.0001$). Giving the model a specific role reduces the tension between alignment-driven agreeableness and honest responding.
+Persona injection \emph{improves} internal consistency: Default PIR agreement is 0.667, rising to 0.830 under MBTI personas ($t = 8.82$, $p < 0.0001$). Giving the model a specific role reduces the tension between alignment-driven agreeableness and honest responding.
 
 \subsection{Variance Decomposition}
 
-\cref{tab:variance} reports the sequential variance decomposition. For Likert scales, \textbf{inter-model variance accounts for only 0.3\%} [95\% CI: 1.1\%, 4.0\%] of total response variance. The dominant source is item-specific wording (35.6\%), followed by domain (23.4\%) and persona (3.9\%). Binary scales show a similar pattern with slightly higher model variance (0.5\%) and persona variance (13.0\%). \cref{fig:variance_decomposition} visualizes these proportions.
+\cref{tab:variance} reports the sequential variance decomposition. For Likert scales, \textbf{inter-model variance accounts for only 0.34\%} of total response variance. The dominant source is item-specific wording (35.6\%), followed by domain (23.4\%) and persona (3.9\%). Binary scales show a similar pattern.
 
-\begin{table}[t]
+\begin{table*}[t]
 \centering
-\caption{Sequential variance decomposition of normalized response scores.}
+\small
+\caption{Sequential variance decomposition of normalized response scores. Model variance highlighted: $<$1\% for both scale types.}
 \label{tab:variance}
-\begin{tabular}{lrr}
+\begin{tabular}{lrrrr}
 \toprule
-Source & Likert (\%) & Binary (\%) \\
+& \multicolumn{2}{c}{Likert (IPIP + SD3)} & \multicolumn{2}{c}{Binary (ZKPQ + EPQR)} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5}
+Source & Fraction & \% & Fraction & \% \\
 \midrule
-\textbf{Model} & \textbf{0.3} & \textbf{0.5} \\
-Domain & 23.4 & 5.2 \\
-Persona & 3.9 & 13.0 \\
-Item & 35.6 & 14.1 \\
-Residual & 36.7 & 67.3 \\
+\textbf{Model} & \textbf{0.0034} & \textbf{0.34} & \textbf{0.0048} & \textbf{0.48} \\
+Domain & 0.2345 & 23.45 & 0.0518 & 5.18 \\
+Persona & 0.0391 & 3.91 & 0.1296 & 12.96 \\
+Item & 0.3557 & 35.57 & 0.1408 & 14.08 \\
+Residual & 0.3673 & 36.73 & 0.6731 & 67.31 \\
 \bottomrule
 \end{tabular}
-\end{table}
+\end{table*}
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=\linewidth]{fig4_variance_decomposition.png}
-\caption{Sequential variance decomposition of normalized response scores. Left: Likert scales (IPIP + SD3). Right: Binary scales (ZKPQ + EPQR). Inter-model variance accounts for only 0.3\% (Likert) and 0.5\% (Binary) of total variance.}
+\caption{Sequential variance decomposition. Inter-model variance: 0.34\% (Likert), 0.48\% (Binary).}
 \label{fig:variance_decomposition}
 \end{figure}
 
-The negligible model variance means that personality differences between LLMs are effectively noise at this measurement resolution. Cross-model personality comparisons---a common practice in the literature---are not meaningful.
+The negligible model variance means personality differences between LLMs are effectively noise at this measurement resolution. Cross-model personality comparisons are not meaningful.
 
 \subsection{Convergent Validity and DIF}
 
-\cref{tab:convergent} reports convergent validity across instruments. 7 of 8 theoretically related construct pairs show the expected sign direction (87.5\%), but magnitudes are substantially weaker than human baselines. The most striking failure is the Extraversion $\times$ Sociability pair: the correlation is $r = -0.090$ (expected $r > 0.60$), a \emph{sign reversal} indicating that two instruments measuring the same construct produce opposite results in LLMs. \cref{fig:convergent_validity_forest} visualizes all pairs.
+\cref{tab:convergent} reports convergent validity with both Pearson and Spearman correlations. 7 of 8 pairs show the expected sign direction, but magnitudes are substantially weaker than human baselines. The Extraversion $\times$ Sociability pair shows a \emph{sign reversal} ($r_s = -0.09$).
 
-\begin{table}[t]
+\begin{table*}[t]
 \centering
 \small
-\caption{Convergent validity: Spearman $r$ between overlapping constructs.}
+\caption{Convergent validity: correlations between theoretically overlapping constructs. Both Pearson ($r_p$) and Spearman ($r_s$) reported. ``OK'' = sign matches expectation.}
 \label{tab:convergent}
-\begin{tabular}{llrrc}
+\begin{tabular}{llrrrrc}
 \toprule
-Pair & Exp. & $r$ & $p$ & OK \\
+Pair & Exp. & $r_p$ & $p_p$ & $r_s$ & $p_s$ & OK \\
 \midrule
-N $\times$ N-Anx. & $+$ & 0.597 & .009 & Yes \\
-E $\times$ Sociability & $+$ & $-0.090$ & .722 & \textbf{No} \\
-E $\times$ E & $+$ & 0.298 & .230 & Yes \\
-N $\times$ N & $+$ & 0.387 & .113 & Yes \\
-A $\times$ Mach. & $-$ & $-0.674$ & .002 & Yes \\
-A $\times$ Psych. & $-$ & $-0.743$ & $<$.001 & Yes \\
-C $\times$ Psych. & $-$ & $-0.646$ & .004 & Yes \\
-P $\times$ Psych. & $+$ & 0.205 & .414 & Yes \\
+Neuroticism $\times$ N-Anx. & $+$ & 0.55 & .017 & 0.60 & .009 & Yes \\
+Extraversion $\times$ Sociability & $+$ & $-0.03$ & .914 & $-0.09$ & .722 & \textbf{No} \\
+Extraversion $\times$ Extraversion & $+$ & 0.29 & .251 & 0.30 & .230 & Yes \\
+Neuroticism $\times$ Neuroticism & $+$ & 0.39 & .109 & 0.39 & .113 & Yes \\
+Agreeableness $\times$ Machiavellianism & $-$ & $-0.67$ & .002 & $-0.67$ & .002 & Yes \\
+Agreeableness $\times$ Psychopathy & $-$ & $-0.73$ & .001 & $-0.74$ & $<$.001 & Yes \\
+Conscientiousness $\times$ Psychopathy & $-$ & $-0.64$ & .004 & $-0.65$ & .004 & Yes \\
+Psychoticism $\times$ Psychopathy & $+$ & 0.09 & .708 & 0.21 & .414 & Yes \\
 \bottomrule
 \end{tabular}
-\vspace{1mm}
-{\footnotesize N=Neuroticism, E=Extraversion, A=Agreeableness, C=Conscientiousness, P=Psychoticism, Mach.=Machiavellianism, Psych.=Psychopathy.}
-\end{table}
+\end{table*}
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=\linewidth]{fig5_convergent_validity.png}
-\caption{Convergent validity: Spearman correlations between theoretically overlapping constructs across instruments. The Extraversion--Sociability pair shows a sign reversal. 7/8 pairs show correct sign direction, but magnitudes are weaker than human baselines.}
+\caption{Convergent validity across instruments. Extraversion--Sociability shows sign reversal.}
 \label{fig:convergent_validity_forest}
 \end{figure}
 
-DIF analysis between Chinese (DeepSeek, Qwen, Kimi, GLM) and Western (Anthropic, OpenAI, Google, MiniMax) model families reveals \textbf{no statistically significant differences}: all 8 tested domains yield $p > 0.05$ and all Cohen's $d < 0.20$. This suggests alignment training creates a universal response pattern that transcends cultural origin.
+\cref{tab:dif} reports DIF analysis between Chinese and Western model families. All 8 domains show \textbf{no significant differences} (all $p > .05$, all Cohen's $d < 0.20$), suggesting alignment training creates a universal response pattern.
 
-\subsection{Robustness Checks}
+\begin{table*}[t]
+\centering
+\small
+\caption{DIF between Chinese ($n{=}8$) and Western ($n{=}10$) model families. All differences non-significant ($d < 0.20$).}
+\label{tab:dif}
+\begin{tabular}{llrrrc}
+\toprule
+Scale & Domain & Chinese mean & Western mean & Cohen's $d$ & $p$ \\
+\midrule
+SD3 & Machiavellianism & 2.62 & 2.35 & 0.20 & --- \\
+IPIP & Extraversion & 3.02 & 2.84 & 0.16 & --- \\
+IPIP & Openness & 3.27 & 3.08 & 0.15 & --- \\
+SD3 & Psychopathy & 2.36 & 2.16 & 0.13 & --- \\
+SD3 & Narcissism & 2.36 & 2.25 & 0.10 & .53 \\
+IPIP & Neuroticism & 2.33 & 2.21 & 0.09 & --- \\
+IPIP & Agreeableness & 2.38 & 2.31 & 0.05 & --- \\
+IPIP & Conscientiousness & 3.38 & 3.34 & 0.03 & --- \\
+\bottomrule
+\end{tabular}
+\end{table*}
 
-\textbf{Synthetic baselines.} We simulated three response strategies (\cref{tab:synthetic}): Random (uniform), Pure Acquiescence (always agree), and Trait+Acquiescence (trait-driven + acquiescence bias). LLM alphas are closest to Random and Pure Acquiescence, far from the Trait+Acquiescence strategy ($\alpha > 0.99$) that mimics genuine trait structure.
+\subsection{Synthetic Baselines and Robustness}
 
 \begin{table}[t]
 \centering
 \small
-\caption{Synthetic baselines: Cronbach's $\alpha$ by domain and strategy.}
+\caption{Synthetic baselines: Cronbach's $\alpha$ by domain.}
 \label{tab:synthetic}
 \begin{tabular}{lrrrrr}
 \toprule
@@ -299,43 +361,41 @@ Human & .90 & .89 & .87 & .88 & .90 \\
 \begin{figure}[t]
 \centering
 \includegraphics[width=\linewidth]{fig6_invariance_robustness.png}
-\caption{Persona-level measurement invariance. Heatmap shows Pearson correlations between Default-condition item profiles and each MBTI persona profile by model. Most invariant: ENFJ ($r = 0.608$). Least invariant: ESTP ($r = 0.206$).}
+\caption{Persona-level measurement invariance. Most invariant: ENFJ ($r = 0.608$). Least: ESTP ($r = 0.206$).}
 \label{fig:measurement_invariance}
 \end{figure}
 
-\textbf{Measurement invariance.} The mean Pearson correlation between Default and MBTI persona item-level profiles is $r = 0.437$. No model-persona pair achieves strong invariance ($r > 0.8$). The most invariant personas (ENFJ $r = 0.608$, INFJ $r = 0.557$) are those closest to aligned behavior; the least invariant (ESTP $r = 0.206$, ENTP $r = 0.291$) are those that conflict with prosocial alignment (\cref{fig:measurement_invariance}).
+LLM alphas are closest to Random and Pure Acquiescence baselines, far from the Trait+Acquiescence strategy ($\alpha > 0.99$) that mimics genuine trait structure. The mean Pearson correlation between Default and MBTI persona profiles is $r = 0.437$. No model-persona pair achieves strong invariance ($r > 0.8$).
 
 \section{Discussion}
 
 \subsection{The Alignment Personality Hypothesis}
 
-Our four findings form a coherent picture of what we term the ``alignment personality''---a response pattern imposed by safety training rather than emerging from genuine trait variation:
+Our findings form a coherent picture of what we term the ``alignment personality''---a response pattern imposed by safety training rather than genuine trait variation:
 
-\textbf{(1) Factor collapse.} The Big Five structure collapses to three factors because Neuroticism and Agreeableness share a single ``socially desirable emotional stability'' dimension, while Openness splits across remaining factors. This is precisely what alignment training would produce: responses organized around ``how prosocial should I be?'' rather than ``what are my traits?''
+\textbf{(1) Factor collapse.} The Big Five collapses to three factors because Neuroticism and Agreeableness share a single ``socially desirable emotional stability'' dimension. This aligns with \citet{sharma2024sycophancy}'s finding that RLHF produces sycophantic behavior, and \citet{wang2024aligning}'s observation that alignment encodes a specific notion of acceptability.
 
-\textbf{(2) Acquiescence as mechanism.} The strong correlation ($r = 0.726$) between reverse-item agreement and PIR identifies acquiescence as the specific response-style contaminant. Models that agree with reverse-coded items create the appearance of inconsistency not because they have contradictory traits, but because ``agree with everything'' is a simple, internally consistent heuristic that violates psychometric validity.
+\textbf{(2) Acquiescence as mechanism.} The $r = 0.726$ correlation between reverse-item agreement and PIR identifies acquiescence as the specific contaminant. This extends \citet{acquiescence2025emnlp}'s cross-linguistic finding by quantifying the mechanism at per-model granularity across 18 LLMs.
 
-\textbf{(3) Negligible model variance.} The 0.3\% inter-model variance means all aligned LLMs converge on a similar ``moderate prosocial'' profile regardless of architecture, training data, or cultural origin. Personality differences between models are below measurement resolution.
+\textbf{(3) Negligible model variance.} The 0.34\% inter-model variance means all aligned LLMs converge on a similar ``moderate prosocial'' profile regardless of architecture or cultural origin, consistent with \citet{zheng2024agreeableness}'s link between Agreeableness and sycophancy.
 
-\textbf{(4) Persona override.} Persona injection improves internal consistency (PIR agreement 0.667 $\to$ 0.830), suggesting that giving models a specific role reduces alignment-personality conflict. The model can be consistent within its assigned role, even if the role conflicts with its default aligned behavior.
+\textbf{(4) Persona override.} Persona injection improves consistency (PIR agreement 0.667 $\to$ 0.830), suggesting models can be consistent within assigned roles. This resonates with \citet{treaux2025forced}'s finding that response format mediates bias.
 
 \subsection{Implications for LLM Personality Research}
 
-Our results carry three practical implications. First, future studies administering personality instruments to LLMs \emph{must} report internal consistency (Cronbach's $\alpha$), factor structure, and convergent validity before interpreting domain-level scores. Without these checks, reported scores lack interpretive validity. Second, researchers should establish measurement invariance before comparing personality across conditions (e.g., prompt variants, model versions). Our persona invariance analysis shows that scalar invariance fails---scores under different conditions are not directly comparable. Third, multi-temperature and multi-seed designs are needed to disentangle stochastic decoding variance from genuine trait variance. Our PIR estimate (58.4\%) is an upper bound under single-administration conditions at temperature 0.7.
+Our results carry three implications. First, studies administering personality instruments to LLMs \emph{must} report internal consistency, factor structure, and convergent validity before interpreting scores \citep{huang2024reliability}. Second, researchers should establish measurement invariance before comparing personality across conditions. Third, multi-temperature and multi-seed designs are needed to disentangle stochastic variance from genuine trait variance.
 
 \section{Limitations}
 
-Our study has four main limitations. First, we use a \textbf{single administration} at temperature 0.7, which prevents us from separating stochastic decoding variance from genuine trait variance. The PIR estimate should be interpreted as an upper bound. Second, we lack \textbf{base vs.\ instruct model comparisons}, so we cannot isolate the effect of alignment training from architectural differences. Third, we have \textbf{no multi-seed data}, meaning we cannot estimate within-condition response stability. Fourth, we compare LLM results against \textbf{published human norms} rather than running human participants through our pipeline, so methodological differences (e.g., online vs.\ API administration) may contribute to observed gaps.
+Our study has four main limitations. First, we use a \textbf{single administration} at temperature 0.7, preventing separation of stochastic variance from genuine trait variance. Second, we lack \textbf{base vs.\ instruct model comparisons}, so we cannot isolate alignment effects. Third, we have \textbf{no multi-seed data}. Fourth, we compare against \textbf{published human norms} rather than running human participants.
 
 \section{Conclusion}
 
-We have shown that four independently validated personality instruments fail basic psychometric quality checks when administered to 18 LLMs: Cronbach's alpha collapses from human levels ($0.87$--$0.90$) to near-zero ($-0.02$ to $0.36$), the Big Five factor structure collapses from five to three factors, 58.4\% of forward-reverse item pairs show inconsistent responses, and inter-model variance accounts for less than 1\% of response variability. These failures are robust across leave-one-model-out and leave-one-persona-out analyses, and LLM response patterns more closely resemble acquiescence-driven synthetic baselines than genuine trait structure.
-
-Our central message is methodological: validated human psychometric instruments do not transport cleanly to LLMs. Before personality scores can be meaningfully interpreted for AI systems, researchers must first establish measurement invariance, report reliability metrics, and account for response-style contamination.
+We have shown that four validated personality instruments fail basic psychometric quality checks when administered to 18 LLMs: Cronbach's alpha collapses from $0.87$--$0.90$ to $-0.02$--$0.36$, the Big Five factor structure collapses from five to three factors, 58.4\% of forward-reverse pairs show inconsistent responses, and inter-model variance accounts for less than 1\% of variability. These failures are robust across leave-one-out analyses. Validated human psychometric instruments do not transport cleanly to LLMs---researchers must first establish measurement invariance and account for response-style contamination.
 
 \section*{Ethics Statement}
 
-This study uses publicly available LLMs and public-domain psychometric instruments. No human subjects were involved. All personality instruments are either in the public domain (IPIP-NEO-120) or author-posted for research use (SD3, ZKPQ-50-CC, EPQR-A). We do not claim that LLMs have or lack genuine personality; our contribution concerns the \emph{measurement properties} of the instruments when applied to a novel population.
+This study uses publicly available LLMs and public-domain psychometric instruments. No human subjects were involved. We do not claim that LLMs have or lack genuine personality; our contribution concerns the \emph{measurement properties} of the instruments when applied to a novel population.
 
 \bibliographystyle{acl_natbib}
 \bibliography{refs}
