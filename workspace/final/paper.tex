@@ -84,16 +84,17 @@ We administered a 221-item battery comprising four validated instruments (\cref{
 
 \begin{table}[t]
 \centering
+\small
 \caption{Psychometric instruments in the 221-item battery.}
 \label{tab:instruments}
 \begin{tabular}{lrrrr}
 \toprule
-Instrument & Items & Format & Domains & Reverse \\
+Instrument & Items & Format & Domains & Rev. \\
 \midrule
-IPIP-NEO-120 & 120 & Likert 1--5 & 5 & 41 \\
-SD3 & 27 & Likert 1--5 & 3 & 5 \\
-ZKPQ-50-CC & 50 & True/False & 5 & 12 \\
-EPQR-A & 24 & Yes/No & 4 & 5 \\
+IPIP-NEO-120 & 120 & Likert-5 & 5 & 41 \\
+SD3 & 27 & Likert-5 & 3 & 5 \\
+ZKPQ-50-CC & 50 & T/F & 5 & 12 \\
+EPQR-A & 24 & Y/N & 4 & 5 \\
 \midrule
 \textbf{Total} & \textbf{221} & 3 formats & \textbf{17} & \textbf{63} \\
 \bottomrule
@@ -132,17 +133,18 @@ Additional robustness checks included leave-one-model-out (18 analyses), leave-o
 
 \begin{table}[t]
 \centering
-\caption{Cronbach's alpha by IPIP domain: LLM vs human norms. LLM $\alpha$ computed per model across 17 personas, then averaged ($n = 18$ models).}
+\small
+\caption{Cronbach's $\alpha$ by IPIP domain: LLM vs.\ human norms. Mean$\pm$SD across $n{=}18$ models.}
 \label{tab:cronbach}
 \begin{tabular}{lrrr}
 \toprule
-Domain & LLM $\alpha$ (mean$\pm$SD) & Human $\alpha$ & Gap \\
+Domain & LLM $\alpha$ & Human $\alpha$ & Gap \\
 \midrule
-Neuroticism & $0.354 \pm 0.397$ & 0.90 & $-0.546$ \\
-Extraversion & $0.360 \pm 0.451$ & 0.89 & $-0.530$ \\
-Openness & $0.055 \pm 0.093$ & 0.87 & $-0.815$ \\
-Agreeableness & $-0.017 \pm 0.230$ & 0.88 & $-0.897$ \\
-Conscientiousness & $0.181 \pm 0.258$ & 0.90 & $-0.719$ \\
+Neuroticism & $0.354{\pm}0.397$ & 0.90 & $-0.546$ \\
+Extraversion & $0.360{\pm}0.451$ & 0.89 & $-0.530$ \\
+Openness & $0.055{\pm}0.093$ & 0.87 & $-0.815$ \\
+Agreeableness & $-0.017{\pm}0.230$ & 0.88 & $-0.897$ \\
+Conscientiousness & $0.181{\pm}0.258$ & 0.90 & $-0.719$ \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -241,22 +243,25 @@ The negligible model variance means that personality differences between LLMs ar
 
 \begin{table}[t]
 \centering
-\caption{Convergent validity: Spearman correlations between theoretically overlapping constructs.}
+\small
+\caption{Convergent validity: Spearman $r$ between overlapping constructs.}
 \label{tab:convergent}
 \begin{tabular}{llrrc}
 \toprule
-Pair & Expected & $r$ & $p$ & Match \\
+Pair & Exp. & $r$ & $p$ & OK \\
 \midrule
-Neuroticism $\times$ Neuroticism-Anx. & Positive & 0.597 & 0.009 & Yes \\
-Extraversion $\times$ Sociability & Positive & $-0.090$ & 0.722 & \textbf{No} \\
-Extraversion $\times$ Extraversion & Positive & 0.298 & 0.230 & Yes \\
-Neuroticism $\times$ Neuroticism & Positive & 0.387 & 0.113 & Yes \\
-Agreeableness $\times$ Machiavellianism & Negative & $-0.674$ & 0.002 & Yes \\
-Agreeableness $\times$ Psychopathy & Negative & $-0.743$ & $<$0.001 & Yes \\
-Conscientiousness $\times$ Psychopathy & Negative & $-0.646$ & 0.004 & Yes \\
-Psychoticism $\times$ Psychopathy & Positive & 0.205 & 0.414 & Yes \\
+N $\times$ N-Anx. & $+$ & 0.597 & .009 & Yes \\
+E $\times$ Sociability & $+$ & $-0.090$ & .722 & \textbf{No} \\
+E $\times$ E & $+$ & 0.298 & .230 & Yes \\
+N $\times$ N & $+$ & 0.387 & .113 & Yes \\
+A $\times$ Mach. & $-$ & $-0.674$ & .002 & Yes \\
+A $\times$ Psych. & $-$ & $-0.743$ & $<$.001 & Yes \\
+C $\times$ Psych. & $-$ & $-0.646$ & .004 & Yes \\
+P $\times$ Psych. & $+$ & 0.205 & .414 & Yes \\
 \bottomrule
 \end{tabular}
+\vspace{1mm}
+{\footnotesize N=Neuroticism, E=Extraversion, A=Agreeableness, C=Conscientiousness, P=Psychoticism, Mach.=Machiavellianism, Psych.=Psychopathy.}
 \end{table}
 
 \begin{figure}[t]
@@ -274,18 +279,19 @@ DIF analysis between Chinese (DeepSeek, Qwen, Kimi, GLM) and Western (Anthropic,
 
 \begin{table}[t]
 \centering
-\caption{Synthetic baselines: Cronbach's alpha by domain and strategy.}
+\small
+\caption{Synthetic baselines: Cronbach's $\alpha$ by domain and strategy.}
 \label{tab:synthetic}
 \begin{tabular}{lrrrrr}
 \toprule
 Strategy & N & E & O & A & C \\
 \midrule
-Random & 0.014 & 0.094 & 0.029 & $-0.059$ & 0.011 \\
-Pure Acquiescence & $-0.063$ & $-0.151$ & 0.039 & 0.130 & 0.049 \\
-Trait+Acquiescence & 0.997 & 0.998 & 0.996 & 0.997 & 0.997 \\
+Random & .014 & .094 & .029 & $-$.059 & .011 \\
+Pure Acq. & $-$.063 & $-$.151 & .039 & .130 & .049 \\
+Trait+Acq. & .997 & .998 & .996 & .997 & .997 \\
 \midrule
-\textbf{LLM Observed} & \textbf{0.354} & \textbf{0.360} & \textbf{0.055} & $\mathbf{-0.017}$ & \textbf{0.181} \\
-Human norms & 0.90 & 0.89 & 0.87 & 0.88 & 0.90 \\
+\textbf{LLM Obs.} & \textbf{.354} & \textbf{.360} & \textbf{.055} & $\mathbf{-}$.017 & \textbf{.181} \\
+Human & .90 & .89 & .87 & .88 & .90 \\
 \bottomrule
 \end{tabular}
 \end{table}
