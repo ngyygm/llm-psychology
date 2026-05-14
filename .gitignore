@@ -14,3 +14,7 @@ __pycache__/
 *.idea
 .claude/
 exp/
+*.egg-info/
+dist/
+build/
+.venv/
