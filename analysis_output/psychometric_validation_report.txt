@@ -1,0 +1,63 @@
+================================================================================
+DEEP PSYCHOMETRIC VALIDATION REPORT
+LLM Personality Measurement: Methodological Validation & Internal Contradictions
+================================================================================
+Date: 2026-05-14 18:12
+Models: 18
+Personas: 17 (Default + 16 MBTI)
+Items: 221 (IPIP-NEO-120, SD3, ZKPQ-50-CC, EPQR-A)
+Total data points: 67,626
+
+THEORETICAL FRAMEWORK
+----------------------------------------
+1. Measurement Invariance: Can human psychometric tools measure LLM 'personality'?
+2. Response Style Theory: LLM variance = trait + response style + error
+3. Social Desirability: Alignment creates systematic response distortion
+
+================================================================================
+FINDING 1: FACTOR STRUCTURE COLLAPSE
+================================================================================
+Zero-variance items (models all agree): 0/120 IPIP items
+Domain-level Kaiser criterion: 3 factors
+Domain-level Parallel analysis: 3 factors
+First/second eigenvalue ratio: 1.57
+Mean Tucker's phi (per-model): 0.990
+
+================================================================================
+FINDING 2: REVERSE-ITEM INCONSISTENCY
+================================================================================
+Mean PIR: 0.584
+PIR variance — model: 11.6%, domain: 40.4%
+PIR x SDR: r = -0.562, p = 0.0151
+
+================================================================================
+FINDING 3: VARIANCE DECOMPOSITION
+================================================================================
+
+Likert (IPIP+SD3):
+  model: 0.3%
+  domain: 23.4%
+  persona: 3.9%
+  item: 35.6%
+  residual: 36.7%
+
+Binary (ZKPQ+EPQR):
+  model: 0.5%
+  domain: 5.2%
+  persona: 13.0%
+  item: 14.1%
+  residual: 67.3%
+
+================================================================================
+FINDING 4: DIF + CONVERGENT VALIDITY
+================================================================================
+Low-variance items: 26
+Safety-contaminated: 0
+Significant DIF: 0/8
+Convergent sign matches: 7/8
+
+================================================================================
+FINDING 5: PERSONA MEASUREMENT INVARIANCE
+================================================================================
+Mean r(Default, MBTI): 0.437
+r > 0.8: 0/288
