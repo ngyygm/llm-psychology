@@ -104,26 +104,26 @@ EPQR-A & 24 & Y/N & 4 & 5 \\
 
 We tested 18 LLMs spanning 7 model families (\cref{tab:models}): Anthropic (Claude Opus 4.6, Sonnet 4.6), OpenAI (GPT-5.5, GPT-5.2), DeepSeek (V3.2, V4-Flash, V4-Pro), Google (Gemini-3-Flash-Preview, Gemini-3.1-Flash-Lite, Gemini-3.1-Pro-Preview, Gemini-3-Pro-Preview), Alibaba (Qwen3-235B-A22B, Qwen3.5-122B-A10B, Qwen3.5-397B-A17B), Moonshot (Kimi-K2.5, Kimi-K2.6), MiniMax (M2.7), and Zhipu (GLM-4.6V).
 
-\begin{table*}[t]
+\begin{table}[t]
 \centering
 \small
 \caption{All 18 tested LLMs grouped by model family.}
 \label{tab:models}
-\begin{tabular}{ll}
+\begin{tabular}{l>{\centering\arraybackslash}p{5.2cm}}
 \toprule
 Family & Models \\
 \midrule
-Anthropic & Claude Opus 4.6, Claude Sonnet 4.6 \\
+Anthropic & Claude Opus 4.6, Sonnet 4.6 \\
 OpenAI & GPT-5.5, GPT-5.2 \\
 DeepSeek & V3.2, V4-Flash, V4-Pro \\
-Google & Gemini-3-Flash-Preview, Gemini-3.1-Flash-Lite, Gemini-3.1-Pro-Preview, Gemini-3-Pro-Preview \\
+Google & Gemini-3-Flash, Gemini-3.1-Flash-Lite, Gemini-3.1-Pro, Gemini-3-Pro \\
 Alibaba & Qwen3-235B-A22B, Qwen3.5-122B-A10B, Qwen3.5-397B-A17B \\
 Moonshot & Kimi-K2.5, Kimi-K2.6 \\
 MiniMax & M2.7 \\
 Zhipu & GLM-4.6V \\
 \bottomrule
 \end{tabular}
-\end{table*}
+\end{table}
 
 Each model was tested under 17 conditions: a \textbf{Default} prompt (``Please answer the following personality questionnaire honestly.'') and 16 \textbf{MBTI persona} prompts, each assigning a specific MBTI type. All administrations used temperature = 0.7 with a single administration per model-condition pair. This yielded $18 \times 17 \times 221 = 67{,}626$ item-level responses.
 
@@ -253,25 +253,23 @@ Persona injection \emph{improves} internal consistency: Default PIR agreement is
 
 \cref{tab:variance} reports the sequential variance decomposition. For Likert scales, \textbf{inter-model variance accounts for only 0.34\%} of total response variance. The dominant source is item-specific wording (35.6\%), followed by domain (23.4\%) and persona (3.9\%). Binary scales show a similar pattern.
 
-\begin{table*}[t]
+\begin{table}[t]
 \centering
 \small
-\caption{Sequential variance decomposition of normalized response scores. Model variance highlighted: $<$1\% for both scale types.}
+\caption{Sequential variance decomposition. Model variance: $<$1\% for both scale types.}
 \label{tab:variance}
-\begin{tabular}{lrrrr}
+\begin{tabular}{lrr}
 \toprule
-& \multicolumn{2}{c}{Likert (IPIP + SD3)} & \multicolumn{2}{c}{Binary (ZKPQ + EPQR)} \\
-\cmidrule(lr){2-3} \cmidrule(lr){4-5}
-Source & Fraction & \% & Fraction & \% \\
+Source & Likert (\%) & Binary (\%) \\
 \midrule
-\textbf{Model} & \textbf{0.0034} & \textbf{0.34} & \textbf{0.0048} & \textbf{0.48} \\
-Domain & 0.2345 & 23.45 & 0.0518 & 5.18 \\
-Persona & 0.0391 & 3.91 & 0.1296 & 12.96 \\
-Item & 0.3557 & 35.57 & 0.1408 & 14.08 \\
-Residual & 0.3673 & 36.73 & 0.6731 & 67.31 \\
+\textbf{Model} & \textbf{0.34} & \textbf{0.48} \\
+Domain & 23.45 & 5.18 \\
+Persona & 3.91 & 12.96 \\
+Item & 35.57 & 14.08 \\
+Residual & 36.73 & 67.31 \\
 \bottomrule
 \end{tabular}
-\end{table*}
+\end{table}
 
 \begin{figure}[t]
 \centering
