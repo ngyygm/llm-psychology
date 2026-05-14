@@ -1,0 +1,21 @@
+strategy,domain,alpha,pir
+Random,Neuroticism,0.014386261700223396,0.6807705538355693
+Random,Extraversion,0.09406771384421753,0.6802572881004254
+Random,Openness,0.029482709654919233,0.6831275720164609
+Random,Agreeableness,-0.058949117376872494,0.6697973306969847
+Random,Conscientiousness,0.01076276486706984,0.6786126215191959
+Pure Acquiescence,Neuroticism,-0.06339812285830426,1.0
+Pure Acquiescence,Extraversion,-0.15084383680728555,1.0
+Pure Acquiescence,Openness,0.038627739473396414,1.0
+Pure Acquiescence,Agreeableness,0.13004933065729174,1.0
+Pure Acquiescence,Conscientiousness,0.04927340601784628,1.0
+Trait+Acquiescence,Neuroticism,0.9973911520775071,
+Trait+Acquiescence,Extraversion,0.9981345437963621,
+Trait+Acquiescence,Openness,0.9962934368022738,
+Trait+Acquiescence,Agreeableness,0.9965824249131694,
+Trait+Acquiescence,Conscientiousness,0.9968099247367157,
+LLM Observed,Neuroticism,0.354,0.58
+LLM Observed,Extraversion,0.36,0.878
+LLM Observed,Openness,0.055,0.729
+LLM Observed,Agreeableness,-0.017,0.426
+LLM Observed,Conscientiousness,0.181,0.348
