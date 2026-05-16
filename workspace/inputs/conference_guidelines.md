@@ -1,14 +1,14 @@
-# Conference Guidelines (ACL 2026 Findings)
+# Conference Guidelines (EMNLP 2026)
 
 ## Submission deadline
 
-June 15, 2026.
+June 22, 2026 (ARR cutoff).
 
-The Literature Review Agent should derive `cutoff_date = 2026-06-15` from this deadline. Papers published after this date may be cited only as concurrent work.
+The Literature Review Agent should derive `cutoff_date = 2026-06-22` from this deadline. Papers published after this date may be cited only as concurrent work.
 
 ## Page limit
 
-The main paper is limited to **8 pages** of single-column text, excluding references and appendices. The appendix may be up to 4 additional pages. Reviewers are not obligated to read past the page limit.
+The main paper is limited to **8 pages** of single-column text, excluding references and appendices. The appendix may be unlimited. Reviewers are not obligated to read past the page limit.
 
 ## Mandatory sections
 
@@ -22,12 +22,13 @@ The submission MUST contain, in this order:
 6. Discussion
 7. Limitations
 8. Conclusion
-9. References
-10. Appendix (optional)
+9. Ethics Statement
+10. References
+11. Appendix (optional)
 
 ## Formatting rules
 
-- Use the ACL 2026 LaTeX template (`acl2026.sty` provided in `template.tex`)
+- Use the EMNLP 2026 LaTeX template (`emnlp2026.sty` provided in `template.tex`)
 - Single-column, 11pt font
 - Citations via natbib: `\citep{...}` for parenthetical, `\citet{...}` for textual
 - Figures saved at 300 DPI minimum, placed in-text or at top/bottom of page
@@ -38,7 +39,7 @@ The submission MUST contain, in this order:
 
 ## Topic scope
 
-ACL 2026 welcomes submissions on NLP evaluation, LLM behavior analysis, psycholinguistics, computational social science, and AI safety. This work on psychometric validation of LLM personality measurement fits the "Analysis and Evaluation of LLMs" track.
+EMNLP 2026 welcomes submissions on NLP evaluation, LLM behavior analysis, psycholinguistics, computational social science, and AI safety. This work on psychometric validation of LLM personality measurement fits the "Analysis and Evaluation of LLMs" track.
 
 ## Review criteria
 

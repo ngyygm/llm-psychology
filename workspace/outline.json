@@ -1,0 +1,316 @@
+{
+  "plotting_plan": [
+    {
+      "figure_id": "fig_scree_factor_loadings",
+      "title": "Scree Plot and Factor Loading Heatmap",
+      "plot_type": "plot",
+      "data_source": "experimental_log.md",
+      "objective": "Show eigenvalue spectrum (3 factors above Kaiser criterion) and factor loading heatmap revealing Big Five collapse to 3 factors. Existing figure: fig1_scree_loadings.png.",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "figure_id": "fig_pir_sdr_mechanism",
+      "title": "Pairwise Inconsistency Rate and Acquiescence Mechanism",
+      "plot_type": "plot",
+      "data_source": "both",
+      "objective": "Left: PIR by domain showing 58.4% mean inconsistency. Right: scatter of reverse-agree rate vs PIR (r=0.726) demonstrating acquiescence as driver. Existing figure: fig2_pir_sdr.png.",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "figure_id": "fig_variance_decomposition",
+      "title": "Variance Decomposition: Model vs Domain vs Persona vs Item",
+      "plot_type": "plot",
+      "data_source": "experimental_log.md",
+      "objective": "Stacked bar chart showing Model=0.3%, Domain=23.4%, Persona=3.9%, Item=35.6% for Likert. Highlights negligible inter-model variance. Existing figure: fig3_variance_decomposition.png.",
+      "aspect_ratio": "4:3"
+    },
+    {
+      "figure_id": "fig_convergent_validity_forest",
+      "title": "Convergent Validity: Cross-Scale Correlations with CIs",
+      "plot_type": "plot",
+      "data_source": "experimental_log.md",
+      "objective": "Forest plot of 8 convergent validity pairs showing observed LLM correlations vs expected human baselines. Highlights Extraversion-Sociability sign reversal. Existing figure: fig6_convergent_validity.png.",
+      "aspect_ratio": "3:4"
+    },
+    {
+      "figure_id": "fig_factor_collapse_summary",
+      "title": "Expected vs Observed Factor Structure",
+      "plot_type": "diagram",
+      "data_source": "both",
+      "objective": "Side-by-side comparison: human Big Five 5-factor structure vs LLM 3-factor collapse. Existing figure: fig7_factor_collapse.png.",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "figure_id": "fig_measurement_invariance",
+      "title": "Persona Invariance: Default vs MBTI Profile Correlations",
+      "plot_type": "plot",
+      "data_source": "experimental_log.md",
+      "objective": "Heatmap of r(Default, MBTI persona) across models. Shows ENFJ closest (r=0.608) and ESTP farthest (r=0.206). Existing figure: fig4_measurement_invariance.png.",
+      "aspect_ratio": "4:3"
+    },
+    {
+      "figure_id": "fig_response_styles",
+      "title": "Response Style Profiles Across Models",
+      "plot_type": "plot",
+      "data_source": "experimental_log.md",
+      "objective": "Scatter plots of acquiescence rate, extreme response style, and midpoint response by model. Existing figure: fig5_response_styles.png.",
+      "aspect_ratio": "4:3"
+    },
+    {
+      "figure_id": "fig_cronbach_comparison",
+      "title": "Cronbach Alpha: Human Norms vs LLM vs Synthetic Baselines",
+      "plot_type": "plot",
+      "data_source": "both",
+      "objective": "Grouped bar chart comparing human alpha (0.87-0.90) vs LLM alpha (-0.02 to 0.36) vs Random and Acquiescence baselines per Big Five domain.",
+      "aspect_ratio": "4:3"
+    },
+    {
+      "figure_id": "fig_pipeline_overview",
+      "title": "Experimental Pipeline Overview",
+      "plot_type": "diagram",
+      "data_source": "idea.md",
+      "objective": "Flowchart: 4 instruments (221 items) -> 18 LLMs x 17 conditions -> 67626 responses -> 6 psychometric analyses -> 4 key findings.",
+      "aspect_ratio": "16:9"
+    }
+  ],
+  "intro_related_work_plan": {
+    "introduction_strategy": {
+      "hook_hypothesis": "The rapid adoption of LLMs has spurred interest in measuring their personality using human psychometric instruments, but these instruments were never validated for non-human respondents.",
+      "problem_gap_hypothesis": "No study has systematically tested whether validated personality instruments retain their psychometric properties when administered to LLMs. Prior work documents isolated failures but lacks comprehensive validation.",
+      "search_directions": [
+        "Find highly cited papers on administering personality tests to LLMs",
+        "Search for survey papers on LLM evaluation methodology and benchmark validity",
+        "Identify foundational psychometric validation literature",
+        "Search for papers on acquiescence bias and response styles in survey research",
+        "Find papers on alignment training effects on LLM behavior and social desirability bias",
+        "Search for papers on measurement invariance testing across populations"
+      ]
+    },
+    "related_work_strategy": {
+      "overview": "Investigate four research clusters establishing that personality measurement in LLMs is a growing field with unresolved psychometric validity concerns.",
+      "subsections": [
+        {
+          "subsection_title": "2.1 Personality Measurement in LLMs",
+          "methodology_cluster": "Applying human psychometric instruments to LLMs",
+          "sota_investigation_mission": "Identify all papers administering Big Five or personality instruments to LLMs. Catalog methods, sample sizes, and whether psychometric validation was reported.",
+          "limitation_hypothesis": "Most studies report descriptive profiles without validating that instruments measure coherent constructs in LLMs.",
+          "limitation_search_queries": [
+            "LLM personality testing Big Five Cronbach alpha",
+            "large language model psychometric validation factor analysis",
+            "GPT personality questionnaire reliability validity"
+          ],
+          "bridge_to_our_method": "We apply the full psychometric validation battery to 4 instruments across 18 LLMs, providing the first systematic transportability assessment."
+        },
+        {
+          "subsection_title": "2.2 Response Style and Acquiescence Bias",
+          "methodology_cluster": "Survey methodology: response styles, acquiescence, social desirability",
+          "sota_investigation_mission": "Find papers documenting acquiescence bias in both human survey research and LLM responses.",
+          "limitation_hypothesis": "LLMs exhibit acquiescence bias at rates far exceeding human populations due to alignment training.",
+          "limitation_search_queries": [
+            "acquiescence bias reverse-coded items LLM",
+            "response style contamination personality measurement",
+            "social desirability bias language model alignment"
+          ],
+          "bridge_to_our_method": "We quantify acquiescence as a mechanism (reverse-agree rate x PIR r=0.726) and show via synthetic baselines that LLM patterns resemble acquiescence strategies."
+        },
+        {
+          "subsection_title": "2.3 Psychometric Validation Methods",
+          "methodology_cluster": "Classical test theory: reliability, factor analysis, measurement invariance, DIF",
+          "sota_investigation_mission": "Identify standard psychometric validation procedures and normative benchmarks for IPIP-NEO-120, SD3, ZKPQ-50-CC, EPQR-A.",
+          "limitation_hypothesis": "These validation methods have never been systematically applied to LLM personality data.",
+          "limitation_search_queries": [
+            "IPIP-NEO-120 validation Cronbach alpha factor structure normative",
+            "measurement invariance cross-population personality assessment",
+            "differential item functioning personality test validation"
+          ],
+          "bridge_to_our_method": "We apply six standard psychometric validation analyses to LLM data and compare against published human benchmarks."
+        },
+        {
+          "subsection_title": "2.4 Alignment Effects on LLM Behavior",
+          "methodology_cluster": "RLHF, safety alignment, and behavioral constraints in LLMs",
+          "sota_investigation_mission": "Find papers documenting how RLHF and safety alignment alter LLM response patterns.",
+          "limitation_hypothesis": "Alignment training creates a universal moderate prosocial response profile overriding genuine variation.",
+          "limitation_search_queries": [
+            "RLHF alignment personality homogenization LLM",
+            "safety training social desirability language model",
+            "LLM sycophancy response bias alignment"
+          ],
+          "bridge_to_our_method": "Our variance decomposition (model=0.3%) and DIF analysis provide quantitative evidence that alignment homogenizes responses across model families."
+        }
+      ]
+    }
+  },
+  "section_plan": [
+    {
+      "section_title": "Abstract",
+      "subsections": [
+        {
+          "subsection_title": "Abstract Content",
+          "content_bullets": [
+            "State the problem: human personality instruments applied to LLMs without validation.",
+            "Describe the method: 221-item battery, 18 LLMs, 17 conditions, 67,626 responses.",
+            "Report four key findings: alpha -0.02-0.36 vs 0.87-0.90; 3-factor collapse; PIR 58.4% with acquiescence r=0.726; model variance 0.3%.",
+            "Conclusion: instruments do not transport cleanly to LLMs."
+          ],
+          "citation_hints": []
+        }
+      ]
+    },
+    {
+      "section_title": "3. Methodology",
+      "subsections": [
+        {
+          "subsection_title": "3.1 Psychometric Instruments",
+          "content_bullets": [
+            "Describe 4-instrument battery: IPIP-NEO-120 (120 Likert-5, 41 reverse), SD3 (27 Likert-5, 5 reverse), ZKPQ-50-CC (50 T/F, 12 reverse), EPQR-A (24 Y/N, 5 reverse).",
+            "Total: 221 items, 17 domain scores, 63 reverse-coded (29%).",
+            "All instruments publicly available and validated in human populations."
+          ],
+          "citation_hints": [
+            "Johnson (2014) (Measuring thirty facets of the Five Factor Model with a 120-item public domain inventory)",
+            "Jones and Paulhus (2014) (Introducing the Short Dark Triad SD3)",
+            "Aluja et al. (2006) (A cross-cultural shortened form of the ZKPQ)",
+            "Francis et al. (1992) (The development of an abbreviated form of the Revised Eysenck Personality Questionnaire)"
+          ]
+        },
+        {
+          "subsection_title": "3.2 Models and Administration",
+          "content_bullets": [
+            "List 18 LLMs across 7 families: Anthropic, OpenAI, DeepSeek, Google, Alibaba, Moonshot, MiniMax, Zhipu.",
+            "17 conditions: Default + 16 MBTI persona prompts.",
+            "Administration: temperature=0.7, single administration, 67,626 total observations."
+          ],
+          "citation_hints": [
+            "research paper or technical report introducing 'MBTI personality framework'"
+          ]
+        },
+        {
+          "subsection_title": "3.3 Analysis Pipeline",
+          "content_bullets": [
+            "6 psychometric analyses: Cronbach alpha, EFA, PIR, variance decomposition, convergent validity, measurement invariance.",
+            "Robustness: leave-one-out, synthetic baselines, DIF."
+          ],
+          "citation_hints": [
+            "research paper or technical report introducing 'Cronbach coefficient alpha'",
+            "research paper or technical report introducing 'Kaiser criterion factor retention'",
+            "research paper or technical report introducing 'Tucker congruence coefficient'"
+          ]
+        }
+      ]
+    },
+    {
+      "section_title": "4. Experiments and Results",
+      "subsections": [
+        {
+          "subsection_title": "4.1 Internal Consistency",
+          "content_bullets": [
+            "Report alpha per domain: N=0.354, E=0.360, O=0.055, A=-0.017, C=0.181 vs human 0.87-0.90.",
+            "Highlight Agreeableness negative alpha from 71% reverse-item contamination.",
+            "Synthetic baseline comparison: LLM closest to Random/Acquiescence."
+          ],
+          "citation_hints": ["Johnson (2014) (IPIP-NEO-120 normative data)"]
+        },
+        {
+          "subsection_title": "4.2 Factor Structure Collapse",
+          "content_bullets": [
+            "Eigenvalues: F1=6.804, F2=4.329, F3=2.986 — 3 factors above Kaiser.",
+            "Factor loadings: Extraversion/Sociability, Neuroticism/Agreeableness, Conscientiousness/Impulsivity.",
+            "Tucker phi=0.990. Leave-one-out: 3 factors in all 35 analyses."
+          ],
+          "citation_hints": []
+        },
+        {
+          "subsection_title": "4.3 Reverse-Item Inconsistency",
+          "content_bullets": [
+            "PIR: 0.584 [0.535, 0.636]. Domain range: 0.278-0.929.",
+            "Acquiescence mechanism: reverse-agree rate x PIR r=0.726.",
+            "Persona effect: Default 0.667 -> MBTI 0.830."
+          ],
+          "citation_hints": []
+        },
+        {
+          "subsection_title": "4.4 Variance Decomposition",
+          "content_bullets": [
+            "Likert: Model=0.3% [1.1, 4.0], Domain=23.4%, Persona=3.9%, Item=35.6%.",
+            "Binary: Model=0.5%, Domain=5.2%, Persona=13.0%."
+          ],
+          "citation_hints": []
+        },
+        {
+          "subsection_title": "4.5 Convergent Validity and DIF",
+          "content_bullets": [
+            "7/8 sign matches but weak magnitudes. Extraversion x Sociability sign reversal r=-0.090.",
+            "DIF Chinese vs Western: 0/8 significant, all d<0.20.",
+            "Measurement invariance: mean r=0.437."
+          ],
+          "citation_hints": [
+            "Zuckerman (2002) (ZKPQ validation)",
+            "Jones and Paulhus (2014) (SD3 validation)"
+          ]
+        }
+      ]
+    },
+    {
+      "section_title": "5. Discussion",
+      "subsections": [
+        {
+          "subsection_title": "5.1 Alignment Personality Hypothesis",
+          "content_bullets": [
+            "Synthesize 4 findings: factor collapse, acquiescence mechanism, negligible model variance, persona override.",
+            "Argue coherent picture: LLM personality captures alignment artifacts."
+          ],
+          "citation_hints": []
+        },
+        {
+          "subsection_title": "5.2 Implications",
+          "content_bullets": [
+            "Future studies must establish measurement invariance before interpreting personality scores.",
+            "Recommend reporting internal consistency, factor structure, convergent validity.",
+            "Recommend multi-temperature and multi-seed designs."
+          ],
+          "citation_hints": []
+        }
+      ]
+    },
+    {
+      "section_title": "6. Limitations",
+      "subsections": [
+        {
+          "subsection_title": "6.1 Design Limitations",
+          "content_bullets": [
+            "Single administration at temperature=0.7.",
+            "No base vs instruct model comparison.",
+            "No multi-seed data — PIR is upper bound.",
+            "No human data through same pipeline."
+          ],
+          "citation_hints": []
+        }
+      ]
+    },
+    {
+      "section_title": "7. Conclusion",
+      "subsections": [
+        {
+          "subsection_title": "7.1 Summary",
+          "content_bullets": [
+            "Four findings demonstrate instruments do not transport cleanly.",
+            "Call for measurement validation before applying psychometric tools to LLMs."
+          ],
+          "citation_hints": []
+        }
+      ]
+    },
+    {
+      "section_title": "8. Ethics Statement",
+      "subsections": [
+        {
+          "subsection_title": "8.1 Ethics",
+          "content_bullets": [
+            "Publicly available LLMs and public-domain instruments. No human subjects."
+          ],
+          "citation_hints": []
+        }
+      ]
+    }
+  ]
+}
