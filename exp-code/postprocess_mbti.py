@@ -34,6 +34,7 @@ SUMMARY_CSV = RESULTS_DIR / "summary.csv"
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import run_mbti_experiment as r  # reuse parse_response, apply_reverse_scoring
 
+from run_mbti_experiment import migrate_state
 
 CSV_FIELDS = r.CSV_FIELDS
 
@@ -45,13 +46,8 @@ def _atomic_write_json(path: Path, data) -> None:
     tmp.replace(path)
 
 
-def recover_record(rec: dict) -> bool:
-    """Try to recover a parse_failed record from full_response.reasoning_content
-    (or any analogous channel). Mutates rec in place. Returns True if recovered.
-    """
-    if not rec.get("parse_failed"):
-        return False
-    full = rec.get("full_response")
+def _try_recover_from_full_response(full) -> str:
+    """Extract candidate text from a full_response blob for re-parsing."""
     candidate_text = ""
     if isinstance(full, dict):
         candidate_text = full.get("reasoning_content") or ""
@@ -75,21 +71,48 @@ def recover_record(rec: dict) -> bool:
                     if isinstance(v, str):
                         bits.append(v)
         candidate_text = "\n".join(bits)
+    return candidate_text
 
+
+def recover_sample(sample: dict, response_format: str, keyed: str) -> bool:
+    """Try to recover a parse_failed sample from its full_response. Mutates in place."""
+    if not sample.get("parse_failed"):
+        return False
+    candidate_text = _try_recover_from_full_response(sample.get("full_response"))
     if not candidate_text:
         return False
-
-    parsed, used = r.parse_response(candidate_text, rec["response_format"])
+    parsed, used = r.parse_response(candidate_text, response_format)
     if parsed is None:
         return False
+    sample["parsed_value"] = parsed
+    sample["scored_value"] = r.apply_reverse_scoring(used, keyed, response_format)
+    sample["parse_failed"] = False
+    sample["recovery"] = {"source": "reasoning_content", "recovered_value": parsed}
+    return True
+
+
+def recover_record(rec: dict) -> int:
+    """Try to recover parse_failed samples in a v2 record. Returns count recovered."""
+    if "samples" in rec:
+        n = 0
+        for sample in rec["samples"]:
+            if recover_sample(sample, rec["response_format"], rec["keyed"]):
+                n += 1
+        return n
+    # v1 flat record fallback
+    if not rec.get("parse_failed"):
+        return 0
+    candidate_text = _try_recover_from_full_response(rec.get("full_response"))
+    if not candidate_text:
+        return 0
+    parsed, used = r.parse_response(candidate_text, rec["response_format"])
+    if parsed is None:
+        return 0
     rec["parsed_value"] = parsed
     rec["scored_value"] = r.apply_reverse_scoring(used, rec["keyed"], rec["response_format"])
     rec["parse_failed"] = False
-    rec["recovery"] = {
-        "source": "reasoning_content",
-        "recovered_value": parsed,
-    }
-    return True
+    rec["recovery"] = {"source": "reasoning_content", "recovered_value": parsed}
+    return 1
 
 
 def rebuild_domain_scores(records: list[dict]) -> dict:
@@ -100,18 +123,23 @@ def process_file(path: Path) -> dict:
     with open(path, encoding="utf-8") as f:
         state = json.load(f)
 
+    migrate_state(state)
+
     n_recovered = 0
     n_pf_before = 0
-    n_pf_after = 0
     for persona, blk in state.get("results_by_persona", {}).items():
         for rec in blk.get("responses", []):
-            if rec.get("parse_failed"):
+            if "samples" in rec:
+                for s in rec["samples"]:
+                    if s.get("parse_failed"):
+                        n_pf_before += 1
+            elif rec.get("parse_failed"):
                 n_pf_before += 1
-                if recover_record(rec):
-                    n_recovered += 1
-                else:
-                    n_pf_after += 1
+            recovered = recover_record(rec)
+            n_recovered += recovered
         blk["domain_scores"] = rebuild_domain_scores(blk["responses"])
+
+    n_pf_after = n_pf_before - n_recovered
 
     state.setdefault("postprocessing", {})
     state["postprocessing"]["recovered_from_reasoning_content"] = n_recovered
