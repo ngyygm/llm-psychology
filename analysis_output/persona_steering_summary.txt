@@ -1,0 +1,39 @@
+PERSONA STEERING ANALYSIS SUMMARY
+==========================================
+Models: 18
+Personas: 17 (Default + 16 MBTI)
+Items: 221
+Expected item-level responses: 67,626
+Missing parsed values: 5
+
+Default bias
+------------------------------------------
+Most common nearest persona centroid: ISTJ (6/18 models)
+Mean nearest-centroid distance: 0.846
+
+Target adherence
+------------------------------------------
+Mean empirical target cosine: 0.816
+Mean theory target cosine: 0.547
+Mean empirical off-target leakage: 0.630
+
+Persona fidelity
+------------------------------------------
+Top-1 accuracy (z-Euclidean LOO centroids): 0.993
+Most common confusion: ESTJ -> ENTJ (1 models)
+
+Cross-scale coherence
+------------------------------------------
+Mean coherence score: 0.826
+Mean sign-match rate: 0.775
+
+Item mechanism
+------------------------------------------
+Plastic items: 23; locked items: 24
+Mean directional pair coherence: 0.704
+
+Bootstrap CIs
+------------------------------------------
+default_nearest_distance: 0.846 [0.801, 0.888]
+target_empirical_cosine: 0.816 [0.774, 0.856]
+cross_scale_coherence: 0.826 [0.801, 0.851]
