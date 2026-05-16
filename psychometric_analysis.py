@@ -63,7 +63,21 @@ def extract_item_responses(model_data, persona="Default"):
             "scored_value": r["scored_value"],
             "response_format": r["response_format"],
         })
-    return pd.DataFrame(rows)
+    df = pd.DataFrame(rows)
+    df["parsed_value"] = pd.to_numeric(df["parsed_value"], errors="coerce")
+    df["scored_value"] = pd.to_numeric(df["scored_value"], errors="coerce")
+    # Single model extraction: impute nulls with per-item median across same domain
+    null_mask = df["parsed_value"].isna()
+    if null_mask.any():
+        for idx in df[null_mask].index:
+            row = df.loc[idx]
+            same_domain = df[(df["domain"] == row["domain"]) & (df["scale"] == row["scale"]) & df["parsed_value"].notna()]
+            if len(same_domain) > 0:
+                med = same_domain["parsed_value"].median()
+                df.at[idx, "parsed_value"] = med
+                keyed = row["keyed"]
+                df.at[idx, "scored_value"] = med if keyed == "+" else (6 - med if row["response_format"] == "likert_5" else med)
+    return df
 
 
 def build_full_response_matrix(all_results):
@@ -83,7 +97,31 @@ def build_full_response_matrix(all_results):
                     "scored_value": r["scored_value"],
                     "response_format": r["response_format"],
                 })
-    return pd.DataFrame(rows)
+    df = pd.DataFrame(rows)
+    _impute_missing_with_median(df)
+    return df
+
+
+def _impute_missing_with_median(df):
+    """Impute null parsed_value/scored_value with per-item median across models."""
+    df["parsed_value"] = pd.to_numeric(df["parsed_value"], errors="coerce")
+    df["scored_value"] = pd.to_numeric(df["scored_value"], errors="coerce")
+    null_mask = df["parsed_value"].isna()
+    if not null_mask.any():
+        return
+    n_missing = null_mask.sum()
+    for idx in df[null_mask].index:
+        row = df.loc[idx]
+        item_id = row["item_id"]
+        persona = row["persona"]
+        same = df[(df["item_id"] == item_id) & (df["persona"] == persona) & df["parsed_value"].notna()]
+        if len(same) == 0:
+            continue
+        med = same["parsed_value"].median()
+        df.at[idx, "parsed_value"] = med
+        keyed = row["keyed"]
+        df.at[idx, "scored_value"] = med if keyed == "+" else (6 - med if row["response_format"] == "likert_5" else med)
+    print(f"[Imputation] Filled {n_missing} null values with per-item median")
 
 
 # ─────────────────────────────────────────────────────────────
@@ -605,9 +643,9 @@ def run_dif_analysis(all_results):
     print("=" * 70)
 
     model_families = {
-        "OpenAI": ["GPT-5.2", "GPT-5.5"],
+        "OpenAI": ["GPT_5.2", "GPT-5.5"],
         "Anthropic": ["Claude-Opus-4.6", "Claude-Sonnet-4.6"],
-        "Google": ["Gemini-3-Pro-Preview", "Gemini-3-Flash-Preview",
+        "Google": ["Gemini_3-Pro-Preview", "Gemini-3-Flash-Preview",
                     "Gemini-3.1-Pro-Preview", "Gemini-3.1-Flash-Lite"],
         "Chinese": ["DeepSeek-V3.2", "DeepSeek-V4-Flash", "DeepSeek-V4-Pro",
                      "GLM-4.6V", "Kimi-K2.5", "Kimi-K2.6",
@@ -637,6 +675,7 @@ def run_dif_analysis(all_results):
         scale=("scale", "first"),
         domain=("domain", "first"),
         keyed=("keyed", "first"),
+        item_text=("item_text", "first"),
     ).reset_index()
 
     low_var = item_var[item_var["variance"] < 0.3].sort_values("variance")
