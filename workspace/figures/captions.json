@@ -1,0 +1,38 @@
+{
+  "fig_scree_factor_loadings": {
+    "caption": "Factor structure of LLM personality responses. Left: Scree plot showing eigenvalue spectrum with Kaiser criterion (dashed line). Only 3 factors exceed the threshold (eigenvalues: 6.80, 4.33, 2.99). Right: Factor loading heatmap for the 3-factor Varimax-rotated solution, showing Big Five domains collapsing into Extraversion/Sociability (F1), Neuroticism/Agreeableness (F2), and Conscientiousness/Impulsivity (F3).",
+    "figure_filename": "fig1_scree_loadings.png"
+  },
+  "fig_pir_sdr_mechanism": {
+    "caption": "Reverse-item inconsistency and acquiescence mechanism. Left: PIR by domain. Dashed line: overall mean PIR = 0.584. Right: Reverse-item agree rate versus PIR (r = 0.726), demonstrating acquiescence bias as the driving mechanism.",
+    "figure_filename": "fig2_pir_sdr.png"
+  },
+  "fig_variance_decomposition": {
+    "caption": "Sequential variance decomposition. Left: Likert scales (IPIP + SD3). Right: Binary scales (ZKPQ + EPQR). Inter-model variance accounts for only 0.3% of Likert and 0.5% of binary response variance.",
+    "figure_filename": "fig3_variance_decomposition.png"
+  },
+  "fig_convergent_validity_forest": {
+    "caption": "Convergent validity: Spearman correlations between overlapping constructs. Extraversion-Sociability shows sign reversal (r = -0.09, expected r > 0.60). 7/8 pairs correct sign, but magnitudes weaker than human baselines.",
+    "figure_filename": "fig6_convergent_validity.png"
+  },
+  "fig_factor_collapse_summary": {
+    "caption": "Expected vs observed factor structure. Human: 5 separated Big Five factors. LLM: 3-factor collapse (Tucker phi = 0.990). Robust across all 18 models and all leave-one-out analyses.",
+    "figure_filename": "fig7_factor_collapse.png"
+  },
+  "fig_measurement_invariance": {
+    "caption": "Persona-level measurement invariance. Pearson r between Default and each MBTI persona profile. ENFJ closest (r = 0.608), ESTP farthest (r = 0.206).",
+    "figure_filename": "fig4_measurement_invariance.png"
+  },
+  "fig_response_styles": {
+    "caption": "Response style profiles across 18 LLMs. Acquiescence gap ranges from 0.38 to 1.69 across models.",
+    "figure_filename": "fig5_response_styles.png"
+  },
+  "fig_cronbach_comparison": {
+    "caption": "Cronbach alpha comparison. Human: 0.87-0.90. LLM: -0.02 to 0.36. Synthetic baselines bracket the LLM range.",
+    "figure_filename": "fig_cronbach_comparison.png"
+  },
+  "fig_pipeline_overview": {
+    "caption": "Experimental pipeline: 4 instruments (221 items) to 18 LLMs x 17 conditions to 67,626 responses to 6 psychometric analyses.",
+    "figure_filename": "fig_pipeline_overview.png"
+  }
+}

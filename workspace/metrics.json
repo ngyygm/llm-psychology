@@ -1,0 +1,478 @@
+{
+  "tables": [
+    {
+      "label": "Cronbach's Alpha by IPIP Domain (LLM vs Human)",
+      "headers": [
+        "Domain",
+        "LLM α (mean±SD)",
+        "Human α",
+        "Gap"
+      ],
+      "rows": [
+        [
+          "Neuroticism",
+          "0.354 ± 0.397",
+          "0.90",
+          "-0.546"
+        ],
+        [
+          "Extraversion",
+          "0.360 ± 0.451",
+          "0.89",
+          "-0.530"
+        ],
+        [
+          "Openness",
+          "0.055 ± 0.093",
+          "0.87",
+          "-0.815"
+        ],
+        [
+          "Agreeableness",
+          "-0.017 ± 0.230",
+          "0.88",
+          "-0.897"
+        ],
+        [
+          "Conscientiousness",
+          "0.181 ± 0.258",
+          "0.90",
+          "-0.719"
+        ]
+      ]
+    },
+    {
+      "label": "Factor Structure — Eigenvalues (domain-level EFA)",
+      "headers": [
+        "Factor",
+        "Eigenvalue",
+        "Cumulative %"
+      ],
+      "rows": [
+        [
+          "F1",
+          "6.804",
+          "40.0%"
+        ],
+        [
+          "F2",
+          "4.329",
+          "65.5%"
+        ],
+        [
+          "F3",
+          "2.986",
+          "83.1%"
+        ],
+        [
+          "F4",
+          "0.820",
+          "87.9%"
+        ],
+        [
+          "F5",
+          "0.523",
+          "91.0%"
+        ]
+      ]
+    },
+    {
+      "label": "Factor Loadings (3-factor solution, Varimax rotation)",
+      "headers": [
+        "Domain",
+        "F1 (Extraversion/Activity)",
+        "F2 (Neuroticism/Agreeableness)",
+        "F3 (Impulsivity/Conscientiousness)"
+      ],
+      "rows": [
+        [
+          "IPIP Extraversion",
+          "**0.94**",
+          "0.03",
+          "0.29"
+        ],
+        [
+          "IPIP Agreeableness",
+          "0.05",
+          "**0.90**",
+          "-0.22"
+        ],
+        [
+          "IPIP Conscientiousness",
+          "0.00",
+          "-0.04",
+          "**-0.91**"
+        ],
+        [
+          "IPIP Neuroticism",
+          "-0.30",
+          "**0.72**",
+          "0.39"
+        ],
+        [
+          "IPIP Openness",
+          "-0.04",
+          "0.55",
+          "0.58"
+        ],
+        [
+          "SD3 Narcissism",
+          "**0.91**",
+          "-0.20",
+          "0.17"
+        ],
+        [
+          "SD3 Machiavellianism",
+          "-0.09",
+          "**-0.82**",
+          "0.05"
+        ],
+        [
+          "SD3 Psychopathy",
+          "0.38",
+          "-0.59",
+          "0.63"
+        ]
+      ]
+    },
+    {
+      "label": "Pairwise Inconsistency Rate (PIR) by Domain",
+      "headers": [
+        "Domain",
+        "PIR (mean)",
+        "Direction"
+      ],
+      "rows": [
+        [
+          "SD3 Narcissism",
+          "0.929",
+          "Highest inconsistency"
+        ],
+        [
+          "IPIP Extraversion",
+          "0.878",
+          ""
+        ],
+        [
+          "IPIP Openness",
+          "0.729",
+          ""
+        ],
+        [
+          "ZKPQ Aggression-Hostility",
+          "0.580",
+          ""
+        ],
+        [
+          "IPIP Neuroticism",
+          "0.580",
+          ""
+        ],
+        [
+          "Overall (weighted)",
+          "**0.584**",
+          "58.4% of pairs inconsistent"
+        ],
+        [
+          "IPIP Agreeableness",
+          "0.426",
+          ""
+        ],
+        [
+          "IPIP Conscientiousness",
+          "0.348",
+          ""
+        ],
+        [
+          "SD3 Psychopathy",
+          "0.294",
+          ""
+        ],
+        [
+          "ZKPQ Neuroticism-Anxiety",
+          "0.278",
+          "Lowest inconsistency"
+        ]
+      ]
+    },
+    {
+      "label": "Variance Decomposition",
+      "headers": [
+        "Source",
+        "Variance %"
+      ],
+      "rows": [
+        [
+          "**Model** (inter-model)",
+          "**0.3%** [95% CI: 1.1%, 4.0%]"
+        ],
+        [
+          "Domain (trait)",
+          "23.4%"
+        ],
+        [
+          "Persona (condition)",
+          "3.9%"
+        ],
+        [
+          "Item (stimulus)",
+          "35.6%"
+        ],
+        [
+          "Residual",
+          "36.7%"
+        ]
+      ]
+    },
+    {
+      "label": "Table 6",
+      "headers": [
+        "Source",
+        "Variance %"
+      ],
+      "rows": [
+        [
+          "**Model** (inter-model)",
+          "**0.5%**"
+        ],
+        [
+          "Domain (trait)",
+          "5.2%"
+        ],
+        [
+          "Persona (condition)",
+          "13.0%"
+        ],
+        [
+          "Item (stimulus)",
+          "14.1%"
+        ],
+        [
+          "Residual",
+          "67.3%"
+        ]
+      ]
+    },
+    {
+      "label": "Convergent Validity (cross-scale correlations)",
+      "headers": [
+        "Construct pair",
+        "Expected",
+        "Observed r (Spearman)",
+        "p",
+        "Sign match"
+      ],
+      "rows": [
+        [
+          "Neuroticism ↔ Neuroticism-Anxiety",
+          "positive",
+          "0.597",
+          "0.009",
+          "Yes"
+        ],
+        [
+          "Extraversion ↔ Sociability",
+          "positive",
+          "**-0.090**",
+          "0.722",
+          "**No**"
+        ],
+        [
+          "Extraversion ↔ Extraversion",
+          "positive",
+          "0.298",
+          "0.230",
+          "Yes"
+        ],
+        [
+          "Neuroticism ↔ Neuroticism",
+          "positive",
+          "0.387",
+          "0.113",
+          "Yes"
+        ],
+        [
+          "Agreeableness ↔ Machiavellianism",
+          "negative",
+          "-0.674",
+          "0.002",
+          "Yes"
+        ],
+        [
+          "Agreeableness ↔ Psychopathy",
+          "negative",
+          "**-0.743**",
+          "<0.001",
+          "Yes"
+        ],
+        [
+          "Conscientiousness ↔ Psychopathy",
+          "negative",
+          "-0.646",
+          "0.004",
+          "Yes"
+        ],
+        [
+          "Psychoticism ↔ Psychopathy",
+          "positive",
+          "0.205",
+          "0.414",
+          "Yes"
+        ]
+      ]
+    },
+    {
+      "label": "Synthetic Baselines Comparison",
+      "headers": [
+        "Strategy",
+        "N α",
+        "E α",
+        "O α",
+        "A α",
+        "C α"
+      ],
+      "rows": [
+        [
+          "Random",
+          "0.014",
+          "0.094",
+          "0.029",
+          "-0.059",
+          "0.011"
+        ],
+        [
+          "Pure Acquiescence",
+          "-0.063",
+          "-0.151",
+          "0.039",
+          "0.130",
+          "0.049"
+        ],
+        [
+          "Trait+Acquiescence",
+          "0.997",
+          "0.998",
+          "0.996",
+          "0.997",
+          "0.997"
+        ],
+        [
+          "**LLM Observed**",
+          "**0.354**",
+          "**0.360**",
+          "**0.055**",
+          "**-0.017**",
+          "**0.181**"
+        ],
+        [
+          "Human norms",
+          "0.90",
+          "0.89",
+          "0.87",
+          "0.88",
+          "0.90"
+        ]
+      ]
+    },
+    {
+      "label": "Leave-One-Model-Out and Leave-One-Persona-Out Robustness",
+      "headers": [
+        "Metric",
+        "Result"
+      ],
+      "rows": [
+        [
+          "Factors (Kaiser)",
+          "3 in ALL 18 analyses (range: [3, 3])"
+        ],
+        [
+          "Mean eigenvalue diff from full",
+          "0.012"
+        ],
+        [
+          "Conclusion",
+          "**ROBUST** — 3-factor structure is universal"
+        ]
+      ]
+    },
+    {
+      "label": "Table 10",
+      "headers": [
+        "Metric",
+        "Result"
+      ],
+      "rows": [
+        [
+          "Factors (Kaiser)",
+          "3 in ALL 17 analyses (range: [3, 3])"
+        ],
+        [
+          "Conclusion",
+          "**ROBUST** — no single persona drives the collapse"
+        ]
+      ]
+    },
+    {
+      "label": "Acquiescence Mechanism",
+      "headers": [
+        "Model",
+        "Forward agree rate",
+        "Reverse agree rate",
+        "Acquiescence gap"
+      ],
+      "rows": [
+        [
+          "Qwen3-235B-A22B",
+          "0.823",
+          "0.366",
+          "1.695"
+        ],
+        [
+          "DeepSeek-V4-Flash",
+          "0.772",
+          "0.366",
+          "1.580"
+        ],
+        [
+          "Gemini-3.1-Flash-Lite",
+          "0.937",
+          "0.634",
+          "1.122"
+        ],
+        [
+          "DeepSeek-V3.2",
+          "0.949",
+          "0.585",
+          "1.018"
+        ],
+        [
+          "Claude-Opus-4.6",
+          "0.709",
+          "0.293",
+          "1.126"
+        ],
+        [
+          "Kimi-K2.6",
+          "0.570",
+          "0.415",
+          "0.382"
+        ]
+      ]
+    },
+    {
+      "label": "DIF — Chinese vs Western Model Families",
+      "headers": [
+        "Domain",
+        "p-value",
+        "Cohen's d"
+      ],
+      "rows": [
+        [
+          "All 8 tested domains",
+          "> 0.05 (all)",
+          "< 0.20 (all)"
+        ]
+      ]
+    }
+  ]
+}
