@@ -1,7 +1,0 @@
-# Validated Personality Instruments Do Not Transport Cleanly to LLMs: A Psychometric Cautionary Study
-
-When human-validated personality questionnaires are administered to large language models (LLMs), the resulting responses fail basic psychometric quality checks. We administered a 221-item battery (IPIP-NEO-120 Big Five, SD3 Dark Triad, ZKPQ-50-CC, EPQR-A) to 18 LLMs across 17 role-conditioned prompts (default + 16 MBTI personas), collecting 67,626 item-level responses at temperature = 0.7.
-
-We report four findings: (1) Cronbach's alpha for IPIP domains ranges from -0.02 to 0.36 (vs 0.87-0.90 in human norms), indicating poor internal consistency. (2) Exploratory factor analysis recovers 3 factors instead of the expected 5+ (robust across leave-one-model-out and leave-one-persona-out). (3) 58.4% [95% CI: 53.5%, 63.6%] of forward-reverse item pairs show inconsistent responses, strongly associated with acquiescence bias (r = 0.726). (4) Inter-model variance accounts for less than 1% of response variability.
-
-These results show that human personality instruments do not transport cleanly to LLMs. Response patterns are better explained by acquiescence-driven response style than by genuine trait-like structure. We frame these as findings about measurement transportability under single-administration conditions (temperature = 0.7), not as establishing a definitive mechanism.
