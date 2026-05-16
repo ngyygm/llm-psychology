@@ -74,6 +74,7 @@ MODEL_FATAL_THRESHOLD = 8  # consecutive permanent failures → abort the model
 BATCH_SIZE = 16            # in-flight requests per model
 PARALLEL_MODELS = 5        # how many models run simultaneously
 TEMPERATURE = 0.7
+N_SAMPLES = 1              # how many times to sample each (persona × item)
 MAX_TOKENS = 8192          # generous headroom for thinking-mode models
 
 # Customize with the model ids exposed by your endpoint.
@@ -376,6 +377,49 @@ def call_with_retry(model: str, system: str, user: str,
     return None, last_err, {"attempts": MAX_RETRIES, "elapsed_s": round(elapsed, 3)}, None
 
 # ============================================================================
+#                     SCHEMA MIGRATION (v1 → v2 samples)
+# ============================================================================
+
+SAMPLE_FIELDS = {
+    "raw_response", "full_response", "parsed_value", "scored_value",
+    "parse_failed", "request_error", "telemetry", "timestamp",
+    "backfilled", "refusal", "refusal_type", "recovery",
+}
+
+ITEM_FIELDS = {
+    "persona", "item_id", "scale", "domain", "facet",
+    "item_text", "keyed", "response_format", "user_prompt",
+}
+
+
+def migrate_record_to_samples(rec: dict) -> dict:
+    """Convert a v1 flat record to v2 samples format. Idempotent."""
+    if "samples" in rec:
+        return rec
+    sample: dict[str, Any] = {"sample_index": 0}
+    item: dict[str, Any] = {}
+    for k, v in rec.items():
+        if k in SAMPLE_FIELDS:
+            sample[k] = v
+        elif k in ITEM_FIELDS:
+            item[k] = v
+    item["samples"] = [sample]
+    return item
+
+
+def migrate_persona_block(block: dict) -> dict:
+    """Migrate all responses in a persona block to v2 format. Idempotent."""
+    block["responses"] = [migrate_record_to_samples(r) for r in block["responses"]]
+    return block
+
+
+def migrate_state(state: dict) -> dict:
+    """Migrate an entire result file's state to v2 format. Idempotent."""
+    for persona, block in state.get("results_by_persona", {}).items():
+        migrate_persona_block(block)
+    return state
+
+# ============================================================================
 #                          PER-MODEL EXECUTION
 # ============================================================================
 
@@ -383,8 +427,9 @@ class ModelAbort(Exception):
     """Raised to abort a model after too many fatal failures."""
 
 
-def _run_one_request(model: str, persona: str, persona_prompt: str,
-                     item: dict, logger: logging.Logger) -> dict:
+def _run_one_sample(model: str, persona_prompt: str, item: dict,
+                    sample_index: int, logger: logging.Logger) -> dict:
+    """Execute a single API call for one sample of one item. Returns sample dict."""
     user_q = build_user_question(item)
     text, err, telemetry, full = call_with_retry(model, persona_prompt, user_q, logger)
     parsed, used = (None, None)
@@ -394,17 +439,9 @@ def _run_one_request(model: str, persona: str, persona_prompt: str,
     else:
         scored = None
     return {
-        "persona": persona,
-        "item_id": item["id"],
-        "scale": item["scale"],
-        "domain": item["domain"],
-        "facet": item.get("facet"),
-        "item_text": item["text"],
-        "keyed": item["keyed"],
-        "response_format": item["response_format"],
-        "user_prompt": user_q,
+        "sample_index": sample_index,
         "raw_response": text,
-        "full_response": full,  # complete API message blob (incl. any reasoning channels)
+        "full_response": full,
         "parsed_value": parsed,
         "scored_value": scored,
         "parse_failed": parsed is None and text is not None,
@@ -414,14 +451,35 @@ def _run_one_request(model: str, persona: str, persona_prompt: str,
     }
 
 
+def _make_item_record(persona: str, item: dict) -> dict:
+    """Create a v2 item record shell (no samples yet)."""
+    return {
+        "persona": persona,
+        "item_id": item["id"],
+        "scale": item["scale"],
+        "domain": item["domain"],
+        "facet": item.get("facet"),
+        "item_text": item["text"],
+        "keyed": item["keyed"],
+        "response_format": item["response_format"],
+        "user_prompt": build_user_question(item),
+        "samples": [],
+    }
+
+
 def _aggregate_domain_scores(records: list[dict]) -> dict:
-    """For one persona: scale::domain → {n_items, mean, std, min, max}."""
+    """For one persona: scale::domain → {n_items, mean, std, min, max}.
+    Supports both v2 (samples list) and v1 (flat scored_value) records.
+    """
     agg: dict[tuple, list] = {}
     for rec in records:
-        if rec["scored_value"] is None:
-            continue
         key = (rec["scale"], rec["domain"])
-        agg.setdefault(key, []).append(rec["scored_value"])
+        if "samples" in rec:
+            for s in rec["samples"]:
+                if s.get("scored_value") is not None:
+                    agg.setdefault(key, []).append(s["scored_value"])
+        elif rec.get("scored_value") is not None:
+            agg.setdefault(key, []).append(rec["scored_value"])
     out: dict[str, dict] = {}
     for (scale, domain), values in agg.items():
         if not values:
@@ -450,76 +508,125 @@ def _atomic_write_json(path: Path, data: Any) -> None:
 
 def run_model_full(model: str, items: list[dict], mbti_map: dict[str, str],
                     output_json: Path, logger: logging.Logger,
-                    battery_meta: dict) -> dict:
+                    battery_meta: dict, n_samples: int = 1) -> dict:
     """Run all personas (Default + 16 MBTI) × all items for one model.
     Streams partial results into output_json after every persona block.
+
+    If output_json already exists, loads + migrates it and only runs the
+    missing samples (incremental mode).
     """
+    # --- Load or initialise state ---
+    existing: dict | None = None
+    if output_json.exists():
+        try:
+            with open(output_json, encoding="utf-8") as f:
+                existing = json.load(f)
+            migrate_state(existing)
+            logger.info("loaded existing results from %s (incremental mode)", output_json.name)
+        except Exception as e:
+            logger.warning("could not load existing %s (%s), starting fresh", output_json.name, e)
+            existing = None
+
     started_at = datetime.now().isoformat(timespec="seconds")
-    state = {
-        "model_name": model,
-        "api_base": OPENAI_BASE_URL,
-        "experiment_start": started_at,
-        "experiment_end": None,
-        "completion_status": "in_progress",
-        "battery": {
-            "total_items": len(items),
-            "scales": battery_meta.get("scales", {}),
-            "scoring_notes": (
-                "scored_value applies reverse-key transformation: Likert → 6-raw, "
-                "binary → 1-raw. parsed_value is the literal LLM answer BEFORE "
-                "reverse-scoring."
-            ),
-        },
-        "personas": PERSONA_ORDER,
-        "n_personas": len(PERSONA_ORDER),
-        "n_items_per_persona": len(items),
-        "config": {
-            "temperature": TEMPERATURE, "max_tokens": MAX_TOKENS,
-            "batch_size": BATCH_SIZE, "max_retries": MAX_RETRIES,
-            "retry_wait_seconds": RETRY_WAIT_SECONDS,
-            "model_fatal_threshold": MODEL_FATAL_THRESHOLD,
-            "default_persona_uses_no_system_prompt": True,
-        },
-        "results_by_persona": {},
-        "errors": [],
-    }
+    if existing is not None:
+        state = existing
+        state["experiment_start"] = started_at
+        state["experiment_end"] = None
+        state["completion_status"] = "in_progress"
+    else:
+        state = {
+            "model_name": model,
+            "api_base": OPENAI_BASE_URL,
+            "experiment_start": started_at,
+            "experiment_end": None,
+            "completion_status": "in_progress",
+            "battery": {
+                "total_items": len(items),
+                "scales": battery_meta.get("scales", {}),
+                "scoring_notes": (
+                    "scored_value applies reverse-key transformation: Likert → 6-raw, "
+                    "binary → 1-raw. parsed_value is the literal LLM answer BEFORE "
+                    "reverse-scoring."
+                ),
+            },
+            "personas": PERSONA_ORDER,
+            "n_personas": len(PERSONA_ORDER),
+            "n_items_per_persona": len(items),
+            "config": {
+                "temperature": TEMPERATURE, "max_tokens": MAX_TOKENS,
+                "batch_size": BATCH_SIZE, "max_retries": MAX_RETRIES,
+                "retry_wait_seconds": RETRY_WAIT_SECONDS,
+                "model_fatal_threshold": MODEL_FATAL_THRESHOLD,
+                "default_persona_uses_no_system_prompt": True,
+                "n_samples": n_samples,
+            },
+            "results_by_persona": {},
+            "errors": [],
+        }
+    state.setdefault("config", {})["n_samples"] = n_samples
     _atomic_write_json(output_json, state)
 
     consecutive_fatal = 0
+    items_by_id = {item["id"]: item for item in items}
 
     for persona in PERSONA_ORDER:
-        persona_desc = mbti_map.get(persona)  # None for "Default"
+        persona_desc = mbti_map.get(persona)
         persona_prompt = make_persona_prompt(persona, persona_desc)
-        logger.info("=== persona %s start (%d items) ===", persona, len(items))
-        records: list[dict] = []
+
+        existing_block = state["results_by_persona"].get(persona, {})
+        existing_responses = existing_block.get("responses", [])
+        rec_by_item: dict[str, dict] = {r["item_id"]: r for r in existing_responses}
+
+        tasks: list[tuple[dict, int]] = []
+        for item in items:
+            rec = rec_by_item.get(item["id"])
+            existing_count = len(rec["samples"]) if rec and "samples" in rec else 0
+            for si in range(existing_count, n_samples):
+                tasks.append((item, si))
+
+        logger.info("=== persona %s: %d new samples needed (%d items × %d target, %d existing) ===",
+                     persona, len(tasks), len(items), n_samples,
+                     sum(len(r.get("samples", [])) for r in rec_by_item.values()))
+
+        if not tasks:
+            logger.info("=== persona %s already complete, skipping ===", persona)
+            continue
+
         with ThreadPoolExecutor(max_workers=BATCH_SIZE) as pool:
             futures = {
-                pool.submit(_run_one_request, model, persona, persona_prompt,
-                             item, logger): item["id"]
-                for item in items
+                pool.submit(_run_one_sample, model, persona_prompt,
+                            item, si, logger): (item["id"], si)
+                for item, si in tasks
             }
             done = 0
             for fut in as_completed(futures):
-                rec = fut.result()
-                records.append(rec)
+                item_id, si = futures[fut]
+                sample = fut.result()
                 done += 1
-                if rec["request_error"]:
+
+                if item_id not in rec_by_item:
+                    rec_by_item[item_id] = _make_item_record(persona, items_by_id[item_id])
+                rec_by_item[item_id]["samples"].append(sample)
+
+                if sample["request_error"]:
                     consecutive_fatal += 1
-                    logger.error("[%s/%s] FAILED after retries: %s",
-                                  persona, rec["item_id"], rec["request_error"][:200])
+                    logger.error("[%s/%s#%d] FAILED after retries: %s",
+                                  persona, item_id, si, sample["request_error"][:200])
                     if consecutive_fatal >= MODEL_FATAL_THRESHOLD:
                         for f in futures:
                             f.cancel()
                         msg = (
                             f"Model `{model}` aborted after "
                             f"{consecutive_fatal} consecutive permanent failures. "
-                            f"Last error: {rec['request_error']}"
+                            f"Last error: {sample['request_error']}"
                         )
                         append_error_log(model, msg)
                         logger.error(msg)
                         state["completion_status"] = "aborted_api_failure"
                         state["errors"].append(msg)
-                        records.sort(key=lambda r: r["item_id"])
+                        records = sorted(rec_by_item.values(), key=lambda r: r["item_id"])
+                        for r in records:
+                            r["samples"].sort(key=lambda s: s["sample_index"])
                         state["results_by_persona"][persona] = {
                             "persona": persona,
                             "persona_prompt": persona_prompt,
@@ -532,9 +639,11 @@ def run_model_full(model: str, items: list[dict], mbti_map: dict[str, str],
                 else:
                     consecutive_fatal = 0
                 if done % 25 == 0:
-                    logger.info("  progress %s: %d/%d", persona, done, len(items))
+                    logger.info("  progress %s: %d/%d", persona, done, len(tasks))
 
-        records.sort(key=lambda r: r["item_id"])
+        records = sorted(rec_by_item.values(), key=lambda r: r["item_id"])
+        for r in records:
+            r["samples"].sort(key=lambda s: s["sample_index"])
         state["results_by_persona"][persona] = {
             "persona": persona,
             "persona_prompt": persona_prompt,
@@ -589,10 +698,11 @@ def append_summary_rows(csv_path: Path, model_state: dict) -> None:
 
 def driver_run_model(model: str, items: list[dict], mbti_map: dict[str, str],
                       output_json: Path, summary_csv: Path,
-                      battery_meta: dict) -> str:
+                      battery_meta: dict, n_samples: int = 1) -> str:
     logger = setup_logger(model)
     try:
-        state = run_model_full(model, items, mbti_map, output_json, logger, battery_meta)
+        state = run_model_full(model, items, mbti_map, output_json, logger, battery_meta,
+                                n_samples=n_samples)
     except ModelAbort as e:
         logger.error("model aborted: %s", e)
         try:
@@ -621,6 +731,8 @@ def main(argv: list[str] | None = None) -> int:
     g.add_argument("--model", help="Run only the given model (full 17 × 221).")
     ap.add_argument("--n-items", type=int, default=None,
                     help="Optional override: cap items per persona (debugging).")
+    ap.add_argument("--n-samples", type=int, default=N_SAMPLES,
+                    help="How many times to sample each (persona × item). Default: %(default)s.")
     args = ap.parse_args(argv)
 
     battery = load_battery()
@@ -659,13 +771,15 @@ def main(argv: list[str] | None = None) -> int:
     print(f"Models: {target_models}")
     print(f"MBTI types: {len(mbti_map)} (+ Default → {len(PERSONA_ORDER)} personas)")
     print(f"Items per persona: {len(items)}")
-    print(f"Total requests: {len(target_models) * len(PERSONA_ORDER) * len(items)}")
+    print(f"Samples per item: {args.n_samples}")
+    print(f"Total requests: {len(target_models) * len(PERSONA_ORDER) * len(items) * args.n_samples}")
     print(f"Per-model batch: {BATCH_SIZE}; parallel models: {max_workers}")
 
     def submit_one(model: str) -> str:
         out = (json_path if json_path is not None
                 else RESULTS_DIR / f"exp_mbti_{sanitize(model)}.json")
-        return driver_run_model(model, items, mbti_map, out, csv_path, battery_meta)
+        return driver_run_model(model, items, mbti_map, out, csv_path, battery_meta,
+                                n_samples=args.n_samples)
 
     if max_workers == 1:
         for model in target_models:
