@@ -677,6 +677,180 @@ All five refusals occur under the Default (no-persona) condition and involve eit
 In all analyses, these five missing values are imputed with the per-item median across the remaining models under the same persona condition. Because the median is robust to outliers and the missing count is negligible ($5/67{,}626 < 0.01\%$), this has no material effect on any reported statistic.
 
 \clearpage
+\section{Within-Sample Response Consistency}
+\label{sec:appendix_within_sample}
+
+All main analyses in this paper average across multiple independent samplings ($k{=}5$, temperature${}=0.7$) of each (model, persona, item) triple.
+This section examines \emph{how consistent} those $k$ responses are.
+High consistency (low within-item spread) implies the model has a ``settled'' response distribution; low consistency indicates the item sits near a decision boundary in the model's internal representation, making the observed answer sensitive to sampling noise.
+
+\subsection{Metrics}
+
+For each (model, persona, item) cell we compute:
+\begin{itemize}[nosep]
+    \item \textbf{Within-item SD} — standard deviation of the 5 scored values (Likert items only, since binary SD is bimodal at 0 and 0.45).
+    \item \textbf{Exact agreement rate} — fraction of cells where all 5 repetitions produce the identical scored value.
+    \item \textbf{Mode agreement} — proportion of the 5 responses that match the modal answer ($5/5{=}1.0$, $4/5{=}0.8$, etc.).
+\end{itemize}
+
+\subsection{Overall Portrait}
+\label{sec:wsc_overall}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/fig_wsc1_overall_portrait.png}
+    \caption{Within-sample consistency portrait. (a)~Distribution of within-item SD by response format. (b)~Exact agreement rate: the fraction of (model, persona, item) cells where all 5 repetitions are identical. (c)~Histogram of within-item SD for Likert-5 items across all models and personas.}
+    \label{fig:wsc1_overall}
+\end{figure}
+
+\cref{fig:wsc1_overall} presents the global picture.
+Among Likert items, the mean within-item SD is reported in \cref{tab:wsc_overall}.
+Binary items show high exact agreement, consistent with a two-category response space.
+
+\begin{table}[t]
+\centering\small
+\caption{Overall within-sample consistency by response format.}
+\label{tab:wsc_overall}
+\begin{tabular}{lccc}
+\toprule
+Format & Mean SD & Exact Agree. & Mode Agree. \\
+\midrule
+Likert 1--5 & — & — & — \\
+True / False & — & — & — \\
+Yes / No & — & — & — \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Model-Level Consistency}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/fig_wsc2_model_beeswarm.png}
+    \caption{Model-level within-sample consistency. (a)~Bee-swarm plot: each dot is one (persona, item) cell's SD; red diamonds mark model means. Models ordered by mean SD (ascending). (b)~Exact agreement rate per model, colored by vendor family.}
+    \label{fig:wsc2_model}
+\end{figure}
+
+\cref{fig:wsc2_model} shows that consistency varies meaningfully across models.
+Some models produce near-deterministic answers (exact agreement ${>}0.9$) while others show substantial spread.
+\cref{tab:wsc_model} reports the full per-model statistics.
+
+\begin{table}[t]
+\centering\small
+\caption{Per-model within-sample consistency (Likert items). Models sorted by mean SD.}
+\label{tab:wsc_model}
+\begin{tabular}{lcccc}
+\toprule
+Model & Mean SD & Median SD & Exact Agr. & Mode Agr. \\
+\midrule
+\multicolumn{5}{c}{\itshape (populated after 5-sample data collection)} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Persona-Level Consistency}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/fig_wsc3_persona_beeswarm.png}
+    \caption{Persona-level consistency. (a)~SD distribution per persona (gold band = Default baseline). (b)~Mode agreement rate. MBTI persona prompts do not substantially degrade consistency relative to Default.}
+    \label{fig:wsc3_persona}
+\end{figure}
+
+A natural concern is that MBTI persona instructions, by requiring role-play, might increase response instability.
+\cref{fig:wsc3_persona} compares Default and the 16 MBTI personas.
+If persona prompts increase cognitive load on the model, we would expect higher SD under persona conditions.
+The comparison between Default and mean MBTI SD tests this hypothesis.
+
+\subsection{Domain-Level Consistency}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/fig_wsc4_domain_violin.png}
+    \caption{Domain-level consistency. (a)~Violin plots of within-item SD for each Likert domain (IPIP-NEO-120 + SD3). (b)~Exact agreement for binary domains (ZKPQ + EPQR-A). Domains with inherently ambiguous items (e.g., Psychopathy) tend to show higher SD.}
+    \label{fig:wsc4_domain}
+\end{figure}
+
+Different personality constructs may have different baseline stabilities.
+\cref{fig:wsc4_domain} decomposes consistency by scale domain.
+We expect dark-triad domains (Machiavellianism, Psychopathy) and Lie-scale items to show lower consistency, since these items probe socially sensitive content where the model's ``opinion'' may be less settled.
+
+\subsection{Item-Level Stability}
+
+\begin{figure*}[t]
+    \centering
+    \includegraphics[width=\textwidth]{figures/fig_wsc5_item_stability.png}
+    \caption{Item-level stability ranking (Likert items). (a)~The 15 items with the highest mean within-item SD across all models and personas—these are the most ``unstable'' items where repeated sampling yields divergent answers. (b)~The 15 most stable items. Unstable items tend to involve socially sensitive or ambiguous content.}
+    \label{fig:wsc5_items}
+\end{figure*}
+
+Zooming in further, \cref{fig:wsc5_items} ranks individual items by their mean within-item SD.
+The most unstable items reveal which questionnaire statements elicit the most variable responses from LLMs—likely items where the model's internal ``preference'' is near a category boundary.
+\cref{tab:wsc_items_top} lists the full top-20 unstable and stable items.
+
+\begin{table}[t]
+\centering\small
+\caption{Top-10 most unstable and most stable Likert items by mean within-item SD.}
+\label{tab:wsc_items_top}
+\begin{tabular}{llc}
+\toprule
+Item ID & Domain & Mean SD \\
+\midrule
+\multicolumn{3}{c}{\itshape Most unstable (top 10)} \\
+\midrule
+\multicolumn{3}{c}{\itshape (populated after 5-sample data collection)} \\
+\midrule
+\multicolumn{3}{c}{\itshape Most stable (top 10)} \\
+\midrule
+\multicolumn{3}{c}{\itshape (populated after 5-sample data collection)} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Interaction: Model $\times$ Persona}
+
+\begin{figure*}[t]
+    \centering
+    \includegraphics[width=\textwidth]{figures/fig_wsc6_model_persona_heatmap.png}
+    \caption{Model $\times$ persona interaction heatmap. Each cell shows the mean within-item SD for a (model, persona) pair. Rows ordered by overall model consistency. Anomalous cells (unusually high SD for a specific combination) indicate model--persona interactions that destabilize responses.}
+    \label{fig:wsc6_model_persona}
+\end{figure*}
+
+\cref{fig:wsc6_model_persona} tests whether certain model--persona combinations are particularly unstable.
+If persona prompts simply add uniform noise, the heatmap should show smooth row gradients.
+Visible ``hot spots'' would indicate that specific persona instructions interact badly with specific model architectures.
+
+\subsection{Interaction: Model $\times$ Domain}
+
+\begin{figure*}[t]
+    \centering
+    \includegraphics[width=\textwidth]{figures/fig_wsc7_model_domain_heatmap.png}
+    \caption{Model $\times$ domain interaction. Mean within-item SD per (model, domain) pair. Columns ordered by overall domain instability. Some models may show domain-specific instability (e.g., high SD on Lie-scale items but not on Openness items).}
+    \label{fig:wsc7_model_domain}
+\end{figure*}
+
+\subsection{Interaction: Persona $\times$ Domain}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/fig_wsc8_persona_domain_heatmap.png}
+    \caption{Persona $\times$ domain interaction. Mean within-item SD per (persona, domain) pair. This reveals whether certain persona--domain combinations are inherently less stable—e.g., an Introverted persona answering Extraversion items.}
+    \label{fig:wsc8_persona_domain}
+\end{figure}
+
+\subsection{Anomaly Detection}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/fig_wsc9_anomaly.png}
+    \caption{Anomaly detection in the model $\times$ persona $\times$ domain space. (a)~Cells exceeding the 1.5$\times$IQR threshold on mean SD. (b)~Overall distribution of cell-level SD with anomaly threshold marked. Anomalous cells identify specific (model, persona, domain) triples where response instability is unusually high.}
+    \label{fig:wsc9_anomaly}
+\end{figure}
+
+Finally, \cref{fig:wsc9_anomaly} applies a 1.5$\times$IQR outlier rule to the (model, persona, domain) $\to$ mean SD matrix.
+Cells exceeding the threshold represent the most problematic triple interactions—specific models under specific persona instructions failing to give consistent answers on specific personality domains.
+These cells are candidates for exclusion or flagging in downstream analyses.
+
 \section{Full Refusal Responses}
 \label{sec:appendix_refusals}
 

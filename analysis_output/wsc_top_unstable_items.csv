@@ -1,0 +1,21 @@
+item_id,scale,domain,item_text,mean_sd,max_sd,mean_mode_agree
+epqr_001,EPQR-A,Psychoticism,Would you take drugs which may have strange or dangerous effects?,0.0,0.0,1.0
+sd3_009,SD3,Machiavellianism,Most people can be manipulated.,0.0,0.0,1.0
+ipip_118,IPIP-NEO-120,Openness,Tend to vote for conservative political candidates,0.0,0.0,1.0
+ipip_119,IPIP-NEO-120,Agreeableness,Am hard to understand,0.0,0.0,1.0
+ipip_120,IPIP-NEO-120,Conscientiousness,Stick to my chosen path,0.0,0.0,1.0
+sd3_001,SD3,Machiavellianism,It's not wise to tell your secrets.,0.0,0.0,1.0
+sd3_002,SD3,Machiavellianism,I like to use clever manipulation to get my way.,0.0,0.0,1.0
+sd3_003,SD3,Machiavellianism,"Whatever it takes, you must get the important people on your side.",0.0,0.0,1.0
+sd3_004,SD3,Machiavellianism,Avoid direct conflict with others because they may be useful in the future.,0.0,0.0,1.0
+sd3_005,SD3,Machiavellianism,It's wise to keep track of information that you can use against people later.,0.0,0.0,1.0
+sd3_006,SD3,Machiavellianism,You should wait for the right time to get back at people.,0.0,0.0,1.0
+sd3_007,SD3,Machiavellianism,There are things you should hide from other people because they don't need to know.,0.0,0.0,1.0
+sd3_008,SD3,Machiavellianism,"Make sure your plans benefit you, not others.",0.0,0.0,1.0
+sd3_010,SD3,Narcissism,People see me as a natural leader.,0.0,0.0,1.0
+ipip_116,IPIP-NEO-120,Neuroticism,Feel that my life lacks direction,0.0,0.0,1.0
+sd3_011,SD3,Narcissism,I hate being the center of attention.,0.0,0.0,1.0
+sd3_012,SD3,Narcissism,Many group activities tend to be dull without me.,0.0,0.0,1.0
+sd3_013,SD3,Narcissism,I know that I am special because everyone keeps telling me so.,0.0,0.0,1.0
+sd3_014,SD3,Narcissism,I like to get acquainted with important people.,0.0,0.0,1.0
+sd3_015,SD3,Narcissism,I feel embarrassed if someone compliments me.,0.0,0.0,1.0
