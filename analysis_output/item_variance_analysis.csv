@@ -1,148 +1,148 @@
 item_id,variance,mean,scale,domain,keyed,item_text
-ipip_001,1.529411764705882,2.0,IPIP-NEO-120,Neuroticism,+,Worry about things
-ipip_002,1.0751633986928106,2.388888888888889,IPIP-NEO-120,Extraversion,+,Make friends easily
-ipip_003,1.1241830065359482,4.222222222222222,IPIP-NEO-120,Openness,+,Have a vivid imagination
-ipip_004,0.2647058823529411,3.5,IPIP-NEO-120,Agreeableness,+,Trust others
-ipip_005,0.26143790849673193,4.444444444444445,IPIP-NEO-120,Conscientiousness,+,Complete tasks successfully
-ipip_006,0.6045751633986929,1.6111111111111112,IPIP-NEO-120,Neuroticism,+,Get angry easily
-ipip_007,0.1045751633986928,2.888888888888889,IPIP-NEO-120,Extraversion,+,Love large parties
-ipip_008,0.3300653594771243,4.722222222222222,IPIP-NEO-120,Openness,+,Believe in the importance of art
-ipip_009,0.22222222222222218,1.1111111111111112,IPIP-NEO-120,Agreeableness,-,Use others for my own ends
-ipip_010,0.5,3.5,IPIP-NEO-120,Conscientiousness,+,Like to tidy up
-ipip_011,0.9673202614379084,1.5555555555555556,IPIP-NEO-120,Neuroticism,+,Often feel blue
-ipip_012,0.5359477124183004,3.7777777777777777,IPIP-NEO-120,Extraversion,+,Take charge
-ipip_013,2.1732026143790844,1.9444444444444444,IPIP-NEO-120,Openness,+,Experience my emotions intensely
-ipip_014,0.1470588235294119,4.833333333333333,IPIP-NEO-120,Agreeableness,+,Love to help others
-ipip_015,0.2614379084967323,4.555555555555555,IPIP-NEO-120,Conscientiousness,+,Keep my promises
-ipip_016,1.3235294117647056,2.1666666666666665,IPIP-NEO-120,Neuroticism,+,Find it difficult to approach others
-ipip_017,1.398692810457516,2.111111111111111,IPIP-NEO-120,Extraversion,+,Am always busy
-ipip_018,0.369281045751634,3.388888888888889,IPIP-NEO-120,Openness,+,Prefer variety to routine
-ipip_019,0.69281045751634,1.8888888888888888,IPIP-NEO-120,Agreeableness,-,Love a good fight
-ipip_020,0.47058823529411764,4.333333333333333,IPIP-NEO-120,Conscientiousness,+,Work hard
-ipip_021,0.7352941176470589,1.5,IPIP-NEO-120,Neuroticism,+,Go on binges
-ipip_022,0.6045751633986929,3.388888888888889,IPIP-NEO-120,Extraversion,+,Love excitement
-ipip_023,0.8529411764705881,4.166666666666667,IPIP-NEO-120,Openness,+,Love to read challenging material
-ipip_024,0.6176470588235294,1.5,IPIP-NEO-120,Agreeableness,-,Believe that I am better than others
-ipip_025,0.35294117647058826,4.0,IPIP-NEO-120,Conscientiousness,+,Have excellent ideas
-ipip_026,0.7058823529411766,1.6666666666666667,IPIP-NEO-120,Neuroticism,+,Panic easily
-ipip_027,0.5751633986928105,3.888888888888889,IPIP-NEO-120,Extraversion,+,Radiate joy
-ipip_028,0.44771241830065367,3.2777777777777777,IPIP-NEO-120,Openness,+,Tend to vote for liberal political candidates
-ipip_029,0.49673202614379075,4.444444444444445,IPIP-NEO-120,Agreeableness,+,Sympathize with the homeless
-ipip_030,0.8529411764705884,1.8333333333333333,IPIP-NEO-120,Conscientiousness,-,Rush into things
-ipip_031,0.9281045751633987,2.111111111111111,IPIP-NEO-120,Neuroticism,+,Fear for the worst
-ipip_032,0.1830065359477124,3.2222222222222223,IPIP-NEO-120,Extraversion,+,Feel comfortable around people
-ipip_033,1.0457516339869282,4.111111111111111,IPIP-NEO-120,Openness,+,Enjoy wild flights of fantasy
-ipip_034,0.38235294117647056,3.8333333333333335,IPIP-NEO-120,Agreeableness,+,Believe that others have good intentions
-ipip_035,0.6176470588235297,4.166666666666667,IPIP-NEO-120,Conscientiousness,+,Excel in what I do
-ipip_036,0.6176470588235294,1.5,IPIP-NEO-120,Neuroticism,+,Lose my temper
-ipip_037,0.3823529411764708,3.1666666666666665,IPIP-NEO-120,Extraversion,+,Talk to a lot of different people at parties
-ipip_038,0.3790849673202614,4.444444444444445,IPIP-NEO-120,Openness,+,See beauty in things that others might not notice
-ipip_039,0.8888888888888886,1.2222222222222223,IPIP-NEO-120,Agreeableness,-,Cheat to get ahead
-ipip_040,1.2418300653594772,2.2222222222222223,IPIP-NEO-120,Conscientiousness,-,Often forget to put things back in their proper place
-ipip_041,0.8529411764705884,1.8333333333333333,IPIP-NEO-120,Neuroticism,+,Dislike myself
-ipip_042,1.9379084967320261,2.9444444444444446,IPIP-NEO-120,Extraversion,+,Try to lead others
-ipip_043,2.41830065359477,2.2222222222222223,IPIP-NEO-120,Openness,+,Feel others' emotions
-ipip_044,1.088235294117647,4.166666666666667,IPIP-NEO-120,Agreeableness,+,Am concerned about others
-ipip_045,0.055555555555555546,4.944444444444445,IPIP-NEO-120,Conscientiousness,+,Tell the truth
-ipip_046,1.8692810457516331,2.111111111111111,IPIP-NEO-120,Neuroticism,+,Am afraid that I will do the wrong thing
-ipip_047,1.176470588235294,2.3333333333333335,IPIP-NEO-120,Extraversion,+,Am always on the go
-ipip_048,0.2647058823529412,2.8333333333333335,IPIP-NEO-120,Openness,-,Prefer to stick with things that I know
-ipip_049,0.0,1.0,IPIP-NEO-120,Agreeableness,-,Yell at people
-ipip_050,0.369281045751634,4.388888888888889,IPIP-NEO-120,Conscientiousness,+,Do more than what's expected of me
-ipip_051,0.7058823529411765,4.333333333333333,IPIP-NEO-120,Neuroticism,-,Rarely overindulge
-ipip_052,0.5882352941176471,3.6666666666666665,IPIP-NEO-120,Extraversion,+,Seek adventure
-ipip_053,1.1764705882352948,1.6666666666666667,IPIP-NEO-120,Openness,-,Avoid philosophical discussions
-ipip_054,0.14705882352941174,3.1666666666666665,IPIP-NEO-120,Agreeableness,-,Have a high opinion of myself
-ipip_055,1.8300653594771241,3.2222222222222223,IPIP-NEO-120,Conscientiousness,+,Carry out my plans
-ipip_056,1.11437908496732,1.9444444444444444,IPIP-NEO-120,Neuroticism,+,Become overwhelmed by events
-ipip_057,0.9281045751633987,4.111111111111111,IPIP-NEO-120,Extraversion,+,Have a lot of fun
-ipip_058,0.23529411764705882,3.0,IPIP-NEO-120,Openness,+,Believe that there is no absolute right or wrong
-ipip_059,1.15359477124183,4.277777777777778,IPIP-NEO-120,Agreeableness,+,Feel sympathy for those who are worse off than myself
-ipip_060,0.10457516339869286,1.1111111111111112,IPIP-NEO-120,Conscientiousness,-,Make rash decisions
-ipip_061,0.7058823529411765,1.6666666666666667,IPIP-NEO-120,Neuroticism,+,Am easily disturbed
-ipip_062,0.5751633986928104,3.888888888888889,IPIP-NEO-120,Extraversion,+,Act comfortable with others
-ipip_063,0.9411764705882351,3.3333333333333335,IPIP-NEO-120,Openness,+,Enjoy daydreaming
-ipip_064,0.3790849673202614,2.4444444444444446,IPIP-NEO-120,Agreeableness,+,Trust what people say
-ipip_065,0.2647058823529414,4.166666666666667,IPIP-NEO-120,Conscientiousness,+,Handle tasks smoothly
-ipip_066,1.3986928104575163,1.8888888888888888,IPIP-NEO-120,Neuroticism,+,Lose my composure
-ipip_067,0.6535947712418301,3.2222222222222223,IPIP-NEO-120,Extraversion,+,Enjoy parties
-ipip_068,0.9183006535947711,3.7222222222222223,IPIP-NEO-120,Openness,+,Like music
-ipip_069,0.300653594771242,1.2222222222222223,IPIP-NEO-120,Agreeableness,-,Obstruct others' plans
-ipip_070,0.18300653594771246,1.2222222222222223,IPIP-NEO-120,Conscientiousness,-,Leave a mess in my room
-ipip_071,0.7222222222222223,3.611111111111111,IPIP-NEO-120,Neuroticism,-,Feel comfortable with myself
-ipip_072,0.47058823529411764,2.3333333333333335,IPIP-NEO-120,Extraversion,-,Wait for others to lead the way
-ipip_073,0.8496732026143793,4.444444444444445,IPIP-NEO-120,Openness,+,Enjoy thinking about things
-ipip_074,1.8692810457516338,1.8888888888888888,IPIP-NEO-120,Agreeableness,-,Am not interested in other people's problems
-ipip_075,0.6830065359477124,1.7222222222222223,IPIP-NEO-120,Conscientiousness,-,Break rules
-ipip_076,0.918300653594771,2.2777777777777777,IPIP-NEO-120,Neuroticism,+,Only feel comfortable with friends
-ipip_077,1.4379084967320261,2.5555555555555554,IPIP-NEO-120,Extraversion,+,Do a lot in my spare time
-ipip_078,0.7352941176470585,2.5,IPIP-NEO-120,Openness,-,Dislike changes
-ipip_079,0.055555555555555546,1.0555555555555556,IPIP-NEO-120,Agreeableness,-,Insult people
-ipip_080,0.3823529411764705,4.5,IPIP-NEO-120,Conscientiousness,+,Set high standards for myself
-ipip_081,1.2712418300653596,3.2777777777777777,IPIP-NEO-120,Neuroticism,-,Am able to control my cravings
-ipip_082,0.6830065359477124,1.7222222222222223,IPIP-NEO-120,Extraversion,+,Act wild and crazy
-ipip_083,0.48692810457516333,1.3888888888888888,IPIP-NEO-120,Openness,-,Am not interested in abstract ideas
-ipip_084,1.3888888888888888,1.7222222222222223,IPIP-NEO-120,Agreeableness,-,Boast about my virtues
-ipip_085,1.0849673202614378,3.4444444444444446,IPIP-NEO-120,Conscientiousness,+,Get to work at once
-ipip_086,1.3104575163398702,2.388888888888889,IPIP-NEO-120,Neuroticism,+,Can't make up my mind
-ipip_087,0.3398692810457516,3.888888888888889,IPIP-NEO-120,Extraversion,+,Look at the bright side of life
-ipip_088,0.38235294117647056,3.1666666666666665,IPIP-NEO-120,Openness,-,Believe that we should be tough on crime
-ipip_089,0.30065359477124176,1.2222222222222223,IPIP-NEO-120,Agreeableness,-,Am indifferent to the feelings of others
-ipip_090,0.48692810457516345,1.6111111111111112,IPIP-NEO-120,Conscientiousness,-,Jump into things without thinking
-ipip_091,2.3006535947712425,2.2222222222222223,IPIP-NEO-120,Neuroticism,+,Am stressed out
-ipip_092,0.588235294117647,3.3333333333333335,IPIP-NEO-120,Extraversion,+,Am skilled in handling social situations
-ipip_093,2.6437908496732043,3.0555555555555554,IPIP-NEO-120,Openness,+,Like to get lost in thought
-ipip_094,1.0588235294117645,2.3333333333333335,IPIP-NEO-120,Agreeableness,-,Distrust people
-ipip_095,0.48692810457516356,4.388888888888889,IPIP-NEO-120,Conscientiousness,+,Know how to get things done
-ipip_096,0.9281045751633987,4.111111111111111,IPIP-NEO-120,Neuroticism,-,Am not easily annoyed
-ipip_097,0.8235294117647058,3.3333333333333335,IPIP-NEO-120,Extraversion,-,Avoid crowds
-ipip_098,1.0359477124183005,2.2777777777777777,IPIP-NEO-120,Openness,-,Do not like art
-ipip_099,0.0,1.0,IPIP-NEO-120,Agreeableness,-,Take advantage of others
-ipip_100,0.9575163398692811,3.611111111111111,IPIP-NEO-120,Conscientiousness,+,Want everything to be 'just right'
-ipip_101,0.8398692810457518,1.6111111111111112,IPIP-NEO-120,Neuroticism,+,Feel desperate
-ipip_102,0.8006535947712417,1.7222222222222223,IPIP-NEO-120,Extraversion,+,Am the life of the party
-ipip_103,1.5849673202614374,3.9444444444444446,IPIP-NEO-120,Openness,-,Seldom get emotional
-ipip_104,1.5065359477124183,2.2777777777777777,IPIP-NEO-120,Agreeableness,-,Am not really interested in others
-ipip_105,0.6437908496732027,4.055555555555555,IPIP-NEO-120,Conscientiousness,+,Behave properly
-ipip_106,1.5849673202614376,1.9444444444444444,IPIP-NEO-120,Neuroticism,+,Am afraid of many things
-ipip_107,0.14705882352941174,3.1666666666666665,IPIP-NEO-120,Extraversion,-,Prefer to be alone
-ipip_108,1.0065359477124185,2.2222222222222223,IPIP-NEO-120,Openness,-,Dislike new foods
-ipip_109,0.47058823529411775,1.3333333333333333,IPIP-NEO-120,Agreeableness,-,Hold a grudge
-ipip_110,0.48692810457516345,1.6111111111111112,IPIP-NEO-120,Conscientiousness,-,Do just enough work to get by
-ipip_111,1.477124183006536,3.2222222222222223,IPIP-NEO-120,Neuroticism,-,Easily resist temptations
-ipip_112,1.294117647058824,1.6666666666666667,IPIP-NEO-120,Extraversion,+,Seek danger
-ipip_113,1.2712418300653598,3.7222222222222223,IPIP-NEO-120,Openness,+,Try to understand myself
-ipip_114,0.21241830065359477,3.2777777777777777,IPIP-NEO-120,Agreeableness,-,Think highly of myself
-ipip_115,0.5,4.166666666666667,IPIP-NEO-120,Conscientiousness,+,Get chores done right away
-ipip_116,1.428104575163398,2.388888888888889,IPIP-NEO-120,Neuroticism,+,Feel that my life lacks direction
-ipip_117,0.8104575163398693,1.8888888888888888,IPIP-NEO-120,Extraversion,+,Am always joking around
-ipip_118,0.5261437908496732,2.9444444444444446,IPIP-NEO-120,Openness,-,Tend to vote for conservative political candidates
-ipip_119,0.5261437908496732,2.0555555555555554,IPIP-NEO-120,Agreeableness,-,Am hard to understand
-ipip_120,0.8398692810457515,3.611111111111111,IPIP-NEO-120,Conscientiousness,+,Stick to my chosen path
-sd3_001,0.10457516339869291,3.888888888888889,SD3,Machiavellianism,+,It's not wise to tell your secrets.
-sd3_002,0.10457516339869284,1.1111111111111112,SD3,Machiavellianism,+,I like to use clever manipulation to get my way.
-sd3_003,1.6732026143790848,2.4444444444444446,SD3,Machiavellianism,+,"Whatever it takes, you must get the important people on your side."
-sd3_004,1.19281045751634,2.611111111111111,SD3,Machiavellianism,+,Avoid direct conflict with others because they may be useful in the future.
-sd3_005,0.14705882352941177,1.1666666666666667,SD3,Machiavellianism,+,It's wise to keep track of information that you can use against people later.
-sd3_006,0.33006535947712434,1.2777777777777777,SD3,Machiavellianism,+,You should wait for the right time to get back at people.
-sd3_007,0.300653594771242,4.222222222222222,SD3,Machiavellianism,+,There are things you should hide from other people because they don't need to know.
-sd3_008,0.6176470588235297,1.8333333333333333,SD3,Machiavellianism,+,"Make sure your plans benefit you, not others."
-sd3_009,0.055555555555555566,4.055555555555555,SD3,Machiavellianism,+,Most people can be manipulated.
-sd3_010,1.0359477124183007,2.7222222222222223,SD3,Narcissism,+,People see me as a natural leader.
-sd3_011,0.2647058823529413,3.1666666666666665,SD3,Narcissism,-,I hate being the center of attention.
-sd3_012,0.8790849673202615,1.9444444444444444,SD3,Narcissism,+,Many group activities tend to be dull without me.
-sd3_013,0.7222222222222223,1.6111111111111112,SD3,Narcissism,+,I know that I am special because everyone keeps telling me so.
-sd3_014,0.3006535947712419,2.7777777777777777,SD3,Narcissism,+,I like to get acquainted with important people.
-sd3_015,0.8006535947712417,1.7222222222222223,SD3,Narcissism,-,I feel embarrassed if someone compliments me.
-sd3_016,1.23202614379085,2.0555555555555554,SD3,Narcissism,+,I have been compared to famous people.
-sd3_017,1.1764705882352944,2.0,SD3,Narcissism,-,I am an average person.
-sd3_018,1.5947712418300655,2.7777777777777777,SD3,Narcissism,+,I insist on getting the respect I deserve.
-sd3_019,0.4477124183006537,1.2777777777777777,SD3,Psychopathy,+,I like to get revenge on authorities.
-sd3_020,0.69281045751634,4.111111111111111,SD3,Psychopathy,-,I avoid dangerous situations.
-sd3_021,1.084967320261438,1.5555555555555556,SD3,Psychopathy,+,Payback needs to be quick and nasty.
-sd3_022,0.9673202614379084,1.5555555555555556,SD3,Psychopathy,+,People often say I'm out of control.
-sd3_023,1.1633986928104578,1.8888888888888888,SD3,Psychopathy,+,It's true that I can be mean to others.
-sd3_024,0.8888888888888888,1.7777777777777777,SD3,Psychopathy,+,People who mess with me always regret it.
-sd3_025,0.47058823529411786,4.666666666666667,SD3,Psychopathy,-,I have never gotten into trouble with the law.
-sd3_026,1.798202614379085,2.3055555555555554,SD3,Psychopathy,+,I enjoy having sex with people I hardly know.
-sd3_027,0.33006535947712423,1.2777777777777777,SD3,Psychopathy,+,I'll say anything to get what I want.
+ipip_001,1.4933333333333325,2.1,IPIP-NEO-120,Neuroticism,+,Worry about things
+ipip_002,0.35466666666666663,2.75,IPIP-NEO-120,Extraversion,+,Make friends easily
+ipip_003,1.1211666666666669,4.0375,IPIP-NEO-120,Openness,+,Have a vivid imagination
+ipip_004,0.14249999999999996,3.5375,IPIP-NEO-120,Agreeableness,+,Trust others
+ipip_005,0.19716666666666663,4.5125,IPIP-NEO-120,Conscientiousness,+,Complete tasks successfully
+ipip_006,0.6878333333333333,1.6875,IPIP-NEO-120,Neuroticism,+,Get angry easily
+ipip_007,0.11200000000000004,2.8,IPIP-NEO-120,Extraversion,+,Love large parties
+ipip_008,0.31983333333333364,4.6875,IPIP-NEO-120,Openness,+,Believe in the importance of art
+ipip_009,0.10650000000000008,1.1125,IPIP-NEO-120,Agreeableness,-,Use others for my own ends
+ipip_010,0.25850000000000006,3.3875,IPIP-NEO-120,Conscientiousness,+,Like to tidy up
+ipip_011,0.8358333333333332,1.8625,IPIP-NEO-120,Neuroticism,+,Often feel blue
+ipip_012,0.3798333333333335,3.6375,IPIP-NEO-120,Extraversion,+,Take charge
+ipip_013,2.2713333333333328,2.125,IPIP-NEO-120,Openness,+,Experience my emotions intensely
+ipip_014,0.14866666666666645,4.725,IPIP-NEO-120,Agreeableness,+,Love to help others
+ipip_015,0.24516666666666645,4.5125,IPIP-NEO-120,Conscientiousness,+,Keep my promises
+ipip_016,0.8265,2.2875,IPIP-NEO-120,Neuroticism,+,Find it difficult to approach others
+ipip_017,0.7199999999999996,2.5,IPIP-NEO-120,Extraversion,+,Am always busy
+ipip_018,0.4666666666666666,3.55,IPIP-NEO-120,Openness,+,Prefer variety to routine
+ipip_019,0.5966666666666665,1.975,IPIP-NEO-120,Agreeableness,-,Love a good fight
+ipip_020,0.28095833333333337,4.26875,IPIP-NEO-120,Conscientiousness,+,Work hard
+ipip_021,0.6393333333333332,1.575,IPIP-NEO-120,Neuroticism,+,Go on binges
+ipip_022,0.506,3.375,IPIP-NEO-120,Extraversion,+,Love excitement
+ipip_023,0.46516666666666673,4.2375,IPIP-NEO-120,Openness,+,Love to read challenging material
+ipip_024,0.3386666666666667,1.55,IPIP-NEO-120,Agreeableness,-,Believe that I am better than others
+ipip_025,0.3353333333333332,3.925,IPIP-NEO-120,Conscientiousness,+,Have excellent ideas
+ipip_026,0.6691666666666667,1.8125,IPIP-NEO-120,Neuroticism,+,Panic easily
+ipip_027,0.41066666666666674,3.8,IPIP-NEO-120,Extraversion,+,Radiate joy
+ipip_028,0.37695833333333334,3.26875,IPIP-NEO-120,Openness,+,Tend to vote for liberal political candidates
+ipip_029,0.2362777777777777,4.579166666666667,IPIP-NEO-120,Agreeableness,+,Sympathize with the homeless
+ipip_030,0.5558333333333333,2.0375,IPIP-NEO-120,Conscientiousness,-,Rush into things
+ipip_031,0.7066666666666667,2.15,IPIP-NEO-120,Neuroticism,+,Fear for the worst
+ipip_032,0.17066666666666658,3.4,IPIP-NEO-120,Extraversion,+,Feel comfortable around people
+ipip_033,0.4426666666666667,4.1,IPIP-NEO-120,Openness,+,Enjoy wild flights of fantasy
+ipip_034,0.23933333333333323,3.775,IPIP-NEO-120,Agreeableness,+,Believe that others have good intentions
+ipip_035,0.38333333333333347,4.225,IPIP-NEO-120,Conscientiousness,+,Excel in what I do
+ipip_036,1.0144999999999997,1.7625,IPIP-NEO-120,Neuroticism,+,Lose my temper
+ipip_037,0.4526666666666667,3.175,IPIP-NEO-120,Extraversion,+,Talk to a lot of different people at parties
+ipip_038,0.2926666666666667,4.375,IPIP-NEO-120,Openness,+,See beauty in things that others might not notice
+ipip_039,0.8026666666666664,1.25,IPIP-NEO-120,Agreeableness,-,Cheat to get ahead
+ipip_040,1.071333333333333,2.375,IPIP-NEO-120,Conscientiousness,-,Often forget to put things back in their proper place
+ipip_041,1.1193333333333335,2.125,IPIP-NEO-120,Neuroticism,+,Dislike myself
+ipip_042,1.1198333333333332,3.1125,IPIP-NEO-120,Extraversion,+,Try to lead others
+ipip_043,2.181333333333333,2.4,IPIP-NEO-120,Openness,+,Feel others' emotions
+ipip_044,0.6873333333333335,4.025,IPIP-NEO-120,Agreeableness,+,Am concerned about others
+ipip_045,0.024000000000000042,4.95,IPIP-NEO-120,Conscientiousness,+,Tell the truth
+ipip_046,1.4411666666666663,2.4375,IPIP-NEO-120,Neuroticism,+,Am afraid that I will do the wrong thing
+ipip_047,0.8053333333333332,2.4,IPIP-NEO-120,Extraversion,+,Am always on the go
+ipip_048,0.15183333333333335,2.9875,IPIP-NEO-120,Openness,-,Prefer to stick with things that I know
+ipip_049,0.026000000000000013,1.075,IPIP-NEO-120,Agreeableness,-,Yell at people
+ipip_050,0.2613333333333333,4.3,IPIP-NEO-120,Conscientiousness,+,Do more than what's expected of me
+ipip_051,0.7184999999999999,4.1375,IPIP-NEO-120,Neuroticism,-,Rarely overindulge
+ipip_052,0.47050000000000003,3.5625,IPIP-NEO-120,Extraversion,+,Seek adventure
+ipip_053,0.6051666666666666,1.6125,IPIP-NEO-120,Openness,-,Avoid philosophical discussions
+ipip_054,0.1438333333333334,3.1125,IPIP-NEO-120,Agreeableness,-,Have a high opinion of myself
+ipip_055,1.2526666666666666,3.375,IPIP-NEO-120,Conscientiousness,+,Carry out my plans
+ipip_056,0.7624999999999998,1.9125,IPIP-NEO-120,Neuroticism,+,Become overwhelmed by events
+ipip_057,0.7786666666666664,3.8,IPIP-NEO-120,Extraversion,+,Have a lot of fun
+ipip_058,0.27229166666666665,3.18125,IPIP-NEO-120,Openness,+,Believe that there is no absolute right or wrong
+ipip_059,0.8686666666666667,4.125,IPIP-NEO-120,Agreeableness,+,Feel sympathy for those who are worse off than myself
+ipip_060,0.11200000000000002,1.2,IPIP-NEO-120,Conscientiousness,-,Make rash decisions
+ipip_061,0.6800000000000002,1.85,IPIP-NEO-120,Neuroticism,+,Am easily disturbed
+ipip_062,0.4580000000000001,3.875,IPIP-NEO-120,Extraversion,+,Act comfortable with others
+ipip_063,1.226,3.175,IPIP-NEO-120,Openness,+,Enjoy daydreaming
+ipip_064,0.36738888888888893,2.495833333333333,IPIP-NEO-120,Agreeableness,+,Trust what people say
+ipip_065,0.29066666666666663,4.15,IPIP-NEO-120,Conscientiousness,+,Handle tasks smoothly
+ipip_066,0.7813333333333333,1.85,IPIP-NEO-120,Neuroticism,+,Lose my composure
+ipip_067,0.3318333333333335,3.1625,IPIP-NEO-120,Extraversion,+,Enjoy parties
+ipip_068,0.791833333333333,3.9875,IPIP-NEO-120,Openness,+,Like music
+ipip_069,0.2744999999999999,1.1875,IPIP-NEO-120,Agreeableness,-,Obstruct others' plans
+ipip_070,0.19983333333333325,1.4125,IPIP-NEO-120,Conscientiousness,-,Leave a mess in my room
+ipip_071,0.6080000000000001,3.7,IPIP-NEO-120,Neuroticism,-,Feel comfortable with myself
+ipip_072,0.3626666666666666,2.3,IPIP-NEO-120,Extraversion,-,Wait for others to lead the way
+ipip_073,0.593166666666667,4.3625,IPIP-NEO-120,Openness,+,Enjoy thinking about things
+ipip_074,0.6026666666666668,1.8,IPIP-NEO-120,Agreeableness,-,Am not interested in other people's problems
+ipip_075,0.6171666666666665,1.9375,IPIP-NEO-120,Conscientiousness,-,Break rules
+ipip_076,0.6291666666666668,2.4875,IPIP-NEO-120,Neuroticism,+,Only feel comfortable with friends
+ipip_077,1.1158333333333332,2.6375,IPIP-NEO-120,Extraversion,+,Do a lot in my spare time
+ipip_078,0.5679999999999998,2.45,IPIP-NEO-120,Openness,-,Dislike changes
+ipip_079,0.0025000000000000005,1.0125,IPIP-NEO-120,Agreeableness,-,Insult people
+ipip_080,0.4011666666666668,4.3625,IPIP-NEO-120,Conscientiousness,+,Set high standards for myself
+ipip_081,0.42429166666666673,3.58125,IPIP-NEO-120,Neuroticism,-,Am able to control my cravings
+ipip_082,0.5425,1.9375,IPIP-NEO-120,Extraversion,+,Act wild and crazy
+ipip_083,0.5326666666666668,1.625,IPIP-NEO-120,Openness,-,Am not interested in abstract ideas
+ipip_084,0.6393333333333333,1.675,IPIP-NEO-120,Agreeableness,-,Boast about my virtues
+ipip_085,0.5706666666666668,3.5,IPIP-NEO-120,Conscientiousness,+,Get to work at once
+ipip_086,0.9146666666666665,2.35,IPIP-NEO-120,Neuroticism,+,Can't make up my mind
+ipip_087,0.1931666666666668,4.0375,IPIP-NEO-120,Extraversion,+,Look at the bright side of life
+ipip_088,0.3193333333333334,3.275,IPIP-NEO-120,Openness,-,Believe that we should be tough on crime
+ipip_089,0.25316666666666665,1.4125,IPIP-NEO-120,Agreeableness,-,Am indifferent to the feelings of others
+ipip_090,0.44250000000000006,1.7125,IPIP-NEO-120,Conscientiousness,-,Jump into things without thinking
+ipip_091,2.2159999999999997,2.15,IPIP-NEO-120,Neuroticism,+,Am stressed out
+ipip_092,0.1398333333333333,3.4375,IPIP-NEO-120,Extraversion,+,Am skilled in handling social situations
+ipip_093,1.098666666666667,3.6,IPIP-NEO-120,Openness,+,Like to get lost in thought
+ipip_094,0.2398333333333332,2.3125,IPIP-NEO-120,Agreeableness,-,Distrust people
+ipip_095,0.2878333333333333,4.3125,IPIP-NEO-120,Conscientiousness,+,Know how to get things done
+ipip_096,0.8260000000000001,4.175,IPIP-NEO-120,Neuroticism,-,Am not easily annoyed
+ipip_097,0.25333333333333335,3.35,IPIP-NEO-120,Extraversion,-,Avoid crowds
+ipip_098,0.6625,2.0375,IPIP-NEO-120,Openness,-,Do not like art
+ipip_099,0.384,1.2,IPIP-NEO-120,Agreeableness,-,Take advantage of others
+ipip_100,0.5973333333333334,3.7,IPIP-NEO-120,Conscientiousness,+,Want everything to be 'just right'
+ipip_101,0.8240000000000002,1.85,IPIP-NEO-120,Neuroticism,+,Feel desperate
+ipip_102,0.7353333333333333,1.925,IPIP-NEO-120,Extraversion,+,Am the life of the party
+ipip_103,1.4106666666666672,3.85,IPIP-NEO-120,Openness,-,Seldom get emotional
+ipip_104,0.7691666666666668,2.2375,IPIP-NEO-120,Agreeableness,-,Am not really interested in others
+ipip_105,0.4691666666666667,4.1125,IPIP-NEO-120,Conscientiousness,+,Behave properly
+ipip_106,1.2451666666666665,1.9875,IPIP-NEO-120,Neuroticism,+,Am afraid of many things
+ipip_107,0.1665,3.2375,IPIP-NEO-120,Extraversion,-,Prefer to be alone
+ipip_108,0.4558333333333335,2.1875,IPIP-NEO-120,Openness,-,Dislike new foods
+ipip_109,0.3406666666666667,1.425,IPIP-NEO-120,Agreeableness,-,Hold a grudge
+ipip_110,0.5278333333333334,1.6875,IPIP-NEO-120,Conscientiousness,-,Do just enough work to get by
+ipip_111,0.7406666666666666,3.225,IPIP-NEO-120,Neuroticism,-,Easily resist temptations
+ipip_112,0.8079999999999997,1.8166666666666667,IPIP-NEO-120,Extraversion,+,Seek danger
+ipip_113,0.7825,3.8625,IPIP-NEO-120,Openness,+,Try to understand myself
+ipip_114,0.26516666666666666,3.2625,IPIP-NEO-120,Agreeableness,-,Think highly of myself
+ipip_115,0.3600000000000001,4.05,IPIP-NEO-120,Conscientiousness,+,Get chores done right away
+ipip_116,0.6453333333333332,2.3,IPIP-NEO-120,Neuroticism,+,Feel that my life lacks direction
+ipip_117,0.6611666666666668,2.1125,IPIP-NEO-120,Extraversion,+,Am always joking around
+ipip_118,0.5493333333333333,3.1,IPIP-NEO-120,Openness,-,Tend to vote for conservative political candidates
+ipip_119,0.42916666666666675,2.1875,IPIP-NEO-120,Agreeableness,-,Am hard to understand
+ipip_120,0.4259999999999998,3.575,IPIP-NEO-120,Conscientiousness,+,Stick to my chosen path
+sd3_001,0.06666666666666667,3.85,SD3,Machiavellianism,+,It's not wise to tell your secrets.
+sd3_002,0.07450000000000001,1.1125,SD3,Machiavellianism,+,I like to use clever manipulation to get my way.
+sd3_003,0.8106666666666664,2.4,SD3,Machiavellianism,+,"Whatever it takes, you must get the important people on your side."
+sd3_004,0.6091666666666664,2.6375,SD3,Machiavellianism,+,Avoid direct conflict with others because they may be useful in the future.
+sd3_005,0.0758333333333333,1.1625,SD3,Machiavellianism,+,It's wise to keep track of information that you can use against people later.
+sd3_006,0.29850000000000004,1.3125,SD3,Machiavellianism,+,You should wait for the right time to get back at people.
+sd3_007,0.23933333333333334,4.125,SD3,Machiavellianism,+,There are things you should hide from other people because they don't need to know.
+sd3_008,0.5745,1.8625,SD3,Machiavellianism,+,"Make sure your plans benefit you, not others."
+sd3_009,0.06383333333333333,4.0875,SD3,Machiavellianism,+,Most people can be manipulated.
+sd3_010,0.4666666666666669,2.85,SD3,Narcissism,+,People see me as a natural leader.
+sd3_011,0.3731666666666666,3.2875,SD3,Narcissism,-,I hate being the center of attention.
+sd3_012,0.7451666666666666,2.0625,SD3,Narcissism,+,Many group activities tend to be dull without me.
+sd3_013,0.608,1.8,SD3,Narcissism,+,I know that I am special because everyone keeps telling me so.
+sd3_014,0.08266666666666667,2.85,SD3,Narcissism,+,I like to get acquainted with important people.
+sd3_015,0.794,1.925,SD3,Narcissism,-,I feel embarrassed if someone compliments me.
+sd3_016,0.5386666666666666,2.4,SD3,Narcissism,+,I have been compared to famous people.
+sd3_017,1.0158333333333336,1.9875,SD3,Narcissism,-,I am an average person.
+sd3_018,1.3226666666666664,2.8,SD3,Narcissism,+,I insist on getting the respect I deserve.
+sd3_019,0.33533333333333337,1.275,SD3,Psychopathy,+,I like to get revenge on authorities.
+sd3_020,0.5504999999999999,4.1625,SD3,Psychopathy,-,I avoid dangerous situations.
+sd3_021,0.7916296296296295,1.5416666666666667,SD3,Psychopathy,+,Payback needs to be quick and nasty.
+sd3_022,0.8398333333333332,1.8125,SD3,Psychopathy,+,People often say I'm out of control.
+sd3_023,0.8320000000000003,2.0,SD3,Psychopathy,+,It's true that I can be mean to others.
+sd3_024,0.8478333333333333,1.8875,SD3,Psychopathy,+,People who mess with me always regret it.
+sd3_025,0.5145000000000003,4.5875,SD3,Psychopathy,-,I have never gotten into trouble with the law.
+sd3_026,1.6342916666666667,2.43125,SD3,Psychopathy,+,I enjoy having sex with people I hardly know.
+sd3_027,0.22116666666666668,1.2125,SD3,Psychopathy,+,I'll say anything to get what I want.

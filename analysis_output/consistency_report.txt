@@ -1,8 +1,8 @@
 ================================================================================
 LLM PERSONALITY CONSISTENCY ANALYSIS REPORT
 ================================================================================
-Models analyzed: 18
-Models: Claude-Opus-4.6, Claude-Sonnet-4.6, DeepSeek-V3.2, DeepSeek-V4-Flash, DeepSeek-V4-Pro, GLM-4.6V, GPT-5.5, GPT_5.2, Gemini-3-Flash-Preview, Gemini-3.1-Flash-Lite, Gemini-3.1-Pro-Preview, Gemini_3-Pro-Preview, Kimi-K2.5, Kimi-K2.6, MiniMax-M2.7, Qwen3-235B-A22B, Qwen3.5-122B-A10B, Qwen3.5-397B-A17B
+Models analyzed: 16
+Models: Claude-Opus-4.6, Claude-Sonnet-4.6, DeepSeek-V3.2, DeepSeek-V4-Flash, DeepSeek-V4-Pro, GLM-4.6V, GPT-5.5, GPT_5.2, Gemini-3-Flash-Preview, Gemini-3.1-Flash-Lite, Gemini-3.1-Pro-Preview, Gemini_3-Pro-Preview, Kimi-K2.5, Kimi-K2.6, MiniMax-M2.7, Qwen3-235B-A22B
 Personas per model: 17 (Default + 16 MBTI)
 Items per condition: 221 (4 scales, 17 domains)
 
@@ -10,40 +10,40 @@ Items per condition: 221 (4 scales, 17 domains)
 1. FORWARD vs REVERSE ITEM CONSISTENCY (correlation across models)
 --------------------------------------------------------------------------------
        scale               domain  n_models  fwd_rev_correlation  mean_fwd_scored  mean_rev_scored  mean_fwd_raw  mean_rev_raw  mean_gap
-      EPQR-A         Extraversion        18            -0.204953         0.240741         0.740741      0.240741      0.259259  0.574074
-      EPQR-A                  Lie        18            -0.476331         0.013889         0.750000      0.013889      0.250000  0.763889
-IPIP-NEO-120        Agreeableness        18             0.238915         3.936508         4.277778      3.936508      1.722222  0.443978
-IPIP-NEO-120    Conscientiousness        18             0.333582         4.088235         4.380952      4.088235      1.619048  0.476657
-IPIP-NEO-120         Extraversion        18            -0.321462         2.941799         3.055556      2.941799      2.944444  0.621693
-IPIP-NEO-120          Neuroticism        18             0.457023         1.915205         2.288889      1.915205      3.711111  0.639181
-IPIP-NEO-120             Openness        18            -0.051018         3.585185         3.450617      3.585185      2.549383  0.554321
-         SD3           Narcissism        18            -0.841416         2.314815         3.703704      2.314815      2.296296  1.500000
-         SD3          Psychopathy        18             0.646510         1.664021         1.611111      1.664021      4.388889  0.412698
-  ZKPQ-50-CC             Activity        18            -0.609588         0.215278         0.361111      0.215278      0.638889  0.437500
-  ZKPQ-50-CC Aggression-Hostility        18            -0.012454         0.134921         0.592593      0.134921      0.407407  0.489418
-  ZKPQ-50-CC  Neuroticism-Anxiety        18             0.198248         0.246914         0.166667      0.246914      0.833333  0.277778
-  ZKPQ-50-CC          Sociability        18            -0.724105         0.152778         0.472222      0.152778      0.527778  0.625000
+      EPQR-A         Extraversion        16            -0.121094         0.266667         0.725000      0.266667      0.275000  0.500000
+      EPQR-A                  Lie        16            -0.208791         0.015625         0.743750      0.015625      0.256250  0.740625
+IPIP-NEO-120        Agreeableness        16             0.095405         3.883036         4.247794      3.894643      1.752206  0.453414
+IPIP-NEO-120    Conscientiousness        16             0.277360         4.071324         4.233929      4.071691      1.766071  0.432983
+IPIP-NEO-120         Extraversion        16            -0.412983         3.011310         3.037500      3.012103      2.962500  0.522619
+IPIP-NEO-120          Neuroticism        16             0.626771         2.025000         2.237500      2.028289      3.763750  0.510658
+IPIP-NEO-120             Openness        16            -0.014744         3.658333         3.443056      3.663333      2.569444  0.637500
+         SD3           Narcissism        16            -0.848349         2.460417         3.600000      2.460417      2.400000  1.372917
+         SD3          Psychopathy        16             0.699282         1.738393         1.625000      1.735714      4.375000  0.359821
+  ZKPQ-50-CC             Activity        16            -0.679145         0.239063         0.350000      0.239063      0.650000  0.423438
+  ZKPQ-50-CC Aggression-Hostility        16            -0.015848         0.139286         0.600000      0.139286      0.400000  0.490476
+  ZKPQ-50-CC  Neuroticism-Anxiety        16             0.085756         0.286111         0.200000      0.286111      0.800000  0.288889
+  ZKPQ-50-CC          Sociability        16            -0.790815         0.178125         0.485417      0.178125      0.514583  0.605208
 
 Positive correlation (consistent): 5/13 (38.5%)
-Mean correlation: -0.105
+Mean correlation: -0.101
 
 --------------------------------------------------------------------------------
 2. ITEM-LEVEL CONFLICT ANALYSIS (per model x domain)
 --------------------------------------------------------------------------------
        scale               domain  mean_agreement  std_agreement  mean_acquiescence  mean_fwd_scored  mean_rev_scored
-      EPQR-A         Extraversion        0.425926       0.375831          -0.250000         0.240741         0.740741
-      EPQR-A                  Lie        0.236111       0.368545          -0.368056         0.013889         0.750000
-IPIP-NEO-120        Agreeableness        0.889006       0.086107          -0.170635         3.936508         4.277778
-IPIP-NEO-120    Conscientiousness        0.880836       0.095943          -0.146359         4.088235         4.380952
-IPIP-NEO-120         Extraversion        0.844577       0.105019          -0.056878         2.941799         3.055556
-IPIP-NEO-120          Neuroticism        0.840205       0.143437          -0.186842         1.915205         2.288889
-IPIP-NEO-120             Openness        0.861420       0.120945           0.067284         3.585185         3.450617
-         SD3           Narcissism        0.625000       0.278960          -0.694444         2.314815         3.703704
-         SD3          Psychopathy        0.896825       0.088547           0.026455         1.664021         1.611111
-  ZKPQ-50-CC             Activity        0.562500       0.247227          -0.072917         0.215278         0.361111
-  ZKPQ-50-CC Aggression-Hostility        0.510582       0.266289          -0.228836         0.134921         0.592593
-  ZKPQ-50-CC  Neuroticism-Anxiety        0.722222       0.392837           0.040123         0.246914         0.166667
-  ZKPQ-50-CC          Sociability        0.375000       0.242956          -0.159722         0.152778         0.472222
+      EPQR-A         Extraversion        0.500000       0.300123          -0.229167         0.266667         0.725000
+      EPQR-A                  Lie        0.259375       0.362500          -0.364063         0.015625         0.743750
+IPIP-NEO-120        Agreeableness        0.886647       0.087412          -0.176576         3.883036         4.247794
+IPIP-NEO-120    Conscientiousness        0.891754       0.100332          -0.081119         4.071324         4.233929
+IPIP-NEO-120         Extraversion        0.869345       0.093810          -0.012698         3.011310         3.037500
+IPIP-NEO-120          Neuroticism        0.872336       0.107790          -0.103980         2.025000         2.237500
+IPIP-NEO-120             Openness        0.840625       0.101180           0.116389         3.658333         3.443056
+         SD3           Narcissism        0.656771       0.242274          -0.569792         2.460417         3.600000
+         SD3          Psychopathy        0.910045       0.077911           0.055357         1.738393         1.625000
+  ZKPQ-50-CC             Activity        0.576562       0.257628          -0.055469         0.239063         0.350000
+  ZKPQ-50-CC Aggression-Hostility        0.509524       0.226792          -0.230357         0.139286         0.600000
+  ZKPQ-50-CC  Neuroticism-Anxiety        0.711111       0.367127           0.043056         0.286111         0.200000
+  ZKPQ-50-CC          Sociability        0.394792       0.237481          -0.153646         0.178125         0.485417
 
 agreement: 1.0 = perfect forward/reverse consistency
 acquiescence: positive = agreeing with all items regardless of direction
@@ -52,41 +52,39 @@ acquiescence: positive = agreeing with all items regardless of direction
 3. LIE SCALE & SOCIAL DESIRABILITY
 --------------------------------------------------------------------------------
                  model  lie_score  acquiescence_bias  midpoint_rate  extreme_rate  sd3_machiavellianism  sd3_narcissism  sd3_psychopathy
- Gemini-3.1-Flash-Lite   0.333333           1.018689       0.693878      0.238095              2.666667        3.000000         3.000000
-Gemini-3-Flash-Preview   0.333333           0.461562       0.442177      0.482993              2.888889        2.777778         1.250000
-     Qwen3.5-122B-A10B   0.333333           0.906761       0.190476      0.714286              2.222222        2.333333         1.000000
-          MiniMax-M2.7   0.333333           0.775239       0.306122      0.401361              2.666667        3.000000         2.000000
-             Kimi-K2.6   0.333333           0.381599       0.285714      0.551020              2.555556        2.222222         1.555556
-             Kimi-K2.5   0.333333           0.510034       0.278912      0.503401              2.111111        2.888889         1.333333
-  Gemini_3-Pro-Preview   0.333333           1.061439       0.183673      0.761905              2.111111        2.555556         1.000000
-Gemini-3.1-Pro-Preview   0.333333           0.962952       0.190476      0.734694              2.111111        2.333333         1.000000
-     Qwen3.5-397B-A17B   0.333333           0.910466       0.251701      0.646259              2.333333        2.555556         1.222222
-               GPT_5.2   0.333333           0.888237       0.639456      0.122449              2.555556        3.000000         2.555556
-               GPT-5.5   0.333333           0.606051       0.319728      0.380952              2.222222        3.111111         1.333333
-              GLM-4.6V   0.333333           0.981167       0.265306      0.353741              2.888889        2.888889         1.888889
-       DeepSeek-V4-Pro   0.166667           0.990429       0.204082      0.197279              3.000000        2.666667         1.777778
-     DeepSeek-V4-Flash   0.166667           1.575486       0.122449      0.510204              2.888889        3.000000         1.666667
-         DeepSeek-V3.2   0.166667           1.017907       0.272109      0.156463              3.000000        3.000000         2.666667
-       Claude-Opus-4.6   0.166667           1.125656       0.108844      0.387755              2.333333        2.666667         1.111111
-     Claude-Sonnet-4.6   0.000000           0.895956       0.278912      0.265306              2.111111        2.777778         1.500000
-       Qwen3-235B-A22B   0.000000           1.737882       0.340136      0.421769              2.555556        3.222222         1.888889
+              GLM-4.6V   0.366667           0.874776       0.068027      0.108844              2.911111        2.800000         1.777778
+Gemini-3-Flash-Preview   0.366667           0.362344       0.210884      0.204082              2.755556        3.000000         1.344444
+  Gemini_3-Pro-Preview   0.366667           1.050633       0.115646      0.666667              2.177778        2.422222         1.000000
+               GPT-5.5   0.333333           0.616734       0.231293      0.197279              2.244444        3.088889         1.466667
+               GPT_5.2   0.333333           0.905588       0.537415      0.095238              2.555556        2.822222         2.377778
+ Gemini-3.1-Flash-Lite   0.333333           0.979963       0.625850      0.183673              2.666667        3.000000         2.977778
+Gemini-3.1-Pro-Preview   0.333333           1.032356       0.102041      0.666667              2.111111        2.444444         1.000000
+             Kimi-K2.5   0.333333           0.541093       0.163265      0.360544              2.244444        2.688889         1.466667
+             Kimi-K2.6   0.333333           0.510281       0.122449      0.421769              2.288889        2.622222         1.422222
+          MiniMax-M2.7   0.333333           0.661377       0.108844      0.129252              2.600000        3.177778         2.022222
+         DeepSeek-V3.2   0.233333           0.990367       0.068027      0.027211              2.866667        2.955556         2.533333
+     DeepSeek-V4-Flash   0.166667           1.662056       0.027211      0.319728              2.800000        2.933333         1.555556
+       DeepSeek-V4-Pro   0.166667           1.032664       0.020408      0.040816              2.733333        2.688889         1.800000
+       Claude-Opus-4.6   0.066667           1.045384       0.081633      0.380952              2.333333        2.777778         1.111111
+     Claude-Sonnet-4.6   0.066667           0.914912       0.231293      0.190476              2.111111        2.800000         1.666667
+       Qwen3-235B-A22B   0.000000           1.819759       0.319728      0.394558              2.555556        3.222222         1.888889
 
-Mean Lie score: 0.259 (0-1 scale)
-Mean Acquiescence bias: 0.934
-Mean Midpoint rate: 0.299
+Mean Lie score: 0.258 (0-1 scale)
+Mean Acquiescence bias: 0.938
+Mean Midpoint rate: 0.190
 
 --------------------------------------------------------------------------------
 4. CROSS-SCALE TRAIT CONVERGENCE
 --------------------------------------------------------------------------------
       scale1           domain1     scale2             domain2 expected         r  n_models  sign_match
-IPIP-NEO-120       Neuroticism ZKPQ-50-CC Neuroticism-Anxiety positive  0.555754        18        True
-IPIP-NEO-120      Extraversion ZKPQ-50-CC         Sociability positive -0.031836        18       False
-IPIP-NEO-120      Extraversion     EPQR-A        Extraversion positive  0.283667        18        True
-IPIP-NEO-120       Neuroticism     EPQR-A         Neuroticism positive  0.393829        18        True
-IPIP-NEO-120     Agreeableness        SD3    Machiavellianism negative -0.693084        18        True
-IPIP-NEO-120     Agreeableness        SD3         Psychopathy negative -0.678541        18        True
-IPIP-NEO-120 Conscientiousness        SD3         Psychopathy negative -0.619600        18        True
-      EPQR-A      Psychoticism        SD3         Psychopathy positive  0.076162        18        True
+IPIP-NEO-120       Neuroticism ZKPQ-50-CC Neuroticism-Anxiety positive  0.577068        16        True
+IPIP-NEO-120      Extraversion ZKPQ-50-CC         Sociability positive -0.167970        16       False
+IPIP-NEO-120      Extraversion     EPQR-A        Extraversion positive  0.434492        16        True
+IPIP-NEO-120       Neuroticism     EPQR-A         Neuroticism positive  0.440677        16        True
+IPIP-NEO-120     Agreeableness        SD3    Machiavellianism negative -0.651445        16        True
+IPIP-NEO-120     Agreeableness        SD3         Psychopathy negative -0.769620        16        True
+IPIP-NEO-120 Conscientiousness        SD3         Psychopathy negative -0.660669        16        True
+      EPQR-A      Psychoticism        SD3         Psychopathy positive  0.030105        16        True
 
 Sign match: 7/8 (87.5%)
 
@@ -94,50 +92,48 @@ Sign match: 7/8 (87.5%)
 5. MBTI PERSONA CONSISTENCY
 --------------------------------------------------------------------------------
                      check  n_models  n_correct  rate
-     E > I on Extraversion        18         18   1.0
-    F > T on Agreeableness        18         18   1.0
-J > P on Conscientiousness        18         18   1.0
-         N > S on Openness        18         18   1.0
+     E > I on Extraversion        16         16   1.0
+    F > T on Agreeableness        16         16   1.0
+J > P on Conscientiousness        16         16   1.0
+         N > S on Openness        16         16   1.0
 
 Per-model consistency:
                  model  total  correct  rate
        Claude-Opus-4.6      4        4   1.0
      Claude-Sonnet-4.6      4        4   1.0
-     Qwen3.5-122B-A10B      4        4   1.0
-       Qwen3-235B-A22B      4        4   1.0
-          MiniMax-M2.7      4        4   1.0
-             Kimi-K2.6      4        4   1.0
-             Kimi-K2.5      4        4   1.0
-  Gemini_3-Pro-Preview      4        4   1.0
-Gemini-3.1-Pro-Preview      4        4   1.0
- Gemini-3.1-Flash-Lite      4        4   1.0
-Gemini-3-Flash-Preview      4        4   1.0
-               GPT_5.2      4        4   1.0
-               GPT-5.5      4        4   1.0
-              GLM-4.6V      4        4   1.0
-       DeepSeek-V4-Pro      4        4   1.0
-     DeepSeek-V4-Flash      4        4   1.0
          DeepSeek-V3.2      4        4   1.0
-     Qwen3.5-397B-A17B      4        4   1.0
+     DeepSeek-V4-Flash      4        4   1.0
+       DeepSeek-V4-Pro      4        4   1.0
+              GLM-4.6V      4        4   1.0
+               GPT-5.5      4        4   1.0
+               GPT_5.2      4        4   1.0
+Gemini-3-Flash-Preview      4        4   1.0
+ Gemini-3.1-Flash-Lite      4        4   1.0
+Gemini-3.1-Pro-Preview      4        4   1.0
+  Gemini_3-Pro-Preview      4        4   1.0
+             Kimi-K2.5      4        4   1.0
+             Kimi-K2.6      4        4   1.0
+          MiniMax-M2.7      4        4   1.0
+       Qwen3-235B-A22B      4        4   1.0
 
 ================================================================================
 KEY FINDINGS SUMMARY
 ================================================================================
-1. Forward-Reverse Agreement (mean): 0.667
-2. Acquiescence Bias (mean): -0.169
-3. Lie Scale Score (mean): 0.259
+1. Forward-Reverse Agreement (mean): 0.683
+2. Acquiescence Bias (mean): -0.136
+3. Lie Scale Score (mean): 0.258
 4. Cross-Scale Convergence: 87.5%
 5. MBTI Persona Consistency: 100.0%
 
 Least consistent models:
-  GPT_5.2: 0.532
-  Qwen3.5-122B-A10B: 0.567
-  Kimi-K2.5: 0.584
-  DeepSeek-V4-Flash: 0.588
-  Kimi-K2.6: 0.589
+  GPT_5.2: 0.526
+  Kimi-K2.6: 0.586
+  Kimi-K2.5: 0.603
+  DeepSeek-V4-Flash: 0.626
+  DeepSeek-V3.2: 0.649
 Most consistent models:
-  Qwen3-235B-A22B: 0.715
-  Gemini-3-Flash-Preview: 0.761
-  Gemini_3-Pro-Preview: 0.777
-  Claude-Opus-4.6: 0.782
-  Gemini-3.1-Flash-Lite: 0.790
+  Gemini-3.1-Flash-Lite: 0.727
+  Gemini-3.1-Pro-Preview: 0.728
+  Gemini-3-Flash-Preview: 0.730
+  Gemini_3-Pro-Preview: 0.753
+  Claude-Opus-4.6: 0.800

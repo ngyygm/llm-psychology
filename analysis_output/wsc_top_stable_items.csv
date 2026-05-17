@@ -1,21 +1,21 @@
 item_id,scale,domain,item_text,mean_sd,max_sd,mean_mode_agree
-ipip_039,IPIP-NEO-120,Agreeableness,Cheat to get ahead,0.0,0.0,1.0
-ipip_056,IPIP-NEO-120,Neuroticism,Become overwhelmed by events,0.0,0.0,1.0
-ipip_055,IPIP-NEO-120,Conscientiousness,Carry out my plans,0.0,0.0,1.0
-ipip_054,IPIP-NEO-120,Agreeableness,Have a high opinion of myself,0.0,0.0,1.0
-ipip_053,IPIP-NEO-120,Openness,Avoid philosophical discussions,0.0,0.0,1.0
-ipip_052,IPIP-NEO-120,Extraversion,Seek adventure,0.0,0.0,1.0
-ipip_051,IPIP-NEO-120,Neuroticism,Rarely overindulge,0.0,0.0,1.0
-ipip_050,IPIP-NEO-120,Conscientiousness,Do more than what's expected of me,0.0,0.0,1.0
-ipip_049,IPIP-NEO-120,Agreeableness,Yell at people,0.0,0.0,1.0
-ipip_048,IPIP-NEO-120,Openness,Prefer to stick with things that I know,0.0,0.0,1.0
-ipip_047,IPIP-NEO-120,Extraversion,Am always on the go,0.0,0.0,1.0
-ipip_046,IPIP-NEO-120,Neuroticism,Am afraid that I will do the wrong thing,0.0,0.0,1.0
-ipip_045,IPIP-NEO-120,Conscientiousness,Tell the truth,0.0,0.0,1.0
-ipip_044,IPIP-NEO-120,Agreeableness,Am concerned about others,0.0,0.0,1.0
-ipip_043,IPIP-NEO-120,Openness,Feel others' emotions,0.0,0.0,1.0
-ipip_042,IPIP-NEO-120,Extraversion,Try to lead others,0.0,0.0,1.0
-ipip_041,IPIP-NEO-120,Neuroticism,Dislike myself,0.0,0.0,1.0
-ipip_040,IPIP-NEO-120,Conscientiousness,Often forget to put things back in their proper place,0.0,0.0,1.0
-ipip_057,IPIP-NEO-120,Extraversion,Have a lot of fun,0.0,0.0,1.0
-zkpq_050,ZKPQ-50-CC,Sociability,I probably spend more time than I should socializing with friends.,0.0,0.0,1.0
+epqr_003,EPQR-A,Psychoticism,Do you enjoy hurting people you love?,0.0,0.0,1.0
+epqr_010,EPQR-A,Extraversion,Do you tend to keep in the background on social occasions?,0.0047,0.4899,0.9971
+zkpq_030,ZKPQ-50-CC,Impulsive_Sensation_Seeking,"I like ""wild"" uninhibited parties.",0.0062,0.4899,0.9963
+epqr_008,EPQR-A,Extraversion,Are you rather lively?,0.0065,0.4899,0.9956
+zkpq_045,ZKPQ-50-CC,Sociability,"At parties, I enjoy mingling with many people whether I already know them or not.",0.0077,0.4899,0.9956
+epqr_007,EPQR-A,Extraversion,Are you a talkative person?,0.0077,0.4899,0.9956
+zkpq_044,ZKPQ-50-CC,Sociability,I tend to be uncomfortable at big parties.,0.0083,0.4899,0.9941
+epqr_024,EPQR-A,Lie,Are all your habits good and desirable ones?,0.0095,0.4899,0.9941
+zkpq_048,ZKPQ-50-CC,Sociability,I am a very sociable person.,0.011,0.4899,0.9934
+zkpq_041,ZKPQ-50-CC,Sociability,I do not mind going out alone and usually prefer it to being out in a large group.,0.011,0.4899,0.9934
+zkpq_022,ZKPQ-50-CC,Impulsive_Sensation_Seeking,I would like to take off on a trip with no preplanned or definite routes or timetables.,0.0113,0.4899,0.9926
+epqr_015,EPQR-A,Neuroticism,Are your feelings easily hurt?,0.0116,0.4899,0.9919
+zkpq_033,ZKPQ-50-CC,Neuroticism-Anxiety,I tend to be oversensitive and easily hurt by thoughtless remarks and actions of others.,0.0128,0.4899,0.9919
+epqr_004,EPQR-A,Psychoticism,Do you enjoy practical jokes that can sometimes really hurt people?,0.0142,0.4899,0.9912
+zkpq_047,ZKPQ-50-CC,Sociability,"Generally, I like to be alone so I can do things I want to do without social distractions.",0.0154,0.4899,0.9912
+zkpq_046,ZKPQ-50-CC,Sociability,I would not mind being socially isolated in some place for some period of time.,0.016,0.4899,0.9897
+zkpq_021,ZKPQ-50-CC,Impulsive_Sensation_Seeking,I often do things on impulse.,0.016,0.4899,0.9897
+zkpq_049,ZKPQ-50-CC,Sociability,I usually prefer to do things alone.,0.0175,0.4899,0.989
+epqr_012,EPQR-A,Extraversion,Are you mostly quiet when you are with other people?,0.0185,0.4899,0.9868
+epqr_018,EPQR-A,Neuroticism,Do you worry about awful things that might happen?,0.0186,0.4899,0.989
