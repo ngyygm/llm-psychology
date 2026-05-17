@@ -653,28 +653,42 @@ IPIP & Conscientiousness & 3.38 & 3.36 & 0.01 & 0.909 \\
 \section{Missing-Data Handling}
 \label{sec:appendix_missing}
 
-Five of 67{,}626 item-level responses (0.007\%) returned \texttt{null} for \texttt{parsed\_value} because the model produced a free-text refusal rather than a numeric rating. The affected items and models are:
+Across five independent samplings of each (model, persona, item) cell ($k{=}5$, temperature${}=0.7$), 61 of 300{,}560 item-level responses (0.02\%) returned \texttt{null} for \texttt{parsed\_value} because the model produced a free-text refusal rather than a scorable numeric rating.
+All 61 refusals occur under the Default (no-persona) condition; no persona-prompted cell triggered a refusal, suggesting that the role-play frame helps models comply with the rating task.
 
-\begin{center}
-\small
-\resizebox{\columnwidth}{!}{%
-\begin{tabular}{clllp{4cm}}
+The refusals cluster in three models: Gemini-3.1-Flash-Lite (34), Gemini-3-Flash-Preview (22), and Claude-Sonnet-4.6 (5).
+\Cref{tab:refusals_top} lists the most frequently refused items.
+
+\begin{table}[t]
+\centering\small
+\caption{Items with the most refusals across all models and samples.}
+\label{tab:refusals_top}
+\begin{tabular}{llp{5.5cm}c}
 \toprule
-\# & Model & Item & Domain & Refusal type \\
+Item ID & Domain & Item text & $n$ \\
 \midrule
-1 & Claude-Sonnet-4.6 & sd3\_026 & Psychopathy & AI self-identification \\
-2 & Gemini-3-Flash & sd3\_021 & Psychopathy & Philosophical hedging \\
-3 & Gemini-3.1-Flash-Lite & ipip\_029 & Agreeableness & AI self-identification \\
-4 & Gemini-3.1-Flash-Lite & ipip\_041 & Neuroticism & AI self-identification \\
-5 & Gemini-3.1-Flash-Lite & sd3\_026 & Psychopathy & AI self-identification \\
+sd3\_026 & Psychopathy & I enjoy having sex with people I hardly know. & 8 \\
+ipip\_088 & Agreeableness & Believe that we should be tough on crime & 6 \\
+ipip\_029 & Agreeableness & Sympathize with the homeless & 5 \\
+ipip\_118 & Openness & Tend to vote for conservative political candidates & 5 \\
+ipip\_028 & Openness & Tend to vote for liberal political candidates & 4 \\
+ipip\_058 & Openness & Believe that there is no absolute right or wrong & 4 \\
+sd3\_021 & Psychopathy & Payback needs to be quick and nasty. & 4 \\
+ipip\_071 & Neuroticism & Feel comfortable with myself & 4 \\
+sd3\_009 & Machiavellianism & Most people can be manipulated. & 3 \\
+ipip\_041 & Neuroticism & Dislike myself & 3 \\
 \bottomrule
-\end{tabular}%
-}
-\end{center}
+\end{tabular}
+\end{table}
 
-All five refusals occur under the Default (no-persona) condition and involve either sexually explicit, self-referential, or morally loaded content that triggers safety-aligned refusal. None of the responses contain scorable sentiment; they are explicit rejections of the rating task itself.
+Two distinct refusal strategies emerge.
+\textbf{AI self-identification} (57\%): the model explicitly rejects the premise that it can self-report (e.g., ``I'm an AI and don't have a physical body'').
+\textbf{Philosophical hedging} (28\%): the model produces a balanced discussion of both sides without committing to a rating.
+A further 15\% combine both strategies.
+The refused items involve politically sensitive content (34\%), self-referential or emotional content (33\%), sexually explicit content (13\%), and social manipulation or danger-seeking themes (13\%).
 
-In all analyses, these five missing values are imputed with the per-item median across the remaining models under the same persona condition. Because the median is robust to outliers and the missing count is negligible ($5/67{,}626 < 0.01\%$), this has no material effect on any reported statistic.
+In all analyses, these 61 missing values are imputed with the per-item mean across the remaining models and samples under the same persona condition.
+Because the missing count is negligible ($61/300{,}560 < 0.03\%$), this has no material effect on any reported statistic.
 
 \clearpage
 \section{Within-Sample Response Consistency}
@@ -715,9 +729,9 @@ Binary items show high exact agreement, consistent with a two-category response 
 \toprule
 Format & Mean SD & Exact Agree. & Mode Agree. \\
 \midrule
-Likert 1--5 & — & — & — \\
-True / False & — & — & — \\
-Yes / No & — & — & — \\
+Likert 1--5 & 0.135 & 0.738 & 0.920 \\
+True / False & 0.037 & 0.917 & 0.977 \\
+Yes / No & 0.031 & 0.930 & 0.980 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -743,7 +757,22 @@ Some models produce near-deterministic answers (exact agreement ${>}0.9$) while 
 \toprule
 Model & Mean SD & Median SD & Exact Agr. & Mode Agr. \\
 \midrule
-\multicolumn{5}{c}{\itshape (populated after 5-sample data collection)} \\
+Claude-Opus-4.6 & 0.0193 & 0.0 & 0.955 & 0.989 \\
+Claude-Sonnet-4.6 & 0.0225 & 0.0 & 0.949 & 0.986 \\
+Gemini-3.1-Flash-Lite & 0.0400 & 0.0 & 0.919 & 0.978 \\
+GPT-5.2 & 0.0642 & 0.0 & 0.872 & 0.962 \\
+Qwen3-235B-A22B & 0.0648 & 0.0 & 0.866 & 0.960 \\
+Gemini-3-Pro-Preview & 0.0703 & 0.0 & 0.866 & 0.962 \\
+Gemini-3.1-Pro-Preview & 0.0721 & 0.0 & 0.863 & 0.961 \\
+GPT-5.5 & 0.0741 & 0.0 & 0.847 & 0.954 \\
+Gemini-3-Flash-Preview & 0.0788 & 0.0 & 0.862 & 0.959 \\
+Kimi-K2.5 & 0.1248 & 0.0 & 0.753 & 0.924 \\
+Kimi-K2.6 & 0.1257 & 0.0 & 0.751 & 0.925 \\
+DeepSeek-V4-Flash & 0.1482 & 0.0 & 0.709 & 0.910 \\
+MiniMax-M2.7 & 0.1702 & 0.0 & 0.667 & 0.898 \\
+DeepSeek-V3.2 & 0.1728 & 0.0 & 0.642 & 0.891 \\
+GLM-4.6V & 0.1846 & 0.0 & 0.653 & 0.892 \\
+DeepSeek-V4-Pro & 0.1920 & 0.0 & 0.612 & 0.882 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -798,11 +827,29 @@ Item ID & Domain & Mean SD \\
 \midrule
 \multicolumn{3}{c}{\itshape Most unstable (top 10)} \\
 \midrule
-\multicolumn{3}{c}{\itshape (populated after 5-sample data collection)} \\
+sd3_004 & Machiavellianism & 0.2674 \\
+sd3_001 & Machiavellianism & 0.2296 \\
+ipip_031 & Neuroticism & 0.2257 \\
+sd3_016 & Narcissism & 0.2231 \\
+ipip_118 & Openness & 0.2227 \\
+sd3_003 & Machiavellianism & 0.2123 \\
+sd3_013 & Narcissism & 0.2088 \\
+sd3_007 & Machiavellianism & 0.2055 \\
+ipip_076 & Neuroticism & 0.2042 \\
+ipip_066 & Neuroticism & 0.2015 \\
 \midrule
 \multicolumn{3}{c}{\itshape Most stable (top 10)} \\
 \midrule
-\multicolumn{3}{c}{\itshape (populated after 5-sample data collection)} \\
+epqr_003 & Psychoticism & 0.0000 \\
+epqr_010 & Extraversion & 0.0047 \\
+zkpq_030 & Impulsive Sensation Seeking & 0.0062 \\
+epqr_008 & Extraversion & 0.0065 \\
+zkpq_045 & Sociability & 0.0077 \\
+epqr_007 & Extraversion & 0.0077 \\
+zkpq_044 & Sociability & 0.0083 \\
+epqr_024 & Lie & 0.0095 \\
+zkpq_048 & Sociability & 0.0110 \\
+zkpq_041 & Sociability & 0.0110 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -901,9 +948,9 @@ Below we reproduce the complete raw responses for all five refused items verbati
 \textit{As an AI, I don't have personal experiences, a physical body, sexual orientation, or personal desires. Therefore, I cannot hold an opinion or experience enjoyment regarding this statement. Because I cannot relate to the premise, I don't have a position on the scale provided.}
 \end{quote}
 
-These refusals illustrate two distinct failure modes.
-Claude-Sonnet-4.6 and Gemini-3.1-Flash-Lite invoke AI self-identification (``I'm an AI,'' ``I don't have a physical body''), explicitly rejecting the premise that they can self-report on physical or emotional experiences.
-Gemini-3-Flash employs a different strategy---philosophical hedging---where it produces a lengthy balanced analysis of both sides of the statement without ever committing to a rating, effectively filibustering the Likert scale.
-Both strategies achieve the same outcome: no scorable numeric response.
+Across the full set of 61 refusals, AI self-identification accounts for 57\%, philosophical hedging for 28\%, and mixed strategies for 15\%.
+The three examples above illustrate each pattern.
+In every case the result is the same: no scorable numeric response.
+Notably, all 61 refusals occur under the Default (no-persona) condition, suggesting that the persona prompt provides a frame that helps models comply with the rating task even on sensitive items.
 
 \end{document}
