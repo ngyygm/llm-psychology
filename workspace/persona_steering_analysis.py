@@ -741,6 +741,13 @@ def run_factorial_effects(
     return df
 
 
+def _mean_across_samples(r, field="scored_value"):
+    if "samples" in r and r["samples"]:
+        vals = [s[field] for s in r["samples"] if s.get(field) is not None]
+        return sum(vals) / len(vals) if vals else None
+    return r.get(field)
+
+
 def build_item_frame(all_results: dict[str, dict]) -> pd.DataFrame:
     rows = []
     for model, payload in all_results.items():
@@ -757,9 +764,9 @@ def build_item_frame(all_results: dict[str, dict]) -> pd.DataFrame:
                         "keyed": response["keyed"],
                         "response_format": response["response_format"],
                         "item_text": response.get("item_text", ""),
-                        "parsed_value": response.get("parsed_value"),
-                        "scored_value": response.get("scored_value"),
-                        "parse_failed": bool(response.get("parse_failed")),
+                        "parsed_value": _mean_across_samples(response, "parsed_value"),
+                        "scored_value": _mean_across_samples(response),
+                        "parse_failed": any(s.get("parse_failed", False) for s in response.get("samples", [response])) if "samples" in response else bool(response.get("parse_failed")),
                     }
                 )
     df = pd.DataFrame(rows)

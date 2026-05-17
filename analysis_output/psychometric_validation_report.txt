@@ -2,7 +2,7 @@
 DEEP PSYCHOMETRIC VALIDATION REPORT
 LLM Personality Measurement: Methodological Validation & Internal Contradictions
 ================================================================================
-Date: 2026-05-15 07:11
+Date: 2026-05-17 19:41
 Models: 18
 Personas: 17 (Default + 16 MBTI)
 Items: 221 (IPIP-NEO-120, SD3, ZKPQ-50-CC, EPQR-A)
@@ -26,8 +26,8 @@ Mean Tucker's phi (per-model): 0.990
 ================================================================================
 FINDING 2: REVERSE-ITEM INCONSISTENCY
 ================================================================================
-Mean PIR: 0.594
-PIR variance — model: 12.6%, domain: 39.7%
+Mean PIR: 0.596
+PIR variance — model: 12.8%, domain: 38.8%
 PIR x SDR: r = -0.612, p = 0.0070
 
 ================================================================================
@@ -39,7 +39,7 @@ Likert (IPIP+SD3):
   domain: 23.2%
   persona: 3.9%
   item: 35.2%
-  residual: 37.3%
+  residual: 37.4%
 
 Binary (ZKPQ+EPQR):
   model: 0.5%
@@ -52,12 +52,12 @@ Binary (ZKPQ+EPQR):
 FINDING 4: DIF + CONVERGENT VALIDITY
 ================================================================================
 Low-variance items: 24
-Safety-contaminated: 0
+Safety-contaminated: 2
 Significant DIF: 0/8
 Convergent sign matches: 7/8
 
 ================================================================================
 FINDING 5: PERSONA MEASUREMENT INVARIANCE
 ================================================================================
-Mean r(Default, MBTI): 0.436
+Mean r(Default, MBTI): 0.431
 r > 0.8: 0/288

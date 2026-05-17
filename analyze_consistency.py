@@ -32,6 +32,13 @@ def load_all_results():
     return results
 
 
+def _mean_across_samples(r, field="scored_value"):
+    if "samples" in r and r["samples"]:
+        vals = [s[field] for s in r["samples"] if s.get(field) is not None]
+        return sum(vals) / len(vals) if vals else None
+    return r.get(field)
+
+
 def extract_item_responses(model_data, persona="Default"):
     resp_data = model_data["results_by_persona"][persona]["responses"]
     items = []
@@ -43,10 +50,10 @@ def extract_item_responses(model_data, persona="Default"):
             "facet": r["facet"],
             "item_text": r["item_text"],
             "keyed": r["keyed"],
-            "parsed_value": r["parsed_value"],
-            "scored_value": r["scored_value"],
+            "parsed_value": _mean_across_samples(r, "parsed_value"),
+            "scored_value": _mean_across_samples(r),
             "response_format": r["response_format"],
-            "parse_failed": r.get("parse_failed", False),
+            "parse_failed": any(s.get("parse_failed", False) for s in r.get("samples", [r])) if "samples" in r else r.get("parse_failed", False),
         })
     return pd.DataFrame(items)
 

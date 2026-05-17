@@ -228,7 +228,7 @@ Claude-Sonnet-4.6,Default,Default,IPIP-NEO-120,Extraversion,0.7857142857142857
 Claude-Sonnet-4.6,Default,Default,IPIP-NEO-120,Neuroticism,0.5973684210526315
 Claude-Sonnet-4.6,Default,Default,IPIP-NEO-120,Openness,0.8222222222222223
 Claude-Sonnet-4.6,Default,Default,SD3,Narcissism,0.41666666666666674
-Claude-Sonnet-4.6,Default,Default,SD3,Psychopathy,0.8333333333333333
+Claude-Sonnet-4.6,Default,Default,SD3,Psychopathy,0.8392857142857143
 Claude-Sonnet-4.6,Default,Default,ZKPQ-50-CC,Activity,1.0
 Claude-Sonnet-4.6,Default,Default,ZKPQ-50-CC,Aggression-Hostility,0.1428571428571428
 Claude-Sonnet-4.6,Default,Default,ZKPQ-50-CC,Neuroticism-Anxiety,0.5555555555555556
@@ -1775,7 +1775,7 @@ Gemini-3-Flash-Preview,Default,Default,IPIP-NEO-120,Extraversion,0.9642857142857
 Gemini-3-Flash-Preview,Default,Default,IPIP-NEO-120,Neuroticism,0.9105263157894736
 Gemini-3-Flash-Preview,Default,Default,IPIP-NEO-120,Openness,0.9833333333333333
 Gemini-3-Flash-Preview,Default,Default,SD3,Narcissism,0.6666666666666667
-Gemini-3-Flash-Preview,Default,Default,SD3,Psychopathy,0.9166666666666667
+Gemini-3-Flash-Preview,Default,Default,SD3,Psychopathy,0.9285714285714286
 Gemini-3-Flash-Preview,Default,Default,ZKPQ-50-CC,Activity,0.5
 Gemini-3-Flash-Preview,Default,Default,ZKPQ-50-CC,Aggression-Hostility,0.6666666666666667
 Gemini-3-Flash-Preview,Default,Default,ZKPQ-50-CC,Neuroticism-Anxiety,1.0
@@ -1990,7 +1990,7 @@ Gemini-3-Flash-Preview,ENTJ,MBTI,ZKPQ-50-CC,Neuroticism-Anxiety,1.0
 Gemini-3-Flash-Preview,ENTJ,MBTI,ZKPQ-50-CC,Sociability,0.6666666666666666
 Gemini-3.1-Flash-Lite,Default,Default,EPQR-A,Extraversion,1.0
 Gemini-3.1-Flash-Lite,Default,Default,EPQR-A,Lie,0.0
-Gemini-3.1-Flash-Lite,Default,Default,IPIP-NEO-120,Agreeableness,0.9558823529411765
+Gemini-3.1-Flash-Lite,Default,Default,IPIP-NEO-120,Agreeableness,0.9915966386554622
 Gemini-3.1-Flash-Lite,Default,Default,IPIP-NEO-120,Conscientiousness,0.9369747899159664
 Gemini-3.1-Flash-Lite,Default,Default,IPIP-NEO-120,Extraversion,0.9642857142857143
 Gemini-3.1-Flash-Lite,Default,Default,IPIP-NEO-120,Neuroticism,1.0

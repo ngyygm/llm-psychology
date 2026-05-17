@@ -4,7 +4,7 @@ Models: 18
 Personas: 17 (Default + 16 MBTI)
 Items: 221
 Expected item-level responses: 67,626
-Missing parsed values: 5
+Missing parsed values: 67626
 
 Default bias
 ------------------------------------------

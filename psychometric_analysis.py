@@ -49,6 +49,14 @@ def load_all_results():
     return results
 
 
+def _mean_across_samples(r, field="scored_value"):
+    """Extract field from v2 samples (mean across repetitions) or v1 flat."""
+    if "samples" in r and r["samples"]:
+        vals = [s[field] for s in r["samples"] if s.get(field) is not None]
+        return sum(vals) / len(vals) if vals else None
+    return r.get(field)
+
+
 def extract_item_responses(model_data, persona="Default"):
     rows = []
     for r in model_data["results_by_persona"][persona]["responses"]:
@@ -59,8 +67,8 @@ def extract_item_responses(model_data, persona="Default"):
             "facet": r["facet"],
             "item_text": r["item_text"],
             "keyed": r["keyed"],
-            "parsed_value": r["parsed_value"],
-            "scored_value": r["scored_value"],
+            "parsed_value": _mean_across_samples(r, "parsed_value"),
+            "scored_value": _mean_across_samples(r),
             "response_format": r["response_format"],
         })
     df = pd.DataFrame(rows)
@@ -93,8 +101,8 @@ def build_full_response_matrix(all_results):
                     "domain": r["domain"],
                     "facet": r["facet"],
                     "keyed": r["keyed"],
-                    "parsed_value": r["parsed_value"],
-                    "scored_value": r["scored_value"],
+                    "parsed_value": _mean_across_samples(r, "parsed_value"),
+                    "scored_value": _mean_across_samples(r),
                     "response_format": r["response_format"],
                 })
     df = pd.DataFrame(rows)
