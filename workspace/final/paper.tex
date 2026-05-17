@@ -859,20 +859,20 @@ zkpq_041 & Sociability & 0.0110 \\
 \begin{figure*}[t]
     \centering
     \includegraphics[width=\textwidth]{figures/fig_wsc6_model_persona_heatmap.png}
-    \caption{Model $\times$ persona interaction heatmap. Each cell shows the mean within-item SD for a (model, persona) pair. Rows ordered by overall model consistency. Anomalous cells (unusually high SD for a specific combination) indicate model--persona interactions that destabilize responses.}
+    \caption{Model $\times$ persona interaction. (a)~Hierarchical clustering dendrogram of models by their persona-consistency profiles (correlation distance). Models with similar SD patterns across personas cluster together. (b)~Line profiles: each line shows one model's mean within-item SD across personas, colored by vendor family. Lines ordered by dendrogram leaf sequence.}
     \label{fig:wsc6_model_persona}
 \end{figure*}
 
 \cref{fig:wsc6_model_persona} tests whether certain model--persona combinations are particularly unstable.
-If persona prompts simply add uniform noise, the heatmap should show smooth row gradients.
-Visible ``hot spots'' would indicate that specific persona instructions interact badly with specific model architectures.
+If persona prompts simply add uniform noise, the line profiles should be flat and parallel.
+Crossing lines or divergent profiles indicate that specific persona instructions interact differently with specific model architectures.
 
 \subsection{Interaction: Model $\times$ Domain}
 
 \begin{figure*}[t]
     \centering
     \includegraphics[width=\textwidth]{figures/fig_wsc7_model_domain_heatmap.png}
-    \caption{Model $\times$ domain interaction. Mean within-item SD per (model, domain) pair. Columns ordered by overall domain instability. Some models may show domain-specific instability (e.g., high SD on Lie-scale items but not on Openness items).}
+    \caption{Model $\times$ domain interaction. (a)~Dendrogram clustering models by domain-consistency profiles. (b)~Line profiles showing each model's SD across domains. Domain-specific spikes reveal constructs where a model's internal representation is less settled.}
     \label{fig:wsc7_model_domain}
 \end{figure*}
 
@@ -881,7 +881,7 @@ Visible ``hot spots'' would indicate that specific persona instructions interact
 \begin{figure}[t]
     \centering
     \includegraphics[width=\columnwidth]{figures/fig_wsc8_persona_domain_heatmap.png}
-    \caption{Persona $\times$ domain interaction. Mean within-item SD per (persona, domain) pair. This reveals whether certain persona--domain combinations are inherently less stable—e.g., an Introverted persona answering Extraversion items.}
+    \caption{Persona $\times$ domain interaction. (a)~Dendrogram clustering personas by domain-consistency profiles. (b)~Line profiles per persona; the Default persona (gold) is visually distinct from MBTI personas, confirming that persona prompts do not degrade consistency.}
     \label{fig:wsc8_persona_domain}
 \end{figure}
 

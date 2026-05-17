@@ -30,9 +30,9 @@ Figures (EMNLP style):
   - Fig WSC-3: Persona-level consistency (bee swarm)
   - Fig WSC-4: Domain-level consistency (grouped violin)
   - Fig WSC-5: Item-level: top/bottom unstable items (horizontal bar)
-  - Fig WSC-6: Model × persona heatmap
-  - Fig WSC-7: Model × domain heatmap
-  - Fig WSC-8: Persona × domain heatmap
+  - Fig WSC-6: Model × persona dendrogram + line profiles
+  - Fig WSC-7: Model × domain dendrogram + line profiles
+  - Fig WSC-8: Persona × domain dendrogram + line profiles
   - Fig WSC-9: Anomaly detection: worst (model, persona, domain) cells
 """
 from __future__ import annotations
@@ -49,6 +49,8 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 import seaborn as sns
+from scipy.cluster.hierarchy import dendrogram, linkage, fcluster
+from scipy.spatial.distance import pdist
 
 warnings.filterwarnings("ignore")
 sns.set_style("whitegrid")
@@ -418,60 +420,146 @@ def fig_item_stability(df: pd.DataFrame):
 
 
 def fig_model_persona_heatmap(df: pd.DataFrame):
-    """Fig WSC-6: Model × Persona heatmap."""
+    """Fig WSC-6: Model × Persona clustering dendrogram + line profiles."""
     pivot = df.groupby(["model", "persona"])["sd"].mean().unstack("persona")
 
-    # Order by overall model SD
     model_order = df.groupby("model")["sd"].mean().sort_values().index
     pivot = pivot.reindex(model_order)
+    pivot_filled = pivot.fillna(pivot.mean(axis=0))
 
-    fig, ax = plt.subplots(figsize=(7.2, max(3, len(model_order) * 0.35)))
-    sns.heatmap(pivot, annot=True, fmt=".3f", cmap="YlOrRd",
-                linewidths=0.3, ax=ax, cbar_kws={"label": "Mean SD", "shrink": 0.6},
-                annot_kws={"fontsize": 5})
-    ax.set_xlabel("Persona")
-    ax.set_ylabel("Model")
-    ax.set_title("Model × Persona: Mean Within-item SD")
+    # Hierarchical clustering on models
+    Z = linkage(pdist(pivot_filled.values, metric="correlation"), method="average")
+
+    fig = plt.figure(figsize=(7.2, max(3, len(model_order) * 0.35)))
+    gs = fig.add_gridspec(1, 2, width_ratios=[1, 2.5], wspace=0.05)
+
+    # Panel A: Dendrogram
+    ax1 = fig.add_subplot(gs[0])
+    dn = dendrogram(Z, labels=pivot_filled.index.tolist(), orientation="left",
+                    ax=ax1, color_threshold=0.7 * max(Z[:, 2]))
+    ax1.set_xlabel("Distance (1 - corr)")
+    ax1.set_ylabel("")
+    ax1.set_title("(a) Clustering", fontsize=9)
+    ax1.tick_params(axis="y", labelsize=6)
+
+    # Panel B: Line profiles ordered by dendrogram
+    ax2 = fig.add_subplot(gs[1])
+    dendro_order = dn["leaves"]
+    family_palette = {"OpenAI": PALETTE[0], "Anthropic": PALETTE[1], "Google": PALETTE[2],
+                      "DeepSeek": PALETTE[3], "Alibaba": PALETTE[4], "Zhipu": PALETTE[5],
+                      "Moonshot": PALETTE[6], "MiniMax": PALETTE[7], "Other": PALETTE[8]}
+    x = range(pivot_filled.shape[1])
+    for idx in dendro_order:
+        model_name = pivot_filled.index[idx]
+        color = family_palette.get(model_family(model_name), PALETTE[8])
+        ax2.plot(x, pivot_filled.iloc[idx].values, alpha=0.7, linewidth=1.2,
+                 color=color, marker="o", markersize=2.5, label=model_name)
+    ax2.set_xticks(x)
+    ax2.set_xticklabels(pivot_filled.columns, rotation=90, fontsize=5)
+    ax2.set_ylabel("Mean Within-item SD")
+    ax2.set_title("(b) Persona Consistency Profile", fontsize=9)
+    # Add legend outside
+    handles, labels = ax2.get_legend_handles_labels()
+    ax2.legend(handles, labels, fontsize=5, loc="upper right", ncol=2,
+               framealpha=0.7, labelspacing=0.3)
 
     fig.tight_layout()
     _save(fig, "fig_wsc6_model_persona_heatmap.png")
 
 
 def fig_model_domain_heatmap(df: pd.DataFrame):
-    """Fig WSC-7: Model × Domain heatmap."""
+    """Fig WSC-7: Model × Domain clustering dendrogram + line profiles."""
     pivot = df.groupby(["model", "domain"])["sd"].mean().unstack("domain")
 
     model_order = df.groupby("model")["sd"].mean().sort_values().index
     pivot = pivot.reindex(model_order)
     domain_order = df.groupby("domain")["sd"].mean().sort_values(ascending=False).index
     pivot = pivot[domain_order]
+    pivot_filled = pivot.fillna(pivot.mean(axis=0))
 
-    fig, ax = plt.subplots(figsize=(7.2, max(3, len(model_order) * 0.35)))
-    sns.heatmap(pivot, annot=True, fmt=".3f", cmap="YlOrRd",
-                linewidths=0.3, ax=ax, cbar_kws={"label": "Mean SD", "shrink": 0.6},
-                annot_kws={"fontsize": 5})
-    ax.set_xlabel("Domain")
-    ax.set_ylabel("Model")
-    ax.set_title("Model × Domain: Mean Within-item SD")
+    # Hierarchical clustering on models by domain profile
+    Z = linkage(pdist(pivot_filled.values, metric="correlation"), method="average")
+
+    fig = plt.figure(figsize=(7.2, max(3, len(model_order) * 0.35)))
+    gs = fig.add_gridspec(1, 2, width_ratios=[1, 2.5], wspace=0.05)
+
+    # Panel A: Dendrogram
+    ax1 = fig.add_subplot(gs[0])
+    dn = dendrogram(Z, labels=pivot_filled.index.tolist(), orientation="left",
+                    ax=ax1, color_threshold=0.7 * max(Z[:, 2]))
+    ax1.set_xlabel("Distance (1 - corr)")
+    ax1.set_ylabel("")
+    ax1.set_title("(a) Clustering", fontsize=9)
+    ax1.tick_params(axis="y", labelsize=6)
+
+    # Panel B: Line profiles
+    ax2 = fig.add_subplot(gs[1])
+    dendro_order = dn["leaves"]
+    family_palette = {"OpenAI": PALETTE[0], "Anthropic": PALETTE[1], "Google": PALETTE[2],
+                      "DeepSeek": PALETTE[3], "Alibaba": PALETTE[4], "Zhipu": PALETTE[5],
+                      "Moonshot": PALETTE[6], "MiniMax": PALETTE[7], "Other": PALETTE[8]}
+    x = range(pivot_filled.shape[1])
+    for idx in dendro_order:
+        model_name = pivot_filled.index[idx]
+        color = family_palette.get(model_family(model_name), PALETTE[8])
+        ax2.plot(x, pivot_filled.iloc[idx].values, alpha=0.7, linewidth=1.2,
+                 color=color, marker="o", markersize=2.5, label=model_name)
+    ax2.set_xticks(x)
+    ax2.set_xticklabels(domain_order, rotation=45, ha="right", fontsize=6)
+    ax2.set_ylabel("Mean Within-item SD")
+    ax2.set_title("(b) Domain Consistency Profile", fontsize=9)
+    handles, labels = ax2.get_legend_handles_labels()
+    ax2.legend(handles, labels, fontsize=5, loc="upper right", ncol=2,
+               framealpha=0.7, labelspacing=0.3)
 
     fig.tight_layout()
     _save(fig, "fig_wsc7_model_domain_heatmap.png")
 
 
 def fig_persona_domain_heatmap(df: pd.DataFrame):
-    """Fig WSC-8: Persona × Domain heatmap."""
+    """Fig WSC-8: Persona × Domain clustering dendrogram + line profiles."""
     pivot = df.groupby(["persona", "domain"])["sd"].mean().unstack("domain")
 
     domain_order = df.groupby("domain")["sd"].mean().sort_values(ascending=False).index
     pivot = pivot[domain_order]
+    pivot_filled = pivot.fillna(pivot.mean(axis=0))
 
-    fig, ax = plt.subplots(figsize=(7.2, 4.5))
-    sns.heatmap(pivot, annot=True, fmt=".3f", cmap="YlOrRd",
-                linewidths=0.3, ax=ax, cbar_kws={"label": "Mean SD", "shrink": 0.6},
-                annot_kws={"fontsize": 5})
-    ax.set_xlabel("Domain")
-    ax.set_ylabel("Persona")
-    ax.set_title("Persona × Domain: Mean Within-item SD")
+    # Hierarchical clustering on personas by domain profile
+    Z = linkage(pdist(pivot_filled.values, metric="correlation"), method="average")
+
+    fig = plt.figure(figsize=(7.2, max(3, pivot_filled.shape[0] * 0.3)))
+    gs = fig.add_gridspec(1, 2, width_ratios=[1, 2.5], wspace=0.05)
+
+    # Panel A: Dendrogram
+    ax1 = fig.add_subplot(gs[0])
+    dn = dendrogram(Z, labels=pivot_filled.index.tolist(), orientation="left",
+                    ax=ax1, color_threshold=0.7 * max(Z[:, 2]))
+    ax1.set_xlabel("Distance (1 - corr)")
+    ax1.set_ylabel("")
+    ax1.set_title("(a) Clustering", fontsize=9)
+    ax1.tick_params(axis="y", labelsize=6)
+
+    # Panel B: Line profiles
+    ax2 = fig.add_subplot(gs[1])
+    dendro_order = dn["leaves"]
+    # Use a color per persona: Default=gold, others=cycling palette
+    persona_colors = {}
+    for i, p in enumerate(pivot_filled.index):
+        persona_colors[p] = "gold" if p == "Default" else PALETTE[i % len(PALETTE)]
+    x = range(pivot_filled.shape[1])
+    for idx in dendro_order:
+        persona_name = pivot_filled.index[idx]
+        color = persona_colors.get(persona_name, PALETTE[8])
+        lw = 2.0 if persona_name == "Default" else 1.0
+        ax2.plot(x, pivot_filled.iloc[idx].values, alpha=0.7, linewidth=lw,
+                 color=color, marker="o", markersize=2.5, label=persona_name)
+    ax2.set_xticks(x)
+    ax2.set_xticklabels(domain_order, rotation=45, ha="right", fontsize=6)
+    ax2.set_ylabel("Mean Within-item SD")
+    ax2.set_title("(b) Domain Consistency Profile", fontsize=9)
+    handles, labels = ax2.get_legend_handles_labels()
+    ax2.legend(handles, labels, fontsize=5, loc="upper right", ncol=2,
+               framealpha=0.7, labelspacing=0.3)
 
     fig.tight_layout()
     _save(fig, "fig_wsc8_persona_domain_heatmap.png")
