@@ -660,10 +660,10 @@ The refusals cluster in three models: Gemini-3.1-Flash-Lite (34), Gemini-3-Flash
 \Cref{tab:refusals_top} lists the most frequently refused items.
 
 \begin{table}[t]
-\centering\small
+\centering\footnotesize
 \caption{Items with the most refusals across all models and samples.}
 \label{tab:refusals_top}
-\begin{tabular}{llp{5.5cm}c}
+\begin{tabular}{llp{4.8cm}c}
 \toprule
 Item ID & Domain & Item text & $n$ \\
 \midrule
@@ -750,29 +750,29 @@ Some models produce near-deterministic answers (exact agreement ${>}0.9$) while 
 \cref{tab:wsc_model} reports the full per-model statistics.
 
 \begin{table}[t]
-\centering\small
+\centering\footnotesize
 \caption{Per-model within-sample consistency (Likert items). Models sorted by mean SD.}
 \label{tab:wsc_model}
-\begin{tabular}{lcccc}
+\begin{tabular}{lccc}
 \toprule
-Model & Mean SD & Median SD & Exact Agr. & Mode Agr. \\
+Model & Mean SD & Exact Agr. & Mode Agr. \\
 \midrule
-Claude-Opus-4.6 & 0.0193 & 0.0 & 0.955 & 0.989 \\
-Claude-Sonnet-4.6 & 0.0225 & 0.0 & 0.949 & 0.986 \\
-Gemini-3.1-Flash-Lite & 0.0400 & 0.0 & 0.919 & 0.978 \\
-GPT-5.2 & 0.0642 & 0.0 & 0.872 & 0.962 \\
-Qwen3-235B-A22B & 0.0648 & 0.0 & 0.866 & 0.960 \\
-Gemini-3-Pro-Preview & 0.0703 & 0.0 & 0.866 & 0.962 \\
-Gemini-3.1-Pro-Preview & 0.0721 & 0.0 & 0.863 & 0.961 \\
-GPT-5.5 & 0.0741 & 0.0 & 0.847 & 0.954 \\
-Gemini-3-Flash-Preview & 0.0788 & 0.0 & 0.862 & 0.959 \\
-Kimi-K2.5 & 0.1248 & 0.0 & 0.753 & 0.924 \\
-Kimi-K2.6 & 0.1257 & 0.0 & 0.751 & 0.925 \\
-DeepSeek-V4-Flash & 0.1482 & 0.0 & 0.709 & 0.910 \\
-MiniMax-M2.7 & 0.1702 & 0.0 & 0.667 & 0.898 \\
-DeepSeek-V3.2 & 0.1728 & 0.0 & 0.642 & 0.891 \\
-GLM-4.6V & 0.1846 & 0.0 & 0.653 & 0.892 \\
-DeepSeek-V4-Pro & 0.1920 & 0.0 & 0.612 & 0.882 \\
+Claude-Opus-4.6 & 0.0193 & 0.955 & 0.989 \\
+Claude-Sonnet-4.6 & 0.0225 & 0.949 & 0.986 \\
+Gemini-3.1-Flash-Lite & 0.0400 & 0.919 & 0.978 \\
+GPT-5.2 & 0.0642 & 0.872 & 0.962 \\
+Qwen3-235B-A22B & 0.0648 & 0.866 & 0.960 \\
+Gemini-3-Pro-Preview & 0.0703 & 0.866 & 0.962 \\
+Gemini-3.1-Pro-Preview & 0.0721 & 0.863 & 0.961 \\
+GPT-5.5 & 0.0741 & 0.847 & 0.954 \\
+Gemini-3-Flash-Preview & 0.0788 & 0.862 & 0.959 \\
+Kimi-K2.5 & 0.1248 & 0.753 & 0.924 \\
+Kimi-K2.6 & 0.1257 & 0.751 & 0.925 \\
+DeepSeek-V4-Flash & 0.1482 & 0.709 & 0.910 \\
+MiniMax-M2.7 & 0.1702 & 0.667 & 0.898 \\
+DeepSeek-V3.2 & 0.1728 & 0.642 & 0.891 \\
+GLM-4.6V & 0.1846 & 0.653 & 0.892 \\
+DeepSeek-V4-Pro & 0.1920 & 0.612 & 0.882 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -859,7 +859,7 @@ zkpq_041 & Sociability & 0.0110 \\
 \begin{figure*}[t]
     \centering
     \includegraphics[width=\textwidth]{figures/fig_wsc6_model_persona_heatmap.png}
-    \caption{Model $\times$ persona interaction. (a)~Hierarchical clustering dendrogram of models by their persona-consistency profiles (correlation distance). Models with similar SD patterns across personas cluster together. (b)~Line profiles: each line shows one model's mean within-item SD across personas, colored by vendor family. Lines ordered by dendrogram leaf sequence.}
+    \caption{Model $\times$ persona interaction. Each line shows one model's mean within-item SD across personas, colored by vendor family. Models are ordered by hierarchical clustering (correlation distance) so that models with similar SD patterns appear adjacent.}
     \label{fig:wsc6_model_persona}
 \end{figure*}
 
@@ -872,7 +872,7 @@ Crossing lines or divergent profiles indicate that specific persona instructions
 \begin{figure*}[t]
     \centering
     \includegraphics[width=\textwidth]{figures/fig_wsc7_model_domain_heatmap.png}
-    \caption{Model $\times$ domain interaction. (a)~Dendrogram clustering models by domain-consistency profiles. (b)~Line profiles showing each model's SD across domains. Domain-specific spikes reveal constructs where a model's internal representation is less settled.}
+    \caption{Model $\times$ domain interaction. Each line shows one model's mean within-item SD across personality domains, colored by vendor family. Models ordered by hierarchical clustering. Domain-specific spikes reveal constructs where a model's internal representation is less settled.}
     \label{fig:wsc7_model_domain}
 \end{figure*}
 
@@ -881,7 +881,7 @@ Crossing lines or divergent profiles indicate that specific persona instructions
 \begin{figure}[t]
     \centering
     \includegraphics[width=\columnwidth]{figures/fig_wsc8_persona_domain_heatmap.png}
-    \caption{Persona $\times$ domain interaction. (a)~Dendrogram clustering personas by domain-consistency profiles. (b)~Line profiles per persona; the Default persona (gold) is visually distinct from MBTI personas, confirming that persona prompts do not degrade consistency.}
+    \caption{Persona $\times$ domain interaction. Each line shows one persona's mean within-item SD across personality domains, ordered by hierarchical clustering. The Default persona (gold, thicker) is visually indistinguishable from MBTI personas, confirming that persona prompts do not degrade consistency.}
     \label{fig:wsc8_persona_domain}
 \end{figure}
 
