@@ -37,12 +37,19 @@ def load_all_results():
 
 
 def extract_item_responses(model_data, persona="Default"):
+    def _mean_across_samples(r, field="scored_value"):
+        if "samples" in r and r["samples"]:
+            vals = [s[field] for s in r["samples"] if s.get(field) is not None]
+            return sum(vals) / len(vals) if vals else None
+        return r.get(field)
+
     rows = []
     for r in model_data["results_by_persona"][persona]["responses"]:
         rows.append({
             "item_id": r["item_id"], "scale": r["scale"], "domain": r["domain"],
             "facet": r["facet"], "item_text": r["item_text"], "keyed": r["keyed"],
-            "parsed_value": r["parsed_value"], "scored_value": r["scored_value"],
+            "parsed_value": _mean_across_samples(r, "parsed_value"),
+            "scored_value": _mean_across_samples(r, "scored_value"),
             "response_format": r["response_format"],
         })
     return pd.DataFrame(rows)
@@ -68,7 +75,7 @@ def run_item_level_cfa(all_results):
             ipip_rows.append(ipip["parsed_value"].values.astype(float))
             model_labels.append(model_name)
 
-    X = np.array(ipip_rows)  # 18 × 120
+    X = np.array(ipip_rows)  # n_models × 120
     print(f"Item-level matrix: {X.shape[0]} models × {X.shape[1]} items")
 
     # Get domain assignments for each item
@@ -79,7 +86,7 @@ def run_item_level_cfa(all_results):
     domains_order = ["Neuroticism", "Extraversion", "Openness", "Agreeableness", "Conscientiousness"]
 
     # ── A. Eigenvalue analysis at item level ──
-    # With 18 obs × 120 vars and discrete Likert data, add jitter for numerical stability
+    # With n_models obs × 120 vars and discrete Likert data, add jitter for numerical stability
     rng = np.random.RandomState(42)
     X_jittered = X + rng.normal(0, 0.05, X.shape)
 
@@ -473,19 +480,6 @@ def run_bootstrap_ci(all_results):
     likert_norm = likert_df.copy()
     likert_norm["norm_score"] = (likert_norm["scored_value"] - 1) / 4.0
 
-    ss_total = ((likert_norm["norm_score"] - likert_norm["norm_score"].mean()) ** 2).sum()
-    ss_model_boot = []
-    for _ in range(min(500, n_boot)):
-        boot_models = np.random.choice(models, size=n_models, replace=True)
-        # Approximate: resample model means and compute variance
-        boot_means = np.array([model_domain_means[m] for m in boot_models])
-        ss_m = n_models * (boot_means - boot_means.mean()) ** 2
-        # Scale to full data proportion
-        boot_pct = ss_m.sum() / (ss_total / n_models) * 100 / n_models
-        ss_model_boot.append(boot_pct)
-
-    model_var_pct = 0.34  # From prior analysis
-    # Use parametric bootstrap instead
     model_var_pct_values = []
     for _ in range(500):
         boot_models = np.random.choice(models, size=n_models, replace=True)
@@ -496,6 +490,7 @@ def run_bootstrap_ci(all_results):
             lambda x: len(x) * (x.mean() - gm) ** 2).sum()
         model_var_pct_values.append(ss_m / ss_t * 100 if ss_t > 0 else 0)
 
+    model_var_pct = np.mean(model_var_pct_values)
     model_var_ci = np.percentile(model_var_pct_values, [2.5, 97.5])
     print(f"  Model variance: {model_var_pct:.1f}% [{model_var_ci[0]:.1f}%, {model_var_ci[1]:.1f}%]")
 
@@ -503,7 +498,7 @@ def run_bootstrap_ci(all_results):
     print("\n--- Convergent Validity with CIs ---")
     conv_df = pd.read_csv(OUTPUT_DIR / "convergent_validity_enhanced.csv")
     for _, row in conv_df.iterrows():
-        # Bootstrap CI for spearman r with N=18
+        # Bootstrap CI for spearman r with N models
         n = int(row["n_models"])
         r_obs = row["r_spearman"]
         # Fisher z-transform for CI

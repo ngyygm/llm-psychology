@@ -100,7 +100,9 @@ def shorten(name, max_len=14):
          .replace("MiniMax-M2.7", "MiniMax-M2")
          .replace("Kimi-K2.6", "Kimi-K2.6")
          .replace("Kimi-K2.5", "Kimi-K2.5")
-         .replace("GLM-4.6V", "GLM-4.6V"))
+         .replace("GLM-4.6V", "GLM-4.6V")
+         .replace("glm-4.7", "GLM-4.7")
+         .replace("glm-5.1", "GLM-5.1"))
     return s[:max_len]
 
 
@@ -112,7 +114,7 @@ def get_family(model):
     if "DeepSeek" in model: return "DeepSeek"
     if "Kimi" in model: return "Moonshot"
     if "MiniMax" in model: return "MiniMax"
-    if "GLM" in model: return "Zhipu"
+    if "GLM" in model or "glm" in model: return "Zhipu"
     return "Other"
 
 
@@ -371,7 +373,7 @@ def fig5_convergent_validity():
 
     # Compute 95% CI via Fisher z-transform
     r_vals = conv["r_spearman"].values.astype(float)
-    n_obs = 18
+    n_obs = int(conv["n_models"].iloc[0]) if "n_models" in conv.columns else len(conv)
     se = 1.0 / np.sqrt(n_obs - 3)
     z = np.arctanh(r_vals)
     z_lo = z - 1.96 * se

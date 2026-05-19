@@ -424,7 +424,10 @@ def fig_model_persona_heatmap(df: pd.DataFrame):
     pivot = df.groupby(["model", "persona"])["sd"].mean().unstack("persona")
     pivot_filled = pivot.fillna(pivot.mean(axis=0))
 
-    Z = linkage(pdist(pivot_filled.values, metric="correlation"), method="average")
+    # Replace any inf/nan from zero-variance rows before clustering
+    dist = pdist(pivot_filled.values, metric="correlation")
+    dist = np.nan_to_num(dist, nan=0.0, posinf=2.0, neginf=0.0)
+    Z = linkage(dist, method="average")
     dn = dendrogram(Z, no_plot=True)
     dendro_order = dn["leaves"]
 
@@ -459,7 +462,9 @@ def fig_model_domain_heatmap(df: pd.DataFrame):
     pivot = pivot[domain_order]
     pivot_filled = pivot.fillna(pivot.mean(axis=0))
 
-    Z = linkage(pdist(pivot_filled.values, metric="correlation"), method="average")
+    dist = pdist(pivot_filled.values, metric="correlation")
+    dist = np.nan_to_num(dist, nan=0.0, posinf=2.0, neginf=0.0)
+    Z = linkage(dist, method="average")
     dn = dendrogram(Z, no_plot=True)
     dendro_order = dn["leaves"]
 
@@ -499,7 +504,9 @@ def fig_persona_domain_heatmap(df: pd.DataFrame):
     pivot = pivot[domain_order]
     pivot_filled = pivot.fillna(pivot.mean(axis=0))
 
-    Z = linkage(pdist(pivot_filled.values, metric="correlation"), method="average")
+    dist = pdist(pivot_filled.values, metric="correlation")
+    dist = np.nan_to_num(dist, nan=0.0, posinf=2.0, neginf=0.0)
+    Z = linkage(dist, method="average")
     dn = dendrogram(Z, no_plot=True)
     dendro_order = dn["leaves"]
 

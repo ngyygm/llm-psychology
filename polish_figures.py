@@ -127,6 +127,9 @@ def short_model(name: str, max_len: int = 16) -> str:
         ("Qwen3-235B-A22B", "Qwen3-235"),
         ("MiniMax-M2.7", "MiniMax"),
         ("GPT_5.2", "GPT-5.2"),
+        ("GLM-4.6V", "GLM-4.6V"),
+        ("glm-4.7", "GLM-4.7"),
+        ("glm-5.1", "GLM-5.1"),
     ]
     out = name
     for old, new in replacements:
@@ -149,7 +152,7 @@ def family(name: str) -> str:
         return "Moonshot"
     if "MiniMax" in name:
         return "MiniMax"
-    if "GLM" in name:
+    if "GLM" in name or "glm" in name:
         return "Zhipu"
     return "Other"
 
@@ -289,7 +292,7 @@ def fig_factor_structure() -> None:
 
 def fig_cronbach() -> None:
     alpha = pd.read_csv(ANALYSIS / "cronbach_alpha_by_domain.csv")
-    stats_df = alpha.groupby("domain")["alpha"].agg(["mean", "std"]).reindex(IPIP_DOMAINS)
+    stats_df = alpha.set_index("domain")[["alpha_mean", "alpha_std"]].rename(columns={"alpha_mean": "mean", "alpha_std": "std"}).reindex(IPIP_DOMAINS)
     human = pd.Series(
         {
             "Neuroticism": 0.90,

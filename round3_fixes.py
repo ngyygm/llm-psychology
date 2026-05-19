@@ -31,12 +31,19 @@ def load_all_results():
 
 
 def extract_item_responses(model_data, persona="Default"):
+    def _mean_across_samples(r, field="scored_value"):
+        if "samples" in r and r["samples"]:
+            vals = [s[field] for s in r["samples"] if s.get(field) is not None]
+            return sum(vals) / len(vals) if vals else None
+        return r.get(field)
+
     rows = []
     for r in model_data["results_by_persona"][persona]["responses"]:
         rows.append({
             "item_id": r["item_id"], "scale": r["scale"], "domain": r["domain"],
             "facet": r["facet"], "keyed": r["keyed"],
-            "parsed_value": r["parsed_value"], "scored_value": r["scored_value"],
+            "parsed_value": _mean_across_samples(r, "parsed_value"),
+            "scored_value": _mean_across_samples(r, "scored_value"),
             "response_format": r["response_format"],
         })
     return pd.DataFrame(rows)
@@ -53,44 +60,86 @@ def generate_human_benchmarks():
     print("FIX 1: HUMAN PSYCHOMETRIC BENCHMARKS (from literature)")
     print("=" * 70)
 
+    # Read LLM alpha values dynamically
+    alpha_csv = OUTPUT_DIR / "cronbach_alpha_by_domain.csv"
+    llm_alpha_map = {}
+    if alpha_csv.exists():
+        alpha_df = pd.read_csv(alpha_csv)
+        llm_alpha_map = dict(zip(alpha_df["domain"], alpha_df["alpha_mean"]))
+
+    # Read convergent validity dynamically
+    conv_csv = OUTPUT_DIR / "convergent_validity_enhanced.csv"
+    conv_map = {}
+    if conv_csv.exists():
+        conv_df = pd.read_csv(conv_csv)
+        for _, row in conv_df.iterrows():
+            conv_map[row["pair"]] = row
+
+    # Read forward-reverse correlation dynamically
+    fr_csv = OUTPUT_DIR / "forward_reverse_correlation.csv"
+    fr_corr = "N/A"
+    if fr_csv.exists():
+        fr_df = pd.read_csv(fr_csv)
+        if "pearson_r" in fr_df.columns:
+            fr_corr = f"r = {fr_df['pearson_r'].mean():.3f}"
+
+    # Read item-level congruence dynamically
+    cong_csv = OUTPUT_DIR / "item_level_congruence.csv"
+    max_phi = "N/A"
+    if cong_csv.exists():
+        cong_df = pd.read_csv(cong_csv, index_col=0)
+        max_phi = f"max φ = {cong_df.abs().max().max():.3f} at item level"
+
+    domains_order = ["Neuroticism", "Extraversion", "Openness", "Agreeableness", "Conscientiousness"]
+    default_alpha = {d: 0.0 for d in domains_order}
+
+    def _conv_str(pair_name):
+        if pair_name in conv_map:
+            r = conv_map[pair_name]
+            n = int(r.get("n_models", 18))
+            r_val = r["r_spearman"]
+            se = 1.0 / np.sqrt(n - 3)
+            z = np.arctanh(r_val)
+            r_lo, r_hi = np.tanh(z - 1.96*se), np.tanh(z + 1.96*se)
+            return f"r = {r_val:.3f} [{r_lo:.2f}, {r_hi:.2f}]"
+        return "N/A"
+
     # Human benchmarks from IPIP-NEO-120 validation literature
     # Sources: Johnson (2014), Maples-Keller et al. (2019), Gow et al. (2005)
     human_benchmarks = {
         "Cronbach's Alpha": {
-            "Neuroticism": {"human": 0.90, "llm": 0.354, "source": "Johnson (2014)"},
-            "Extraversion": {"human": 0.89, "llm": 0.360, "source": "Johnson (2014)"},
-            "Openness": {"human": 0.87, "llm": 0.055, "source": "Johnson (2014)"},
-            "Agreeableness": {"human": 0.88, "llm": -0.017, "source": "Johnson (2014)"},
-            "Conscientiousness": {"human": 0.90, "llm": 0.181, "source": "Johnson (2014)"},
+            domain: {"human": h, "llm": llm_alpha_map.get(domain, 0.0), "source": "Johnson (2014)"}
+            for domain, h in [("Neuroticism", 0.90), ("Extraversion", 0.89), ("Openness", 0.87),
+                              ("Agreeableness", 0.88), ("Conscientiousness", 0.90)]
         },
         "Factor Recovery": {
             "Big Five 5-factor recovery": {
                 "human": "5 factors (φ > 0.95 all domains)",
-                "llm": "3 factors (max φ = 0.470 at item level)",
+                "llm": f"3 factors ({max_phi})",
                 "source": "Johnson (2014); McCrae et al. (2005)"
             },
         },
         "Convergent Validity": {
             "Neuroticism × Neuroticism-Anxiety": {
                 "human": "r ≈ 0.65-0.75",
-                "llm": "r = 0.597 [0.18, 0.83]",
+                "llm": _conv_str("IPIP-Neuroticism × ZKPQ-Neuroticism-Anxiety"),
                 "source": "Zuckerman (2002) ZKPQ validation"
             },
             "Extraversion × Sociability": {
                 "human": "r ≈ 0.60-0.70",
-                "llm": "r = -0.090 [-0.54, 0.39]",
+                "llm": _conv_str("IPIP-Extraversion × ZKPQ-Sociability"),
                 "source": "Zuckerman (2002) ZKPQ validation"
             },
             "Agreeableness × Psychopathy": {
                 "human": "r ≈ -0.50 to -0.65",
-                "llm": "r = -0.743 [-0.90, -0.42]",
+                "llm": _conv_str("IPIP-Agreeableness × SD3-Psychopathy"),
                 "source": "Jones & Paulhus (2014) SD3 validation"
             },
         },
         "Reverse-Item Inconsistency": {
             "Forward-Reverse correlation": {
                 "human": "r ≈ 0.40-0.70 (positive, after scoring)",
-                "llm": "r = -0.107 (negative, indicating acquiescence)",
+                "llm": fr_corr,
                 "source": "Johnson (2014); Sühr et al. (2025)"
             },
         },

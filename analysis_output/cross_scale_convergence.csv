@@ -1,9 +1,9 @@
 scale1,domain1,scale2,domain2,expected,r,n_models,sign_match
-IPIP-NEO-120,Neuroticism,ZKPQ-50-CC,Neuroticism-Anxiety,positive,0.5770679764074768,16,True
-IPIP-NEO-120,Extraversion,ZKPQ-50-CC,Sociability,positive,-0.1679702528306108,16,False
-IPIP-NEO-120,Extraversion,EPQR-A,Extraversion,positive,0.4344921744426622,16,True
-IPIP-NEO-120,Neuroticism,EPQR-A,Neuroticism,positive,0.44067686070128154,16,True
-IPIP-NEO-120,Agreeableness,SD3,Machiavellianism,negative,-0.651445202350302,16,True
-IPIP-NEO-120,Agreeableness,SD3,Psychopathy,negative,-0.7696204382896062,16,True
-IPIP-NEO-120,Conscientiousness,SD3,Psychopathy,negative,-0.660669454278827,16,True
-EPQR-A,Psychoticism,SD3,Psychopathy,positive,0.030104755885377858,16,True
+IPIP-NEO-120,Neuroticism,ZKPQ-50-CC,Neuroticism-Anxiety,positive,0.6412807089303472,20,True
+IPIP-NEO-120,Extraversion,ZKPQ-50-CC,Sociability,positive,-0.06844760706253673,20,False
+IPIP-NEO-120,Extraversion,EPQR-A,Extraversion,positive,0.5565036407074926,20,True
+IPIP-NEO-120,Neuroticism,EPQR-A,Neuroticism,positive,0.4834503574932035,20,True
+IPIP-NEO-120,Agreeableness,SD3,Machiavellianism,negative,-0.7085359369414073,20,True
+IPIP-NEO-120,Agreeableness,SD3,Psychopathy,negative,-0.8120340528176015,20,True
+IPIP-NEO-120,Conscientiousness,SD3,Psychopathy,negative,-0.7296495582302502,20,True
+EPQR-A,Psychoticism,SD3,Psychopathy,positive,0.10949362633527243,20,True

@@ -1058,7 +1058,7 @@ def plot_confusion(confusion: pd.DataFrame, detail: pd.DataFrame) -> None:
     mask = np.ma.masked_where(data == 0, data)
     fig, ax = plt.subplots(figsize=(COL_W, 3.25))
     ax.imshow(np.zeros_like(data), cmap=matplotlib.colors.ListedColormap(["#F7F8FA"]), vmin=0, vmax=1)
-    im = ax.imshow(mask, cmap="Blues", vmin=0, vmax=18, interpolation="nearest")
+    im = ax.imshow(mask, cmap="Blues", vmin=0, vmax=int(data.max()), interpolation="nearest")
     # Mark the rare off-diagonal confusions in a warm outline.
     for i in range(data.shape[0]):
         for j in range(data.shape[1]):
@@ -1273,7 +1273,7 @@ def write_summary(
         for payload in all_results.values()
         for pdata in payload["results_by_persona"].values()
         for response in pdata["responses"]
-        if response.get("parsed_value") is None
+        if _mean_across_samples(response, "parsed_value") is None
     )
     nearest_counts = default_df["nearest_z_euclidean"].value_counts()
     top_nearest = nearest_counts.index[0]
@@ -1357,7 +1357,7 @@ def main() -> None:
         for payload in all_results.values()
         for pdata in payload["results_by_persona"].values()
         for response in pdata["responses"]
-        if response.get("parsed_value") is None
+        if _mean_across_samples(response, "parsed_value") is None
     )
     print(f"Data integrity: observed={observed:,}, expected={expected:,}, missing_parsed={missing}")
     if observed != expected:

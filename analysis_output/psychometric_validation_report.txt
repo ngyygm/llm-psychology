@@ -2,11 +2,11 @@
 DEEP PSYCHOMETRIC VALIDATION REPORT
 LLM Personality Measurement: Methodological Validation & Internal Contradictions
 ================================================================================
-Date: 2026-05-17 22:29
-Models: 16
+Date: 2026-05-19 01:19
+Models: 20
 Personas: 17 (Default + 16 MBTI)
 Items: 221 (IPIP-NEO-120, SD3, ZKPQ-50-CC, EPQR-A)
-Total data points: 60,112
+Total data points: 75,140
 
 THEORETICAL FRAMEWORK
 ----------------------------------------
@@ -20,15 +20,15 @@ FINDING 1: FACTOR STRUCTURE COLLAPSE
 Zero-variance items (models all agree): 0/120 IPIP items
 Domain-level Kaiser criterion: 3 factors
 Domain-level Parallel analysis: 3 factors
-First/second eigenvalue ratio: 1.59
-Mean Tucker's phi (per-model): 0.993
+First/second eigenvalue ratio: 1.61
+Mean Tucker's phi (per-model): 0.992
 
 ================================================================================
 FINDING 2: REVERSE-ITEM INCONSISTENCY
 ================================================================================
-Mean PIR: 0.471
-PIR variance — model: 17.7%, domain: 37.9%
-PIR x SDR: r = -0.409, p = 0.1159
+Mean PIR: 0.478
+PIR variance — model: 15.1%, domain: 44.4%
+PIR x SDR: r = -0.266, p = 0.2567
 
 ================================================================================
 FINDING 3: VARIANCE DECOMPOSITION
@@ -36,28 +36,28 @@ FINDING 3: VARIANCE DECOMPOSITION
 
 Likert (IPIP+SD3):
   model: 0.4%
-  domain: 23.5%
+  domain: 23.8%
   persona: 4.1%
   item: 35.9%
-  residual: 36.1%
+  residual: 35.8%
 
 Binary (ZKPQ+EPQR):
-  model: 0.6%
+  model: 0.5%
   domain: 5.2%
   persona: 14.0%
-  item: 14.6%
+  item: 14.7%
   residual: 65.6%
 
 ================================================================================
 FINDING 4: DIF + CONVERGENT VALIDITY
 ================================================================================
-Low-variance items: 39
-Safety-contaminated: 4
-Significant DIF: 4/8
+Low-variance items: 41
+Safety-contaminated: 6
+Significant DIF: 2/8
 Convergent sign matches: 7/8
 
 ================================================================================
 FINDING 5: PERSONA MEASUREMENT INVARIANCE
 ================================================================================
-Mean r(Default, MBTI): 0.468
-r > 0.8: 2/256
+Mean r(Default, MBTI): 0.461
+r > 0.8: 2/320

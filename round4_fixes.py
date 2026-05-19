@@ -27,12 +27,20 @@ def load_all_results():
 
 
 def extract_item_responses(model_data, persona="Default"):
+    def _mean_across_samples(r, field="scored_value"):
+        if "samples" in r and r["samples"]:
+            vals = [s[field] for s in r["samples"] if s.get(field) is not None]
+            return sum(vals) / len(vals) if vals else None
+        return r.get(field)
+
     rows = []
     for r in model_data["results_by_persona"][persona]["responses"]:
         rows.append({
             "item_id": r["item_id"], "scale": r["scale"], "domain": r["domain"],
-            "keyed": r["keyed"], "parsed_value": r["parsed_value"],
-            "scored_value": r["scored_value"], "response_format": r["response_format"],
+            "keyed": r["keyed"],
+            "parsed_value": _mean_across_samples(r, "parsed_value"),
+            "scored_value": _mean_across_samples(r, "scored_value"),
+            "response_format": r["response_format"],
         })
     return pd.DataFrame(rows)
 
@@ -54,8 +62,8 @@ def run_synthetic_baselines(all_results):
     # Get item structure
     items_ref = extract_item_responses(list(all_results.values())[0], "Default")
     n_items = len(items_ref)
-    n_models = 18
-    n_personas = 17
+    n_models = len(all_results)
+    n_personas = len(list(all_results.values())[0]["results_by_persona"])
 
     # Item info
     likert_mask = items_ref["response_format"] == "likert_5"
@@ -68,7 +76,7 @@ def run_synthetic_baselines(all_results):
     domains_order = ["Neuroticism", "Extraversion", "Openness", "Agreeableness", "Conscientiousness"]
 
     np.random.seed(42)
-    n_sim = n_models * n_personas  # 306 simulated subjects
+    n_sim = n_models * n_personas
 
     results = []
 
@@ -197,16 +205,21 @@ def run_synthetic_baselines(all_results):
             "alpha": alpha, "pir": np.nan,  # Skip PIR for this one
         })
 
-    # ── LLM observed values ──
-    # From Round 2 analysis
-    llm_alphas = {
-        "Neuroticism": 0.354, "Extraversion": 0.360, "Openness": 0.055,
-        "Agreeableness": -0.017, "Conscientiousness": 0.181
-    }
-    llm_pir = {
-        "Neuroticism": 0.580, "Extraversion": 0.878, "Openness": 0.729,
-        "Agreeableness": 0.426, "Conscientiousness": 0.348
-    }
+    # ── LLM observed values ── (read dynamically from CSVs)
+    llm_alphas = {}
+    llm_pir = {}
+    alpha_csv = OUTPUT_DIR / "cronbach_alpha_by_domain.csv"
+    if alpha_csv.exists():
+        alpha_df = pd.read_csv(alpha_csv)
+        for _, row in alpha_df.iterrows():
+            llm_alphas[row["domain"]] = row["alpha_mean"]
+    pir_csv = OUTPUT_DIR / "pir_by_model_domain.csv"
+    if pir_csv.exists():
+        pir_df = pd.read_csv(pir_csv)
+        ipip_pir = pir_df[pir_df["scale"] == "IPIP-NEO-120"]
+        for domain in domains_order:
+            dom_pir = ipip_pir[ipip_pir["domain"] == domain]["pir"]
+            llm_pir[domain] = dom_pir.mean() if len(dom_pir) > 0 else np.nan
     for domain in domains_order:
         results.append({
             "strategy": "LLM Observed", "domain": domain,
@@ -313,9 +326,12 @@ def run_leave_one_persona_out(all_results):
         default_rows.append(row)
     X_default = np.array(default_rows)
 
-    # Can't do EFA with 18 obs × 17 vars — just report correlations
-    print(f"\n--- Default Condition Only (N=18 models) ---")
-    print(f"  Not enough observations for EFA (18 < 17 domains)")
+    # Can't do EFA with fewer obs than vars — just report correlations
+    print(f"\n--- Default Condition Only (N={X_default.shape[0]} models) ---")
+    if X_default.shape[0] < 17:
+        print(f"  Not enough observations for EFA ({X_default.shape[0]} < 17 domains)")
+    else:
+        print(f"  Sufficient observations for EFA ({X_default.shape[0]} >= 17 domains)")
     print(f"  Default condition means per domain:")
     for i, key in enumerate(domain_keys):
         short = key.split("::")[1][:15]
@@ -329,13 +345,18 @@ def run_leave_one_persona_out(all_results):
 # Fix 3: Final Title/Abstract Reframing
 # ─────────────────────────────────────────────────────────────
 
-def generate_final_reframing():
+def generate_final_reframing(all_results):
     print("\n" + "=" * 70)
     print("FIX 3: FINAL TITLE/ABSTRACT REFRAMING")
     print("=" * 70)
 
+    n_models = len(all_results)
+    n_personas = len(list(all_results.values())[0]["results_by_persona"])
+    n_items = 221
+    n_responses = n_models * n_personas * n_items
+
     title = "Validated Personality Instruments Do Not Transport Cleanly to LLMs: A Psychometric Cautionary Study"
-    abstract = """When human-validated personality questionnaires are administered to large language models (LLMs), the resulting responses fail basic psychometric quality checks. We administered a 221-item battery (IPIP-NEO-120 Big Five, SD3 Dark Triad, ZKPQ-50-CC, EPQR-A) to 18 LLMs across 17 role-conditioned prompts (default + 16 MBTI personas), collecting 67,626 item-level responses at temperature = 0.7.
+    abstract = f"""When human-validated personality questionnaires are administered to large language models (LLMs), the resulting responses fail basic psychometric quality checks. We administered a 221-item battery (IPIP-NEO-120 Big Five, SD3 Dark Triad, ZKPQ-50-CC, EPQR-A) to {n_models} LLMs across {n_personas} role-conditioned prompts (default + 16 MBTI personas), collecting {n_responses:,} item-level responses at temperature = 0.7.
 
 We report four findings: (1) Cronbach's alpha for IPIP domains ranges from -0.02 to 0.36 (vs 0.87-0.90 in human norms), indicating poor internal consistency. (2) Exploratory factor analysis recovers 3 factors instead of the expected 5+ (robust across leave-one-model-out and leave-one-persona-out). (3) 58.4% [95% CI: 53.5%, 63.6%] of forward-reverse item pairs show inconsistent responses, strongly associated with acquiescence bias (r = 0.726). (4) Inter-model variance accounts for less than 1% of response variability.
 
@@ -361,7 +382,7 @@ def main():
 
     sim_results = run_synthetic_baselines(all_results)
     loo_results = run_leave_one_persona_out(all_results)
-    title, abstract = generate_final_reframing()
+    title, abstract = generate_final_reframing(all_results)
 
     # Update review state
     state = {
