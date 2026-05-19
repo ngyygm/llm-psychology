@@ -79,11 +79,11 @@ What makes our approach different from prior work is that we do not just report 
 Researchers have administered personality questionnaires to LLMs and reported personality profiles \citep{miotto2023gpt3, serapio2025psychometric, bhandari2025evaluating, sorokovikova2024evaluating, lee2025trait, hagendorff2024machine}. But almost none of these studies check whether the instruments actually work on LLMs the way they work on humans. Benchmarks show systematic deviations between LLM and human responses \citep{xie2025aipsychobench}, temporal stability is limited \citep{bodroza2024personality}, and measurement invariance is assumed rather than tested \citep{suhr2025challenging}. \citet{chen2025humanizing} noted that most existing frameworks skip psychometric validation entirely.
 
 \paragraph{Our contribution.}
-Previous work asks ``what personality does this LLM have?'' and reports scores. We ask a different question: do these instruments measure anything meaningful at all when given to LLMs? Instead of profiling, we run the full set of standard psychometric validation checks---internal consistency, factor structure, convergent validity, reverse-item consistency, measurement invariance, and variance decomposition---on a single dataset covering 20 models and 221 items.
+Previous work asks ``what personality does this LLM have?'' and reports scores. We ask a different question: do these instruments measure anything meaningful at all when given to LLMs? Instead of profiling, we run the full set of standard psychometric validation checks (internal consistency, factor structure, convergent validity, reverse-item consistency, measurement invariance, and variance decomposition) on a single dataset covering 20 models and 221 items.
 
 \subsection{Response Style and Acquiescence Bias}
 
-Survey respondents do not always answer based on content alone. Acquiescence bias---agreeing with statements regardless of direction---is one of the most studied response styles \citep{paulhus1991response, lord1968statistical, baumgartner2007modeling}. It is especially damaging for instruments that rely on reverse-coded items. \citet{acerbi2024llm} and \citet{salecha2024llm} showed that LLMs also exhibit social desirability biases in Big Five surveys, and \citet{acquiescence2025emnlp} confirmed that acquiescence in LLMs is robust across languages.
+Survey respondents do not always answer based on content alone. Acquiescence bias (agreeing with statements regardless of direction) is one of the most studied response styles \citep{paulhus1991response, lord1968statistical, baumgartner2007modeling}. It is especially damaging for instruments that rely on reverse-coded items. \citet{acerbi2024llm} and \citet{salecha2024llm} showed that LLMs also exhibit social desirability biases in Big Five surveys, and \citet{acquiescence2025emnlp} confirmed that acquiescence in LLMs is robust across languages.
 
 \paragraph{Our contribution.}
 These studies documented that acquiescence and social desirability exist in LLM responses. Our approach is different: we quantify the measurement damage they cause by decomposing the bias at item level, separating forward-coded and reverse-coded agree rates, and comparing across instruments with different content (normal personality vs.\ dark traits).
@@ -403,7 +403,7 @@ Psychoticism $\times$ Psychopathy & $+$ & 0.11 & 0.646 & 0.28 & 0.230 & Yes \\
 \begin{figure}[t]
 \centering
 \includegraphics[width=\linewidth]{fig5_convergent_validity.png}
-\caption{Convergent validity across instruments. Extraversion--Sociability shows sign reversal.}
+\caption{Convergent validity across instruments. Extraversion/Sociability shows sign reversal.}
 \label{fig:convergent_validity_forest}
 \end{figure}
 
@@ -449,13 +449,13 @@ The MBTI conditions act as a stress test: if the instruments measured stable tra
 
 \section{Conclusion}
 
-Prior work noticed individual symptoms---inconsistent responses \citep{suhr2025challenging}, social desirability \citep{acerbi2024llm}, instability \citep{pelet2025persistent}---but treated them as separate problems. Our results show they share one root cause: acquiescence, produced by alignment training, propagating through every level of the measurement.
+Prior work noticed individual symptoms (inconsistent responses \citep{suhr2025challenging}, social desirability \citep{acerbi2024llm}, instability \citep{pelet2025persistent}) but treated them as separate problems. Our results show they share one root cause: acquiescence, produced by alignment training, propagating through every level of the measurement.
 
 The evidence forms a single causal chain. At the item level, acquiescence makes LLMs agree with both forward and reverse items, so $\alpha$ tracks reverse-item density: Extraversion (17\% reverse, $\alpha = 0.93$) survives while Agreeableness (71\% reverse, $\alpha = 0.06$) collapses. At the domain level, the same bias distorts inter-domain correlations, merging Neuroticism and Agreeableness into one factor and shrinking the Big Five from five to three. At the model level, alignment training produces the same moderate-prosocial style everywhere, so inter-model variance drops below 1\%.
 
 Two findings go beyond prior work. First, acquiescence has a directional asymmetry: for normal personality items (IPIP) models agree with forward items more than reverse (positive gap), but for dark-trait items (SD3) models \emph{reject} forward items while still agreeing with reverse ones (negative gap). Acquiescence and social desirability operate simultaneously from the same root cause. Second, the per-model correlation between reverse-item agreement and PIR ($r = 0.525$) quantifies this mechanism across 20 LLMs \citep{acquiescence2025emnlp}.
 
-Persona injection can shift profiles by over one SD from default and is highly recoverable (99.3\% fidelity), but this does not restore measurement validity---it replaces alignment-driven acquiescence with persona-driven compliance. The scores are not measuring personality at all; they are measuring the response style that alignment training produces.
+Persona injection can shift profiles by over one SD from default and is highly recoverable (99.3\% fidelity), but this does not restore measurement validity. It replaces alignment-driven acquiescence with persona-driven compliance. The scores are not measuring personality at all; they are measuring the response style that alignment training produces.
 
 What should researchers do? Three things. First, report internal consistency, factor structure, and convergent validity before interpreting any personality score \citep{huang2024reliability, serpell2024validity, cronbach1951coefficient, binz2023psychology}. Second, establish measurement invariance before comparing across conditions. Third, use multi-temperature and multi-seed designs to separate stochastic variance from genuine trait variance. Any study that reports LLM personality profiles without these checks is likely reporting alignment artifacts, not personality.
 
@@ -702,9 +702,9 @@ High consistency (low within-item spread) implies the model has a ``settled'' re
 
 For each (model, persona, item) cell we compute:
 \begin{itemize}[nosep]
-    \item \textbf{Within-item SD} — standard deviation of the 5 scored values (Likert items only, since binary SD is bimodal at 0 and 0.45).
-    \item \textbf{Exact agreement rate} — fraction of cells where all 5 repetitions produce the identical scored value.
-    \item \textbf{Mode agreement} — proportion of the 5 responses that match the modal answer ($5/5{=}1.0$, $4/5{=}0.8$, etc.).
+    \item \textbf{Within-item SD}: standard deviation of the 5 scored values (Likert items only, since binary SD is bimodal at 0 and 0.45).
+    \item \textbf{Exact agreement rate}: fraction of cells where all 5 repetitions produce the identical scored value.
+    \item \textbf{Mode agreement}: proportion of the 5 responses that match the modal answer ($5/5{=}1.0$, $4/5{=}0.8$, etc.).
 \end{itemize}
 
 \subsection{Overall Portrait}
@@ -813,12 +813,12 @@ We expect dark-triad domains (Machiavellianism, Psychopathy) and Lie-scale items
 \begin{figure*}[t]
     \centering
     \includegraphics[width=\textwidth]{figures/fig_wsc5_item_stability.png}
-    \caption{Item-level stability ranking (Likert items). (a)~The 15 items with the highest mean within-item SD across all models and personas—these are the most ``unstable'' items where repeated sampling yields divergent answers. (b)~The 15 most stable items. Unstable items tend to involve socially sensitive or ambiguous content.}
+    \caption{Item-level stability ranking (Likert items). (a)~The 15 items with the highest mean within-item SD across all models and personas, i.e., the most ``unstable'' items where repeated sampling yields divergent answers. (b)~The 15 most stable items. Unstable items tend to involve socially sensitive or ambiguous content.}
     \label{fig:wsc5_items}
 \end{figure*}
 
 Zooming in further, \cref{fig:wsc5_items} ranks individual items by their mean within-item SD.
-The most unstable items reveal which questionnaire statements elicit the most variable responses from LLMs—likely items where the model's internal ``preference'' is near a category boundary.
+The most unstable items reveal which questionnaire statements elicit the most variable responses from LLMs, likely items where the model's internal ``preference'' is near a category boundary.
 \cref{tab:wsc_items_top} lists the full top-20 unstable and stable items.
 
 \begin{table}[t]
@@ -867,7 +867,7 @@ zkpq_041 & Sociability & 0.0110 \\
     \label{fig:wsc6_model_persona}
 \end{figure*}
 
-\cref{fig:wsc6_model_persona} tests whether certain model--persona combinations are particularly unstable.
+\cref{fig:wsc6_model_persona} tests whether certain model-persona combinations are particularly unstable.
 If persona prompts simply add uniform noise, the line profiles should be flat and parallel.
 Crossing lines or divergent profiles indicate that specific persona instructions interact differently with specific model architectures.
 
@@ -899,7 +899,7 @@ Crossing lines or divergent profiles indicate that specific persona instructions
 \end{figure}
 
 Finally, \cref{fig:wsc9_anomaly} applies a 1.5$\times$IQR outlier rule to the (model, persona, domain) $\to$ mean SD matrix.
-Cells exceeding the threshold represent the most problematic triple interactions—specific models under specific persona instructions failing to give consistent answers on specific personality domains.
+Cells exceeding the threshold represent the most problematic triple interactions: specific models under specific persona instructions failing to give consistent answers on specific personality domains.
 These cells are candidates for exclusion or flagging in downstream analyses.
 
 \section{Full Refusal Responses}
