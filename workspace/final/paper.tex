@@ -152,7 +152,7 @@ Zhipu & GLM-4.6V, GLM-4.7, GLM-5.1 \\
 \end{tabular}
 \end{table}
 
-Each model was tested under 17 conditions: a \textbf{Default} prompt (``Please answer the following personality questionnaire honestly.'') and 16 \textbf{MBTI persona} prompts, each assigning a specific MBTI type. All administrations used temperature = 0.7 with a single administration per model-condition pair. This yielded $20 \times 17 \times 221 = 75{,}140$ item-level responses.
+Each model was tested under 17 conditions: a \textbf{Default} prompt (``Please answer the following personality questionnaire honestly.'') and 16 \textbf{MBTI persona} prompts, each assigning a specific MBTI type. All administrations used temperature = 0.7. Each (model, persona, item) cell was sampled up to 5 times ($k{=}5$); 18 models have $k{=}5$, two have $k{=}1$ (GLM-4.7, GLM-5.1). Responses are averaged across samples within each cell. This yielded $20 \times 17 \times 221 = 75{,}140$ item-level responses from 345{,}644 raw API calls.
 
 \subsection{Analysis Pipeline}
 
@@ -476,7 +476,7 @@ This study uses publicly available LLMs and public-domain psychometric instrumen
 \section{Persona Steering Supplement}
 \label{sec:appendix_persona_steering}
 
-All persona-steering diagnostics are computed from the same 67{,}626 completed item responses. These analyses are not the primary evidence for the paper's central claim. Instead, they answer a complementary question: once we know the instruments fail standard psychometric checks, what exactly happens when we deliberately push the model with a persona prompt? The answer is consistent across the analyses below. Persona prompts produce large, highly recoverable role-playing shifts, but those shifts do not repair the instrument: factor structure, reverse-item behavior, and cross-scale coherence remain contaminated by response style.
+All persona-steering diagnostics are computed from the same 75{,}140 completed item responses. These analyses are not the primary evidence for the paper's central claim. Instead, they answer a complementary question: once we know the instruments fail standard psychometric checks, what exactly happens when we deliberately push the model with a persona prompt? The answer is consistent across the analyses below. Persona prompts produce large, highly recoverable role-playing shifts, but those shifts do not repair the instrument: factor structure, reverse-item behavior, and cross-scale coherence remain contaminated by response style.
 
 The full numerical outputs are provided as machine-readable tables: \texttt{default\_bias\_index.csv}, \texttt{persona\_target\_adherence.csv}, \texttt{persona\_fidelity\_confusion.csv}, \texttt{persona\_fidelity\_detail.csv}, \texttt{cross\_scale\_persona\_coherence.csv}, \texttt{factorial\_mbti\_effects.csv}, \texttt{item\_plasticity.csv}, and \texttt{directional\_pair\_coherence.csv}. These tables contain the complete 16$\times$16 confusion matrix, per-model persona adherence scores, item-level plasticity ranks, and distance-metric ablations.
 
@@ -653,7 +653,7 @@ IPIP & Conscientiousness & 3.38 & 3.36 & 0.01 & 0.909 \\
 \section{Missing-Data Handling}
 \label{sec:appendix_missing}
 
-Across five independent samplings of each (model, persona, item) cell ($k{=}5$, temperature${}=0.7$), 61 of 300{,}560 item-level responses (0.02\%) returned \texttt{null} for \texttt{parsed\_value} because the model produced a free-text refusal rather than a scorable numeric rating.
+Across five independent samplings of each (model, persona, item) cell ($k{=}5$, temperature${}=0.7$), 61 of 345{,}644 raw responses (0.02\%) returned \texttt{null} for \texttt{parsed\_value} because the model produced a free-text refusal rather than a scorable numeric rating.
 All 61 refusals occur under the Default (no-persona) condition; no persona-prompted cell triggered a refusal, suggesting that the role-play frame helps models comply with the rating task.
 
 The refusals cluster in three models: Gemini-3.1-Flash-Lite (34), Gemini-3-Flash-Preview (22), and Claude-Sonnet-4.6 (5).
@@ -688,7 +688,7 @@ A further 15\% combine both strategies.
 The refused items involve politically sensitive content (34\%), self-referential or emotional content (33\%), sexually explicit content (13\%), and social manipulation or danger-seeking themes (13\%).
 
 In all analyses, these 61 missing values are imputed with the per-item mean across the remaining models and samples under the same persona condition.
-Because the missing count is negligible ($61/300{,}560 < 0.03\%$), this has no material effect on any reported statistic.
+Because the missing count is negligible ($61/345{,}644 < 0.02\%$), this has no material effect on any reported statistic.
 
 \clearpage
 \section{Within-Sample Response Consistency}
