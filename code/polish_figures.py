@@ -54,6 +54,10 @@ FAMILY_COLORS = {
     "Other": C["gray"],
 }
 
+FAMILY_ORDER = {f: i for i, f in enumerate([
+    "Anthropic", "OpenAI", "Google", "DeepSeek", "Alibaba", "Zhipu", "Moonshot", "MiniMax", "Other"
+])}
+
 SCALE_COLORS = {
     "IPIP-NEO-120": "#264653",
     "SD3": "#2A9D8F",
@@ -743,7 +747,7 @@ def fig_model_dashboard() -> None:
 
 def fig_default_heatmap_and_radar() -> None:
     mat = default_ipip()
-    fam_order = sorted(mat.index, key=lambda m: (family(m), short_model(m)))
+    fam_order = sorted(mat.index, key=lambda m: (FAMILY_ORDER.get(family(m), 99), short_model(m)))
     mat = mat.loc[fam_order]
     z = (mat - mat.mean(axis=0)) / mat.std(axis=0, ddof=0)
 
