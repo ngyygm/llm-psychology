@@ -222,9 +222,20 @@ For overlapping constructs, we test whether persona-induced deltas move consiste
 
 \section{Experiments and Results}
 
+\subsection{Default Personality Profiles}
+
+\cref{fig:radar_default} shows the IPIP-NEO-120 scores under the Default (no-persona) prompt. All 20 models cluster in the same corner: high Agreeableness, high Conscientiousness, low Neuroticism. The inter-model range is narrowest for Agreeableness (0.92 on a 1--5 scale) and widest for Neuroticism (2.10). Every model looks like a ``nice, responsible, emotionally stable'' person---whether it was made by Anthropic, OpenAI, Google, or DeepSeek. Is this a genuine personality, or an artifact of alignment training? The sections that follow trace the evidence from item to domain to factor to model, identifying a single root cause.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{fig_heatmap_default.png}
+\caption{Default persona IPIP-NEO-120 domain scores (z-scored heatmap). All 20 models cluster in a ``high A, high C, low N'' region. Inter-model range is narrowest for Agreeableness (0.92 on a 1--5 scale) and widest for Neuroticism (2.10).}
+\label{fig:radar_default}
+\end{figure}
+
 \subsection{Internal Consistency}
 
-The most basic question: do items within a domain agree with each other? \cref{tab:cronbach} shows the answer. Extraversion, where only 17\% of items are reverse-coded, yields $\alpha = 0.93$. That is close to the human norm of 0.89. But Agreeableness, where 71\% of items are reverse-coded, yields $\alpha = 0.06$, essentially zero. The difference is not random. When a model agrees with both ``I am helpful'' and ``I am not helpful,'' the two items pull in opposite directions and the domain score falls apart. The more reverse-coded items a domain has, the worse its reliability. Spearman correlation between $\alpha$ and reverse-item percentage across the five IPIP domains is $\rho = -1.0$ ($p < 0.01$), confirming that acquiescence, not trait variance, drives reliability. This is the fingerprint of acquiescence.
+The first diagnostic is whether items within a domain agree with each other. \cref{tab:cronbach} shows the answer. Extraversion, where only 17\% of items are reverse-coded, yields $\alpha = 0.93$. That is close to the human norm of 0.89. But Agreeableness, where 71\% of items are reverse-coded, yields $\alpha = 0.06$, essentially zero. The difference is not random. When a model agrees with both ``I am helpful'' and ``I am not helpful,'' the two items pull in opposite directions and the domain score falls apart. The more reverse-coded items a domain has, the worse its reliability. Spearman correlation between $\alpha$ and reverse-item percentage across the five IPIP domains is $\rho = -1.0$ ($p < 0.01$), confirming that acquiescence, not trait variance, drives reliability. This is the fingerprint of acquiescence.
 
 \begin{table}[t]
 \centering
@@ -244,58 +255,9 @@ Conscientiousness & $0.535{\pm}0.113$ & 0.90 & $-0.365$ \\
 \end{tabular}
 \end{table}
 
-\subsection{Default Personality Profiles}
+\subsection{Caught in the Act: Acquiescence at the Item Level}
 
-Before diagnosing why the instruments fail, it helps to see what the raw profiles look like. \cref{fig:radar_default} shows the IPIP-NEO-120 scores under the Default prompt. All 20 models cluster in the same corner: high Agreeableness, high Conscientiousness, low Neuroticism. The inter-model range is narrowest for Agreeableness (0.92 on a 1--5 scale) and widest for Neuroticism (2.10). Alignment training compresses the socially desirable dimensions more tightly than the others. Every model looks like a ``nice, responsible, emotionally stable'' person.
-
-\begin{figure}[t]
-\centering
-\includegraphics[width=\linewidth]{fig_heatmap_default.png}
-\caption{Default persona IPIP-NEO-120 domain scores (z-scored heatmap). All 20 models cluster in a ``high A, high C, low N'' region. Inter-model range is narrowest for Agreeableness (0.92 on a 1--5 scale) and widest for Neuroticism (2.10).}
-\label{fig:radar_default}
-\end{figure}
-
-\subsection{Factor Structure Collapse}
-
-If acquiescence distorts individual domains, it should also distort the relationships \emph{between} domains. To test this, we ran an exploratory factor analysis (EFA) on the 17 domain scores across all $20 \times 17 = 340$ observations. In human samples, this procedure reliably recovers five factors corresponding to the Big Five. In LLM responses, it does not: the Kaiser criterion and parallel analysis together indicate that only three factors are warranted. \cref{tab:efa} shows the factor loadings.
-
-Factor 1 captures Extraversion and Sociability (loadings: EPQR Extraversion $= 0.96$, ZKPQ Sociability $= 0.96$, IPIP Extraversion $= 0.94$). Factor 2 captures a merged Neuroticism-Agreeableness dimension (IPIP Neuroticism $= 0.72$, EPQR Neuroticism $= 0.91$, IPIP Agreeableness $= 0.90$). Factor 3 captures Conscientiousness versus Impulsivity (IPIP Conscientiousness $= -0.91$, ZKPQ ImpulsiveSS $= 0.84$, EPQR Psychoticism $= 0.88$). The merger of Neuroticism and Agreeableness is the smoking gun. In humans, these are orthogonal constructs. In LLMs, they collapse into a single ``socially desirable emotional stability'' factor because both are distorted by the same acquiescence pattern.
-
-\begin{table}[t]
-\centering
-\small
-\caption{EFA factor loadings (3-factor solution, $n{=}340$). Bold: $|l| > 0.5$. All 20 leave-one-model-out analyses recover exactly 3 factors.}
-\label{tab:efa}
-\begin{tabular}{lrrr}
-\toprule
-Domain & F1 & F2 & F3 \\
-\midrule
-IPIP N & $-$0.30 & \textbf{0.72} & 0.39 \\
-IPIP E & \textbf{0.94} & 0.03 & 0.29 \\
-IPIP O & $-$0.04 & \textbf{0.55} & \textbf{0.58} \\
-IPIP A & 0.05 & \textbf{0.90} & $-$0.22 \\
-IPIP C & $-$0.00 & $-$0.04 & $\mathbf{-}$0.91 \\
-SD3 Mach. & $-$0.09 & $\mathbf{-}$0.82 & 0.04 \\
-SD3 Narc. & \textbf{0.91} & $-$0.20 & 0.16 \\
-SD3 Psych. & 0.38 & $\mathbf{-}$0.59 & \textbf{0.63} \\
-ZKPQ Act. & \textbf{0.90} & $-$0.27 & $-$0.12 \\
-ZKPQ Agg. & 0.48 & $\mathbf{-}$0.60 & 0.36 \\
-ZKPQ ImpSS & 0.34 & 0.08 & \textbf{0.84} \\
-ZKPQ N-Anx & $-$0.27 & \textbf{0.83} & 0.08 \\
-ZKPQ Soc. & \textbf{0.96} & 0.04 & 0.13 \\
-EPQR P & 0.25 & $-$0.11 & \textbf{0.88} \\
-EPQR E & \textbf{0.96} & $-$0.05 & 0.12 \\
-EPQR N & $-$0.04 & \textbf{0.91} & 0.02 \\
-EPQR Lie & $-$0.08 & 0.07 & $\mathbf{-}$0.89 \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-This collapse is universal. Tucker's $\phi = 0.993$ across all 20 models, meaning every model produces the same distorted structure. We held out each model one at a time and re-ran the EFA 20 times. Every single run recovered exactly 3 factors, with the first eigenvalue stable between 6.93 and 7.01. Running EFA on each model individually (17 personas $\times$ 17 domains) confirms the pattern: all 20 models independently yield exactly 3 Kaiser factors (first three eigenvalues explain 86--90\% of variance). The same holds at the family level: all 8 model families (Anthropic, OpenAI, Google, DeepSeek, Alibaba, Zhipu, Moonshot, MiniMax) independently recover 3 factors. No model, no family, no leave-one-out configuration ever produces the expected 5-factor structure.
-
-\subsection{Reverse-Item Inconsistency and Acquiescence}
-
-Now we can measure acquiescence directly. The Pairwise Inconsistency Rate is \textbf{0.594} [95\% CI: 0.553, 0.635]: nearly 60\% of forward-reverse item pairs give inconsistent responses. \cref{tab:acq_full} breaks this down by instrument. For each model, the \emph{Rev} column reports the proportion of reverse-keyed items receiving an ``agree'' response (e.g.\ Rev~$= 0.43$ means the model agreed with 43\% of reverse-keyed items), and the $\Delta$ column reports the gap between forward- and reverse-item agree rates ($\Delta = \text{Fwd} - \text{Rev}$).
+The fingerprint above points squarely to acquiescence. Can we catch it directly, item by item? The Pairwise Inconsistency Rate is \textbf{0.594} [95\% CI: 0.553, 0.635]: nearly 60\% of forward-reverse item pairs give inconsistent responses. \cref{tab:acq_full} breaks this down by instrument. For each model, the \emph{Rev} column reports the proportion of reverse-keyed items receiving an ``agree'' response (e.g.\ Rev~$= 0.43$ means the model agreed with 43\% of reverse-keyed items), and the $\Delta$ column reports the gap between forward- and reverse-item agree rates ($\Delta = \text{Fwd} - \text{Rev}$).
 
 A striking pattern emerges. For IPIP items (normal personality), the gap is positive ($\overline{\Delta} = +0.30$): models agree with forward items more than reverse items. This is classic acquiescence. For SD3 items (Dark Triad), the gap flips negative ($\overline{\Delta} = -0.32$): models \emph{disagree} with forward-coded dark-trait items like ``I manipulate others.'' This is social desirability. Two different biases, both pushing scores away from genuine trait variation. The correlation between reverse-item agree rate and PIR across models is $r = 0.525$: models that acquiesce more are also more inconsistent.
 
@@ -352,9 +314,47 @@ MiniMax-M2.7 & 0.44 & +0.32 & 0.80 & $-$0.30 & 0.42 & $-$0.36 & 0.00 & +0.11 & 0
 
 Interestingly, persona injection \emph{improves} consistency. Under the Default prompt, PIR agreement is 0.667. Under MBTI persona prompts, it rises to 0.831 ($t = 8.96$, $p < 0.0001$). When you give a model a specific role to play, the tension between alignment-driven agreeableness and honest responding decreases. The model can be consistent within its assigned character.
 
-\subsection{Variance Decomposition}
+\subsection{The Cascade: Factor Structure Collapse}
 
-If these instruments are not measuring personality, what \emph{are} they measuring? \cref{tab:variance} partitions the total response variance into five sources. The answer is unambiguous: for Likert scales, \textbf{inter-model variance accounts for only 0.35\%}. Which model answered the question barely matters. What matters is which item was asked (36.1\%), which domain it belongs to (23.9\%), and residual noise (35.5\%). Binary scales tell the same story. Cross-model personality comparisons are effectively meaningless at this resolution.
+Acquiescence operates at the item level. Its effects propagate upward. If forward and reverse items are both agreed to, the inter-domain correlations that define the Big Five should be distorted. To test this, we ran an exploratory factor analysis (EFA) on the 17 domain scores across all $20 \times 17 = 340$ observations. In human samples, this procedure reliably recovers five factors corresponding to the Big Five. In LLM responses, it does not: the Kaiser criterion and parallel analysis together indicate that only three factors are warranted. \cref{tab:efa} shows the factor loadings.
+
+Factor 1 captures Extraversion and Sociability (loadings: EPQR Extraversion $= 0.96$, ZKPQ Sociability $= 0.96$, IPIP Extraversion $= 0.94$). Factor 2 captures a merged Neuroticism-Agreeableness dimension (IPIP Neuroticism $= 0.72$, EPQR Neuroticism $= 0.91$, IPIP Agreeableness $= 0.90$). Factor 3 captures Conscientiousness versus Impulsivity (IPIP Conscientiousness $= -0.91$, ZKPQ ImpulsiveSS $= 0.84$, EPQR Psychoticism $= 0.88$). The merger of Neuroticism and Agreeableness is the smoking gun. In humans, these are orthogonal constructs. In LLMs, they collapse into a single ``socially desirable emotional stability'' factor because both are distorted by the same acquiescence pattern.
+
+\begin{table}[t]
+\centering
+\small
+\caption{EFA factor loadings (3-factor solution, $n{=}340$). Bold: $|l| > 0.5$. All 20 leave-one-model-out analyses recover exactly 3 factors.}
+\label{tab:efa}
+\begin{tabular}{lrrr}
+\toprule
+Domain & F1 & F2 & F3 \\
+\midrule
+IPIP N & $-$0.30 & \textbf{0.72} & 0.39 \\
+IPIP E & \textbf{0.94} & 0.03 & 0.29 \\
+IPIP O & $-$0.04 & \textbf{0.55} & \textbf{0.58} \\
+IPIP A & 0.05 & \textbf{0.90} & $-$0.22 \\
+IPIP C & $-$0.00 & $-$0.04 & $\mathbf{-}$0.91 \\
+SD3 Mach. & $-$0.09 & $\mathbf{-}$0.82 & 0.04 \\
+SD3 Narc. & \textbf{0.91} & $-$0.20 & 0.16 \\
+SD3 Psych. & 0.38 & $\mathbf{-}$0.59 & \textbf{0.63} \\
+ZKPQ Act. & \textbf{0.90} & $-$0.27 & $-$0.12 \\
+ZKPQ Agg. & 0.48 & $\mathbf{-}$0.60 & 0.36 \\
+ZKPQ ImpSS & 0.34 & 0.08 & \textbf{0.84} \\
+ZKPQ N-Anx & $-$0.27 & \textbf{0.83} & 0.08 \\
+ZKPQ Soc. & \textbf{0.96} & 0.04 & 0.13 \\
+EPQR P & 0.25 & $-$0.11 & \textbf{0.88} \\
+EPQR E & \textbf{0.96} & $-$0.05 & 0.12 \\
+EPQR N & $-$0.04 & \textbf{0.91} & 0.02 \\
+EPQR Lie & $-$0.08 & 0.07 & $\mathbf{-}$0.89 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+This collapse is universal. Tucker's $\phi = 0.993$ across all 20 models, meaning every model produces the same distorted structure. We held out each model one at a time and re-ran the EFA 20 times. Every single run recovered exactly 3 factors, with the first eigenvalue stable between 6.93 and 7.01. Running EFA on each model individually (17 personas $\times$ 17 domains) confirms the pattern: all 20 models independently yield exactly 3 Kaiser factors (first three eigenvalues explain 86--90\% of variance). The same holds at the family level: all 8 model families (Anthropic, OpenAI, Google, DeepSeek, Alibaba, Zhipu, Moonshot, MiniMax) independently recover 3 factors. No model, no family, no leave-one-out configuration ever produces the expected 5-factor structure.
+
+\subsection{The Cascade: Model Convergence}
+
+Factor collapse is one symptom. Model convergence is another. If alignment training creates the same acquiescence in every model, then inter-model variance should be negligible. \cref{tab:variance} partitions the total response variance into five sources. The answer is unambiguous: for Likert scales, \textbf{inter-model variance accounts for only 0.35\%}. Which model answered the question barely matters. What matters is which item was asked (36.1\%), which domain it belongs to (23.9\%), and residual noise (35.5\%). Binary scales tell the same story. Cross-model personality comparisons are effectively meaningless at this resolution.
 
 \begin{table}[t]
 \centering
@@ -417,7 +417,7 @@ Psychoticism $\times$ Psychopathy & $+$ & 0.11 & 0.646 & 0.28 & 0.230 & Yes \\
 
 A DIF analysis across model families found no significant differences in any domain (all $d < 0.20$; details in \cref{sec:appendix_dif}).
 
-\subsection{Synthetic Baselines and Robustness}
+\subsection{Ruling Out Alternative Explanations}
 
 \begin{table}[t]
 \centering
@@ -451,9 +451,9 @@ How do LLM responses compare to simulated data? \cref{tab:synthetic} shows three
 
 The mean Pearson correlation between Default and MBTI persona profiles is $r = 0.461$. No model-persona pair achieves strong invariance ($r > 0.8$). Changing the prompt substantially rewrites the response profile.
 
-\subsection{Persona Prompts as a Stress Test}
+\subsection{The Stress Test: Persona Prompting}
 
-The MBTI conditions act as a stress test: if the instruments measured stable traits, persona prompts should move scores without repairing the failed psychometrics. That is what we find. Persona prompts shift profiles by more than one SD from Default on average, and nearest-centroid classification recovers the prompted MBTI type in 319 of 320 cases (99.7\%). However, this is prompt compliance rather than restored validity: cross-scale persona coherence is imperfect (0.839), forward/reverse pairs move in the theoretically opposite raw-score direction only 70.4\% of the time, and the Big Five factor collapse remains: running EFA within each of the 17 persona conditions independently still recovers only 3 factors, never 5. Full persona-steering analyses, including default bias, model clustering, MBTI factorial effects, scale-format sensitivity, fidelity matrices, and item plasticity, are reported in \cref{sec:appendix_persona_steering}.
+The last question: can we rescue these instruments by steering models with explicit persona prompts? if the instruments measured stable traits, persona prompts should move scores without repairing the failed psychometrics. That is what we find. Persona prompts shift profiles by more than one SD from Default on average, and nearest-centroid classification recovers the prompted MBTI type in 319 of 320 cases (99.7\%). However, this is prompt compliance rather than restored validity: cross-scale persona coherence is imperfect (0.839), forward/reverse pairs move in the theoretically opposite raw-score direction only 70.4\% of the time, and the Big Five factor collapse remains: running EFA within each of the 17 persona conditions independently still recovers only 3 factors, never 5. Full persona-steering analyses, including default bias, model clustering, MBTI factorial effects, scale-format sensitivity, fidelity matrices, and item plasticity, are reported in \cref{sec:appendix_persona_steering}.
 
 \section{Conclusion}
 
