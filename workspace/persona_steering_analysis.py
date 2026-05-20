@@ -22,11 +22,12 @@ import pandas as pd
 from scipy import stats
 
 
-RESULTS_DIR = Path("results")
-ITEMS_PATH = Path("data/items_battery.json")
-OUT_DIR = Path("analysis_output")
-FIG_DIR = Path("figures")
-FINAL_DIR = Path("workspace/final")
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+RESULTS_DIR = PROJECT_ROOT / "results"
+ITEMS_PATH = PROJECT_ROOT / "data/items_battery.json"
+OUT_DIR = PROJECT_ROOT / "analysis_output"
+FIG_DIR = PROJECT_ROOT / "figures"
+FINAL_DIR = PROJECT_ROOT / "workspace" / "final"
 
 OUT_DIR.mkdir(exist_ok=True)
 FIG_DIR.mkdir(exist_ok=True)

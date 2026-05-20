@@ -96,7 +96,7 @@ def generate_human_benchmarks():
     def _conv_str(pair_name):
         if pair_name in conv_map:
             r = conv_map[pair_name]
-            n = int(r.get("n_models", 18))
+            n = int(r.get("n_models", 20))
             r_val = r["r_spearman"]
             se = 1.0 / np.sqrt(n - 3)
             z = np.arctanh(r_val)

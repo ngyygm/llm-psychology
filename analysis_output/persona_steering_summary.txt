@@ -9,13 +9,13 @@ Missing parsed values: 1
 Default bias
 ------------------------------------------
 Most common nearest persona centroid: ISTJ (8/20 models)
-Mean nearest-centroid distance: 0.828
+Mean nearest-centroid distance: 0.824
 
 Target adherence
 ------------------------------------------
-Mean empirical target cosine: 0.838
-Mean theory target cosine: 0.557
-Mean empirical off-target leakage: 0.576
+Mean empirical target cosine: 0.839
+Mean theory target cosine: 0.558
+Mean empirical off-target leakage: 0.573
 
 Persona fidelity
 ------------------------------------------
@@ -30,10 +30,10 @@ Mean sign-match rate: 0.788
 Item mechanism
 ------------------------------------------
 Plastic items: 23; locked items: 23
-Mean directional pair coherence: 0.698
+Mean directional pair coherence: 0.696
 
 Bootstrap CIs
 ------------------------------------------
-default_nearest_distance: 0.828 [0.793, 0.864]
-target_empirical_cosine: 0.838 [0.791, 0.877]
+default_nearest_distance: 0.824 [0.789, 0.862]
+target_empirical_cosine: 0.839 [0.792, 0.878]
 cross_scale_coherence: 0.839 [0.815, 0.862]

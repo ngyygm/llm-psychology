@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Cross-cutting psychometric analyses of LLM personality data.
-18 models x 17 personas x 17 domains across 4 scales.
+20 models x 17 personas x 17 domains across 4 scales.
 """
 import json, glob, numpy as np, matplotlib
 matplotlib.use('Agg')
@@ -39,14 +39,15 @@ for i, m in enumerate(models):
 
 # ── Vendor families ──────────────────────────────────────────
 def get_vendor(name):
-    if 'Claude' in name: return 'Anthropic'
-    if 'DeepSeek' in name: return 'DeepSeek'
-    if 'Gemini' in name or name.startswith('Gemini'): return 'Google'
-    if 'GLM' in name: return 'Zhipu'
-    if 'GPT' in name: return 'OpenAI'
-    if 'Kimi' in name: return 'Moonshot'
-    if 'MiniMax' in name: return 'MiniMax'
-    if 'Qwen' in name: return 'Alibaba'
+    n = name.lower()
+    if 'claude' in n: return 'Anthropic'
+    if 'deepseek' in n: return 'DeepSeek'
+    if 'gemini' in n: return 'Google'
+    if 'glm' in n: return 'Zhipu'
+    if 'gpt' in n: return 'OpenAI'
+    if 'kimi' in n: return 'Moonshot'
+    if 'minimax' in n: return 'MiniMax'
+    if 'qwen' in n: return 'Alibaba'
     return 'Other'
 
 vendors = [get_vendor(m) for m in models]

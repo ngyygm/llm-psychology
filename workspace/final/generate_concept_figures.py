@@ -238,8 +238,8 @@ def draw_method(out_dir: Path) -> None:
 
     cards = [
         ("Instruments", "221 items\nIPIP, SD3,\nZKPQ, EPQR", COLORS["blue_soft"], COLORS["blue"]),
-        ("Administration", "18 LLMs\n17 prompts\nDefault + MBTI", COLORS["green_soft"], COLORS["green"]),
-        ("Response Matrix", "67,626 responses\nnormalized by scale", COLORS["amber_soft"], COLORS["amber"]),
+        ("Administration", "20 LLMs\n17 prompts\nDefault + MBTI", COLORS["green_soft"], COLORS["green"]),
+        ("Response Matrix", "375,700 responses\nnormalized by scale", COLORS["amber_soft"], COLORS["amber"]),
         ("Validation Checks", "Reliability\nfactor structure\nvalidity + invariance", COLORS["purple_soft"], COLORS["purple"]),
         ("Diagnosis", "Separate traits from\nitems, prompts,\nand response bias", COLORS["red_soft"], COLORS["red"]),
     ]

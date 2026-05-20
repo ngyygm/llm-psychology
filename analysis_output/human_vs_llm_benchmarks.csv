@@ -1,10 +1,10 @@
 metric,domain,human,llm,source
-Cronbach's Alpha,Neuroticism,0.9,0.8107352725375454,Johnson (2014)
-Cronbach's Alpha,Extraversion,0.89,0.927841645101427,Johnson (2014)
-Cronbach's Alpha,Openness,0.87,0.184842164087772,Johnson (2014)
-Cronbach's Alpha,Agreeableness,0.88,0.0586120253193892,Johnson (2014)
-Cronbach's Alpha,Conscientiousness,0.9,0.5290963230203956,Johnson (2014)
-Factor Recovery,Big Five 5-factor recovery,5 factors (φ > 0.95 all domains),3 factors (max φ = 0.456 at item level),Johnson (2014); McCrae et al. (2005)
+Cronbach's Alpha,Neuroticism,0.9,0.8132395067874981,Johnson (2014)
+Cronbach's Alpha,Extraversion,0.89,0.9282062997475428,Johnson (2014)
+Cronbach's Alpha,Openness,0.87,0.1894177650089237,Johnson (2014)
+Cronbach's Alpha,Agreeableness,0.88,0.0689530463822065,Johnson (2014)
+Cronbach's Alpha,Conscientiousness,0.9,0.5350993579415688,Johnson (2014)
+Factor Recovery,Big Five 5-factor recovery,5 factors (φ > 0.95 all domains),3 factors (max φ = 0.455 at item level),Johnson (2014); McCrae et al. (2005)
 Convergent Validity,Neuroticism × Neuroticism-Anxiety,r ≈ 0.65-0.75,N/A,Zuckerman (2002) ZKPQ validation
 Convergent Validity,Extraversion × Sociability,r ≈ 0.60-0.70,N/A,Zuckerman (2002) ZKPQ validation
 Convergent Validity,Agreeableness × Psychopathy,r ≈ -0.50 to -0.65,N/A,Jones & Paulhus (2014) SD3 validation

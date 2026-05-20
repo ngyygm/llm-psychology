@@ -1,7 +1,7 @@
 item_id,variance,mean,scale,domain,keyed,item_text
-sd3_009,0.10736842105263156,4.1,SD3,Machiavellianism,+,Most people can be manipulated.
-ipip_034,0.22852631578947352,3.8299999999999996,IPIP-NEO-120,Agreeableness,+,Believe that others have good intentions
+sd3_009,0.06357894736842107,4.0600000000000005,SD3,Machiavellianism,+,Most people can be manipulated.
+ipip_034,0.23536842105263145,3.78,IPIP-NEO-120,Agreeableness,+,Believe that others have good intentions
 ipip_088,0.26484210526315793,3.22,IPIP-NEO-120,Openness,-,Believe that we should be tough on crime
 ipip_008,0.26894736842105305,4.75,IPIP-NEO-120,Openness,+,Believe in the importance of art
 sd3_019,0.2774736842105264,1.22,SD3,Psychopathy,+,I like to get revenge on authorities.
-ipip_058,0.28555263157894734,3.165,IPIP-NEO-120,Openness,+,Believe that there is no absolute right or wrong
+ipip_058,0.2893421052631579,3.075,IPIP-NEO-120,Openness,+,Believe that there is no absolute right or wrong
