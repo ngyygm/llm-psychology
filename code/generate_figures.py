@@ -260,8 +260,9 @@ def fig3_acquiescence_mechanism():
                  fmt='none', ecolor=C['gray'], capsize=2, linewidth=0.8, zorder=2)
 
     ax1.axvline(0.5, color=C['red'], linestyle=':', linewidth=1, alpha=0.5)
-    ax1.axvline(0.584, color=C['orange'], linestyle='--', linewidth=1, alpha=0.7,
-               label='Overall PIR = 0.584')
+    overall_pir = pir_df["pir"].mean()
+    ax1.axvline(overall_pir, color=C['orange'], linestyle='--', linewidth=1, alpha=0.7,
+               label=f'Overall PIR = {overall_pir:.3f}')
     ax1.set_yticks(y_pos)
     ax1.set_yticklabels(pir_domain["label"], fontsize=FS['tick'] - 1)
     ax1.set_xlabel('Pairwise Inconsistency Rate')
@@ -286,7 +287,7 @@ def fig3_acquiescence_mechanism():
                      label='Acquiescence zone')
 
     r, p = stats.spearmanr(acq_df["rev_agree_rate"], acq_df["overall_agree_rate"])
-    ax2.text(0.05, 0.95, f'rev-agree × PIR: r = 0.726',
+    ax2.text(0.05, 0.95, f'rev-agree × PIR: r = {r:.2f}',
              transform=ax2.transAxes, fontsize=FS['ann'] - 1,
              verticalalignment='top', fontstyle='italic')
 

@@ -48,7 +48,7 @@
 \maketitle
 
 \begin{abstract}
-Researchers administer human personality questionnaires to LLMs and report ``personality profiles.'' We ask whether these instruments measure anything meaningful at all. We gave a 221-item battery (IPIP-NEO-120, SD3, ZKPQ-50-CC, EPQR-A) to 20 LLMs across 8 model families and ran standard psychometric validation checks on the 75,140 responses. Every check failed, and every failure traces back to one root cause: acquiescence. LLMs agree with statements regardless of direction, so forward and reverse items pull in opposite directions. The damage is predictable: Cronbach's $\alpha$ correlates perfectly with reverse-item density across domains ($\rho = -1.0$), exploratory factor analysis recovers 3 factors instead of the expected 5 (in every model, every family, and every persona condition), and inter-model variance falls below 1\%. Persona prompts shift scores by over one SD but do not restore validity. The instruments are not measuring personality; they are capturing a uniform agreeable response style that all models acquire from safety training.
+Researchers administer human personality questionnaires to LLMs and report ``personality profiles.'' We ask whether these instruments measure anything meaningful at all. We gave a 221-item battery (IPIP-NEO-120, SD3, ZKPQ-50-CC, EPQR-A) to 20 LLMs across 8 model families and ran standard psychometric validation checks on the 75,140 responses. Every check failed, and every failure traces back to one root cause: acquiescence. LLMs agree with statements regardless of direction, so forward and reverse items pull in opposite directions. The damage is predictable: Cronbach's $\alpha$ correlates perfectly with reverse-item density across domains ($\rho = -1.0$), exploratory factor analysis recovers 3 factors instead of the expected 5 (in every model and every family), and inter-model variance falls below 1\%. Persona prompts shift scores by over one SD but do not restore validity. The instruments are not measuring personality; they are capturing a uniform agreeable response style that all models acquire from safety training.
 \end{abstract}
 
 \section{Introduction}
@@ -255,9 +255,9 @@ Conscientiousness & $0.535{\pm}0.113$ & 0.90 & $-0.365$ \\
 
 \subsection{Caught in the Act: Acquiescence at the Item Level}
 
-The fingerprint above points squarely to acquiescence. Can we catch it directly, item by item? The Pairwise Inconsistency Rate is \textbf{0.594} [95\% CI: 0.553, 0.635]: nearly 60\% of forward-reverse item pairs give inconsistent responses. \cref{tab:acq_full} breaks this down by instrument. For each model, the \emph{Rev} column reports the proportion of reverse-keyed items receiving an ``agree'' response (e.g.\ Rev~$= 0.43$ means the model agreed with 43\% of reverse-keyed items), and the $\Delta$ column reports the gap between forward- and reverse-item agree rates ($\Delta = \text{Fwd} - \text{Rev}$).
+The fingerprint above points squarely to acquiescence. Can we catch it directly, item by item? The Pairwise Inconsistency Rate is \textbf{0.468} [95\% CI: 0.413, 0.531]: nearly 47\% of forward-reverse item pairs give inconsistent responses. \cref{tab:acq_full} breaks this down by instrument. For each model, the \emph{Rev} column reports the proportion of reverse-keyed items receiving an ``agree'' response (e.g.\ Rev~$= 0.43$ means the model agreed with 43\% of reverse-keyed items), and the $\Delta$ column reports the gap between forward- and reverse-item agree rates ($\Delta = \text{Fwd} - \text{Rev}$).
 
-A striking pattern emerges. For IPIP items (normal personality), the gap is positive ($\overline{\Delta} = +0.30$): models agree with forward items more than reverse items. This is classic acquiescence. For SD3 items (Dark Triad), the gap flips negative ($\overline{\Delta} = -0.32$): models \emph{disagree} with forward-coded dark-trait items like ``I manipulate others.'' This is social desirability. Two different biases, both pushing scores away from genuine trait variation. The correlation between reverse-item agree rate and PIR across models is $r = 0.525$: models that acquiesce more are also more inconsistent.
+A striking pattern emerges. For IPIP items (normal personality), the gap is positive ($\overline{\Delta} = +0.31$): models agree with forward items more than reverse items. This is classic acquiescence. For SD3 items (Dark Triad), the gap flips negative ($\overline{\Delta} = -0.20$): models \emph{disagree} with forward-coded dark-trait items like ``I manipulate others.'' This is social desirability. Two different biases, both pushing scores away from genuine trait variation. The correlation between reverse-item agree rate and PIR across models is $r = 0.63$: models that acquiesce more are also more inconsistent.
 
 \begin{table*}[t]
 \centering
@@ -306,11 +306,11 @@ MiniMax-M2.7 & 0.44 & +0.32 & 0.80 & $-$0.30 & 0.42 & $-$0.36 & 0.00 & +0.11 & 0
 \begin{figure}[t]
 \centering
 \includegraphics[width=\linewidth]{fig3_acquiescence_mechanism.png}
-\caption{Reverse-item inconsistency and acquiescence mechanism. Left: PIR by domain. Right: Reverse-item agree rate vs.\ PIR ($r = 0.525$).}
+\caption{Reverse-item inconsistency and acquiescence mechanism. Left: PIR by domain. Right: Reverse-item agree rate vs.\ PIR ($r = 0.63$).}
 \label{fig:pir_sdr_mechanism}
 \end{figure}
 
-Interestingly, persona injection \emph{improves} consistency. Under the Default prompt, PIR agreement is 0.667. Under MBTI persona prompts, it rises to 0.831 ($t = 8.96$, $p < 0.0001$). When you give a model a specific role to play, the tension between alignment-driven agreeableness and honest responding decreases. The model can be consistent within its assigned character.
+Interestingly, persona injection \emph{improves} consistency. Under the Default prompt, PIR agreement is 0.674. Under MBTI persona prompts, it rises to 0.834 ($t = 10.70$, $p < 0.0001$). When you give a model a specific role to play, the tension between alignment-driven agreeableness and honest responding decreases. The model can be consistent within its assigned character.
 
 \subsection{The Cascade: Factor Structure Collapse}
 
@@ -413,7 +413,7 @@ Psychoticism $\times$ Psychopathy & $+$ & 0.11 & 0.646 & 0.28 & 0.230 & Yes \\
 \label{fig:convergent_validity_forest}
 \end{figure}
 
-A DIF analysis across model families found no significant differences in any domain (all $d < 0.20$; details in \cref{sec:appendix_dif}).
+A DIF analysis across model families found no significant differences in any domain (all $p > 0.16$; details in \cref{sec:appendix_dif}).
 
 \subsection{Ruling Out Alternative Explanations}
 
@@ -427,8 +427,8 @@ A DIF analysis across model families found no significant differences in any dom
 \toprule
 Strategy & N & E & O & A & C \\
 \midrule
-Random & 0.016 & 0.042 & 0.058 & 0.077 & $-$0.026 \\
-Pure Acq. & $-$0.038 & $-$0.031 & $-$0.020 & $-$0.031 & 0.005 \\
+Random & 0.078 & $-$0.013 & 0.062 & 0.044 & $-$0.108 \\
+Pure Acq. & 0.016 & 0.025 & $-$0.008 & 0.096 & $-$0.031 \\
 Trait+Acq. & 0.982 & 0.985 & 0.985 & 0.986 & 0.986 \\
 \midrule
 \textbf{LLM Obs.} & \textbf{0.749} & \textbf{0.924} & \textbf{0.193} & \textbf{0.060} & \textbf{0.517} \\
@@ -451,7 +451,7 @@ The mean Pearson correlation between Default and MBTI persona profiles is $r = 0
 
 \subsection{The Stress Test: Persona Prompting}
 
-The last question: can we rescue these instruments by steering models with explicit persona prompts? if the instruments measured stable traits, persona prompts should move scores without repairing the failed psychometrics. That is what we find. Persona prompts shift profiles by more than one SD from Default on average, and nearest-centroid classification recovers the prompted MBTI type in 319 of 320 cases (99.7\%). However, this is prompt compliance rather than restored validity: cross-scale persona coherence is imperfect (0.839), forward/reverse pairs move in the theoretically opposite raw-score direction only 70.4\% of the time, and the Big Five factor collapse remains: running EFA within each of the 17 persona conditions independently still recovers only 3 factors, never 5. Full persona-steering analyses, including default bias, model clustering, MBTI factorial effects, scale-format sensitivity, fidelity matrices, and item plasticity, are reported in \cref{sec:appendix_persona_steering}.
+The last question: can we rescue these instruments by steering models with explicit persona prompts? if the instruments measured stable traits, persona prompts should move scores without repairing the failed psychometrics. That is what we find. Persona prompts shift profiles by more than one SD from Default on average, and nearest-centroid classification recovers the prompted MBTI type in 319 of 320 cases (99.7\%). However, this is prompt compliance rather than restored validity: cross-scale persona coherence is imperfect (0.839), forward/reverse pairs move in the theoretically opposite raw-score direction only 70.4\% of the time, and the Big Five factor collapse remains: running EFA within the Default persona condition recovers the same 3-factor pattern, and no MBTI persona condition recovers the expected 5-factor Big Five structure. Full persona-steering analyses, including default bias, model clustering, MBTI factorial effects, scale-format sensitivity, fidelity matrices, and item plasticity, are reported in \cref{sec:appendix_persona_steering}.
 
 \section{Conclusion}
 
@@ -459,9 +459,9 @@ Prior work noticed individual symptoms (inconsistent responses \citep{suhr2025ch
 
 The evidence forms a single causal chain. At the item level, acquiescence makes LLMs agree with both forward and reverse items, so $\alpha$ tracks reverse-item density: Extraversion (17\% reverse, $\alpha = 0.93$) survives while Agreeableness (71\% reverse, $\alpha = 0.06$) collapses. At the domain level, the same bias distorts inter-domain correlations, merging Neuroticism and Agreeableness into one factor, so that EFA recovers only three factors instead of the expected five. At the model level, safety fine-tuning pushes every model toward the same agreeable, non-toxic response style, so inter-model variance drops below 1\%.
 
-Two findings go beyond prior work. First, acquiescence has a directional asymmetry: for normal personality items (IPIP) models agree with forward items more than reverse (positive gap), but for dark-trait items (SD3) models \emph{reject} forward items while still agreeing with reverse ones (negative gap). Acquiescence and social desirability operate simultaneously from the same root cause. Second, the per-model correlation between reverse-item agreement and PIR ($r = 0.525$) quantifies this mechanism across 20 LLMs \citep{acquiescence2025emnlp}.
+Two findings go beyond prior work. First, acquiescence has a directional asymmetry: for normal personality items (IPIP) models agree with forward items more than reverse (positive gap), but for dark-trait items (SD3) models \emph{reject} forward items while still agreeing with reverse ones (negative gap). Acquiescence and social desirability operate simultaneously from the same root cause. Second, the per-model correlation between reverse-item agreement and PIR ($r = 0.63$) quantifies this mechanism across 20 LLMs \citep{acquiescence2025emnlp}.
 
-Persona injection can shift profiles by over one SD from default and is highly recoverable (99.3\% fidelity), but this does not restore measurement validity. It replaces alignment-driven acquiescence with persona-driven compliance. The scores are not measuring personality at all; they are measuring the agreeable response style that safety fine-tuning instills.
+Persona injection can shift profiles by over one SD from default and is highly recoverable (99.7\% fidelity), but this does not restore measurement validity. It replaces alignment-driven acquiescence with persona-driven compliance. The scores are not measuring personality at all; they are measuring the agreeable response style that safety fine-tuning instills.
 
 What should researchers do? Three things. First, report internal consistency, factor structure, and convergent validity before interpreting any personality score \citep{huang2024reliability, serpell2024validity, cronbach1951coefficient, binz2023psychology}. Second, establish measurement invariance before comparing across conditions. Third, use multi-temperature and multi-seed designs to separate stochastic variance from genuine trait variance. Any study that reports LLM personality profiles without these checks is likely reporting safety-training-induced response biases, not personality.
 
@@ -635,21 +635,21 @@ We tested whether models from different families respond differently by comparin
 \begin{table}[h]
 \centering
 \small
-\caption{DIF across model families. Grp.\,1: Anthropic, OpenAI, Google ($n{=}8$). Grp.\,2: DeepSeek, Alibaba, Moonshot, MiniMax, Zhipu ($n{=}12$). All differences non-significant ($p > 0.38$).}
+\caption{DIF across model families. Grp.\,1: Anthropic, OpenAI, Google ($n{=}8$). Grp.\,2: DeepSeek, Alibaba, Moonshot, MiniMax, Zhipu ($n{=}12$). All differences non-significant ($p > 0.16$).}
 \label{tab:dif_appendix}
 \resizebox{\columnwidth}{!}{%
 \begin{tabular}{llrrrr}
 \toprule
 Scale & Domain & Grp.\,1 $\mu$ & Grp.\,2 $\mu$ & Cohen's $d$ & $p$ \\
 \midrule
-SD3 & Machiavellianism & 2.37 & 2.48 & $-$0.41 & 0.382 \\
-IPIP & Conscientiousness & 4.12 & 4.25 & $-$0.33 & 0.481 \\
-IPIP & Openness & 3.49 & 3.59 & $-$0.25 & 0.597 \\
-SD3 & Narcissism & 2.79 & 2.74 & 0.20 & 0.677 \\
-IPIP & Agreeableness & 4.18 & 4.23 & $-$0.18 & 0.707 \\
-SD3 & Psychopathy & 1.61 & 1.57 & 0.07 & 0.891 \\
-IPIP & Neuroticism & 1.89 & 1.93 & $-$0.05 & 0.912 \\
-IPIP & Extraversion & 2.90 & 2.92 & $-$0.04 & 0.931 \\
+SD3 & Machiavellianism & 2.37 & 2.49 & $-$0.42 & 0.372 \\
+IPIP & Conscientiousness & 4.13 & 4.25 & $-$0.32 & 0.472 \\
+IPIP & Openness & 3.49 & 3.54 & $-$0.14 & 0.766 \\
+SD3 & Narcissism & 2.79 & 2.76 & 0.13 & 0.775 \\
+IPIP & Agreeableness & 4.18 & 4.24 & $-$0.18 & 0.694 \\
+SD3 & Psychopathy & 1.61 & 1.57 & 0.07 & 0.880 \\
+IPIP & Neuroticism & 1.89 & 1.93 & $-$0.05 & 0.921 \\
+IPIP & Extraversion & 2.90 & 2.93 & $-$0.09 & 0.850 \\
 \bottomrule
 \end{tabular}%
 }

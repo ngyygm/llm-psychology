@@ -749,10 +749,9 @@ def fig_default_heatmap_and_radar() -> None:
     mat = default_ipip()
     fam_order = sorted(mat.index, key=lambda m: (FAMILY_ORDER.get(family(m), 99), short_model(m)))
     mat = mat.loc[fam_order]
-    z = (mat - mat.mean(axis=0)) / mat.std(axis=0, ddof=0)
 
     fig, ax = plt.subplots(figsize=(7.2, 5.8), constrained_layout=True)
-    im = ax.imshow(z.to_numpy(), cmap="RdBu_r", vmin=-2, vmax=2, aspect="auto")
+    im = ax.imshow(mat.to_numpy(), cmap="YlOrRd", vmin=1, vmax=5, aspect="auto")
     ax.set_xticks(np.arange(len(IPIP_DOMAINS)))
     ax.set_xticklabels(["Neuroticism", "Extraversion", "Openness", "Agreeableness", "Conscientiousness"], rotation=18, ha="right")
     ax.set_yticks(np.arange(len(mat)))
@@ -763,11 +762,11 @@ def fig_default_heatmap_and_radar() -> None:
     for i in range(mat.shape[0]):
         for j in range(mat.shape[1]):
             val = mat.iloc[i, j]
-            color = "white" if abs(z.iloc[i, j]) > 1.15 else C["dark"]
-            ax.text(j, i, f"{val:.1f}", ha="center", va="center", fontsize=7.2, color=color)
-    ax.set_title("Default persona: IPIP-NEO-120 domain scores")
+            color = "white" if val > 4.2 else C["dark"]
+            ax.text(j, i, f"{val:.2f}", ha="center", va="center", fontsize=7.2, color=color)
+    ax.set_title("Default persona: IPIP-NEO-120 domain scores (1-5 scale)")
     cb = fig.colorbar(im, ax=ax, shrink=0.78, pad=0.02)
-    cb.set_label("z-score across models; cells show raw 1-5 scores")
+    cb.set_label("Mean domain score")
     cb.ax.tick_params(labelsize=7)
     # Family separators.
     prev = None
