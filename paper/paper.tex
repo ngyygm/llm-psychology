@@ -48,7 +48,7 @@
 \maketitle
 
 \begin{abstract}
-Researchers administer human personality questionnaires to LLMs and report ``personality profiles.'' We ask whether these instruments measure anything meaningful at all. We gave a 221-item battery (IPIP-NEO-120, SD3, ZKPQ-50-CC, EPQR-A) to 20 LLMs across 8 model families and ran standard psychometric validation checks on the 75,140 responses. Every check failed, and every failure traces back to one root cause: acquiescence. LLMs agree with statements regardless of direction, so forward and reverse items pull in opposite directions. The damage is predictable: Cronbach's $\alpha$ correlates perfectly with reverse-item density across domains ($\rho = -1.0$), exploratory factor analysis recovers 3 factors instead of the expected 5 (in every model and every family), and inter-model variance falls below 1\%. Persona prompts shift scores by over one SD but do not restore validity. The instruments are not measuring personality; they are capturing a uniform agreeable response style that all models acquire from safety training.
+A growing literature treats LLMs as personality-bearing agents, administering human questionnaires and reporting scores. We ask the prior question: do these instruments measure anything at all? We gave a 221-item battery (IPIP-NEO-120, SD3, ZKPQ-50-CC, EPQR-A) to 20 LLMs across 8 families under 17 persona conditions (375,700 responses) and ran every standard psychometric validation check. Every check failed. The cause is acquiescence: safety training makes LLMs agree with statements regardless of direction, so forward and reverse items cancel out. Cronbach's $\alpha$ tracks reverse-item density perfectly ($\rho = -1.0$), factor analysis recovers 3 factors instead of 5 in every model and family, and inter-model variance drops below 1\%. Persona prompts shift scores by over one SD but do not restore validity. These instruments do not measure personality---they measure the agreeable response style that safety training instills.
 \end{abstract}
 
 \section{Introduction}
@@ -67,7 +67,7 @@ A personality questionnaire is only valid for a population if it passes basic ps
 
 The cracks are already visible. \citet{suhr2025challenging} found that LLMs endorse both forward-coded and reverse-coded items simultaneously. \citet{tjuatja2023response} showed systematic response biases in survey settings. \citet{acerbi2024llm} and \citet{salecha2024llm} found that LLMs shift responses toward socially desirable endpoints. \citet{pelet2025persistent} showed that reordering questions produces different scores. \citet{huang2024reliability} found that scale reliability is sensitive to instructions. Each finding identifies a symptom. None identifies the root cause.
 
-We do. We administered a 221-item battery (IPIP-NEO-120, SD3, ZKPQ-50-CC, EPQR-A) to 20 LLMs across 17 role-conditioned prompts and ran every standard psychometric validation check on the resulting 75,140 responses. Every check failed, and every failure traces back to a single mechanism: \emph{acquiescence}---a blanket tendency to agree with statements regardless of direction, produced by safety training. The evidence forms one causal chain. At the item level, LLMs agree with both forward and reverse items, so internal consistency ($\alpha$) correlates perfectly with reverse-item density ($\rho = -1.0$). At the domain level, the same bias distorts inter-domain correlations so that exploratory factor analysis recovers 3 factors instead of 5. At the model level, safety training pushes every model toward the same agreeable response style, so inter-model variance falls below 1\%. Persona prompts shift scores but do not restore measurement validity.
+We do. We administered a 221-item battery (IPIP-NEO-120, SD3, ZKPQ-50-CC, EPQR-A) to 20 LLMs across 17 role-conditioned prompts and ran every standard psychometric validation check on the resulting 375,700 responses. Every check failed, and every failure traces back to a single mechanism: \emph{acquiescence}---a blanket tendency to agree with statements regardless of direction, produced by safety training. The evidence forms one causal chain. At the item level, LLMs agree with both forward and reverse items, so internal consistency ($\alpha$) correlates perfectly with reverse-item density ($\rho = -1.0$). At the domain level, the same bias distorts inter-domain correlations so that exploratory factor analysis recovers 3 factors instead of 5. At the model level, safety training pushes every model toward the same agreeable response style, so inter-model variance falls below 1\%. Persona prompts shift scores but do not restore measurement validity.
 
 \section{Related Work}
 
@@ -149,7 +149,7 @@ Zhipu & GLM-4.6V, GLM-4.7, GLM-5.1 \\
 \end{tabular}
 \end{table}
 
-Each model was tested under 17 conditions: a \textbf{Default} prompt (``Please answer the following personality questionnaire honestly.'') and 16 \textbf{MBTI persona} prompts, each assigning a specific MBTI type. All administrations used temperature = 0.7. Each (model, persona, item) cell was sampled 5 times ($k{=}5$). Responses are averaged across samples within each cell. This yielded $20 \times 17 \times 221 = 75{,}140$ item-level responses from 375{,}700 raw API calls.
+Each model was tested under 17 conditions: a \textbf{Default} prompt (``Please answer the following personality questionnaire honestly.'') and 16 \textbf{MBTI persona} prompts, each assigning a specific MBTI type. All administrations used temperature = 0.7. Each (model, persona, item) cell was sampled 5 times ($k{=}5$). Responses are averaged across samples within each cell. This yielded $20 \times 17 \times 221 = 75{,}140$ item-level scores (averaged from 375{,}700 raw API calls).
 
 \subsection{Analysis Pipeline}
 
@@ -257,7 +257,7 @@ Conscientiousness & $0.535{\pm}0.113$ & 0.90 & $-0.365$ \\
 
 The fingerprint above points squarely to acquiescence. Can we catch it directly, item by item? The Pairwise Inconsistency Rate is \textbf{0.468} [95\% CI: 0.413, 0.531]: nearly 47\% of forward-reverse item pairs give inconsistent responses. \cref{tab:acq_full} breaks this down by instrument. For each model, the \emph{Rev} column reports the proportion of reverse-keyed items receiving an ``agree'' response (e.g.\ Rev~$= 0.43$ means the model agreed with 43\% of reverse-keyed items), and the $\Delta$ column reports the gap between forward- and reverse-item agree rates ($\Delta = \text{Fwd} - \text{Rev}$).
 
-A striking pattern emerges. For IPIP items (normal personality), the gap is positive ($\overline{\Delta} = +0.31$): models agree with forward items more than reverse items. This is classic acquiescence. For SD3 items (Dark Triad), the gap flips negative ($\overline{\Delta} = -0.20$): models \emph{disagree} with forward-coded dark-trait items like ``I manipulate others.'' This is social desirability. Two different biases, both pushing scores away from genuine trait variation. The correlation between reverse-item agree rate and PIR across models is $r = 0.63$: models that acquiesce more are also more inconsistent.
+A striking pattern emerges. For IPIP items (normal personality), the gap is positive ($\overline{\Delta} = +0.29$): models agree with forward items more than reverse items. This is classic acquiescence. For SD3 items (Dark Triad), the gap flips negative ($\overline{\Delta} = -0.33$): models \emph{disagree} with forward-coded dark-trait items like ``I manipulate others.'' This is social desirability. Two different biases, both pushing scores away from genuine trait variation. The correlation between reverse-item agree rate and PIR across models is $r = 0.63$: models that acquiesce more are also more inconsistent.
 
 \begin{table*}[t]
 \centering
@@ -348,7 +348,7 @@ EPQR Lie & $-$0.08 & 0.07 & $\mathbf{-}$0.89 \\
 \end{tabular}
 \end{table}
 
-This collapse is universal. Tucker's $\phi = 0.993$ across all 20 models, meaning every model produces the same distorted structure. We held out each model one at a time and re-ran the EFA 20 times. Every single run recovered exactly 3 factors, with the first eigenvalue stable between 6.93 and 7.01. Running EFA on each model individually (17 personas $\times$ 17 domains) confirms the pattern: all 20 models independently yield exactly 3 Kaiser factors (first three eigenvalues explain 86--90\% of variance). The same holds at the family level: all 8 model families (Anthropic, OpenAI, Google, DeepSeek, Alibaba, Zhipu, Moonshot, MiniMax) independently recover 3 factors. No model, no family, no leave-one-out configuration ever produces the expected 5-factor structure.
+This collapse is universal. Tucker's $\phi = 0.993$ across all 20 models, meaning every model produces the same distorted structure. We held out each model one at a time and re-ran the EFA 20 times. Every single run recovered exactly 3 factors, with the first eigenvalue stable between 6.94 and 7.02. Running EFA on each model individually (17 personas $\times$ 17 domains) confirms the pattern: all 20 models independently yield exactly 3 Kaiser factors (first three eigenvalues explain 86--90\% of variance). The same holds at the family level: all 8 model families (Anthropic, OpenAI, Google, DeepSeek, Alibaba, Zhipu, Moonshot, MiniMax) independently recover 3 factors. No model, no family, no leave-one-out configuration ever produces the expected 5-factor structure.
 
 \subsection{The Cascade: Model Convergence}
 
@@ -429,9 +429,9 @@ Strategy & N & E & O & A & C \\
 \midrule
 Random & 0.078 & $-$0.013 & 0.062 & 0.044 & $-$0.108 \\
 Pure Acq. & 0.016 & 0.025 & $-$0.008 & 0.096 & $-$0.031 \\
-Trait+Acq. & 0.982 & 0.985 & 0.985 & 0.986 & 0.986 \\
+Trait+Acq. & 0.997 & 0.998 & 0.996 & 0.997 & 0.996 \\
 \midrule
-\textbf{LLM Obs.} & \textbf{0.749} & \textbf{0.924} & \textbf{0.193} & \textbf{0.060} & \textbf{0.517} \\
+\textbf{LLM Obs.} & \textbf{0.813} & \textbf{0.928} & \textbf{0.189} & \textbf{0.069} & \textbf{0.535} \\
 Human & 0.90 & 0.89 & 0.87 & 0.88 & 0.90 \\
 \bottomrule
 \end{tabular}%
@@ -451,7 +451,7 @@ The mean Pearson correlation between Default and MBTI persona profiles is $r = 0
 
 \subsection{The Stress Test: Persona Prompting}
 
-The last question: can we rescue these instruments by steering models with explicit persona prompts? if the instruments measured stable traits, persona prompts should move scores without repairing the failed psychometrics. That is what we find. Persona prompts shift profiles by more than one SD from Default on average, and nearest-centroid classification recovers the prompted MBTI type in 319 of 320 cases (99.7\%). However, this is prompt compliance rather than restored validity: cross-scale persona coherence is imperfect (0.839), forward/reverse pairs move in the theoretically opposite raw-score direction only 70.4\% of the time, and the Big Five factor collapse remains: running EFA within the Default persona condition recovers the same 3-factor pattern, and no MBTI persona condition recovers the expected 5-factor Big Five structure. Full persona-steering analyses, including default bias, model clustering, MBTI factorial effects, scale-format sensitivity, fidelity matrices, and item plasticity, are reported in \cref{sec:appendix_persona_steering}.
+The last question: can we rescue these instruments by steering models with explicit persona prompts? if the instruments measured stable traits, persona prompts should move scores without repairing the failed psychometrics. That is what we find. Persona prompts shift profiles by more than one SD from Default on average, and nearest-centroid classification recovers the prompted MBTI type in 319 of 320 cases (99.7\%). However, this is prompt compliance rather than restored validity: cross-scale persona coherence is imperfect (0.839), forward/reverse pairs move in the theoretically opposite raw-score direction only 69.6\% of the time, and the Big Five factor collapse remains: running EFA within the Default persona condition recovers the same 3-factor pattern, and no MBTI persona condition recovers the expected 5-factor Big Five structure. Full persona-steering analyses, including default bias, model clustering, MBTI factorial effects, scale-format sensitivity, fidelity matrices, and item plasticity, are reported in \cref{sec:appendix_persona_steering}.
 
 \section{Conclusion}
 
@@ -482,7 +482,7 @@ This study uses publicly available LLMs and public-domain psychometric instrumen
 \section{Persona Steering Supplement}
 \label{sec:appendix_persona_steering}
 
-All persona-steering diagnostics are computed from the same 75{,}140 completed item responses. These analyses are not the primary evidence for the paper's central claim. Instead, they answer a complementary question: once we know the instruments fail standard psychometric checks, what exactly happens when we deliberately push the model with a persona prompt? The answer is consistent across the analyses below. Persona prompts produce large, highly recoverable role-playing shifts, but those shifts do not repair the instrument: factor structure, reverse-item behavior, and cross-scale coherence remain contaminated by response style.
+All persona-steering diagnostics are computed from the same 375{,}700 completed responses. These analyses are not the primary evidence for the paper's central claim. Instead, they answer a complementary question: once we know the instruments fail standard psychometric checks, what exactly happens when we deliberately push the model with a persona prompt? The answer is consistent across the analyses below. Persona prompts produce large, highly recoverable role-playing shifts, but those shifts do not repair the instrument: factor structure, reverse-item behavior, and cross-scale coherence remain contaminated by response style.
 
 
 
@@ -604,7 +604,7 @@ Item-level plasticity identifies where persona prompts have leverage. We compute
 
 The most locked items are different. They include ``Do you enjoy hurting people you love?'' (0.000), ``Are all your habits good and desirable ones?'' (0.010), ``Do you enjoy practical jokes that can sometimes really hurt people?'' (0.031), ``Take advantage of others'' (0.056), and ``Insult people'' (0.075). Many are safety-sensitive, moralized, or socially undesirable. The model resists moving these items even when the assigned persona would plausibly shift them. This is direct item-level evidence for the alignment constraint proposed in the main text: persona instructions can move ordinary behavioral descriptors, but they do not freely override safety- and desirability-shaped response patterns.
 
-Finally, forward/reverse pairs move in the theoretically opposite raw-score direction only 70.4\% of the time. By scale, directional pair coherence is highest for EPQR-A (0.784) and ZKPQ-50-CC (0.748), lower for SD3 (0.693), and lowest for IPIP-NEO-120 (0.679). This residual failure is why persona steering does not rescue the measurement. The model can adopt a role well enough to classify the prompt, yet still fail the forward/reverse logic that validated human personality scales depend on.
+Finally, forward/reverse pairs move in the theoretically opposite raw-score direction only 69.6\% of the time. By scale, directional pair coherence is highest for EPQR-A (0.737) and ZKPQ-50-CC (0.727), lower for IPIP-NEO-120 (0.685), and lowest for SD3 (0.657). This residual failure is why persona steering does not rescue the measurement. The model can adopt a role well enough to classify the prompt, yet still fail the forward/reverse logic that validated human personality scales depend on.
 
 \begin{figure*}[t]
 \centering
@@ -658,7 +658,7 @@ IPIP & Extraversion & 2.90 & 2.93 & $-$0.09 & 0.850 \\
 \section{Missing-Data Handling}
 \label{sec:appendix_missing}
 
-Across five independent samplings of each (model, persona, item) cell ($k{=}5$, temperature${}=0.7$), 63 of 375{,}700 raw responses (0.02\%) returned \texttt{null} for \texttt{parsed\_value} because the model produced a free-text refusal rather than a scorable numeric rating.
+Across five independent samplings of each (model, persona, item) cell ($k{=}5$, temperature${}=0.7$), 61 of 375{,}700 raw responses (0.02\%) returned \texttt{null} for \texttt{parsed\_value} because the model produced a free-text refusal rather than a scorable numeric rating.
 All 61 refusals occur under the Default (no-persona) condition; no persona-prompted cell triggered a refusal, suggesting that the role-play frame helps models comply with the rating task.
 
 The refusals cluster in three models: Gemini-3.1-Flash-Lite (34), Gemini-3-Flash-Preview (22), and Claude-Sonnet-4.6 (5).
@@ -693,7 +693,7 @@ A further 15\% combine both strategies.
 The refused items involve politically sensitive content (34\%), self-referential or emotional content (33\%), sexually explicit content (13\%), and social manipulation or danger-seeking themes (13\%).
 
 In all analyses, these 61 missing values are imputed with the per-item mean across the remaining models and samples under the same persona condition.
-Because the missing count is negligible ($63/375{,}700 < 0.02\%$), this has no material effect on any reported statistic.
+Because the missing count is negligible ($61/375{,}700 < 0.02\%$), this has no material effect on any reported statistic.
 
 \section{Within-Sample Response Consistency}
 \label{sec:appendix_within_sample}
