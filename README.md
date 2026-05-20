@@ -218,6 +218,14 @@ python run_mbti_experiment.py
 - **17** domains across 4 instruments
 - Temperature = 0.7 for all administrations
 
+## Raw Data
+
+The complete raw API responses (including model verbatim outputs, full prompts, and telemetry) are available on HuggingFace:
+
+**[heihei/llm-psychology-raw-data](https://huggingface.co/datasets/heihei/llm-psychology-raw-data)**
+
+The `code/data/` files in this repository contain scoring-only data (`parsed_value`, `scored_value`) with `raw_response`, `item_text`, `user_prompt`, `timestamp`, and `telemetry` fields stripped to keep file sizes under GitHub's 100MB limit. The HuggingFace dataset includes both the full raw versions (19 models) and the stripped GitHub versions (all 20 models).
+
 ## License
 
 CC-BY-4.0
