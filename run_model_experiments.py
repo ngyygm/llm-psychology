@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import os
 """
 Model Experiment Design (V4.0) — SiliconFlow API + Ollama
 Battery: IPIP-NEO-120 (Likert-5) + SD3 (Likert-5) + ZKPQ-50-CC (T/F) + EPQR-A (Y/N) = 221 items
@@ -32,10 +33,10 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 # ============== CONFIGURATION ==============
 
 SILICONFLOW_API = "https://api.siliconflow.cn/v1/chat/completions"
-SILICONFLOW_KEY = "***REMOVED***"
+SILICONFLOW_KEY = os.environ.get("SILICONFLOW_API_KEY", "")
 
 YIHE_API = "https://z.apiyihe.org/v1/chat/completions"
-YIHE_KEY = "***REMOVED***"
+YIHE_KEY = os.environ.get("YIHE_API_KEY", "")
 
 HEADERS_SF = {
     "Authorization": f"Bearer {SILICONFLOW_KEY}",
