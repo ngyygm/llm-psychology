@@ -101,7 +101,7 @@ These studies examined alignment effects on individual behaviors. We take a diff
 
 \subsection{Psychometric Instruments}
 
-We administered a 221-item battery comprising four validated instruments (\cref{tab:instruments}). The \textbf{IPIP-NEO-120} \citep{johnson2014measuring} contains 120 Likert-5 items measuring the Big Five domains \citep{john1999bigfive, mccrae1992five} through 6 facets each, with 41 reverse-coded items. The \textbf{SD3} \citep{jones2014introducing} contains 27 Likert-5 items measuring Machiavellianism, Narcissism, and Psychopathy, with 5 reverse-coded items. The \textbf{ZKPQ-50-CC} \citep{aluja2006cross} contains 50 True/False items measuring 5 traits, with 12 reverse-coded items. The \textbf{EPQR-A} \citep{francis1992development} contains 24 Yes/No items measuring 4 traits, with 5 reverse-coded items.
+We administered a 221-item battery comprising four validated instruments (\cref{tab:instruments}): IPIP-NEO-120 \citep{johnson2014measuring}, SD3 \citep{jones2014introducing}, ZKPQ-50-CC \citep{aluja2006cross}, and EPQR-A \citep{francis1992development}. Together they cover 17 domains across three response formats (Likert-5, True/False, Yes/No) and include 63 reverse-coded items.
 
 \begin{table}[t]
 \centering
@@ -124,7 +124,7 @@ EPQR-A & 24 & Y/N & 4 & 5 \\
 
 \subsection{Models and Administration Protocol}
 
-We tested 20 LLMs spanning 8 model families (\cref{tab:models}): Anthropic (Claude Opus 4.6, Sonnet 4.6), OpenAI (GPT-5.5, GPT-5.2), DeepSeek (V3.2, V4-Flash, V4-Pro), Google (Gemini-3-Flash-Preview, Gemini-3.1-Flash-Lite, Gemini-3.1-Pro-Preview, Gemini-3-Pro-Preview), Alibaba (Qwen3-235B-A22B, Qwen3.5-122B-A10B, Qwen3.5-397B-A17B), Moonshot (Kimi-K2.5, Kimi-K2.6), MiniMax (M2.7), and Zhipu (GLM-4.6V, GLM-4.7, GLM-5.1).
+We tested 20 LLMs spanning 8 model families (\cref{tab:models}), covering both proprietary and open-weight systems.
 
 \begin{table}[t]
 \centering
@@ -198,23 +198,18 @@ r_k = \mathrm{corr}(\mathbf{d},\, \mathbf{m}_k), \quad k = 1, \ldots, 16
 Strong invariance requires $r_k > 0.8$ for all persona pairs. We report the mean $r$ across all $20 \times 16 = 320$ pairs.
 
 \paragraph{Persona separation degree (PSD).}
-To quantify how far a model can be pushed from its default personality by persona instructions, we define the Persona Separation Degree. Let $\mathbf{s}_{m,p} \in \mathbb{R}^{17}$ be the vector of domain mean scores for model $m$ under persona $p$. We z-score each domain across all $20 \times 17 = 340$ observations, yielding $\mathbf{z}_{m,p}$. For each model $m$ and persona $p \neq \mathrm{Default}$:
+We quantify how far a persona prompt pushes a model from its default profile. After z-scoring each domain across all $20 \times 17 = 340$ observations, we define:
 \begin{equation}
 \mathrm{PSD}(m, p) = \frac{1}{\sqrt{17}}\left\| \mathbf{z}_{m,p} - \mathbf{z}_{m,\mathrm{Default}} \right\|_2
 \label{eq:psd}
 \end{equation}
-Dividing by $\sqrt{17}$ normalizes to a per-dimension effect size in standard-deviation units. We report $\overline{\mathrm{PSD}}(m)$ (average malleability across 16 personas), $\mathrm{PSD}_{\max}(m)$ (peak plasticity), and $\mathrm{PSD}_{\mathrm{CV}}(m) = \sigma/\mu$ (differential responsiveness).
+where division by $\sqrt{17}$ yields a per-dimension effect size in SD units.
 
 \paragraph{Persona steering diagnostics.}
-PSD measures distance from Default, but distance alone does not tell us whether the model moves toward the requested persona. We therefore define two persona targets. The \textbf{empirical target} for model $m$ and persona $p$ is the leave-one-model-out centroid difference:
-\begin{equation}
-\mathbf{t}^{\mathrm{emp}}_{m,p} =
-\bar{\mathbf{z}}_{-m,p} - \bar{\mathbf{z}}_{-m,\mathrm{Default}} .
-\end{equation}
-The \textbf{theoretical target} is a transparent MBTI-to-domain direction vector: E increases Extraversion/Sociability/Activity, N increases Openness, F increases Agreeableness and decreases dark/antagonistic traits, and J increases Conscientiousness while decreasing impulsivity. For each observed persona shift $\Delta_{m,p}=\mathbf{z}_{m,p}-\mathbf{z}_{m,\mathrm{Default}}$, we compute target adherence as $\cos(\Delta_{m,p}, \mathbf{t}_{m,p})$ and off-target leakage as the residual norm orthogonal to the target, divided by $\sqrt{17}$. We also classify each persona-conditioned profile to the nearest leave-one-model-out persona centroid, yielding a persona fidelity confusion matrix.
+PSD measures distance from Default but not direction. We define two targets: an \textbf{empirical target} using the leave-one-model-out centroid difference $\mathbf{t}^{\mathrm{emp}}_{m,p} = \bar{\mathbf{z}}_{-m,p} - \bar{\mathbf{z}}_{-m,\mathrm{Default}}$, and a \textbf{theoretical target} mapping MBTI letters to expected domain shifts (e.g., E $\to$ higher Extraversion, F $\to$ higher Agreeableness). For each persona shift $\Delta_{m,p}=\mathbf{z}_{m,p}-\mathbf{z}_{m,\mathrm{Default}}$, we measure target adherence ($\cos(\Delta_{m,p}, \mathbf{t}_{m,p})$) and off-target leakage. We also classify each profile to the nearest leave-one-out persona centroid, yielding a fidelity confusion matrix.
 
 \paragraph{Cross-scale persona coherence and item plasticity.}
-For overlapping constructs, we test whether persona-induced deltas move consistently across instruments: Extraversion (IPIP/EPQR/ZKPQ), Neuroticism (IPIP/EPQR/ZKPQ), Agreeableness versus antagonism (IPIP vs.\ SD3/ZKPQ), and Conscientiousness versus disinhibition (IPIP vs.\ ZKPQ/EPQR/SD3). We sign-align each construct and compute a coherence score, $|\overline{\Delta}|/\overline{|\Delta|}$, where 1 means all scales move in the same direction and 0 means they cancel. At the item level, we compute each item's mean absolute shift from Default and the rate at which forward/reverse item pairs move in theoretically opposite raw-score directions.
+For overlapping constructs measured by multiple instruments (e.g., Extraversion across IPIP/EPQR/ZKPQ), we sign-align each construct and compute a coherence score $|\overline{\Delta}|/\overline{|\Delta|}$, where 1 means all scales move in the same direction and 0 means they cancel. At the item level, we compute each item's mean absolute shift from Default and the rate at which forward/reverse item pairs move in theoretically opposite directions.
 
 \section{Experiments and Results}
 
