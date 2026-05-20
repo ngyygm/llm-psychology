@@ -18,7 +18,6 @@ References:
   - Serapio-Garcia et al. (2025) Nature Machine Intelligence
   - Suhr et al. (2025) Challenging Validity of Personality Tests for LLMs
   - Acerbi & Stubbersfield (2024) PNAS Nexus
-  - Kriegmair & Wulff (2026) Crossed random-effects for LLM behavior
 """
 
 import json
@@ -568,8 +567,9 @@ def run_pir_sdr_analysis(all_results):
 # ─────────────────────────────────────────────────────────────
 
 def run_variance_decomposition(all_results):
+    """Marginal sum-of-squares variance decomposition across model, domain, persona, and item factors."""
     print("\n" + "=" * 70)
-    print("ANALYSIS 3: VARIANCE DECOMPOSITION")
+    print("ANALYSIS 3: VARIANCE DECOMPOSITION (Marginal SS)")
     print("=" * 70)
 
     df = build_full_response_matrix(all_results)

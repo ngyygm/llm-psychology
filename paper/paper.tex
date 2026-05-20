@@ -224,7 +224,7 @@ For overlapping constructs, we test whether persona-induced deltas move consiste
 
 \subsection{Internal Consistency}
 
-The most basic question: do items within a domain agree with each other? \cref{tab:cronbach} shows the answer. Extraversion, where only 17\% of items are reverse-coded, yields $\alpha = 0.93$. That is close to the human norm of 0.89. But Agreeableness, where 71\% of items are reverse-coded, yields $\alpha = 0.06$, essentially zero. The difference is not random. When a model agrees with both ``I am helpful'' and ``I am not helpful,'' the two items pull in opposite directions and the domain score falls apart. The more reverse-coded items a domain has, the worse its reliability. This is the fingerprint of acquiescence.
+The most basic question: do items within a domain agree with each other? \cref{tab:cronbach} shows the answer. Extraversion, where only 17\% of items are reverse-coded, yields $\alpha = 0.93$. That is close to the human norm of 0.89. But Agreeableness, where 71\% of items are reverse-coded, yields $\alpha = 0.06$, essentially zero. The difference is not random. When a model agrees with both ``I am helpful'' and ``I am not helpful,'' the two items pull in opposite directions and the domain score falls apart. The more reverse-coded items a domain has, the worse its reliability. Spearman correlation between $\alpha$ and reverse-item percentage across the five IPIP domains is $\rho = -1.0$ ($p < 0.01$), confirming that acquiescence, not trait variance, drives reliability. This is the fingerprint of acquiescence.
 
 \begin{table}[t]
 \centering
@@ -291,7 +291,7 @@ EPQR Lie & $-$0.08 & 0.07 & $\mathbf{-}$0.89 \\
 \end{tabular}
 \end{table}
 
-This collapse is universal. Tucker's $\phi = 0.993$ across all 20 models, meaning every model produces the same distorted structure. We held out each model one at a time and re-ran the EFA 20 times. Every single run recovered exactly 3 factors, with the first eigenvalue stable between 6.93 and 7.01.
+This collapse is universal. Tucker's $\phi = 0.993$ across all 20 models, meaning every model produces the same distorted structure. We held out each model one at a time and re-ran the EFA 20 times. Every single run recovered exactly 3 factors, with the first eigenvalue stable between 6.93 and 7.01. Running EFA on each model individually (17 personas $\times$ 17 domains) confirms the pattern: all 20 models independently yield exactly 3 Kaiser factors (first three eigenvalues explain 86--90\% of variance). The same holds at the family level: all 8 model families (Anthropic, OpenAI, Google, DeepSeek, Alibaba, Zhipu, Moonshot, MiniMax) independently recover 3 factors. No model, no family, no leave-one-out configuration ever produces the expected 5-factor structure.
 
 \subsection{Reverse-Item Inconsistency and Acquiescence}
 
@@ -453,7 +453,7 @@ The mean Pearson correlation between Default and MBTI persona profiles is $r = 0
 
 \subsection{Persona Prompts as a Stress Test}
 
-The MBTI conditions act as a stress test: if the instruments measured stable traits, persona prompts should move scores without repairing the failed psychometrics. That is what we find. Persona prompts shift profiles by more than one SD from Default on average, and nearest-centroid classification recovers the prompted MBTI type in 319 of 320 cases (99.7\%). However, this is prompt compliance rather than restored validity: cross-scale persona coherence is imperfect (0.839), forward/reverse pairs move in the theoretically opposite raw-score direction only 70.4\% of the time, and the Big Five factor collapse remains. Full persona-steering analyses, including default bias, model clustering, MBTI factorial effects, scale-format sensitivity, fidelity matrices, and item plasticity, are reported in \cref{sec:appendix_persona_steering}.
+The MBTI conditions act as a stress test: if the instruments measured stable traits, persona prompts should move scores without repairing the failed psychometrics. That is what we find. Persona prompts shift profiles by more than one SD from Default on average, and nearest-centroid classification recovers the prompted MBTI type in 319 of 320 cases (99.7\%). However, this is prompt compliance rather than restored validity: cross-scale persona coherence is imperfect (0.839), forward/reverse pairs move in the theoretically opposite raw-score direction only 70.4\% of the time, and the Big Five factor collapse remains: running EFA within each of the 17 persona conditions independently still recovers only 3 factors, never 5. Full persona-steering analyses, including default bias, model clustering, MBTI factorial effects, scale-format sensitivity, fidelity matrices, and item plasticity, are reported in \cref{sec:appendix_persona_steering}.
 
 \section{Conclusion}
 

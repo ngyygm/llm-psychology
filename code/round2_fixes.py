@@ -47,7 +47,7 @@ def extract_item_responses(model_data, persona="Default"):
     for r in model_data["results_by_persona"][persona]["responses"]:
         rows.append({
             "item_id": r["item_id"], "scale": r["scale"], "domain": r["domain"],
-            "facet": r["facet"], "item_text": r["item_text"], "keyed": r["keyed"],
+            "facet": r["facet"], "item_text": r.get("item_text", ""), "keyed": r["keyed"],
             "parsed_value": _mean_across_samples(r, "parsed_value"),
             "scored_value": _mean_across_samples(r, "scored_value"),
             "response_format": r["response_format"],
@@ -561,16 +561,49 @@ def run_acquiescence_mechanism(all_results):
         # Forward-item agreement rate
         fwd_agree_rate = (fwd["parsed_value"] >= 3).mean() if len(fwd) > 0 else np.nan
 
-        rows.append({
+        # Agree-rate gap (metric for Table 5 alignment)
+        agree_rate_gap = fwd_agree_rate - rev_agree_rate
+
+        row_data = {
             "model": model_name,
+            "scale": "IPIP-NEO-120",
             "raw_mean": raw_mean,
             "fwd_raw_mean": fwd_raw_mean,
             "rev_raw_mean": rev_raw_mean,
             "acquiescence_gap": acquiescence_gap,
             "fwd_agree_rate": fwd_agree_rate,
             "rev_agree_rate": rev_agree_rate,
+            "agree_rate_gap": agree_rate_gap,
             "overall_agree_rate": (ipip["parsed_value"] >= 3).mean(),
-        })
+        }
+        rows.append(row_data)
+
+        # Binary instruments: ZKPQ-50-CC (True/False) and EPQR-A (Yes/No)
+        for bin_scale in ["ZKPQ-50-CC", "EPQR-A"]:
+            bin_items = items_df[items_df["scale"] == bin_scale]
+            if len(bin_items) == 0:
+                continue
+            bin_fwd = bin_items[bin_items["keyed"] == "+"]
+            bin_rev = bin_items[bin_items["keyed"] == "-"]
+
+            # Binary agree = parsed_value == 1
+            bin_fwd_agree = (bin_fwd["parsed_value"] == 1).mean() if len(bin_fwd) > 0 else np.nan
+            bin_rev_agree = (bin_rev["parsed_value"] == 1).mean() if len(bin_rev) > 0 else np.nan
+            bin_overall_agree = (bin_items["parsed_value"] == 1).mean()
+            bin_gap = bin_fwd_agree - bin_rev_agree if not np.isnan(bin_fwd_agree) and not np.isnan(bin_rev_agree) else np.nan
+
+            rows.append({
+                "model": model_name,
+                "scale": bin_scale,
+                "raw_mean": bin_overall_agree,
+                "fwd_raw_mean": bin_fwd["parsed_value"].mean() if len(bin_fwd) > 0 else np.nan,
+                "rev_raw_mean": bin_rev["parsed_value"].mean() if len(bin_rev) > 0 else np.nan,
+                "acquiescence_gap": bin_gap,
+                "fwd_agree_rate": bin_fwd_agree,
+                "rev_agree_rate": bin_rev_agree,
+                "agree_rate_gap": bin_gap,
+                "overall_agree_rate": bin_overall_agree,
+            })
 
     acq_df = pd.DataFrame(rows)
 
@@ -607,6 +640,11 @@ def run_acquiescence_mechanism(all_results):
             print("    This directly supports acquiescence as the mechanism for PIR")
 
     acq_df.to_csv(RESULTS_DIR / "acquiescence_mechanism.csv", index=False)
+
+    # Also save binary-only subset
+    bin_df = acq_df[acq_df["scale"] != "IPIP-NEO-120"]
+    if len(bin_df) > 0:
+        bin_df.to_csv(RESULTS_DIR / "acquiescence_mechanism_binary.csv", index=False)
     return acq_df
 
 
