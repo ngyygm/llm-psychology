@@ -1,0 +1,594 @@
+{
+  "total": 10,
+  "authenticated": true,
+  "data": [
+    {
+      "paperId": "54f3eeb95ad578e269c849fe828e3ddd74267373",
+      "externalIds": {
+        "DOI": "10.1038/d41586-025-02275-6",
+        "CorpusId": 280164717,
+        "PubMed": "40670748"
+      },
+      "title": "‘Another DeepSeek moment’: Chinese AI model Kimi K2 stirs excitement",
+      "venue": "Nature",
+      "year": 2025,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1038/d41586-025-02275-6?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1038/d41586-025-02275-6, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "2251435970",
+          "name": "Elizabeth Gibney"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "38bfb955426702f1bfc9888e52c9cd48b2f8757b",
+      "externalIds": {
+        "ArXiv": "2601.02780",
+        "DBLP": "journals/corr/abs-2601-02780",
+        "DOI": "10.48550/arXiv.2601.02780",
+        "CorpusId": 284513060
+      },
+      "title": "MiMo-V2-Flash Technical Report",
+      "venue": "arXiv.org",
+      "year": 2026,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2601.02780, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "2342370056",
+          "name": "Xi Xiao"
+        },
+        {
+          "authorId": "2393953340",
+          "name": "Bing Xia"
+        },
+        {
+          "authorId": "2340163316",
+          "name": "Bo Yang"
+        },
+        {
+          "authorId": "2341781297",
+          "name": "Bofei Gao"
+        },
+        {
+          "authorId": "2360703321",
+          "name": "Bowen Shen"
+        },
+        {
+          "authorId": "2404321724",
+          "name": "Chen Zhang"
+        },
+        {
+          "authorId": "2361644155",
+          "name": "Chenhong He"
+        },
+        {
+          "authorId": "2297297270",
+          "name": "Chiheng Lou"
+        },
+        {
+          "authorId": "2393217584",
+          "name": "Fuli Luo"
+        },
+        {
+          "authorId": "2362337409",
+          "name": "Gang Wang"
+        },
+        {
+          "authorId": "2367873079",
+          "name": "Gang Xie"
+        },
+        {
+          "authorId": "2309193043",
+          "name": "Hailin Zhang"
+        },
+        {
+          "authorId": "2365376406",
+          "name": "Hanglong Lv"
+        },
+        {
+          "authorId": "2390468582",
+          "name": "Hanyu Li"
+        },
+        {
+          "authorId": "2401913179",
+          "name": "Heyu Chen"
+        },
+        {
+          "authorId": "2299477554",
+          "name": "Hong-Mei Xu"
+        },
+        {
+          "authorId": "2402007160",
+          "name": "Houbin Zhang"
+        },
+        {
+          "authorId": "2361527635",
+          "name": "Huaqiu Liu"
+        },
+        {
+          "authorId": "2284764146",
+          "name": "Jiangshan Duo"
+        },
+        {
+          "authorId": "2406472993",
+          "name": "Jianyu Wei"
+        },
+        {
+          "authorId": "2360889300",
+          "name": "Jiebao Xiao"
+        },
+        {
+          "authorId": "2361273681",
+          "name": "Jinhao Dong"
+        },
+        {
+          "authorId": "2337756902",
+          "name": "Jun-Miao Shi"
+        },
+        {
+          "authorId": "2319937831",
+          "name": "J. Hu"
+        },
+        {
+          "authorId": "2360714036",
+          "name": "Kainan Bao"
+        },
+        {
+          "authorId": "2343795654",
+          "name": "Kang Zhou"
+        },
+        {
+          "authorId": "2343640290",
+          "name": "Lei Li"
+        },
+        {
+          "authorId": "2261687337",
+          "name": "Liang Zhao"
+        },
+        {
+          "authorId": "2402074071",
+          "name": "Linghao Zhang"
+        },
+        {
+          "authorId": "2361343545",
+          "name": "Peidian Li"
+        },
+        {
+          "authorId": "2384703203",
+          "name": "Qian Chen"
+        },
+        {
+          "authorId": "50152196",
+          "name": "Shao-yang Liu"
+        },
+        {
+          "authorId": "2278408477",
+          "name": "Shi-liang Yu"
+        },
+        {
+          "authorId": "2365411862",
+          "name": "Shijie Cao"
+        },
+        {
+          "authorId": "2298763339",
+          "name": "Shimao Chen"
+        },
+        {
+          "authorId": "2403222109",
+          "name": "Shouqiu Yu"
+        },
+        {
+          "authorId": "2352004716",
+          "name": "Shuo Liu"
+        },
+        {
+          "authorId": "2275752931",
+          "name": "Tian-Yu Zhou"
+        },
+        {
+          "authorId": "2325984165",
+          "name": "Wei Su"
+        },
+        {
+          "authorId": "2360959944",
+          "name": "Weikun Wang"
+        },
+        {
+          "authorId": "2349408014",
+          "name": "Wenhan Ma"
+        },
+        {
+          "authorId": "2356240798",
+          "name": "Xia Deng"
+        },
+        {
+          "authorId": "2367440736",
+          "name": "Bo Mao"
+        },
+        {
+          "authorId": "2298755859",
+          "name": "Bowen Ye"
+        },
+        {
+          "authorId": "2362641007",
+          "name": "C. Cai"
+        },
+        {
+          "authorId": "2382356880",
+          "name": "Chenghua Wang"
+        },
+        {
+          "authorId": "2402732694",
+          "name": "Chengxuan Zhu"
+        },
+        {
+          "authorId": "120688117",
+          "name": "Chong Ma"
+        },
+        {
+          "authorId": "2403668413",
+          "name": "Chun Chen"
+        },
+        {
+          "authorId": "2401916456",
+          "name": "Chunan Li"
+        },
+        {
+          "authorId": "2361646688",
+          "name": "Dawei Zhu"
+        },
+        {
+          "authorId": "2402897061",
+          "name": "Deshan Xiao"
+        },
+        {
+          "authorId": "2335581010",
+          "name": "Dong Zhang"
+        },
+        {
+          "authorId": "2360954505",
+          "name": "Duo Zhang"
+        },
+        {
+          "authorId": "2365107228",
+          "name": "Fang Liu"
+        },
+        {
+          "authorId": "2314385805",
+          "name": "Feiyu Yang"
+        },
+        {
+          "authorId": "2330445607",
+          "name": "Feng Shi"
+        },
+        {
+          "authorId": "2349074424",
+          "name": "Guoan Wang"
+        },
+        {
+          "authorId": "2365453724",
+          "name": "Hao Tian"
+        },
+        {
+          "authorId": "2313039819",
+          "name": "Hao Wu"
+        },
+        {
+          "authorId": "2211044047",
+          "name": "Hengxu Qu"
+        },
+        {
+          "authorId": "2277198581",
+          "name": "Hong Yi"
+        },
+        {
+          "authorId": "2405204348",
+          "name": "Hongxu An"
+        },
+        {
+          "authorId": "2402902847",
+          "name": "Hongyi Guan"
+        },
+        {
+          "authorId": "2206438267",
+          "name": "Xing Zhang"
+        },
+        {
+          "authorId": "2326819505",
+          "name": "Yi-Hao Song"
+        },
+        {
+          "authorId": "2402937474",
+          "name": "Yi-Tong Yan"
+        },
+        {
+          "authorId": "17763235",
+          "name": "Yihao Zhao"
+        },
+        {
+          "authorId": "2350531283",
+          "name": "Ying Lai"
+        },
+        {
+          "authorId": "2403240956",
+          "name": "Yizhao Gao"
+        },
+        {
+          "authorId": "2402561418",
+          "name": "Yu Cheng"
+        },
+        {
+          "authorId": "2384382178",
+          "name": "Yu Tian"
+        },
+        {
+          "authorId": "2368300769",
+          "name": "Yudong Wang"
+        },
+        {
+          "authorId": "2153431382",
+          "name": "Zheng-Yu Tang"
+        },
+        {
+          "authorId": "2153431382",
+          "name": "Zheng-Yu Tang"
+        },
+        {
+          "authorId": "2307069907",
+          "name": "Zheng Wen"
+        },
+        {
+          "authorId": "2361656530",
+          "name": "Zhichao Song"
+        },
+        {
+          "authorId": "2365464041",
+          "name": "Zhixian Zheng"
+        },
+        {
+          "authorId": "2356327596",
+          "name": "Zi-Ang Jiang"
+        },
+        {
+          "authorId": "2313981901",
+          "name": "Jiantao Wen"
+        },
+        {
+          "authorId": "2295795867",
+          "name": "Jiarui Sun"
+        },
+        {
+          "authorId": "2144508654",
+          "name": "Jiawei Li"
+        },
+        {
+          "authorId": "2401919976",
+          "name": "Jinlong Xue"
+        },
+        {
+          "authorId": "2287986227",
+          "name": "Jun Xia"
+        },
+        {
+          "authorId": "2359410246",
+          "name": "Kai Fang"
+        },
+        {
+          "authorId": "2361448828",
+          "name": "Menghang Zhu"
+        },
+        {
+          "authorId": "2403615875",
+          "name": "Nuo Chen"
+        },
+        {
+          "authorId": "2367743442",
+          "name": "Qian Tu"
+        },
+        {
+          "authorId": "2402939157",
+          "name": "Qihao Zhang"
+        },
+        {
+          "authorId": "2268375612",
+          "name": "Qiying Wang"
+        },
+        {
+          "authorId": "2400024591",
+          "name": "Rang Li"
+        },
+        {
+          "authorId": "2087741662",
+          "name": "Rui Ma"
+        },
+        {
+          "authorId": "2174742753",
+          "name": "Shao-Qiang Zhang"
+        },
+        {
+          "authorId": "2375337447",
+          "name": "Shengfan Wang"
+        },
+        {
+          "authorId": "2380321463",
+          "name": "Shicheng Li"
+        },
+        {
+          "authorId": "2362195510",
+          "name": "Shuhao Gu"
+        },
+        {
+          "authorId": "2350444140",
+          "name": "Shu-Yue Ren"
+        },
+        {
+          "authorId": "2350533187",
+          "name": "Sirui Deng"
+        },
+        {
+          "authorId": "2402657589",
+          "name": "Tao Guo"
+        },
+        {
+          "authorId": "2378092078",
+          "name": "Tianyang Lu"
+        },
+        {
+          "authorId": "2360667404",
+          "name": "Weiji Zhuang"
+        },
+        {
+          "authorId": "2304364917",
+          "name": "Weikang Zhang"
+        },
+        {
+          "authorId": "2386786906",
+          "name": "Weimin Xiong"
+        },
+        {
+          "authorId": "2337499561",
+          "name": "Wen-Jie Huang"
+        },
+        {
+          "authorId": "2401924030",
+          "name": "Wenyu Yang"
+        },
+        {
+          "authorId": "2333051764",
+          "name": "Xin Zhang"
+        },
+        {
+          "authorId": "2360709855",
+          "name": "Xing Yong"
+        },
+        {
+          "authorId": "2337388787",
+          "name": "Xu Wang"
+        },
+        {
+          "authorId": "2403012444",
+          "name": "Xueyang Xie"
+        },
+        {
+          "authorId": "2401915395",
+          "name": "Yilin Jiang"
+        },
+        {
+          "authorId": "2401911306",
+          "name": "Yixin Yang"
+        },
+        {
+          "authorId": "2402029281",
+          "name": "Yongzhe He"
+        },
+        {
+          "authorId": "2394720992",
+          "name": "Yuanyu Tu"
+        },
+        {
+          "authorId": "2344197238",
+          "name": "Yu-Jie Dong"
+        },
+        {
+          "authorId": "2310857995",
+          "name": "Yuchen Liu"
+        },
+        {
+          "authorId": "2353401410",
+          "name": "Yue Ma"
+        },
+        {
+          "authorId": "2323992995",
+          "name": "Yue Yu"
+        },
+        {
+          "authorId": "2223366561",
+          "name": "Yu-Cui Xiang"
+        },
+        {
+          "authorId": "2401917266",
+          "name": "Zhaojun Huang"
+        },
+        {
+          "authorId": "2298845285",
+          "name": "Zhenrui Lin"
+        },
+        {
+          "authorId": "2287445370",
+          "name": "Zhipeng Xu"
+        },
+        {
+          "authorId": "2403008438",
+          "name": "Zhiyang Chen"
+        },
+        {
+          "authorId": "2187005558",
+          "name": "Zhonghua Deng"
+        },
+        {
+          "authorId": "2262556316",
+          "name": "Zihan Zhang"
+        },
+        {
+          "authorId": "2399957085",
+          "name": "Zihao Yue"
+        }
+      ],
+      "abstract": "We present MiMo-V2-Flash, a Mixture-of-Experts (MoE) model with 309B total parameters and 15B active parameters, designed for fast, strong reasoning and agentic capabilities. MiMo-V2-Flash adopts a hybrid attention architecture that interleaves Sliding Window Attention (SWA) with global attention, with a 128-token sliding window under a 5:1 hybrid ratio. The model is pre-trained on 27 trillion tokens with Multi-Token Prediction (MTP), employing a native 32k context length and subsequently extended to 256k. To efficiently scale post-training compute, MiMo-V2-Flash introduces a novel Multi-Teacher On-Policy Distillation (MOPD) paradigm. In this framework, domain-specialized teachers (e.g., trained via large-scale reinforcement learning) provide dense and token-level reward, enabling the student model to perfectly master teacher expertise. MiMo-V2-Flash rivals top-tier open-weight models such as DeepSeek-V3.2 and Kimi-K2, despite using only 1/2 and 1/3 of their total parameters, respectively. During inference, by repurposing MTP as a draft model for speculative decoding, MiMo-V2-Flash achieves up to 3.6 acceptance length and 2.6x decoding speedup with three MTP layers. We open-source both the model weights and the three-layer MTP weights to foster open research and community collaboration."
+    },
+    {
+      "paperId": "52130b6fb9e145db842802ef0bc3feecd5b7318c",
+      "externalIds": {
+        "DOI": "10.55041/isjem06062",
+        "CorpusId": 287149075
+      },
+      "title": "Smartedu AI- CSE Assistant Rule Based AI Chat System",
+      "venue": "International Scientific Journal of Engineering and Management",
+      "year": 2026,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.55041/isjem06062?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.55041/isjem06062, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "2384601559",
+          "name": "D. P."
+        },
+        {
+          "authorId": "2347359943",
+          "name": "T. P"
+        },
+        {
+          "authorId": "2427964455",
+          "name": "Tejaswani V."
+        },
+        {
+          "authorId": "2427937370",
+          "name": "Pramodh reddy M."
+        },
+        {
+          "authorId": "2326968261",
+          "name": "R. P"
+        },
+        {
+          "authorId": "2046959052",
+          "name": "G. K"
+        }
+      ],
+      "abstract": "The rapid advancement of digital pedagogy has created a necessity for intelligent systems that move beyond static content \ndelivery. Traditional educational platforms often fail to account for the diverse cognitive speeds and learning styles of \nindividual students. This research presents SMARTEDUAI, an advanced AI-driven educational ecosystem designed to \nact as a \"neural interface\" to global human knowledge. By utilizing a decoupled architecture featuring a FastAPI-based \nMachine Learning backend and an interactive glass-morphism frontend, the system provides real-time, adaptive tutoring. \nThe platform leverages the moonshotai/Kimi-K2-Instruct-0905 model via Hugging Face’s inference router to deliver high\nprecision academic insights. This paper discusses the technical implementation, architectural logic, and the efficacy of \nusing instruction-tuned AI models to enhance personalized learning outcomes."
+    }
+  ]
+}

@@ -1,0 +1,294 @@
+{
+  "schema_version": "ara-1.0",
+  "extraction_mode": "structured-source-distillation",
+  "experiments": [
+    {
+      "id": "exp-design-overview",
+      "source": "paper.tex Sec. 3 + README.md + BATTERY_SPECIFICATION.md",
+      "hypothesis": "Validated human personality instruments will fail standard psychometric checks when administered to LLMs because alignment training imposes a uniform 'agreeable' response style that contaminates item-level responses.",
+      "method": "Administer a 221-item, 4-instrument battery (IPIP-NEO-120, SD3, ZKPQ-50-CC, EPQR-A) to 20 LLMs across 8 families under 17 persona conditions (Default + 16 MBTI types). k=5 independent samples per (model, persona, item) cell at temperature 0.7. Total: 375,700 raw API calls; 75,140 averaged item-level scores.",
+      "instruments": [
+        {"name": "IPIP-NEO-120", "items": 120, "format": "Likert-5", "domains": 5, "facets_per_domain": 6, "reverse_items": 41, "source": "Johnson (2014)"},
+        {"name": "SD3 (Short Dark Triad)", "items": 27, "format": "Likert-5", "domains": 3, "reverse_items": 5, "source": "Jones & Paulhus (2014)"},
+        {"name": "ZKPQ-50-CC", "items": 50, "format": "True/False", "domains": 5, "reverse_items": 12, "source": "Aluja et al. (2006)"},
+        {"name": "EPQR-A", "items": 24, "format": "Yes/No", "domains": 4, "reverse_items": 5, "source": "Francis et al. (1992)"}
+      ],
+      "models": [
+        {"family": "Anthropic", "models": ["Claude-Opus-4.6", "Claude-Sonnet-4.6"]},
+        {"family": "OpenAI", "models": ["GPT-5.2", "GPT-5.5"]},
+        {"family": "Google", "models": ["Gemini-3-Pro-Preview", "Gemini-3-Flash-Preview", "Gemini-3.1-Pro-Preview", "Gemini-3.1-Flash-Lite"]},
+        {"family": "DeepSeek", "models": ["DeepSeek-V3.2", "DeepSeek-V4-Flash", "DeepSeek-V4-Pro"]},
+        {"family": "Alibaba", "models": ["Qwen3-235B-A22B", "Qwen3.5-122B-A10B", "Qwen3.5-397B-A17B"]},
+        {"family": "Zhipu", "models": ["GLM-4.6V", "GLM-4.7", "GLM-5.1"]},
+        {"family": "Moonshot", "models": ["Kimi-K2.5", "Kimi-K2.6"]},
+        {"family": "MiniMax", "models": ["MiniMax-M2.7"]}
+      ],
+      "personas": ["Default", "ISTJ", "ISFJ", "INFJ", "INTJ", "ISTP", "ISFP", "INFP", "INTP", "ESTP", "ESFP", "ENFP", "ENTP", "ESTJ", "ESFJ", "ENFJ", "ENTJ"],
+      "results": null,
+      "qualitative": "Refusals: 61/375,700 (0.02%). All occur under the Default condition; no MBTI-persona cell triggered a refusal. Refusal strategies are AI self-identification (57%) and philosophical hedging (28%). Refusal content clusters in politically sensitive (34%), self-referential/emotional (33%), sexually explicit (13%), and manipulation/danger (13%) themes."
+    },
+    {
+      "id": "exp-internal-consistency",
+      "source": "paper.tex Sec. 4.2 + cronbach_alpha_by_domain.csv",
+      "hypothesis": "Cronbach's alpha will track reverse-item density: domains with few reverse items will pass the human reliability bar; domains with many reverse items will collapse.",
+      "method": "Compute Cronbach's alpha per IPIP domain, using the 17 persona conditions as observations within each model. Average across 20 models. Compare against published human norms (Johnson 2014).",
+      "results": {
+        "alpha_by_domain": [
+          {"domain": "Neuroticism", "llm_mean": 0.813, "llm_sd": 0.035, "human": 0.90, "gap": -0.087, "reverse_pct": 17},
+          {"domain": "Extraversion", "llm_mean": 0.928, "llm_sd": 0.008, "human": 0.89, "gap": 0.038, "reverse_pct": 17},
+          {"domain": "Openness", "llm_mean": 0.189, "llm_sd": 0.160, "human": 0.87, "gap": -0.681, "reverse_pct": 25},
+          {"domain": "Agreeableness", "llm_mean": 0.069, "llm_sd": 0.311, "human": 0.88, "gap": -0.811, "reverse_pct": 71},
+          {"domain": "Conscientiousness", "llm_mean": 0.535, "llm_sd": 0.113, "human": 0.90, "gap": -0.365, "reverse_pct": 25}
+        ],
+        "spearman_alpha_vs_reverse_density": -1.0,
+        "p_value": "<0.01"
+      },
+      "qualitative": "Spearman rho between alpha and reverse-item percentage across the 5 IPIP domains is exactly -1.0: every additional reverse item in a domain damages reliability. The fingerprint is acquiescence, not trait variance."
+    },
+    {
+      "id": "exp-acquiescence-mechanism",
+      "source": "paper.tex Sec. 4.3 + acquiescence_mechanism.csv + paper Tab. 3",
+      "hypothesis": "Acquiescence has a directional asymmetry: positive forward-reverse gap on normal-personality items (IPIP), negative gap on dark-trait items (SD3).",
+      "method": "For each (model, instrument), compute Forward-agree rate, Reverse-agree rate, and Delta = Fwd - Rev. Likert >= 3 counts as agree; binary 1 counts as agree. Also compute Pairwise Inconsistency Rate (PIR): proportion of forward-reverse item pairs where both responses fall on the same side of the midpoint.",
+      "results": {
+        "overall_pir": 0.468,
+        "pir_ci95": [0.413, 0.531],
+        "default_to_mbti_change": {"default": 0.674, "mbti": 0.834, "t": 10.70, "p": "<0.0001"},
+        "delta_by_instrument": [
+          {"instrument": "IPIP", "rev_mean": 0.43, "delta_mean": 0.29, "interpretation": "classic acquiescence"},
+          {"instrument": "SD3", "rev_mean": 0.72, "delta_mean": -0.33, "interpretation": "social desirability rejection"},
+          {"instrument": "ZKPQ", "rev_mean": 0.55, "delta_mean": -0.36, "interpretation": "social desirability rejection"},
+          {"instrument": "EPQR", "rev_mean": 0.27, "delta_mean": -0.16, "interpretation": "mixed"},
+          {"instrument": "Overall", "rev_mean": 0.46, "delta_mean": 0.01, "interpretation": "near-zero on average; instrument-specific structure"}
+        ],
+        "r_reverse_agree_vs_pir": 0.63
+      },
+      "qualitative": "On IPIP items, models agree with both forward and reverse items (positive Delta), the textbook acquiescence pattern. On SD3 items, the same models REJECT forward dark-trait items while still agreeing with reverse-coded ones (negative Delta), the textbook social-desirability pattern. Both patterns originate from one alignment-driven impulse: avoid endorsing 'bad' or contradicting framed-positive content. Persona injection improves PIR consistency: it gives the model a coherent role to play, so the alignment-vs-honest tension relaxes."
+    },
+    {
+      "id": "exp-factor-structure",
+      "source": "paper.tex Sec. 4.4 + efa_eigenvalues.csv + efa_per_model_congruence.csv + leave_one_out_robustness.csv",
+      "hypothesis": "If the items measure 5 independent Big Five dimensions, EFA on the 17 domain scores should recover 5 factors with the expected loading pattern. If acquiescence dominates, factors will collapse.",
+      "method": "Standardize each of 17 domain scores across 340 (20 models x 17 personas) observations. Compute correlation matrix R, eigendecompose, retain factors via Kaiser criterion (lambda > 1) and parallel analysis (95th percentile of 500 permutations). Apply varimax rotation. Repeat 20 times in leave-one-model-out fashion. Repeat per family. Repeat per model.",
+      "results": {
+        "kaiser_factors": 3,
+        "expected_factors": 5,
+        "first_three_eigenvalues": [6.97, 4.33, 3.07],
+        "variance_explained_first3_pct": "86-90",
+        "tucker_phi_mean_across_models": 0.993,
+        "tucker_phi_min": 0.976,
+        "leave_one_out_factors": "all 20 runs return exactly 3 factors",
+        "first_eigenvalue_loo_range": [6.94, 7.02],
+        "factor_interpretation": {
+          "F1": "Extraversion / Sociability (loadings: EPQR-E 0.96, ZKPQ-Soc 0.96, IPIP-E 0.94)",
+          "F2": "merged Neuroticism-Agreeableness (IPIP-N 0.72, EPQR-N 0.91, IPIP-A 0.90)",
+          "F3": "Conscientiousness vs Impulsivity (IPIP-C -0.91, ZKPQ-ImpSS 0.84, EPQR-P 0.88)"
+        }
+      },
+      "qualitative": "Big Five collapses into 3 factors universally: every model, every family, every leave-one-out configuration. The smoking gun is the F2 Neuroticism-Agreeableness merger: in humans these are orthogonal; in LLMs they fuse into a single 'socially desirable emotional stability' axis."
+    },
+    {
+      "id": "exp-variance-decomposition",
+      "source": "paper.tex Sec. 4.5 + variance_decomposition.csv",
+      "hypothesis": "If alignment training homogenizes models, inter-model variance should be negligible compared with item, domain, and persona effects.",
+      "method": "Normalize all responses to 0-1 scale (Likert: x' = (x-1)/4; binary: as-is). Sequentially decompose total SS into Model, Domain, Persona, Item, Residual. Run separately for Likert and binary scales.",
+      "results": {
+        "likert": {"model": 0.35, "domain": 23.93, "persona": 4.09, "item": 36.13, "residual": 35.51},
+        "binary": {"model": 0.51, "domain": 5.27, "persona": 14.06, "item": 14.81, "residual": 65.35}
+      },
+      "qualitative": "Inter-model variance is below 1% in both formats. Cross-model personality comparisons are effectively meaningless at this resolution. The dominant signal is item identity (which question), not which model answered."
+    },
+    {
+      "id": "exp-convergent-validity",
+      "source": "paper.tex Sec. 4.6 + convergent_validity_enhanced.csv",
+      "hypothesis": "Theoretically related constructs across instruments should correlate in the expected sign at human-comparable magnitude (typically r > 0.5 for overlapping constructs).",
+      "method": "Compute Pearson and Spearman correlations across 20 model-level means for 8 pre-specified construct pairs.",
+      "results": {
+        "pairs": [
+          {"pair": "Neuroticism x N-Anx", "expected": "+", "rp": 0.64, "rs": 0.80, "ok": true},
+          {"pair": "Extraversion x Sociability", "expected": "+", "rp": -0.10, "rs": -0.13, "ok": false, "note": "SIGN REVERSAL"},
+          {"pair": "Extraversion x Extraversion", "expected": "+", "rp": 0.51, "rs": 0.56, "ok": true},
+          {"pair": "Neuroticism x Neuroticism", "expected": "+", "rp": 0.48, "rs": 0.44, "ok": true},
+          {"pair": "Agreeableness x Machiavellianism", "expected": "-", "rp": -0.71, "rs": -0.72, "ok": true},
+          {"pair": "Agreeableness x Psychopathy", "expected": "-", "rp": -0.81, "rs": -0.82, "ok": true},
+          {"pair": "Conscientiousness x Psychopathy", "expected": "-", "rp": -0.73, "rs": -0.75, "ok": true},
+          {"pair": "Psychoticism x Psychopathy", "expected": "+", "rp": 0.11, "rs": 0.28, "ok": true}
+        ],
+        "sign_match_rate": "7/8",
+        "magnitude_note": "weaker than human baselines across the board"
+      }
+    },
+    {
+      "id": "exp-measurement-invariance",
+      "source": "paper.tex Sec. 4.7 + persona_invariance.csv",
+      "hypothesis": "If the instruments measure stable traits, persona prompts should leave the underlying response structure intact (strong invariance, r > 0.8).",
+      "method": "For each model, correlate the 120-dim IPIP-NEO-120 parsed-value vector under Default with the same vector under each of 16 MBTI personas. Mean across 20 x 16 = 320 pairs.",
+      "results": {
+        "mean_r_default_vs_mbti": 0.461,
+        "n_pairs_strong_invariance_r_gt_0p8": 0,
+        "most_invariant_personas": [
+          {"persona": "ENFJ", "mean_r": 0.653},
+          {"persona": "INFJ", "mean_r": 0.557},
+          {"persona": "ESFJ", "mean_r": 0.528}
+        ],
+        "least_invariant_personas": [
+          {"persona": "ESTP", "mean_r": 0.179},
+          {"persona": "ENTP", "mean_r": 0.291},
+          {"persona": "ESFP", "mean_r": 0.331}
+        ]
+      },
+      "qualitative": "No (model, persona) pair achieves strong invariance. Persona prompts fundamentally rewrite the response profile, not merely shift its level. Personas that conflict with alignment (ESTP, ENTP) move farthest from Default."
+    },
+    {
+      "id": "exp-synthetic-baselines",
+      "source": "paper.tex Sec. 4.8 + synthetic_baselines.csv",
+      "hypothesis": "If LLM responses look like 'genuine traits with some acquiescence on top', their alpha should resemble Trait+Acquiescence baseline (~0.99). If they are pure response style, alphas should resemble Random or Pure-Acquiescence baselines.",
+      "method": "Simulate three response strategies on the same 120-item structure: Random uniform; Pure Acquiescence (always agree); Trait+Acquiescence (genuine 5-factor structure plus acquiescence noise). Compute Cronbach's alpha for each.",
+      "results": {
+        "by_strategy": {
+          "Random": {"N": 0.078, "E": -0.013, "O": 0.062, "A": 0.044, "C": -0.108},
+          "Pure_Acquiescence": {"N": 0.016, "E": 0.025, "O": -0.008, "A": 0.096, "C": -0.031},
+          "Trait_plus_Acquiescence": {"N": 0.997, "E": 0.998, "O": 0.996, "A": 0.997, "C": 0.996},
+          "LLM_Observed": {"N": 0.813, "E": 0.928, "O": 0.189, "A": 0.069, "C": 0.535},
+          "Human": {"N": 0.90, "E": 0.89, "O": 0.87, "A": 0.88, "C": 0.90}
+        }
+      },
+      "qualitative": "LLM alphas fall closest to Random and Pure-Acquiescence baselines. They are far from the Trait+Acquiescence strategy (alpha > 0.99). LLMs do not look like they have personality with some acquiescence on top; they look like they have acquiescence with no personality underneath."
+    },
+    {
+      "id": "exp-persona-steering",
+      "source": "paper.tex App. A + persona_target_adherence.csv + persona_fidelity_confusion.csv + persona_fidelity_robustness.csv + cross_scale_persona_coherence_summary.csv",
+      "hypothesis": "If the instruments measured stable traits, persona prompts should produce smooth construct-aligned shifts. If they measure response style, prompts will produce large but stereotyped role-shifts that fail forward/reverse logic.",
+      "method": "Define PSD as normalized 17-dim Euclidean distance between persona profile and Default in z-scored space. Define empirical target as leave-one-model-out persona-centroid difference. Compute target adherence as cos(observed shift, target). Run nearest-centroid classification (leave-one-model-out) across 320 prompted profiles. Sign-align overlapping constructs and compute mean coherence (1 = all scales agree, 0 = cancellation).",
+      "results": {
+        "mean_psd": 1.198,
+        "max_psd": 2.06,
+        "psd_top5": [
+          {"model": "Gemini-3-Pro", "psd": 1.384, "peak_persona": "ENTP"},
+          {"model": "Gemini-3.1-Pro", "psd": 1.363, "peak_persona": "ENTP"},
+          {"model": "Qwen3-235B", "psd": 1.344, "peak_persona": "ESTJ"},
+          {"model": "GLM-5.1", "psd": 1.339, "peak_persona": "ESTP"},
+          {"model": "GLM-4.7", "psd": 1.269, "peak_persona": "ENTP"}
+        ],
+        "psd_bottom5": [
+          {"model": "DeepSeek-V3.2", "psd": 1.117},
+          {"model": "GPT-5.2", "psd": 1.125},
+          {"model": "Claude-Sonnet-4.6", "psd": 1.080},
+          {"model": "DeepSeek-V4-Pro", "psd": 1.016},
+          {"model": "MiniMax-M2.7", "psd": 0.996}
+        ],
+        "fidelity_top1_accuracy": 0.997,
+        "fidelity_correct": "319/320",
+        "fidelity_one_confusion": "DeepSeek-V3.2 ESFP -> ENTP",
+        "fidelity_robustness": {
+          "all_z_euclidean": 0.997, "all_cosine": 0.997, "all_mahalanobis": 0.984,
+          "likert_only_z_eucl": 1.000, "binary_only_z_eucl": 0.919, "ipip_only_z_eucl": 0.997
+        },
+        "empirical_target_cosine_mean": 0.838,
+        "empirical_target_cosine_ci95": [0.791, 0.877],
+        "theory_target_cosine_mean": 0.557,
+        "cross_scale_coherence_mean": 0.839,
+        "cross_scale_coherence_ci95": [0.815, 0.862],
+        "cross_scale_sign_match": 0.788,
+        "fwd_reverse_directional_match": 0.696,
+        "fwd_reverse_by_scale": {"EPQR-A": 0.737, "ZKPQ-50-CC": 0.727, "IPIP-NEO-120": 0.685, "SD3": 0.657},
+        "default_classified_to_ISTJ_models": 8,
+        "default_implicit_persona_distribution": {"ISTJ": 8, "ISFP": 4, "ISTP": 3, "INTP": 2, "INTJ": 2, "ENFP": 1}
+      },
+      "qualitative": "Persona prompts move profiles by ~1 SD per dimension. Models successfully ENACT the requested MBTI stereotype (99.7% recoverable). But this is role compliance, not measurement validity: cross-scale coherence is 0.839 (not 1.0); forward/reverse pairs flip in only 69.6% of cases; and the 3-factor collapse persists inside every persona condition. Default profiles are not neutral - they cluster on ISTJ/ISFP-like aligned baselines. Persona shifts strain hardest against alignment (ESTP, ENTP) and easiest along stereotype-aligned axes (E/I dominates social/sociability/narcissism; J/P dominates conscientiousness/impulsivity)."
+    },
+    {
+      "id": "exp-mbti-factorial-effects",
+      "source": "paper.tex App. A.1 + factorial_mbti_effects.csv",
+      "hypothesis": "MBTI prompts are interpreted compositionally: each axis (E/I, S/N, T/F, J/P) drives the corresponding domain.",
+      "method": "Fit a factorial linear model with 4 main effects + 6 two-way interactions across 320 (model, persona) cells per domain.",
+      "results": {
+        "main_effects_strongest_per_axis": {
+          "E_I": [
+            {"domain": "EPQR Extraversion", "beta": 1.01},
+            {"domain": "ZKPQ Sociability", "beta": 0.98},
+            {"domain": "IPIP Extraversion", "beta": 0.96},
+            {"domain": "SD3 Narcissism", "beta": 0.94},
+            {"domain": "ZKPQ Activity", "beta": 0.87}
+          ],
+          "J_P": [
+            {"domain": "IPIP Conscientiousness", "beta": 0.96},
+            {"domain": "ZKPQ ImpSS", "beta": -0.81},
+            {"domain": "EPQR Lie", "beta": 0.78},
+            {"domain": "EPQR Psychoticism", "beta": -0.73}
+          ],
+          "S_N": [{"domain": "IPIP Openness", "beta": 0.77}],
+          "T_F": [
+            {"domain": "IPIP Agreeableness", "beta": 0.93},
+            {"domain": "EPQR Neuroticism", "beta": 0.87},
+            {"domain": "SD3 Machiavellianism", "beta": -0.76}
+          ]
+        },
+        "leakage": "EPQR Lie loads on J/P (0.78); SD3 Narcissism loads on E/I (0.94)"
+      },
+      "qualitative": "MBTI prompt interpretation is compositional and stereotype-consistent. But the same model also leaks: persona prompts also alter response style and self-presentation, not only target traits."
+    },
+    {
+      "id": "exp-item-plasticity",
+      "source": "paper.tex App. A.2 + item_plasticity.csv",
+      "hypothesis": "Persona prompts can move 'visible behavior' items but not safety- or morality-locked items. Locked items reveal alignment override constraints.",
+      "method": "Per item, compute mean absolute raw-score shift from Default across (model, persona) cells, normalized by scale range.",
+      "results": {
+        "most_plastic_examples": [
+          {"text": "Do you sometimes talk about things you know nothing about?", "shift": 0.632, "scale": "EPQR"},
+          {"text": "I lead a busier life than most people", "shift": 0.608, "scale": "ZKPQ"},
+          {"text": "Do you prefer to go your own way rather than act by the rules?", "shift": 0.597, "scale": "EPQR"}
+        ],
+        "most_locked_examples": [
+          {"text": "Do you enjoy hurting people you love?", "shift": 0.000, "scale": "EPQR"},
+          {"text": "Are all your habits good and desirable ones?", "shift": 0.010, "scale": "EPQR"},
+          {"text": "Do you enjoy practical jokes that can sometimes really hurt people?", "shift": 0.031, "scale": "EPQR"},
+          {"text": "Take advantage of others", "shift": 0.056, "scale": "IPIP"},
+          {"text": "Insult people", "shift": 0.075, "scale": "IPIP"}
+        ]
+      },
+      "qualitative": "Plastic items describe ordinary visible behavior (activity, sociability, rule-following). Locked items concentrate in safety-sensitive, morally objectionable, or socially undesirable content. Persona instructions can re-color behavior but cannot override the safety floor."
+    },
+    {
+      "id": "exp-within-sample-consistency",
+      "source": "paper.tex App. E + wsc_by_model.csv + wsc_by_persona.csv + wsc_by_domain.csv",
+      "hypothesis": "WSC quantifies model-specific stochasticity across k=5 repeats. We expect (a) Likert > Binary in spread, (b) MBTI personas at least as stable as Default, (c) dark-triad domains noisier than Big Five domains.",
+      "method": "For each (model, persona, item) cell, compute SD of the 5 scored values, exact-agreement rate, and mode-agreement rate. Aggregate by model, persona, domain.",
+      "results": {
+        "overall": {"likert_mean_sd": 0.141, "likert_exact_agree": 0.727, "likert_mode_agree": 0.927, "tf_sd": 0.037, "yn_sd": 0.032},
+        "model_top_consistent": [
+          {"model": "Claude-Opus-4.6", "sd": 0.0193, "exact": 0.955},
+          {"model": "Claude-Sonnet-4.6", "sd": 0.0225, "exact": 0.949},
+          {"model": "Gemini-3.1-Flash-Lite", "sd": 0.0400, "exact": 0.919}
+        ],
+        "model_bottom_consistent": [
+          {"model": "DeepSeek-V4-Pro", "sd": 0.1920, "exact": 0.612},
+          {"model": "GLM-4.6V", "sd": 0.1846, "exact": 0.653},
+          {"model": "DeepSeek-V3.2", "sd": 0.1728, "exact": 0.642},
+          {"model": "MiniMax-M2.7", "sd": 0.1702, "exact": 0.667}
+        ],
+        "persona_default_vs_mbti": {"default_sd": 0.2045, "mbti_min_sd_isfj": 0.0808, "mbti_max_sd_istp": 0.1181},
+        "noisiest_likert_domains": ["SD3 Machiavellianism (SD 0.187)", "SD3 Narcissism (SD 0.166)", "IPIP Neuroticism (SD 0.163)"],
+        "most_consistent_likert_domain": "IPIP Extraversion (SD 0.124)"
+      },
+      "qualitative": "Default is the noisiest condition: persona role-play stabilizes responses rather than degrading them. Within-sample SD differs by an order of magnitude across vendors (Claude ~0.02 vs DeepSeek-V4-Pro ~0.19), suggesting that what looks like 'personality' could in part be model-specific decoding noise."
+    },
+    {
+      "id": "exp-dif-across-families",
+      "source": "paper.tex App. B + dif_model_family.csv",
+      "hypothesis": "If alignment imposes a universal response style, model families (Western vs Chinese) should not differ on personality domain means.",
+      "method": "Compare 8 personality domain means across two groups: {Anthropic, OpenAI, Google} (n=8 models) vs {DeepSeek, Alibaba, Moonshot, MiniMax, Zhipu} (n=12 models). Cohen's d and t-test p-values.",
+      "results": {
+        "all_p_gt": 0.16,
+        "max_cohen_d": -0.42,
+        "max_d_domain": "SD3 Machiavellianism (Grp1=2.37, Grp2=2.49)",
+        "no_significant_dif": true
+      },
+      "qualitative": "Western and Chinese model families are statistically indistinguishable on every domain. Alignment training produces a universal 'personality' that transcends vendor and locale."
+    }
+  ],
+  "warnings": [
+    "Synthetic-baselines table in synthetic_baselines.csv differs slightly from paper Tab. 4: paper used the same alphas but reformatted columns. Use paper values as canonical.",
+    "An earlier intermediate analysis (PSYCHOMETRIC_RESULTS_SUMMARY.md, n=18 models) reports PIR = 0.584 and r(PIR, SDR) = -0.562. Final paper uses n=20 models, reports PIR = 0.468 and r(reverse-agree, PIR) = +0.63. Trust the latter (paper.tex)."
+  ]
+}

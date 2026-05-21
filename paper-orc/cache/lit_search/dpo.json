@@ -1,0 +1,135 @@
+{
+  "total": 1575,
+  "authenticated": true,
+  "data": [
+    {
+      "paperId": "bfc223b002401f42b44bca725da6ed6d1b953cff",
+      "externalIds": {
+        "DBLP": "conf/acl/ParkREF24",
+        "ArXiv": "2403.19159",
+        "DOI": "10.48550/arXiv.2403.19159",
+        "CorpusId": 268733207
+      },
+      "title": "Disentangling Length from Quality in Direct Preference Optimization",
+      "venue": "Annual Meeting of the Association for Computational Linguistics",
+      "year": 2024,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2403.19159, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "2293725656",
+          "name": "Ryan Park"
+        },
+        {
+          "authorId": "102801230",
+          "name": "Rafael Rafailov"
+        },
+        {
+          "authorId": "2282987268",
+          "name": "Stefano Ermon"
+        },
+        {
+          "authorId": "2284774407",
+          "name": "Chelsea Finn"
+        }
+      ],
+      "abstract": "Reinforcement Learning from Human Feedback (RLHF) has been a crucial component in the recent success of Large Language Models. However, RLHF is know to exploit biases in human preferences, such as verbosity. A well-formatted and eloquent answer is often more highly rated by users, even when it is less helpful and objective. A number of approaches have been developed to control those biases in the classical RLHF literature, but the problem remains relatively under-explored for Direct Alignment Algorithms such as Direct Preference Optimization (DPO). Unlike classical RLHF, DPO does not train a separate reward model or use reinforcement learning directly, so previous approaches developed to control verbosity cannot be directly applied to this setting. Our work makes several contributions. For the first time, we study the length problem in the DPO setting, showing significant exploitation in DPO and linking it to out-of-distribution bootstrapping. We then develop a principled but simple regularization strategy that prevents length exploitation, while still maintaining improvements in model quality. We demonstrate these effects across datasets on summarization and dialogue, where we achieve up to 20\\% improvement in win rates when controlling for length, despite the GPT4 judge's well-known verbosity bias."
+    },
+    {
+      "paperId": "f5275c61736781d236abe6700b822f1ea62f982e",
+      "externalIds": {
+        "ArXiv": "2311.12908",
+        "DBLP": "conf/cvpr/WallaceDRZLPEXJ24",
+        "DOI": "10.1109/CVPR52733.2024.00786",
+        "CorpusId": 265352136
+      },
+      "title": "Diffusion Model Alignment Using Direct Preference Optimization",
+      "venue": "Computer Vision and Pattern Recognition",
+      "year": 2023,
+      "openAccessPdf": {
+        "url": "https://arxiv.org/pdf/2311.12908",
+        "status": "GREEN",
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2311.12908, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "152823401",
+          "name": "Bram Wallace"
+        },
+        {
+          "authorId": "2267728871",
+          "name": "Meihua Dang"
+        },
+        {
+          "authorId": "102801230",
+          "name": "Rafael Rafailov"
+        },
+        {
+          "authorId": "2249592181",
+          "name": "Linqi Zhou"
+        },
+        {
+          "authorId": "2261494043",
+          "name": "Aaron Lou"
+        },
+        {
+          "authorId": "3234247",
+          "name": "Senthil Purushwalkam"
+        },
+        {
+          "authorId": "2490652",
+          "name": "Stefano Ermon"
+        },
+        {
+          "authorId": "2267728986",
+          "name": "Caiming Xiong"
+        },
+        {
+          "authorId": "2708940",
+          "name": "Shafiq R. Joty"
+        },
+        {
+          "authorId": "2265756339",
+          "name": "Nikhil Naik"
+        }
+      ],
+      "abstract": "Large language models (LLMs) are fine-tuned using human comparison data with Reinforcement Learning from Human Feedback (RLHF) methods to make them better aligned with users' preferences. In contrast to LLMs, human preference learning has not been widely explored in text-to-image diffusion models; the best existing approach is to fine-tune a pretrained model using carefully curated high quality images and captions to improve visual appeal and text alignment. We propose Diffusion-DPO, a method to align diffusion models to human preferences by directly optimizing on human comparison data. Diffusion-DPO is adapted from the recently developed Direct Preference Optimization (DPO) [36], a simpler alternative to RLHF which directly optimizes a policy that best satisfies human preferences under a classification objective. We re-formulate DPO to account for a diffusion model notion of likelihood, utilizing the evidence lower bound to derive a differentiable objective. Using the Pick-a-Pic dataset of 851K crowdsourced pairwise preferences, we fine-tune the base model of the state-of-the-art Stable Diffusion XL (SDXL)-1.0 model with Diffusion-DPO. Our fine-tuned base model significantly outperforms both base SDXL-1.0 and the larger SDXL-1.0 model consisting of an additional refinement model in human evaluation, improving visual appeal and prompt alignment. We also develop a variant that uses AI feedback and has comparable performance to training on human preferences, opening the door for scaling of diffusion model alignment methods."
+    },
+    {
+      "paperId": "6976185bec1d85b6e72c49626266c566eb6aff6f",
+      "externalIds": {
+        "DOI": "10.1101/2024.05.20.595026",
+        "CorpusId": 269976016
+      },
+      "title": "Aligning protein generative models with experimental fitness via Direct Preference Optimization",
+      "venue": "bioRxiv",
+      "year": 2024,
+      "openAccessPdf": {
+        "url": "https://www.biorxiv.org/content/biorxiv/early/2024/05/21/2024.05.20.595026.full.pdf",
+        "status": "GREEN",
+        "license": "CCBY",
+        "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1101/2024.05.20.595026?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1101/2024.05.20.595026, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "2302738995",
+          "name": "Talal Widatalla"
+        },
+        {
+          "authorId": "102801230",
+          "name": "Rafael Rafailov"
+        },
+        {
+          "authorId": "3641819",
+          "name": "Brian L. Hie"
+        }
+      ],
+      "abstract": "Generative models trained on unlabeled protein datasets have demonstrated a remarkable ability to predict some biological functions without any task-specific training data. However, this capability does not extend to all relevant functions and, in many cases, the unsupervised model still underperforms task-specific, supervised baselines. We hypothesize that this is due to a fundamental “alignment gap” in which the rules learned during unsupervised training are not guaranteed to be related to the function of interest. Here, we demonstrate how to provide protein generative models with useful task-specific information without losing the rich, general knowledge learned during pretraining. Using an optimization task called Direct Preference Optimization (DPO), we align a structure-conditioned language model to generate stable protein sequences by encouraging the model to prefer stabilizing over destabilizing variants given a protein backbone structure. Our resulting model, ProteinDPO, is the first structure-conditioned language model preference-optimized to experimental data. ProteinDPO achieves competitive stability prediction and consistently outperforms both unsupervised and finetuned versions of the model. Notably, the aligned model also performs well in domains beyond its training data to enable absolute stability prediction of large proteins and binding affinity prediction of multi-chain complexes, while also enabling single-step stabilization of diverse backbones. These results indicate that ProteinDPO has learned generalizable information from its biophysical alignment data."
+    }
+  ]
+}

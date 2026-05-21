@@ -1,0 +1,77 @@
+{
+  "total": 144,
+  "authenticated": true,
+  "data": [
+    {
+      "paperId": "ae59c1656ac33bad2eb89f8ebdd4e6db06f36c67",
+      "externalIds": {
+        "MAG": "2101002258",
+        "DOI": "10.1037/0022-3514.86.1.96",
+        "CorpusId": 6024297,
+        "PubMed": "14717630"
+      },
+      "title": "Introduction to the special section on cognitive abilities: 100 years after Spearman's (1904) \"'General intelligence,' objectively determined and measured\".",
+      "venue": "Journal of Personality and Social Psychology",
+      "year": 2004,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1037/0022-3514.86.1.96?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1037/0022-3514.86.1.96, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "50516908",
+          "name": "D. Lubinski"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "c4bf0157f8aab2513ba29a9df274c8352e30d4e0",
+      "externalIds": {
+        "CorpusId": 42296937
+      },
+      "title": "CHAPTER 8 Intelligence and the Workplace",
+      "venue": "",
+      "year": 2012,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at http://lp.wileypub.com/HandbookPsychology/SampleChapters/Volume12.pdf, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "4736287",
+          "name": "F. Drasgow"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "d57a51877ffcc11c2770dca65e6885e33a830489",
+      "externalIds": {
+        "MAG": "2021542808",
+        "DOI": "10.1111/j.2044-8279.1933.tb02899.x",
+        "CorpusId": 143688463
+      },
+      "title": "PRESENT DAY THEORIES OF INTELLECTUAL FACTORS (GENERAL, GROUP, AND SPECIFIC).*",
+      "venue": "",
+      "year": 1933,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1111/j.2044-8279.1933.tb02899.x?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1111/j.2044-8279.1933.tb02899.x, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "143788120",
+          "name": "L. Jones"
+        }
+      ],
+      "abstract": null
+    }
+  ]
+}

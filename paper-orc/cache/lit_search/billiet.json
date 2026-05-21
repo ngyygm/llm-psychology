@@ -1,0 +1,89 @@
+{
+  "total": 10,
+  "authenticated": true,
+  "data": [
+    {
+      "paperId": "a9d7caa01e225fd37935b50c7e87f4129211b840",
+      "externalIds": {
+        "MAG": "2014001227",
+        "DOI": "10.1207/S15328007SEM0704_5",
+        "CorpusId": 122086608
+      },
+      "title": "Modeling Acquiescence in Measurement Models for Two Balanced Sets of Items",
+      "venue": "",
+      "year": 2000,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1207/S15328007SEM0704_5?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1207/S15328007SEM0704_5, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "13284058",
+          "name": "J. Billiet"
+        },
+        {
+          "authorId": "6655607",
+          "name": "M. Mcclendon"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "d666a534e30147cb9793c983282b755f5450cc34",
+      "externalIds": {
+        "MAG": "2523776120",
+        "CorpusId": 151882442
+      },
+      "title": "On the identification of acquiescence in balanced sets of items using structural models",
+      "venue": "",
+      "year": 1998,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at http://dk.fdv.uni-lj.si/metodoloskizvezki/Pdfs/Mz14Billietetal.pdf, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "13284058",
+          "name": "J. Billiet"
+        },
+        {
+          "authorId": "48709983",
+          "name": "J. M. Mckee"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "98ae8434fcf2773e4c75e0610eea6e471f5c4f24",
+      "externalIds": {
+        "MAG": "2122730439",
+        "DOI": "10.1177/0049124107313901",
+        "CorpusId": 145656091
+      },
+      "title": "Testing the Stability of an Acquiescence Style Factor Behind Two Interrelated Substantive Variables in a Panel Design",
+      "venue": "",
+      "year": 2008,
+      "openAccessPdf": {
+        "url": "https://lirias.kuleuven.be/bitstream/123456789/183454/1/SMRmei%202008.pdf",
+        "status": "GREEN",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1177/0049124107313901?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1177/0049124107313901, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "13284058",
+          "name": "J. Billiet"
+        },
+        {
+          "authorId": "48606432",
+          "name": "E. Davidov"
+        }
+      ],
+      "abstract": null
+    }
+  ]
+}

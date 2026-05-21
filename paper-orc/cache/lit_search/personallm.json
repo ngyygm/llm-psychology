@@ -1,0 +1,129 @@
+{
+  "total": 1779,
+  "authenticated": true,
+  "data": [
+    {
+      "paperId": "f81d85025b349694a57607c5b0c58e0be70bf22f",
+      "externalIds": {
+        "ArXiv": "2305.02547",
+        "DBLP": "conf/naacl/JiangZCBRK24",
+        "DOI": "10.18653/v1/2024.findings-naacl.229",
+        "CorpusId": 268032940
+      },
+      "title": "PersonaLLM: Investigating the Ability of Large Language Models to Express Personality Traits",
+      "venue": "NAACL-HLT",
+      "year": 2023,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2305.02547, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "2267158814",
+          "name": "Hang Jiang"
+        },
+        {
+          "authorId": "2267000216",
+          "name": "Xiajie Zhang"
+        },
+        {
+          "authorId": "2161727367",
+          "name": "Xubo Cao"
+        },
+        {
+          "authorId": "2287781906",
+          "name": "Cynthia Breazeal"
+        },
+        {
+          "authorId": "2261551123",
+          "name": "Deb Roy"
+        },
+        {
+          "authorId": "2631301",
+          "name": "Jad Kabbara"
+        }
+      ],
+      "abstract": "Despite the many use cases for large language models (LLMs) in creating personalized chatbots, there has been limited research on evaluating the extent to which the behaviors of personalized LLMs accurately and consistently reflect specific personality traits. We consider studying the behavior of LLM-based agents which we refer to as LLM personas and present a case study with GPT-3.5 and GPT-4 to investigate whether LLMs can generate content that aligns with their assigned personality profiles. To this end, we simulate distinct LLM personas based on the Big Five personality model, have them complete the 44-item Big Five Inventory (BFI) personality test and a story writing task, and then assess their essays with automatic and human evaluations. Results show that LLM personas' self-reported BFI scores are consistent with their designated personality types, with large effect sizes observed across five traits. Additionally, LLM personas' writings have emerging representative linguistic patterns for personality traits when compared with a human writing corpus. Furthermore, human evaluation shows that humans can perceive some personality traits with an accuracy of up to 80%. Interestingly, the accuracy drops significantly when the annotators were informed of AI authorship."
+    },
+    {
+      "paperId": "9ba152acedd481ed84d0de8b45ddbffaaadac814",
+      "externalIds": {
+        "CorpusId": 265221392
+      },
+      "title": "PersonaLLM: Investigating the Ability of Large Language Models to Express Big Five Personality Traits",
+      "venue": "",
+      "year": null,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null
+      },
+      "authors": [
+        {
+          "authorId": "2267158814",
+          "name": "Hang Jiang"
+        },
+        {
+          "authorId": "2267000216",
+          "name": "Xiajie Zhang"
+        },
+        {
+          "authorId": "2161727367",
+          "name": "Xubo Cao"
+        },
+        {
+          "authorId": "2287781906",
+          "name": "Cynthia Breazeal"
+        },
+        {
+          "authorId": "2631301",
+          "name": "Jad Kabbara"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "b01014445a9d82c053643fdef7317c719b0472a7",
+      "externalIds": {
+        "DBLP": "journals/corr/abs-2502-05248",
+        "ArXiv": "2502.05248",
+        "DOI": "10.1145/3701716.3715504",
+        "CorpusId": 276249896
+      },
+      "title": "Evaluating Personality Traits in Large Language Models: Insights from Psychological Questionnaires",
+      "venue": "The Web Conference",
+      "year": 2025,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2502.05248, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "1840333654",
+          "name": "Pranav Bhandari"
+        },
+        {
+          "authorId": "2324577954",
+          "name": "Usman Naseem"
+        },
+        {
+          "authorId": "2344754834",
+          "name": "Amitava Datta"
+        },
+        {
+          "authorId": "2344753139",
+          "name": "Nicolas Fay"
+        },
+        {
+          "authorId": "2257013473",
+          "name": "Mehwish Nasim"
+        }
+      ],
+      "abstract": "Psychological assessment tools have long helped humans understand behavioural patterns. While Large Language Models (LLMs) can generate content comparable to that of humans, we explore whether they exhibit personality traits. To this end, this work applies psychological tools to LLMs in diverse scenarios to generate personality profiles. Using established trait-based questionnaires such as the Big Five Inventory and by addressing the possibility of training data contamination, we examine the dimensional variability and dominance of LLMs across five core personality dimensions: Openness, Conscientiousness, Extraversion, Agreeableness, and Neuroticism. Our findings reveal that LLMs exhibit unique dominant traits, varying characteristics, and distinct personality profiles even within the same family of models."
+    }
+  ]
+}

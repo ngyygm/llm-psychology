@@ -1,0 +1,655 @@
+{
+  "plotting_plan": [
+    {
+      "figure_id": "fig_causal_chain_overview",
+      "title": "From Item-Level Acquiescence to Model-Level Homogenization",
+      "plot_type": "diagram",
+      "data_source": "both",
+      "objective": "A four-stage block diagram that visualizes the single-cause causal chain reported in idea.md: (1) Item-level acquiescence (alignment-driven agree-impulse with directional asymmetry IPIP +0.29 vs SD3 -0.33); (2) Reverse-keyed items behave like forward items, deflating Cronbach's alpha (Spearman rho = -1.0 with reverse density); (3) Inflated inter-domain correlations cause EFA to collapse the expected 5-factor Big Five into 3 factors universally; (4) Safety-induced homogenization shrinks inter-model variance to <1%. Arrows connect the stages and a side panel lists the diagnostic battery (4 instruments, 17 domains, 20 LLMs x 17 personas x k=5 = 375,700 API calls). The block diagram should look like a publication-grade conceptual figure.",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "figure_id": "fig_validation_battery_schema",
+      "title": "The Six-Check Psychometric Validation Battery Plus Persona Stress Test",
+      "plot_type": "diagram",
+      "data_source": "experimental_log.md",
+      "objective": "A schematic flow diagram showing the six validity checks (internal consistency, factor structure, reverse-item consistency, variance decomposition, convergent validity, measurement invariance) applied to the 221-item battery, plus the persona stress test stage (PSD, fidelity, target adherence, plasticity, factorial MBTI main effects). Each check is a box that emits a pass/fail badge — every box for LLMs is red FAIL. Inputs box on the left lists the four instruments and 20 LLMs; outputs box on the right shows the propagated failure cascade.",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "figure_id": "fig_alpha_vs_reverse_density",
+      "title": "Cronbach's Alpha Tracks Reverse-Item Density at Spearman rho = -1.0",
+      "plot_type": "plot",
+      "data_source": "experimental_log.md",
+      "objective": "Visual summary (Scatter Plot with regression line) of the rank-1 inverse relationship between mean LLM Cronbach's alpha per IPIP Big Five domain (y-axis: alpha from 0.069 to 0.928) and the percentage of reverse-keyed items in that domain (x-axis: 17%, 17%, 25%, 25%, 71%). Each of the 5 domains is labeled (Extraversion, Neuroticism, Conscientiousness, Openness, Agreeableness). Annotate Spearman rho = -1.0 (p < 0.01) and overlay the human-baseline alpha (~0.88) as a dashed reference line.",
+      "aspect_ratio": "4:3"
+    },
+    {
+      "figure_id": "fig_acquiescence_directional_asymmetry",
+      "title": "Two Faces of One Bias: Directional Acquiescence by Instrument",
+      "plot_type": "plot",
+      "data_source": "experimental_log.md",
+      "objective": "Visual summary (Grouped Bar Chart) showing forward-minus-reverse agree-rate gap (Delta) per instrument averaged across 20 models. IPIP-NEO-120 Delta = +0.29 (classic acquiescence), SD3 Delta = -0.33 (social-desirability inversion), ZKPQ Delta = -0.36, EPQR-A Delta = -0.16. Annotate the mechanistic interpretation: alignment training simultaneously inflates agreement on normal-personality items and rejects dark-trait content.",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "figure_id": "fig_alpha_synthetic_baseline_calibration",
+      "title": "Calibration Against Synthetic Baselines: LLMs Look Like Acquiescence, Not Personality",
+      "plot_type": "plot",
+      "data_source": "experimental_log.md",
+      "objective": "Visual summary (Grouped Bar Chart) per IPIP Big Five domain comparing Cronbach's alpha for five conditions: Random uniform (alpha ~ 0), Pure Acquiescence (alpha ~ 0), Trait+Acquiescence simulation (alpha > 0.99), LLM observed mean across 20 models (0.069–0.928), and Human baseline (Johnson 2014, alpha ~ 0.88). LLM bars hug the floor on high-reverse-density domains (Agreeableness, Openness) and the ceiling on low-reverse-density domains (Extraversion).",
+      "aspect_ratio": "4:3"
+    },
+    {
+      "figure_id": "fig_efa_loadings_heatmap",
+      "title": "Three-Factor Collapse: Varimax Loadings on 17 Domains",
+      "plot_type": "plot",
+      "data_source": "experimental_log.md",
+      "objective": "Visual summary (Annotated Heatmap, 17 rows x 3 columns) of varimax-rotated factor loadings reported in experimental_log.md §2.4 for F1 (Extraversion/Sociability), F2 (Neuroticism-Agreeableness merged), F3 (Conscientiousness vs Impulsivity). Bold cells where |loading| > 0.5 (use highlighted borders) and annotate the row groupings by instrument (IPIP, SD3, ZKPQ, EPQR). Diverging blue-white-red colormap.",
+      "aspect_ratio": "3:4"
+    },
+    {
+      "figure_id": "fig_efa_loo_robustness",
+      "title": "Universality of the 3-Factor Collapse Under Leave-One-Model-Out",
+      "plot_type": "plot",
+      "data_source": "experimental_log.md",
+      "objective": "Visual summary (Strip Plot or Dot Plot) of the first three eigenvalues across the 20 leave-one-model-out EFA reruns plus per-family and per-model reruns. X-axis: factor index (1, 2, 3, 4, ...); Y-axis: eigenvalue magnitude. Overlay the Kaiser criterion cutoff at 1.0 and the 95th-percentile parallel-analysis line. Annotate Tucker's phi = 0.993 and the eigenvalue-1 range 6.94–7.02.",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "figure_id": "fig_variance_decomposition_likert_binary",
+      "title": "Sequential Variance Decomposition: Model Variance is <1%",
+      "plot_type": "plot",
+      "data_source": "experimental_log.md",
+      "objective": "Visual summary (Two side-by-side Stacked Horizontal Bars) showing the sequential SS partition into Model / Domain / Persona / Item / Residual for the Likert composite (IPIP+SD3) and the Binary composite (ZKPQ+EPQR). Likert: Model 0.35%, Domain 23.93%, Persona 4.09%, Item 36.13%, Residual 35.51%. Binary: Model 0.51%, Domain 5.27%, Persona 14.06%, Item 14.81%, Residual 65.35%. The Model slice is highlighted in red with an annotation arrow reading 'inter-model variance is statistically negligible at this resolution'.",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "figure_id": "fig_item_plasticity_distribution",
+      "title": "Item-Level Plasticity Map: The Alignment Safety Floor",
+      "plot_type": "plot",
+      "data_source": "experimental_log.md",
+      "objective": "Visual summary (Beeswarm or Violin Plot) of per-item plasticity (mean absolute Default-vs-persona shift, normalized by scale range) across the 221 items, color-coded by content category (visible behavior / sociability vs safety / morality / self-referential). Annotate exemplar items at the extremes: 'Do you sometimes talk about things you know nothing about?' (0.632), 'I lead a busier life than most people' (0.608), 'Do you enjoy hurting people you love?' (0.000), 'Take advantage of others' (0.056). A horizontal reference line marks the alignment safety floor.",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "figure_id": "fig_persona_separation_degree",
+      "title": "Persona Separation Degree (PSD) Across 20 Models",
+      "plot_type": "plot",
+      "data_source": "experimental_log.md",
+      "objective": "Visual summary (Sorted Horizontal Bar Chart with error bars) of mean PSD per model with the per-model coefficient of variation overlaid as a marker. Models sorted from highest mean PSD (Gemini-3-Pro 1.384, Gemini-3.1-Pro 1.363, Qwen3-235B 1.344, GLM-5.1 1.339, GLM-4.7 1.269) to lowest (MiniMax-M2.7 0.996, DeepSeek-V4-Pro 1.016, Claude-Sonnet 1.080, GPT-5.2 1.125, DeepSeek-V3.2 1.117). Reference line at mean PSD = 1.198. Annotate the typical peak persona (ENTP, ESTP).",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "figure_id": "fig_within_sample_consistency_by_model",
+      "title": "Within-Sample Repeat Stability Across k=5 Samples",
+      "plot_type": "plot",
+      "data_source": "experimental_log.md",
+      "objective": "Visual summary (Sorted Horizontal Bar Chart) of mean within-item SD across k=5 repeated samples per model (Claude-Opus 0.019 to DeepSeek-V4-Pro 0.192), with a secondary axis or paired marker showing mode-agreement rate. Highlight the ~10x range to make the case that 'vendor sampling noise' must be controlled in any future LLM-personality study.",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "figure_id": "fig_persona_fidelity_confusion_heatmap",
+      "title": "Persona Fidelity: 99.7% Nearest-Centroid Recovery (319/320)",
+      "plot_type": "plot",
+      "data_source": "experimental_log.md",
+      "objective": "Visual summary (16x16 Confusion Heatmap) of nearest-centroid classification across the 16 MBTI personas using leave-one-model-out centroids in z-Euclidean metric. Diagonal cells dominate. The single off-diagonal confusion (DeepSeek-V3.2 ESFP -> ENTP) is annotated. Margins on right summarize per-metric top-1 accuracy (z-Euclidean 0.997, cosine 0.997, Mahalanobis 0.984; Likert-only 1.000, IPIP-only 0.997, binary-only 0.919).",
+      "aspect_ratio": "1:1"
+    },
+    {
+      "figure_id": "fig_measurement_invariance_histogram",
+      "title": "Distribution of Default-vs-MBTI Item-Vector Correlations (n=320)",
+      "plot_type": "plot",
+      "data_source": "experimental_log.md",
+      "objective": "Visual summary (Histogram with KDE overlay) of Pearson r across the 320 (model, persona) pairs. Mean r = 0.461, range from ~0.18 (ESTP) to ~0.65 (ENFJ). Vertical dashed line at the strong-invariance threshold r > 0.8 with annotation '0/320 pairs cross threshold'.",
+      "aspect_ratio": "4:3"
+    },
+    {
+      "figure_id": "fig_default_persona_classification",
+      "title": "What is the Default Personality? 12/20 Models Project as ISTJ-Like",
+      "plot_type": "plot",
+      "data_source": "experimental_log.md",
+      "objective": "Visual summary (Vertical Bar Chart) showing the count of LLMs whose Default-condition profile is nearest each MBTI persona by leave-one-model-out classification: ISTJ 8, ISFP 4, ISTP 3, INTP 2, INTJ 2, ENFP 1. Add a second annotation row showing 12/20 ISTJ-like under empirical MBTI-axis projection. Tag the implicit 'introverted, structured, cautious' role.",
+      "aspect_ratio": "4:3"
+    },
+    {
+      "figure_id": "fig_pir_default_vs_mbti",
+      "title": "Pairwise Inconsistency Drops Under Persona Prompting",
+      "plot_type": "plot",
+      "data_source": "experimental_log.md",
+      "objective": "Visual summary (Paired Box-and-Strip Plot) of per-model PIR-agreement under Default vs the 16 MBTI personas (Default 0.674 -> persona-pool 0.834; paired t = 10.70, p < 0.0001). Each line connects the same model's Default value to its averaged MBTI value. Inset shows the overall PIR = 0.468 [0.413, 0.531].",
+      "aspect_ratio": "4:3"
+    },
+    {
+      "figure_id": "fig_target_adherence_heatmap",
+      "title": "Empirical vs Theoretical Target Adherence Across 16 Personas",
+      "plot_type": "plot",
+      "data_source": "experimental_log.md",
+      "objective": "Visual summary (16x2 Heatmap) of per-persona mean target-adherence cosine: column 1 = empirical leave-one-model-out target (overall 0.838), column 2 = hand-coded theoretical MBTI target (overall 0.557). Order rows by empirical adherence (ESTP 0.901 top; INTP 0.699 bottom). Diverging colormap with annotated values.",
+      "aspect_ratio": "1:1"
+    },
+    {
+      "figure_id": "fig_factorial_mbti_main_effects",
+      "title": "Factorial MBTI Main Effects on the 17 Domain Scores",
+      "plot_type": "plot",
+      "data_source": "experimental_log.md",
+      "objective": "Visual summary (4x17 Heatmap) of standardized beta from the factorial main-effects model (E/I, S/N, T/F, J/P x 17 domains). Cells annotated with the beta values: E/I row dominated by EPQR Extraversion 1.01, ZKPQ Sociability 0.98, IPIP Extraversion 0.96, SD3 Narcissism 0.94; J/P dominated by IPIP Conscientiousness 0.96, ZKPQ Impulsive Sensation Seeking -0.81, EPQR Lie 0.78; T/F by IPIP Agreeableness 0.93, EPQR Neuroticism 0.87, SD3 Machiavellianism -0.76; S/N by IPIP Openness 0.77. Diverging colormap; cells annotated with significance (* for p<0.001).",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "figure_id": "fig_cross_scale_coherence_by_construct",
+      "title": "Cross-Scale Coherence: Where Persona Shifts Disagree Across Instruments",
+      "plot_type": "plot",
+      "data_source": "experimental_log.md",
+      "objective": "Visual summary (Horizontal Bar Chart with error bars) of mean sign-aligned cross-scale coherence for the four overlapping constructs: Extraversion 0.898, Neuroticism 0.868, Conscientiousness vs Disinhibition 0.800, Agreeableness vs Antagonism 0.790. Overlay sign-match proportion as a paired marker. Annotate the overall coherence 0.839 with bootstrap CI [0.815, 0.862] and overall sign-match 0.788, and contrast with the 0.997 nearest-centroid recovery to make the 'compliance without validity' point.",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "figure_id": "fig_alpha_per_model_heatmap",
+      "title": "Per-Model Cronbach's Alpha Across IPIP Big Five Domains",
+      "plot_type": "plot",
+      "data_source": "experimental_log.md",
+      "objective": "Visual summary (20x5 Heatmap) of Cronbach's alpha for each of the 20 models on each IPIP Big Five domain (Neuroticism, Extraversion, Openness, Agreeableness, Conscientiousness). Rows ordered by overall mean alpha; columns labeled with reverse-item percentage in parentheses. Diverging colormap from 0 (red) to 1 (green); zero/negative alphas highlighted. Use this to show within-domain variability and the universality of the reverse-density gradient.",
+      "aspect_ratio": "4:5"
+    },
+    {
+      "figure_id": "fig_refusal_breakdown",
+      "title": "Refusal Pattern Under the Default Condition (61/375,700 Cells)",
+      "plot_type": "plot",
+      "data_source": "experimental_log.md",
+      "objective": "Visual summary (Two Stacked Bar Charts side by side) of refusal counts by model (Gemini-3.1-Flash-Lite 34, Gemini-3-Flash 22, Claude-Sonnet 5; all 61 occur under Default only) and by strategy (AI self-identification 57%, philosophical hedging 28%, both 15%) and by content theme (politically sensitive 34%, self-referential/emotional 33%, sexually explicit 13%, social-manipulation/danger-seeking 13%). Annotate the rarest case (sd3_026, 8 refusals).",
+      "aspect_ratio": "16:9"
+    }
+  ],
+  "intro_related_work_plan": {
+    "introduction_strategy": {
+      "hook_hypothesis": "An expanding literature administers human personality questionnaires (Big Five, Dark Triad) to large language models and reports the resulting scores as if they reflect genuine traits, with downstream proposals to use LLMs as 'silicon samples' for survey simulation. None of this work establishes the prior measurement question — whether the instruments work at all when applied to LLMs.",
+      "problem_gap_hypothesis": "In the human-subjects tradition, an instrument is not trusted until it passes a battery of psychometric checks (internal consistency, factor structure, convergent validity, measurement invariance). On LLMs these checks are almost never run; when run, they fail in a single recognizable pattern that has not been mechanistically explained. Our hypothesis is that the failure cascade traces to one source — alignment-induced acquiescence — and that this directly invalidates downstream uses of LLM personality scores including silicon-sample simulation.",
+      "search_directions": [
+        "Highly cited papers and short reports applying Big Five, Dark Triad, or other personality questionnaires to LLMs and treating the resulting scores as trait measurements (the targets of our critique).",
+        "Surveys and review papers on psychometrics, classical test theory, structural equation modeling, factor analysis, and measurement invariance in the human-subjects tradition.",
+        "Foundational papers establishing the Big Five (NEO-PI, IPIP-NEO), Dark Triad (SD3), Zuckerman-Kuhlman ZKPQ, and Eysenck EPQR-A inventories that constitute our 4-instrument battery.",
+        "Foundational and survey work on response styles, acquiescence bias, and social desirability in survey methodology, as well as the well-established human-subject literature on reverse-keyed items and their use as response-bias detectors.",
+        "Influential papers establishing instruction tuning, RLHF/DPO, and constitutional AI as alignment paradigms — the mechanisms we conjecture induce acquiescence on personality questionnaires.",
+        "Recent proposals to use LLMs as 'silicon samples' for social-science survey simulation (the downstream application that would inherit any measurement failure)."
+      ]
+    },
+    "related_work_strategy": {
+      "overview": "Organize prior work into three methodology clusters that together describe (a) the literature we are critiquing, (b) the human-subject precedent for the validity tests we run, and (c) the technical mechanism we identify as the root cause. For each cluster, find recent SOTA technical work, document the specific limitation it leaves unaddressed, and bridge to how our 6-check + persona-stress evaluation closes that gap.",
+      "subsections": [
+        {
+          "subsection_title": "2.1 LLM Personality Profiling and Silicon Samples",
+          "methodology_cluster": "Administering human inventories to LLMs and downstream survey simulation",
+          "sota_investigation_mission": "Identify the most cited recent papers (2023–2026) that administer Big Five, Dark Triad, MBTI, HEXACO, MFQ, or other validated human personality inventories to LLMs and report mean scores, profiles, or comparisons across models; include proposals to use LLMs as silicon samples for opinion polling or survey simulation. Catalogue which validity checks (if any) each paper reports.",
+          "limitation_hypothesis": "This cluster reports profile-level statistics (means, MBTI types, Dark Triad scores) but rarely reports internal consistency, factor structure, or measurement invariance — the exact checks that establish whether the instrument actually measures the intended construct on the new population. When such checks appear, they are partial and rarely diagnostic.",
+          "limitation_search_queries": [
+            "Big Five personality LLM administration internal consistency Cronbach alpha factor analysis",
+            "Dark Triad SD3 large language model measurement validity reverse-keyed items",
+            "Silicon samples LLMs survey simulation validity psychometric",
+            "MBTI persona prompt LLM measurement consistency response style",
+            "Persona prompting LLM personality steerability validation"
+          ],
+          "bridge_to_our_method": "We run the complete six-check battery plus a persona stress test on 20 LLMs x 4 validated instruments x 17 personas x k=5 samples (375,700 API calls), document the failure mode of every check, and trace it to a single mechanism — turning a profile-level practice into a measurement-validity audit."
+        },
+        {
+          "subsection_title": "2.2 Response Styles, Acquiescence, and Social Desirability",
+          "methodology_cluster": "Response biases in human-subject survey methodology",
+          "sota_investigation_mission": "Identify foundational and recent papers documenting acquiescence bias (yea-saying), extreme-response bias, social desirability, and the standard use of reverse-keyed items to diagnose and correct for these biases; include recent IRT and structural-equation-model approaches to controlling response styles, and bifactor models that separate substantive variance from style variance.",
+          "limitation_hypothesis": "The human-subject response-style literature has not been imported into LLM evaluation. Where reverse-keyed inconsistency is reported for LLMs, it is reported as a curiosity rather than as a quantitative diagnostic with a falsifiable structural signature, and the directional asymmetry between normal-personality and dark-trait items has not been documented at the item level.",
+          "limitation_search_queries": [
+            "Acquiescence bias yea-saying reverse-coded items personality survey",
+            "Social desirability response bias self-report personality measurement",
+            "Bifactor model substantive variance response style separation",
+            "Forced-choice ipsative format reduce acquiescence personality assessment",
+            "Reverse-keyed items factor analysis methodological artifact"
+          ],
+          "bridge_to_our_method": "We import the response-style diagnostic toolkit wholesale: per-instrument forward/reverse decomposition, item-level Pairwise Inconsistency Rate, and synthetic Pure-Acquiescence and Trait+Acquiescence baselines for calibration. This is what lets us identify alignment-driven acquiescence as the single cause of the entire failure cascade."
+        },
+        {
+          "subsection_title": "2.3 Alignment, RLHF, and Behavioral Side Effects",
+          "methodology_cluster": "Instruction tuning, RLHF/DPO, constitutional AI, and their behavioral consequences",
+          "sota_investigation_mission": "Identify recent papers characterizing the behavioral effects of RLHF/DPO/Constitutional AI on LLMs: sycophancy, agreement bias, refusal patterns, value lock-in, mode collapse, and reduced diversity. Include reports of model homogenization across vendors as alignment regimens converge.",
+          "limitation_hypothesis": "Existing alignment-side-effect work documents sycophancy and refusals but has not connected these phenomena to classical response-style theory or shown that they produce a single mechanistically traceable failure of measurement validity across the standard psychometric checks.",
+          "limitation_search_queries": [
+            "RLHF sycophancy agreement bias large language model behavioral side effect",
+            "Constitutional AI safety alignment refusal taxonomy",
+            "Alignment-induced homogenization model diversity collapse",
+            "Instruction tuning persona steering personality response",
+            "RLHF model variance shrinkage Hugging Face safety filter"
+          ],
+          "bridge_to_our_method": "We treat alignment-induced acquiescence and the directional inversion on dark-trait items as the unified mechanism that explains (i) the alpha–reverse-density rank-1 inverse relationship, (ii) the universal 3-factor collapse with Tucker phi = 0.993, (iii) inter-model variance < 1%, (iv) the item-level plasticity dichotomy between visible-behavior items and the alignment safety floor, and (v) persona compliance without measurement validity."
+        }
+      ]
+    }
+  },
+  "section_plan": [
+    {
+      "section_title": "Abstract",
+      "subsections": [
+        {
+          "subsection_title": "Abstract Content",
+          "content_bullets": [
+            "Frame the gap: a fast-growing literature scores LLMs on human personality inventories without first checking that the inventories measure anything on this population.",
+            "State the design: 20 LLMs from 8 families, a 221-item battery from 4 validated human inventories (IPIP-NEO-120, SD3, ZKPQ-50-CC, EPQR-A) covering 17 domains and 63 reverse-keyed items, 17 conditions (Default plus 16 MBTI personas), k=5 samples per cell, temperature 0.7, yielding 375,700 raw API calls.",
+            "Headline result: every standard validity check fails (alpha tracks reverse-item density at Spearman rho = -1.0; EFA collapses 5 expected Big Five factors into 3 universally with Tucker phi = 0.993; inter-model variance < 1%; mean Default-vs-MBTI item-vector r = 0.461 with 0/320 pairs above r = 0.8).",
+            "Mechanism: a single alignment-induced acquiescence with a directional asymmetry (IPIP Delta = +0.29; SD3 Delta = -0.33) drives the whole cascade.",
+            "Stress test: persona prompts move profiles by >1 SD (mean PSD = 1.198) with 99.7% nearest-centroid recovery (319/320) but cross-scale coherence is only 0.839 and Fwd/Rev pair coherence 0.696 — role compliance, not measurement validity.",
+            "Calibration: LLM observed alphas hug the Random and Pure-Acquiescence synthetic baselines and stay far from the Trait+Acquiescence baseline (alpha > 0.99) — LLMs look like acquiescence with no personality underneath.",
+            "Implication: any LLM personality claim must report internal consistency, factor structure, convergent validity, and measurement invariance before interpretation."
+          ],
+          "citation_hints": []
+        }
+      ]
+    },
+    {
+      "section_title": "1. Introduction",
+      "subsections": [
+        {
+          "subsection_title": "Introduction Content",
+          "content_bullets": [
+            "Open with the practical stakes: LLM-personality scoring drives behavioral testing, alignment evaluation, and proposals to use LLMs as silicon samples for opinion polling.",
+            "Pose the prior measurement question almost never asked: do human instruments measure anything when administered to LLMs?",
+            "Introduce the six-check psychometric framework (Cronbach's alpha, factor structure, reverse-item consistency, variance decomposition, convergent validity, measurement invariance) imported from human-subject methodology.",
+            "Preview the central empirical finding: every check fails, and every failure traces back to a single alignment-induced acquiescence with a directional asymmetry between normal-personality items (IPIP, Delta = +0.29) and dark-trait items (SD3, Delta = -0.33).",
+            "Summarize the cascade: item-level acquiescence inflates inter-domain correlations -> EFA collapses 5 expected factors into 3 universally (Tucker phi = 0.993; replicated under leave-one-model-out, per-family, and per-model) -> inter-model variance falls below 1%, making cross-model personality comparisons statistically meaningless at this resolution.",
+            "Preview the persona stress test: MBTI prompts move profiles by >1 SD (mean PSD = 1.198) with 99.7% nearest-centroid recovery, but cross-scale coherence is only 0.839 and Fwd/Rev pair coherence is 0.696, so the 3-factor structure persists inside every persona — role compliance is not the same as trait variance.",
+            "Calibration claim: LLM observed alphas sit closest to Random and Pure-Acquiescence simulations and farthest from a Trait+Acquiescence simulation, ruling out 'trait + style noise' as the data-generating process.",
+            "List explicit contributions: (i) the first multi-model multi-instrument psychometric VALIDATION study (20 models x 4 instruments x 17 personas x k=5 = 375,700 API calls); (ii) the single-cause causal chain from item to model; (iii) the directional-asymmetry framing that unifies acquiescence and social desirability; (iv) the persona-stress test that documents role compliance without measurement validity; (v) item-level plasticity map of the alignment safety floor; (vi) a methodological prescription for future LLM personality work.",
+            "Refer the reader to the teaser causal-chain figure (fig_causal_chain_overview) and the validation-battery schema (fig_validation_battery_schema)."
+          ],
+          "citation_hints": [
+            "research paper or technical report introducing 'IPIP-NEO-120 Johnson 2014 short form'",
+            "research paper or technical report introducing 'SD3 Short Dark Triad Jones Paulhus 2014'",
+            "research paper or technical report introducing 'ZKPQ-50-CC Aluja 2006 cross-cultural short form'",
+            "research paper or technical report introducing 'EPQR-A Francis 1992 abbreviated form'",
+            "research paper or technical report introducing 'silicon samples LLM survey simulation'",
+            "research paper or technical report introducing 'Big Five NEO personality administered to LLM'",
+            "research paper or technical report introducing 'MBTI persona prompting language model'",
+            "research paper or technical report introducing 'RLHF sycophancy LLM agreement bias'"
+          ]
+        }
+      ]
+    },
+    {
+      "section_title": "2. Related Work",
+      "subsections": [
+        {
+          "subsection_title": "2.1 LLM Personality Profiling and Silicon Samples",
+          "content_bullets": [
+            "Survey the wave of papers administering Big Five, Dark Triad, MBTI, HEXACO, MFQ, and similar inventories to LLMs and reporting profile-level statistics without measurement-validity checks.",
+            "Catalogue silicon-sample proposals that aggregate LLM responses to represent human populations on attitudes and opinions.",
+            "Make explicit which validity checks are absent in the typical published study (internal consistency rarely; factor structure almost never; invariance never).",
+            "End on the gap: profile-level reports inherit unknown measurement error; this paper closes that gap with a six-check audit on a multi-model multi-instrument battery."
+          ],
+          "citation_hints": [
+            "research paper or technical report introducing 'GPT MBTI personality assignment'",
+            "research paper or technical report introducing 'Big Five personality LLM administration'",
+            "research paper or technical report introducing 'Dark Triad LLM measurement'",
+            "research paper or technical report introducing 'Silicon samples LLM survey simulation'",
+            "research paper or technical report introducing 'PsychoBench LLM personality benchmark'",
+            "research paper or technical report introducing 'Persona prompting LLM personality steerability'"
+          ]
+        },
+        {
+          "subsection_title": "2.2 Response Styles, Acquiescence, and Social Desirability",
+          "content_bullets": [
+            "Summarize the human-subject response-style literature: acquiescence, extreme response, mid-point response, and social desirability.",
+            "Describe the standard role of reverse-keyed items as response-bias detectors and the methodological consequences when they fail.",
+            "Cover IRT, bifactor, and ipsative-format approaches that separate substantive variance from style variance in human samples.",
+            "Argue that this toolkit has not yet been imported into LLM evaluation; this paper imports it wholesale and shows it has more leverage on LLMs than on humans."
+          ],
+          "citation_hints": [
+            "research paper or technical report introducing 'acquiescence response bias measurement'",
+            "research paper or technical report introducing 'social desirability scale Crowne Marlowe'",
+            "research paper or technical report introducing 'bifactor model response style separation'",
+            "research paper or technical report introducing 'reverse-coded items factor analysis methodological artifact'",
+            "research paper or technical report introducing 'ipsative forced-choice personality measurement'",
+            "research paper or technical report introducing 'measurement invariance configural metric scalar'",
+            "research paper or technical report introducing 'Cronbach alpha reliability internal consistency'"
+          ]
+        },
+        {
+          "subsection_title": "2.3 Alignment, RLHF, and Behavioral Side Effects",
+          "content_bullets": [
+            "Sketch instruction tuning, RLHF, DPO, and Constitutional AI as the alignment regimens most LLMs share.",
+            "Survey side-effect work on sycophancy, agreement bias, refusal patterns, and homogenization across vendors.",
+            "Connect these side effects to classical response-style theory and motivate our hypothesis that alignment-induced acquiescence is the unified mechanism behind the entire psychometric failure cascade.",
+            "Position our directional-asymmetry framing (IPIP +0.29, SD3 -0.33) as the bridge between sycophancy (agree more on normal items) and safety-driven rejection (refuse 'bad' content)."
+          ],
+          "citation_hints": [
+            "research paper or technical report introducing 'RLHF reinforcement learning human feedback'",
+            "research paper or technical report introducing 'DPO direct preference optimization'",
+            "research paper or technical report introducing 'Constitutional AI Anthropic alignment'",
+            "research paper or technical report introducing 'sycophancy LLM agreement bias'",
+            "research paper or technical report introducing 'instruction tuning supervised fine-tuning LLM'",
+            "research paper or technical report introducing 'mode collapse RLHF diversity reduction'",
+            "research paper or technical report introducing 'refusal patterns LLM safety filtering'"
+          ]
+        }
+      ]
+    },
+    {
+      "section_title": "3. Methodology",
+      "subsections": [
+        {
+          "subsection_title": "3.1 Psychometric Battery",
+          "content_bullets": [
+            "Catalogue the four instruments in a booktabs table sourced from experimental_log.md §1: IPIP-NEO-120 (120 Likert-5, 41 reverse; Big Five), SD3 (27 Likert-5, 5 reverse; Machiavellianism, Narcissism, Psychopathy), ZKPQ-50-CC (50 True/False, 12 reverse; 5 ZKPQ domains), EPQR-A (24 Yes/No, 5 reverse; 4 EPQR domains).",
+            "Total: 221 items, 17 domains, 63 reverse-keyed items spanning three response formats.",
+            "Explicitly cite each instrument's source publication.",
+            "Justify multi-instrument design as required for cross-instrument convergent-validity and Fwd/Rev directional-coherence tests that no single inventory supports."
+          ],
+          "citation_hints": [
+            "research paper or technical report introducing 'IPIP-NEO-120 Johnson 2014'",
+            "research paper or technical report introducing 'SD3 Short Dark Triad Jones Paulhus 2014'",
+            "research paper or technical report introducing 'ZKPQ-50-CC Aluja 2006'",
+            "research paper or technical report introducing 'EPQR-A abbreviated Francis 1992'"
+          ]
+        },
+        {
+          "subsection_title": "3.2 Models and Administration Protocol",
+          "content_bullets": [
+            "List 20 LLMs across 8 families in a booktabs table (Anthropic, OpenAI, Google, DeepSeek, Alibaba, Zhipu, Moonshot, MiniMax).",
+            "State the 17 conditions: a Default no-persona prompt ('Please answer the following personality questionnaire honestly.') plus all 16 MBTI personas (ISTJ, ISFJ, INFJ, INTJ, ISTP, ISFP, INFP, INTP, ESTP, ESFP, ENFP, ENTP, ESTJ, ESFJ, ENFJ, ENTJ).",
+            "Sampling: k=5 independent samples per (model, persona, item) cell at temperature = 0.7. Total 20 x 17 x 221 = 75,140 averaged scores from 375,700 raw API calls.",
+            "Refusal handling: 61 / 375,700 = 0.0162% missing, all under Default, mean-imputed per item across remaining models/samples under Default; immaterial at this rate.",
+            "Cite the foundational LLM family papers (GPT family, Claude family, Gemini family, DeepSeek family, Qwen family, GLM family, Kimi family, MiniMax family) and core API protocol."
+          ],
+          "citation_hints": [
+            "research paper or technical report introducing 'GPT-5 OpenAI'",
+            "research paper or technical report introducing 'Claude Anthropic'",
+            "research paper or technical report introducing 'Gemini Google DeepMind'",
+            "research paper or technical report introducing 'DeepSeek-V3'",
+            "research paper or technical report introducing 'Qwen3 Alibaba'",
+            "research paper or technical report introducing 'GLM Zhipu'",
+            "research paper or technical report introducing 'Kimi Moonshot'",
+            "research paper or technical report introducing 'MiniMax language model'",
+            "research paper or technical report introducing 'MBTI Myers-Briggs Type Indicator'"
+          ]
+        },
+        {
+          "subsection_title": "3.3 Six Standard Validity Checks",
+          "content_bullets": [
+            "Internal consistency: Cronbach's alpha per IPIP domain (17 personas as observations), averaged across 20 models. Formal equation for alpha.",
+            "Factor structure: EFA on the standardized 17-domain matrix (n = 340), retention by Kaiser eigenvalue > 1 and parallel analysis (500 permutations, 95th-percentile cutoff), varimax rotation. Replicated leave-one-model-out (20 reruns), per-family (8 reruns), per-model (20 reruns). Report Tucker's phi.",
+            "Reverse-item consistency: Pairwise Inconsistency Rate (PIR) per (model, domain); per-instrument forward/reverse agree-rate decomposition with Delta = Fwd - Rev.",
+            "Variance decomposition: sequential SS into Model + Domain + Persona + Item + Residual; separate models for Likert and Binary scales.",
+            "Convergent validity: Pearson and Spearman across 20 model-level means for 8 pre-specified construct pairs.",
+            "Measurement invariance: Pearson r between Default and each of 16 MBTI item vectors per model — 320 pairs total.",
+            "Cite the foundational statistical references for each check."
+          ],
+          "citation_hints": [
+            "research paper or technical report introducing 'Cronbach alpha reliability 1951'",
+            "research paper or technical report introducing 'Kaiser criterion eigenvalue greater than one'",
+            "research paper or technical report introducing 'Horn parallel analysis factor retention'",
+            "research paper or technical report introducing 'Varimax rotation Kaiser 1958'",
+            "research paper or technical report introducing 'Tucker phi factor congruence coefficient'",
+            "research paper or technical report introducing 'measurement invariance configural metric scalar'",
+            "research paper or technical report introducing 'pairwise inconsistency rate response style'"
+          ]
+        },
+        {
+          "subsection_title": "3.4 Persona Stress Test and Synthetic Baselines",
+          "content_bullets": [
+            "Persona Separation Degree (PSD): normalized 17-dimensional Euclidean distance from Default in z-score space, divided by sqrt(17).",
+            "Nearest-centroid persona classification with leave-one-model-out centroids and metric/scale ablations (z-Euclidean, cosine, Mahalanobis; all/Likert/binary/IPIP-only).",
+            "Target adherence: cosine similarity to leave-one-out empirical centroid and to a hand-coded theoretical MBTI target.",
+            "Sign-aligned cross-scale coherence on the four overlapping constructs; forward/reverse pair directional coherence.",
+            "Item-level plasticity: mean absolute Default-vs-persona shift normalized by scale range.",
+            "Factorial main-effects model with two-way interactions across the four MBTI axes (E/I, S/N, T/F, J/P).",
+            "Within-sample consistency: SD, exact agreement, and mode agreement across the k=5 repeats per (model, persona, domain).",
+            "Synthetic baselines on the same IPIP structure: Random uniform, Pure Acquiescence, Trait+Acquiescence. Cronbach alpha computed on each and compared to the LLM observed values for calibration."
+          ],
+          "citation_hints": [
+            "research paper or technical report introducing 'k-nearest centroid classification leave-one-out cross validation'",
+            "research paper or technical report introducing 'cosine similarity vector representation'",
+            "research paper or technical report introducing 'Mahalanobis distance covariance'",
+            "research paper or technical report introducing 'IRT item response theory simulation'",
+            "research paper or technical report introducing 'bootstrap confidence interval Efron'"
+          ]
+        }
+      ]
+    },
+    {
+      "section_title": "4. Experiments and Results",
+      "subsections": [
+        {
+          "subsection_title": "4.1 Default Personality Profiles: The Implicit Role",
+          "content_bullets": [
+            "Report Default-condition nearest-centroid classifications across 20 models: 8/20 ISTJ, 4/20 ISFP, 3/20 ISTP, 2/20 INTP, 2/20 INTJ, 1/20 ENFP. By empirical MBTI-axis projection, 12/20 are ISTJ-like.",
+            "Interpret: the no-persona instruction already carries an implicit introverted-structured-cautious role.",
+            "Reference fig_default_persona_classification."
+          ],
+          "citation_hints": []
+        },
+        {
+          "subsection_title": "4.2 Internal Consistency Fails Along a Reverse-Density Gradient",
+          "content_bullets": [
+            "Report Cronbach's alpha per IPIP domain in a booktabs table sourced from experimental_log.md §2.1 (Neuroticism 0.813, Extraversion 0.928, Openness 0.189, Agreeableness 0.069, Conscientiousness 0.535) with human-baseline alpha (~0.88) and gap column.",
+            "Report Spearman rho between alpha and reverse-item percentage across the 5 IPIP domains = -1.0 (p < 0.01).",
+            "Reference fig_alpha_vs_reverse_density and fig_alpha_per_model_heatmap.",
+            "Compare with human-baseline alpha alongside reverse-item percentage to make the gradient legible."
+          ],
+          "citation_hints": [
+            "research paper or technical report introducing 'IPIP-NEO-120 human normative sample alpha Johnson 2014'"
+          ]
+        },
+        {
+          "subsection_title": "4.3 Item-Level Acquiescence with Directional Asymmetry",
+          "content_bullets": [
+            "Report per-instrument forward/reverse decomposition averaged across 20 models in a booktabs table sourced from experimental_log.md §2.2 (IPIP Delta = +0.29, SD3 Delta = -0.33, ZKPQ Delta = -0.36, EPQR-A Delta = -0.16; overall mean Delta = +0.01).",
+            "Report overall PIR = 0.468 [0.413, 0.531]; Default PIR-agreement 0.674 -> MBTI 0.834 (t = 10.70, p < 0.0001); per-model r(reverse-agree, PIR) = +0.63.",
+            "Frame the dual sign as 'two faces of one bias': alignment teaches the model to agree with normal-personality items and to reject dark-trait content; the agree-impulse is identical in mechanism.",
+            "Reference fig_acquiescence_directional_asymmetry and fig_pir_default_vs_mbti."
+          ],
+          "citation_hints": []
+        },
+        {
+          "subsection_title": "4.4 Factor Structure Collapse: 5 Expected, 3 Observed, Universally",
+          "content_bullets": [
+            "Report the EFA on 17 standardized domain scores (n = 340): Kaiser and parallel analysis both retain 3 factors. First three eigenvalues: 6.97, 4.33, 3.07; 86–90% cumulative variance.",
+            "20 leave-one-model-out reruns, 8 per-family reruns, and 20 per-model reruns all return exactly 3 factors; first-eigenvalue range 6.94–7.02; Tucker's phi = 0.993.",
+            "Report varimax loadings in a booktabs table sourced from experimental_log.md §2.4 (F1 Extraversion/Sociability, F2 Neuroticism–Agreeableness merged, F3 Conscientiousness vs Impulsivity).",
+            "Reference fig_efa_loadings_heatmap and fig_efa_loo_robustness."
+          ],
+          "citation_hints": []
+        },
+        {
+          "subsection_title": "4.5 Model-Level Convergence: Inter-Model Variance Below 1%",
+          "content_bullets": [
+            "Report sequential variance decomposition (% of total SS) in a booktabs table sourced from experimental_log.md §2.5: Likert (IPIP+SD3) Model 0.35%, Domain 23.93%, Persona 4.09%, Item 36.13%, Residual 35.51%; Binary (ZKPQ+EPQR) Model 0.51%, Domain 5.27%, Persona 14.06%, Item 14.81%, Residual 65.35%.",
+            "Reference fig_variance_decomposition_likert_binary.",
+            "Conclude that cross-model personality comparisons are statistically meaningless at this resolution."
+          ],
+          "citation_hints": []
+        },
+        {
+          "subsection_title": "4.6 Convergent Validity and DIF",
+          "content_bullets": [
+            "Report the 8 pre-specified convergent pairs in a booktabs table sourced from experimental_log.md §2.6 with Pearson rp, p-value, Spearman rs, p-value, and a verdict column. Sign-match 7/8; the single failure is Extraversion x Sociability (sign reversal, rp = -0.10, p = 0.670).",
+            "Report DIF across families: no domain is significantly different (all p > 0.16, max |Cohen's d| = 0.42)."
+          ],
+          "citation_hints": [
+            "research paper or technical report introducing 'differential item functioning DIF Mantel-Haenszel'"
+          ]
+        },
+        {
+          "subsection_title": "4.7 Ruling Out Alternative Explanations: Synthetic-Baseline Calibration",
+          "content_bullets": [
+            "Report synthetic Cronbach alphas in a booktabs table sourced from experimental_log.md §2.7: Random uniform (alpha ~ 0), Pure Acquiescence (~ 0), Trait+Acquiescence (> 0.99); LLM observed (0.069–0.928); Human (~ 0.88).",
+            "Frame: LLMs do not look like personality with acquiescence on top — they look like acquiescence with no personality underneath.",
+            "Reference fig_alpha_synthetic_baseline_calibration.",
+            "Note this rules out a 'trait + style noise' generative model."
+          ],
+          "citation_hints": []
+        },
+        {
+          "subsection_title": "4.8 Persona Stress Test: Compliance Without Validity",
+          "content_bullets": [
+            "Measurement invariance: mean Pearson r across 320 (model, persona) pairs = 0.461; 0/320 above r = 0.8. Most-invariant ENFJ 0.653, INFJ 0.557, ESFJ 0.528; least-invariant ESTP 0.179, ENTP 0.291, ESFP 0.331. Reference fig_measurement_invariance_histogram.",
+            "Persona Separation Degree: mean PSD = 1.198; per-model leaders Gemini-3-Pro 1.384, Gemini-3.1-Pro 1.363, Qwen3-235B 1.344. Reference fig_persona_separation_degree.",
+            "Persona fidelity: 99.7% (319/320) nearest-centroid recovery in z-Euclidean; 1.000 in Likert-only; single confusion DeepSeek-V3.2 ESFP -> ENTP. Reference fig_persona_fidelity_confusion_heatmap.",
+            "Target adherence: empirical 0.838 [0.791, 0.877]; theoretical 0.557. Strongest ESTP 0.901, weakest INTP 0.699. Reference fig_target_adherence_heatmap.",
+            "Cross-scale coherence: overall 0.839; Fwd/Rev pair coherence overall 0.696 (range 0.657 SD3 to 0.737 EPQR-A). Reference fig_cross_scale_coherence_by_construct.",
+            "Factorial MBTI main effects: list strongest beta loadings per axis. Reference fig_factorial_mbti_main_effects.",
+            "Item-level plasticity: most plastic items 0.5–0.63 (visible-behavior); most locked items 0.000–0.075 (safety/morality). Reference fig_item_plasticity_distribution.",
+            "Within-sample stability: vendor SD spans ~10x (Claude-Opus 0.019 to DeepSeek-V4-Pro 0.192); Default is the noisiest persona (0.205). Reference fig_within_sample_consistency_by_model.",
+            "Interpretation: persona prompts replace alignment-driven acquiescence with persona-driven compliance — they do not restore measurement validity (3-factor collapse persists inside every persona condition)."
+          ],
+          "citation_hints": []
+        }
+      ]
+    },
+    {
+      "section_title": "5. Conclusion",
+      "subsections": [
+        {
+          "subsection_title": "Conclusion Content",
+          "content_bullets": [
+            "Restate the cascade: item-level alignment-driven acquiescence -> alpha collapse along the reverse-density gradient -> universal 3-factor EFA collapse -> sub-1% inter-model variance.",
+            "Restate the persona-stress conclusion: 99.7% nearest-centroid recovery vs 0.839 cross-scale coherence and 0.696 Fwd/Rev coherence — role compliance is not measurement validity.",
+            "Methodological prescription for future LLM-personality work: always report internal consistency, factor structure, convergent validity, and measurement invariance; establish invariance before cross-condition comparisons; adopt multi-temperature and multi-seed designs to separate stochastic from putative trait variance.",
+            "Re-state the directional-asymmetry framing as a unification of sycophancy and safety-driven rejection.",
+            "Position the work as a measurement-validity audit that any silicon-sample or LLM-personality study must pass before its scores can be trusted."
+          ],
+          "citation_hints": []
+        }
+      ]
+    },
+    {
+      "section_title": "Limitations",
+      "subsections": [
+        {
+          "subsection_title": "Limitations Content",
+          "content_bullets": [
+            "Closed-weight API models only — no base / pre-RLHF comparison, so alignment is hypothesized rather than directly isolated.",
+            "All instruments and prompts are in English; cross-lingual generalization untested.",
+            "Battery is restricted to four self-report inventories; forced-choice, behavioral elicitation, and IRT-fitted alternatives not evaluated.",
+            "Temperature is fixed at 0.7 and k = 5; multi-temperature and multi-seed designs are recommended but not run here.",
+            "Default 'honest' instruction is one of many no-persona phrasings; alternative no-persona phrasings may shift the implicit role away from ISTJ.",
+            "Persona stress test is restricted to the 16 MBTI personas; other persona ontologies untested."
+          ],
+          "citation_hints": []
+        }
+      ]
+    },
+    {
+      "section_title": "Ethics Statement",
+      "subsections": [
+        {
+          "subsection_title": "Ethics Statement Content",
+          "content_bullets": [
+            "No human subjects; all data are LLM API responses.",
+            "Dataset reuse: published, validated human instruments under their original terms.",
+            "Public-good motivation: prevent unsupported personality-trait claims about commercial LLMs from propagating into downstream alignment, hiring, or public-opinion applications.",
+            "Refusal handling: 61 refusals reported transparently; no attempt to evade safety filters.",
+            "Anonymized data and code release deferred to post-acceptance; review version uses anonymous repository placeholders."
+          ],
+          "citation_hints": []
+        }
+      ]
+    },
+    {
+      "section_title": "Appendix A. Persona Steering Supplement",
+      "subsections": [
+        {
+          "subsection_title": "A.1 Per-Model PSD, Fidelity, and Target Adherence",
+          "content_bullets": [
+            "Full per-model PSD table sourced from experimental_log.md §2.9; persona-fidelity confusion matrix (fig_persona_fidelity_confusion_heatmap); target-adherence heatmap (fig_target_adherence_heatmap)."
+          ],
+          "citation_hints": []
+        },
+        {
+          "subsection_title": "A.2 Cross-Scale and Forward/Reverse Coherence",
+          "content_bullets": [
+            "Coherence by construct (fig_cross_scale_coherence_by_construct) with bootstrap CIs; per-scale Fwd/Rev pair coherence rates (IPIP 0.685, SD3 0.657, ZKPQ 0.727, EPQR-A 0.737)."
+          ],
+          "citation_hints": []
+        },
+        {
+          "subsection_title": "A.3 Factorial MBTI Main Effects and Interactions",
+          "content_bullets": [
+            "Full beta-loading table per MBTI axis and per domain (fig_factorial_mbti_main_effects); discussion of leakage cases (EPQR Lie loads on J/P; SD3 Narcissism loads on E/I)."
+          ],
+          "citation_hints": []
+        },
+        {
+          "subsection_title": "A.4 Item-Level Plasticity Map",
+          "content_bullets": [
+            "Top-10 most-plastic and most-locked items (fig_item_plasticity_distribution); discussion of the alignment safety floor."
+          ],
+          "citation_hints": []
+        }
+      ]
+    },
+    {
+      "section_title": "Appendix B. DIF Across Model Families",
+      "subsections": [
+        {
+          "subsection_title": "B.1 Western vs Chinese Family Contrasts",
+          "content_bullets": [
+            "Per-domain Cohen's d and p-values across Western and Chinese model groupings; no significant family-level DIF (all p > 0.16; max |d| = 0.42)."
+          ],
+          "citation_hints": []
+        },
+        {
+          "subsection_title": "B.2 Per-Family EFA Replications",
+          "content_bullets": [
+            "8 per-family EFA reruns; every family returns 3 Kaiser factors; tabulate first eigenvalues."
+          ],
+          "citation_hints": []
+        }
+      ]
+    },
+    {
+      "section_title": "Appendix C. Missing-Data Handling",
+      "subsections": [
+        {
+          "subsection_title": "C.1 Refusal Inventory",
+          "content_bullets": [
+            "61 / 375,700 = 0.0162% refusals, all under Default. By model, strategy, and content theme (fig_refusal_breakdown); most-refused item sd3_026 (8 refusals)."
+          ],
+          "citation_hints": []
+        },
+        {
+          "subsection_title": "C.2 Imputation Strategy",
+          "content_bullets": [
+            "Per-item mean imputation across remaining models and samples under the same Default condition; sensitivity analysis confirming the rate is immaterial."
+          ],
+          "citation_hints": []
+        }
+      ]
+    },
+    {
+      "section_title": "Appendix D. Within-Sample Response Consistency",
+      "subsections": [
+        {
+          "subsection_title": "D.1 Per-Model Stability",
+          "content_bullets": [
+            "Per-model mean within-item SD, exact-agreement, and mode-agreement across k=5 repeats (fig_within_sample_consistency_by_model)."
+          ],
+          "citation_hints": []
+        },
+        {
+          "subsection_title": "D.2 Per-Persona Stability",
+          "content_bullets": [
+            "Per-persona mean SD; Default is the noisiest (0.205); MBTI personas all tighter (0.081–0.118)."
+          ],
+          "citation_hints": []
+        }
+      ]
+    },
+    {
+      "section_title": "Appendix E. Full Refusal Responses",
+      "subsections": [
+        {
+          "subsection_title": "E.1 Verbatim Refusal Catalogue",
+          "content_bullets": [
+            "Full prose catalog of all 61 refusals with model, item, and refusal strategy class for transparency."
+          ],
+          "citation_hints": []
+        }
+      ]
+    }
+  ]
+}

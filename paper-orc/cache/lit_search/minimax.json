@@ -1,0 +1,934 @@
+{
+  "total": 3,
+  "authenticated": true,
+  "data": [
+    {
+      "paperId": "b4d0f1237431cbc73db16685771790541c8c246a",
+      "externalIds": {
+        "ArXiv": "2501.08313",
+        "CorpusId": 275515682
+      },
+      "title": "MiniMax-01: Scaling Foundation Models with Lightning Attention",
+      "venue": "",
+      "year": 2025,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2501.08313, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "2340028210",
+          "name": "MiniMax"
+        },
+        {
+          "authorId": "2340150546",
+          "name": "Aonian Li"
+        },
+        {
+          "authorId": "2340016131",
+          "name": "Bangwei Gong"
+        },
+        {
+          "authorId": "2340163316",
+          "name": "Bo Yang"
+        },
+        {
+          "authorId": "2340017879",
+          "name": "Boji Shan"
+        },
+        {
+          "authorId": "2340379413",
+          "name": "Chang Liu"
+        },
+        {
+          "authorId": "2340024865",
+          "name": "Cheng Zhu"
+        },
+        {
+          "authorId": "2340174364",
+          "name": "Chunhao Zhang"
+        },
+        {
+          "authorId": "2340179368",
+          "name": "Congchao Guo"
+        },
+        {
+          "authorId": "2340385411",
+          "name": "Da Chen"
+        },
+        {
+          "authorId": "2340159366",
+          "name": "Dong Li"
+        },
+        {
+          "authorId": "2340015553",
+          "name": "Enwei Jiao"
+        },
+        {
+          "authorId": "2275139261",
+          "name": "Gen Li"
+        },
+        {
+          "authorId": "2133652706",
+          "name": "Guojun Zhang"
+        },
+        {
+          "authorId": "2340158361",
+          "name": "Haohai Sun"
+        },
+        {
+          "authorId": "2276292740",
+          "name": "H. Dong"
+        },
+        {
+          "authorId": "2155238906",
+          "name": "Jiadai Zhu"
+        },
+        {
+          "authorId": "2340015795",
+          "name": "Jiaqi Zhuang"
+        },
+        {
+          "authorId": "2340027489",
+          "name": "Jiayuan Song"
+        },
+        {
+          "authorId": "2340542214",
+          "name": "Jin Zhu"
+        },
+        {
+          "authorId": "2322992340",
+          "name": "Jin-Meng Han"
+        },
+        {
+          "authorId": "2315633241",
+          "name": "Jingyang Li"
+        },
+        {
+          "authorId": "2330054217",
+          "name": "Ju Xie"
+        },
+        {
+          "authorId": "2289985716",
+          "name": "Junhao Xu"
+        },
+        {
+          "authorId": "2112594366",
+          "name": "Jun Yan"
+        },
+        {
+          "authorId": "2314583996",
+          "name": "Kai Zhang"
+        },
+        {
+          "authorId": "2320570554",
+          "name": "Ke Xiao"
+        },
+        {
+          "authorId": "2340567663",
+          "name": "Kexi Kang"
+        },
+        {
+          "authorId": "2342251777",
+          "name": "Le Han"
+        },
+        {
+          "authorId": "2340018295",
+          "name": "Leyang Wang"
+        },
+        {
+          "authorId": "2315068525",
+          "name": "Lian-Chun Yu"
+        },
+        {
+          "authorId": "2261056712",
+          "name": "Li Feng"
+        },
+        {
+          "authorId": "2152636027",
+          "name": "Lin Zheng"
+        },
+        {
+          "authorId": "2266763355",
+          "name": "Lin Chai"
+        },
+        {
+          "authorId": "2067369207",
+          "name": "Longqiang Xing"
+        },
+        {
+          "authorId": "3237065",
+          "name": "Meizhi Ju"
+        },
+        {
+          "authorId": "2340030679",
+          "name": "Mingyuan Chi"
+        },
+        {
+          "authorId": "12554337",
+          "name": "Mozhi Zhang"
+        },
+        {
+          "authorId": "2261407452",
+          "name": "Pei‐Yu Huang"
+        },
+        {
+          "authorId": "2105541235",
+          "name": "Peng-Xia Niu"
+        },
+        {
+          "authorId": "2144902519",
+          "name": "Pengfei Li"
+        },
+        {
+          "authorId": "2321683265",
+          "name": "Pengyu Zhao"
+        },
+        {
+          "authorId": "2339724140",
+          "name": "Qi Yang"
+        },
+        {
+          "authorId": "2340177257",
+          "name": "Qidi Xu"
+        },
+        {
+          "authorId": "2376286649",
+          "name": "Qiexiang Wang"
+        },
+        {
+          "authorId": "2340182716",
+          "name": "Qin Wang"
+        },
+        {
+          "authorId": "2374331289",
+          "name": "Qiuhui Li"
+        },
+        {
+          "authorId": "2308039623",
+          "name": "Ruitao Leng"
+        },
+        {
+          "authorId": "2340474488",
+          "name": "Shengmin Shi"
+        },
+        {
+          "authorId": "2184021679",
+          "name": "Shu Yu"
+        },
+        {
+          "authorId": "2334996672",
+          "name": "Si-si Li"
+        },
+        {
+          "authorId": "2220129714",
+          "name": "S. Zhu"
+        },
+        {
+          "authorId": "2299736380",
+          "name": "Tao Huang"
+        },
+        {
+          "authorId": "2340032935",
+          "name": "Tianrun Liang"
+        },
+        {
+          "authorId": "2225238340",
+          "name": "Weigao Sun"
+        },
+        {
+          "authorId": "2296851156",
+          "name": "Wei-Bing Sun"
+        },
+        {
+          "authorId": "2342248270",
+          "name": "Weiyu Cheng"
+        },
+        {
+          "authorId": "2340169645",
+          "name": "Wenkai Li"
+        },
+        {
+          "authorId": "2340138103",
+          "name": "Xiangjun Song"
+        },
+        {
+          "authorId": "2262205128",
+          "name": "Xiaojuan Su"
+        },
+        {
+          "authorId": "2299550737",
+          "name": "Xiaodong Han"
+        },
+        {
+          "authorId": "2211878698",
+          "name": "Xinjie Zhang"
+        },
+        {
+          "authorId": "2283269460",
+          "name": "Xi-Yong Hou"
+        },
+        {
+          "authorId": "2340030930",
+          "name": "Xu Min"
+        },
+        {
+          "authorId": "2340473606",
+          "name": "Xun Zou"
+        },
+        {
+          "authorId": "2116517206",
+          "name": "Xuyang Shen"
+        },
+        {
+          "authorId": "2287529989",
+          "name": "Yan Gong"
+        },
+        {
+          "authorId": "2369157792",
+          "name": "Yin-Bo Zhu"
+        },
+        {
+          "authorId": "2299107208",
+          "name": "Yipeng Zhou"
+        },
+        {
+          "authorId": "2266275708",
+          "name": "Yiran Zhong"
+        },
+        {
+          "authorId": "2140880461",
+          "name": "Yong Hu"
+        },
+        {
+          "authorId": "2340353405",
+          "name": "Yuanxiang Fan"
+        },
+        {
+          "authorId": "2328658653",
+          "name": "Yue Yu"
+        },
+        {
+          "authorId": "2340153548",
+          "name": "Yufeng Yang"
+        },
+        {
+          "authorId": "2144442088",
+          "name": "Yuhao Li"
+        },
+        {
+          "authorId": "2340168196",
+          "name": "Yunan Huang"
+        },
+        {
+          "authorId": "2340174031",
+          "name": "Yunji Li"
+        },
+        {
+          "authorId": "2339710094",
+          "name": "Yunpeng Huang"
+        },
+        {
+          "authorId": "2269756654",
+          "name": "Yun Xu"
+        },
+        {
+          "authorId": "2331578319",
+          "name": "Yuxin Mao"
+        },
+        {
+          "authorId": "2340117566",
+          "name": "Zehan Li"
+        },
+        {
+          "authorId": "2109965103",
+          "name": "Zekang Li"
+        },
+        {
+          "authorId": "2340118960",
+          "name": "Zewei Tao"
+        },
+        {
+          "authorId": "2106685689",
+          "name": "Ze Ying"
+        },
+        {
+          "authorId": "2276526242",
+          "name": "Zhaoyang Cong"
+        },
+        {
+          "authorId": "2330163267",
+          "name": "Zhen Qin"
+        },
+        {
+          "authorId": "2334523170",
+          "name": "Zhe-yu Fan"
+        },
+        {
+          "authorId": "2340549278",
+          "name": "Zhihang Yu"
+        },
+        {
+          "authorId": "2340180351",
+          "name": "Zhuo Jiang"
+        },
+        {
+          "authorId": "2340167212",
+          "name": "Zijia Wu"
+        }
+      ],
+      "abstract": "We introduce MiniMax-01 series, including MiniMax-Text-01 and MiniMax-VL-01, which are comparable to top-tier models while offering superior capabilities in processing longer contexts. The core lies in lightning attention and its efficient scaling. To maximize computational capacity, we integrate it with Mixture of Experts (MoE), creating a model with 32 experts and 456 billion total parameters, of which 45.9 billion are activated for each token. We develop an optimized parallel strategy and highly efficient computation-communication overlap techniques for MoE and lightning attention. This approach enables us to conduct efficient training and inference on models with hundreds of billions of parameters across contexts spanning millions of tokens. The context window of MiniMax-Text-01 can reach up to 1 million tokens during training and extrapolate to 4 million tokens during inference at an affordable cost. Our vision-language model, MiniMax-VL-01 is built through continued training with 512 billion vision-language tokens. Experiments on both standard and in-house benchmarks show that our models match the performance of state-of-the-art models like GPT-4o and Claude-3.5-Sonnet while offering 20-32 times longer context window. We publicly release MiniMax-01 at https://github.com/MiniMax-AI."
+    },
+    {
+      "paperId": "f794177012387ce78bfea6afb5f26836bc9b8cac",
+      "externalIds": {
+        "DBLP": "journals/corr/abs-2501-08313",
+        "DOI": "10.48550/arXiv.2501.08313",
+        "CorpusId": 285313616
+      },
+      "title": "MiniMax-01: Scaling Foundation Models with Lightning Attention",
+      "venue": "arXiv.org",
+      "year": 2025,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.48550/arXiv.2501.08313?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.48550/arXiv.2501.08313, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "2408919921",
+          "name": "MiniMax"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "91360031e430be76c20c4b02f3da08c3052d54af",
+      "externalIds": {
+        "DBLP": "journals/corr/abs-2506-13585",
+        "ArXiv": "2506.13585",
+        "DOI": "10.48550/arXiv.2506.13585",
+        "CorpusId": 279402731
+      },
+      "title": "MiniMax-M1: Scaling Test-Time Compute Efficiently with Lightning Attention",
+      "venue": "arXiv.org",
+      "year": 2025,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2506.13585, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "2408697791",
+          "name": "MiniMax Aili Chen"
+        },
+        {
+          "authorId": "2340150546",
+          "name": "Aonian Li"
+        },
+        {
+          "authorId": "2340016131",
+          "name": "Bangwei Gong"
+        },
+        {
+          "authorId": "2308417204",
+          "name": "Binyan Jiang"
+        },
+        {
+          "authorId": "2312525335",
+          "name": "Bo Fei"
+        },
+        {
+          "authorId": "2340163316",
+          "name": "Bo Yang"
+        },
+        {
+          "authorId": "2340017879",
+          "name": "Boji Shan"
+        },
+        {
+          "authorId": "2283981541",
+          "name": "Changqing Yu"
+        },
+        {
+          "authorId": "2384932192",
+          "name": "Chao Wang"
+        },
+        {
+          "authorId": "2340024865",
+          "name": "Cheng Zhu"
+        },
+        {
+          "authorId": "2367631318",
+          "name": "Chengjun Xiao"
+        },
+        {
+          "authorId": "2296944723",
+          "name": "Chengyu Du"
+        },
+        {
+          "authorId": "2363864393",
+          "name": "Chi Zhang"
+        },
+        {
+          "authorId": "2337204167",
+          "name": "Chu Qiao"
+        },
+        {
+          "authorId": "2340174364",
+          "name": "Chunhao Zhang"
+        },
+        {
+          "authorId": "2273549899",
+          "name": "Chunhui Du"
+        },
+        {
+          "authorId": "2340179368",
+          "name": "Congchao Guo"
+        },
+        {
+          "authorId": "2340385411",
+          "name": "Da Chen"
+        },
+        {
+          "authorId": "2367191921",
+          "name": "Deming Ding"
+        },
+        {
+          "authorId": "2367664670",
+          "name": "Dianjun Sun"
+        },
+        {
+          "authorId": "2340159366",
+          "name": "Dong Li"
+        },
+        {
+          "authorId": "2340015553",
+          "name": "Enwei Jiao"
+        },
+        {
+          "authorId": "2386180529",
+          "name": "Haigang Zhou"
+        },
+        {
+          "authorId": "2326390327",
+          "name": "Haimo Zhang"
+        },
+        {
+          "authorId": "2364101023",
+          "name": "Han Ding"
+        },
+        {
+          "authorId": "2340158361",
+          "name": "Haohai Sun"
+        },
+        {
+          "authorId": "2374431268",
+          "name": "Hao Feng"
+        },
+        {
+          "authorId": "2367553962",
+          "name": "Huaiguang Cai"
+        },
+        {
+          "authorId": "2387872",
+          "name": "Haichao Zhu"
+        },
+        {
+          "authorId": "2367457637",
+          "name": "Jian Sun"
+        },
+        {
+          "authorId": "2340015795",
+          "name": "Jiaqi Zhuang"
+        },
+        {
+          "authorId": "2358828970",
+          "name": "Jia-Yao Cai"
+        },
+        {
+          "authorId": "2340027489",
+          "name": "Jiayuan Song"
+        },
+        {
+          "authorId": "2340542214",
+          "name": "Jin Zhu"
+        },
+        {
+          "authorId": "2315633241",
+          "name": "Jingyang Li"
+        },
+        {
+          "authorId": "2367784668",
+          "name": "Jinhao Tian"
+        },
+        {
+          "authorId": "2408735075",
+          "name": "Jinli Liu"
+        },
+        {
+          "authorId": "2289985716",
+          "name": "Junhao Xu"
+        },
+        {
+          "authorId": "2363502210",
+          "name": "Junjie Yan"
+        },
+        {
+          "authorId": "2217264323",
+          "name": "Junteng Liu"
+        },
+        {
+          "authorId": "2319102598",
+          "name": "Junxia He"
+        },
+        {
+          "authorId": "2369623752",
+          "name": "Kaiyi Feng"
+        },
+        {
+          "authorId": "2218347165",
+          "name": "Ke Yang"
+        },
+        {
+          "authorId": "2296847498",
+          "name": "Ke Xiao"
+        },
+        {
+          "authorId": "2342251777",
+          "name": "Le Han"
+        },
+        {
+          "authorId": "2340018295",
+          "name": "Leyang Wang"
+        },
+        {
+          "authorId": "2315068525",
+          "name": "Lian-Chun Yu"
+        },
+        {
+          "authorId": "2219696594",
+          "name": "Li Feng"
+        },
+        {
+          "authorId": "2331832699",
+          "name": "Lin Li"
+        },
+        {
+          "authorId": "2152636027",
+          "name": "Lin Zheng"
+        },
+        {
+          "authorId": "2363503498",
+          "name": "Linge Du"
+        },
+        {
+          "authorId": "2289838202",
+          "name": "Li-na Yang"
+        },
+        {
+          "authorId": "2299300100",
+          "name": "Lu Zeng"
+        },
+        {
+          "authorId": "2309457122",
+          "name": "Ming-Yuan Yu"
+        },
+        {
+          "authorId": "2304801604",
+          "name": "Mingliang Tao"
+        },
+        {
+          "authorId": "2340030679",
+          "name": "Mingyuan Chi"
+        },
+        {
+          "authorId": "2254324716",
+          "name": "Mozhi Zhang"
+        },
+        {
+          "authorId": "2290042977",
+          "name": "Mujie Lin"
+        },
+        {
+          "authorId": "2281959137",
+          "name": "Nan Hu"
+        },
+        {
+          "authorId": "2408794895",
+          "name": "Nongyu Di"
+        },
+        {
+          "authorId": "2288544193",
+          "name": "Peng Gao"
+        },
+        {
+          "authorId": "2363590346",
+          "name": "Pengfei Li"
+        },
+        {
+          "authorId": "2362196671",
+          "name": "Peng Zhao"
+        },
+        {
+          "authorId": "2363339980",
+          "name": "Qibing Ren"
+        },
+        {
+          "authorId": "2340177257",
+          "name": "Qidi Xu"
+        },
+        {
+          "authorId": "2367201959",
+          "name": "Qile Li"
+        },
+        {
+          "authorId": "2340182716",
+          "name": "Qin Wang"
+        },
+        {
+          "authorId": "2337619819",
+          "name": "Rong Tian"
+        },
+        {
+          "authorId": "2308039623",
+          "name": "Ruitao Leng"
+        },
+        {
+          "authorId": "2363508464",
+          "name": "Shaoxiang Chen"
+        },
+        {
+          "authorId": "2383300861",
+          "name": "Shaoyu Chen"
+        },
+        {
+          "authorId": "2340474488",
+          "name": "Shengmin Shi"
+        },
+        {
+          "authorId": "2363495276",
+          "name": "Shitong Weng"
+        },
+        {
+          "authorId": "2257912429",
+          "name": "Shuchang Guan"
+        },
+        {
+          "authorId": "2184021679",
+          "name": "Shu Yu"
+        },
+        {
+          "authorId": "2316963128",
+          "name": "Si-Jie Li"
+        },
+        {
+          "authorId": "2220129714",
+          "name": "S. Zhu"
+        },
+        {
+          "authorId": "2294307879",
+          "name": "Tengfei Li"
+        },
+        {
+          "authorId": "2072572650",
+          "name": "Tian-Yi Cai"
+        },
+        {
+          "authorId": "2340032935",
+          "name": "Tianrun Liang"
+        },
+        {
+          "authorId": "2342248270",
+          "name": "Weiyu Cheng"
+        },
+        {
+          "authorId": "2275163940",
+          "name": "Weize Kong"
+        },
+        {
+          "authorId": "2340169645",
+          "name": "Wenkai Li"
+        },
+        {
+          "authorId": "2296953537",
+          "name": "Xiancai Chen"
+        },
+        {
+          "authorId": "2340138103",
+          "name": "Xiangjun Song"
+        },
+        {
+          "authorId": "2288690225",
+          "name": "Xiao Luo"
+        },
+        {
+          "authorId": "2003628105",
+          "name": "Xiaoyan Su"
+        },
+        {
+          "authorId": "2199394016",
+          "name": "Xiaobo Li"
+        },
+        {
+          "authorId": "2299550737",
+          "name": "Xiaodong Han"
+        },
+        {
+          "authorId": "2283269460",
+          "name": "Xi-Yong Hou"
+        },
+        {
+          "authorId": "2133701145",
+          "name": "Xuan-wen Lu"
+        },
+        {
+          "authorId": "2340473606",
+          "name": "Xun Zou"
+        },
+        {
+          "authorId": "2363379113",
+          "name": "Xuyang Shen"
+        },
+        {
+          "authorId": "2321492624",
+          "name": "Yanting Gong"
+        },
+        {
+          "authorId": "2312665484",
+          "name": "Yan Ma"
+        },
+        {
+          "authorId": "2292508965",
+          "name": "Yang Wang"
+        },
+        {
+          "authorId": "2364069059",
+          "name": "Yiqi Shi"
+        },
+        {
+          "authorId": "2296916210",
+          "name": "Yi-Fan Zhong"
+        },
+        {
+          "authorId": "2175485780",
+          "name": "Yonghong Duan"
+        },
+        {
+          "authorId": "2408739928",
+          "name": "Yongxiang Fu"
+        },
+        {
+          "authorId": "2140880461",
+          "name": "Yong Hu"
+        },
+        {
+          "authorId": "2355561336",
+          "name": "Yu Gao"
+        },
+        {
+          "authorId": "2340353405",
+          "name": "Yuanxiang Fan"
+        },
+        {
+          "authorId": "2340153548",
+          "name": "Yufeng Yang"
+        },
+        {
+          "authorId": "2408526522",
+          "name": "Yuhao Li"
+        },
+        {
+          "authorId": "2373372458",
+          "name": "Yulin Hu"
+        },
+        {
+          "authorId": "2340168196",
+          "name": "Yunan Huang"
+        },
+        {
+          "authorId": "2396310004",
+          "name": "Yunji Li"
+        },
+        {
+          "authorId": "2269756654",
+          "name": "Yun Xu"
+        },
+        {
+          "authorId": "2280694085",
+          "name": "Yuxin Mao"
+        },
+        {
+          "authorId": "2307392125",
+          "name": "Yu-Zhe Shi"
+        },
+        {
+          "authorId": "2408651450",
+          "name": "Yuze Wenren"
+        },
+        {
+          "authorId": "2340117566",
+          "name": "Zehan Li"
+        },
+        {
+          "authorId": "2365273635",
+          "name": "Zelin Li"
+        },
+        {
+          "authorId": "2368480418",
+          "name": "Z. Tian"
+        },
+        {
+          "authorId": "2380085924",
+          "name": "Zhengmao Zhu"
+        },
+        {
+          "authorId": "2334523170",
+          "name": "Zhe-yu Fan"
+        },
+        {
+          "authorId": "48551896",
+          "name": "Zhenzhen Wu"
+        },
+        {
+          "authorId": "2299564290",
+          "name": "Zhichao Xu"
+        },
+        {
+          "authorId": "2340549278",
+          "name": "Zhihang Yu"
+        },
+        {
+          "authorId": "2307914614",
+          "name": "Z. Lyu"
+        },
+        {
+          "authorId": "2340180351",
+          "name": "Zhuo Jiang"
+        },
+        {
+          "authorId": "2359783439",
+          "name": "Zibo Gao"
+        },
+        {
+          "authorId": "2340167212",
+          "name": "Zijia Wu"
+        },
+        {
+          "authorId": "2335797268",
+          "name": "Zijian Song"
+        },
+        {
+          "authorId": "2407632669",
+          "name": "Zijun Sun"
+        }
+      ],
+      "abstract": "We introduce MiniMax-M1, the world's first open-weight, large-scale hybrid-attention reasoning model. MiniMax-M1 is powered by a hybrid Mixture-of-Experts (MoE) architecture combined with a lightning attention mechanism. The model is developed based on our previous MiniMax-Text-01 model, which contains a total of 456 billion parameters with 45.9 billion parameters activated per token. The M1 model natively supports a context length of 1 million tokens, 8x the context size of DeepSeek R1. Furthermore, the lightning attention mechanism in MiniMax-M1 enables efficient scaling of test-time compute. These properties make M1 particularly suitable for complex tasks that require processing long inputs and thinking extensively. MiniMax-M1 is trained using large-scale reinforcement learning (RL) on diverse problems including sandbox-based, real-world software engineering environments. In addition to M1's inherent efficiency advantage for RL training, we propose CISPO, a novel RL algorithm to further enhance RL efficiency. CISPO clips importance sampling weights rather than token updates, outperforming other competitive RL variants. Combining hybrid-attention and CISPO enables MiniMax-M1's full RL training on 512 H800 GPUs to complete in only three weeks, with a rental cost of just $534,700. We release two versions of MiniMax-M1 models with 40K and 80K thinking budgets respectively, where the 40K model represents an intermediate phase of the 80K training. Experiments on standard benchmarks show that our models are comparable or superior to strong open-weight models such as the original DeepSeek-R1 and Qwen3-235B, with particular strengths in complex software engineering, tool utilization, and long-context tasks. We publicly release MiniMax-M1 at https://github.com/MiniMax-AI/MiniMax-M1."
+    }
+  ]
+}

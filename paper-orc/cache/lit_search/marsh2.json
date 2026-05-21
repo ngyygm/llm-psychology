@@ -1,0 +1,105 @@
+{
+  "total": 652,
+  "authenticated": true,
+  "data": [
+    {
+      "paperId": "c43294ed24ac2c35d97e81b198b9677b6460d2d9",
+      "externalIds": {
+        "DOI": "10.31158/jeev.2025.38.2.305",
+        "CorpusId": 280066052
+      },
+      "title": "Detecting Wording Effects in Self-Report Measures: Application of Constrained Factor Mixture Modeling",
+      "venue": "Korean Society for Educational Evaluation",
+      "year": 2025,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.31158/jeev.2025.38.2.305?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.31158/jeev.2025.38.2.305, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "2109158648",
+          "name": "Jae-uk Kim"
+        },
+        {
+          "authorId": "2257931835",
+          "name": "Wonsook Sohn"
+        }
+      ],
+      "abstract": "Wording effect refers to the systematic bias that occurs when respondents answer questionnaires based on item phrasing rather than content in scales with mixed positive and negative items. Since wording effects compromise research reliability and validity, researchers have traditionally employed factor analysis models to control for them. However, traditional factor analysis models are limited by their assumption of population homogeneity and their explanation of wording effects for the entire population. To address these issues, this study introduces and evaluates two control methods based on Constrained Factor Mixture Modeling (CFMM), which incorporates population heterogeneity. These approaches model wording effect response groups by differentially constraining parameter estimates such as factor loadings for positive and negative items across latent classes. The analysis examines Rosenberg's (1965) Self-Esteem Scale, comprising five positive and five negative items, using data collected from 5,271 respondents who participated in an online survey on “Social Development of MZ Generation in the COVID-19 Era.” The results first identified latent subgroups that respond heterogeneously to positive and negative items and determined their demographic characteristics. Second, the study compared the performance of two constrained factor mixture model approaches for identifying these wording effect response groups and verified their utility in terms of reliability and validity, with the more complex Steinmann model yielding better results than the Arias model. Finally, the practical implication of the results were discussed."
+    },
+    {
+      "paperId": "3e9081c872c84e15542dcbd8d4be8e9a06f343c6",
+      "externalIds": {
+        "PubMedCentral": "9621279",
+        "DOI": "10.1080/20008066.2022.2122528",
+        "CorpusId": 253132100,
+        "PubMed": "36325255"
+      },
+      "title": "Effects of current treatments for trauma survivors with posttraumatic stress disorder on reducing a negative self-concept: a systematic review and meta-analysis",
+      "venue": "European Journal of Psychotraumatology",
+      "year": 2022,
+      "openAccessPdf": {
+        "url": "https://doi.org/10.1080/20008066.2022.2122528",
+        "status": "GOLD",
+        "license": "CCBYNC",
+        "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC9621279, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "2188912946",
+          "name": "Liselotte Banz"
+        },
+        {
+          "authorId": "1708015815",
+          "name": "Mina Stefanovic"
+        },
+        {
+          "authorId": "2188909370",
+          "name": "Maria von Boeselager"
+        },
+        {
+          "authorId": "145717493",
+          "name": "I. Schäfer"
+        },
+        {
+          "authorId": "2257913902",
+          "name": "A. Lotzin"
+        },
+        {
+          "authorId": "2263343253",
+          "name": "B. Kleim"
+        },
+        {
+          "authorId": "4024723",
+          "name": "T. Ehring"
+        }
+      ],
+      "abstract": "ABSTRACT Background: A negative self-concept is characterised by dysfunctional cognitions about the self and has been suggested to be a key factor involved in the development and maintenance of posttraumatic stress disorder (PTSD). In addition, the current definitions of PTSD according to DSM-5 and the new ICD-11 diagnosis of Complex PTSD (CPTSD) include aspects of negative self-concept in their diagnostic criteria. Objective: The aim of this meta-analysis was to synthesise the currently available evidence on the effects of psychological interventions for PTSD on negative self-concept. Methods: PubMed, PsychINFO, PSYNDEX, PTSDpubs and Cochrane Library were searched for randomised controlled trials (RCTs) of psychological treatments for PTSD symptoms in adults, published up to February 2021. A systematic review and meta-analysis were conducted, with risk of bias assessed by the Cochrane Risk of Bias Assessment Tool. Results: A total of 25 RCTs (N = 2585) were included in the meta-analysis. Results showed that psychological interventions significantly improve a negative self-concept with a moderate to large controlled effect size (k = 30, g = 0.67, 95% CI [0.31, 1.02], p < .001) at post-treatment. Heterogeneity between studies was large but could not be accounted for by moderators included in the current analysis, i.e. different types of interventions (e.g. with vs. without a cognitive restructuring component, trauma-focused vs. not). Conclusions: Current treatments for PTSD are effective in reducing a negative self-concept. However, more research is needed to identify moderators of this effect and identify interventions that are most effective for reducing negative self-concept. HIGHLIGHTS Posttraumatic stress disorder is related to a negative self-concept. In this meta-analysis, we found that existing treatments for posttraumatic stress disorder reduce a negative self-concept. Future research is needed to identify interventions that are most effective in reducing a negative self-concept."
+    },
+    {
+      "paperId": "163371d5901719e0e9d542bf6b4a29019c33e351",
+      "externalIds": {
+        "DOI": "10.24299/kier.2025.381.77",
+        "CorpusId": 276927623
+      },
+      "title": "How Parental Attachment and Monitoring Shape Self-Concept: Mediating Effects of Academic Pressure and Career Maturity",
+      "venue": "Korea University Institute of Educational Research",
+      "year": 2025,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.24299/kier.2025.381.77?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.24299/kier.2025.381.77, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "2243107455",
+          "name": "Sohyun Park"
+        }
+      ],
+      "abstract": "This study aims to explore the impact of parental attachment and parental monitoring on self-concept among high school seniors and to identify the mediating roles of academic pressure and career maturity in this process. Utilizing data from the Korean Youth Panel Survey (KYPS), the study employs Structural Equation Modeling (SEM) and multiple regression analysis to validate the relationships among variables. The findings indicate that both parental attachment and parental monitoring exert significant positive effects on self-concept, with parental attachment demonstrating a stronger influence. Parental attachment was found to be a key factor in enhancing career maturity, and its indirect effect on self-concept was also significant. In contrast, parental monitoring was associated with increased academic pressure and exhibited a weaker direct influence on self-concept compared to parental attachment. While career maturity emerged as a crucial mediator in self-concept formation, the mediating effect of academic pressure was relatively minor. Furthermore, the interaction between parental attachment and parental monitoring negatively impacted self-concept, indicating that higher levels of parental monitoring weakened the positive effect of parental attachment. These results highlight the critical role of parental emotional support and behavioral guidance in shaping adolescents' self-concept and underscore the necessity of balanced parenting approaches. The study further suggests implications for the development of parent education and counseling programs."
+    }
+  ]
+}

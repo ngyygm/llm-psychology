@@ -1,0 +1,94 @@
+{
+  "total": 3,
+  "authenticated": true,
+  "data": [
+    {
+      "paperId": "ec1cec03d80cb6cf7330ba03f01d1d08ab5d598f",
+      "externalIds": {
+        "MAG": "2099465598",
+        "DOI": "10.1146/ANNUREV.PS.41.020190.002221",
+        "CorpusId": 145634727
+      },
+      "title": "PERSONALITY STRUCTURE: EMERGENCE OF THE FIVE-FACTOR MODEL",
+      "venue": "",
+      "year": 1990,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1146/ANNUREV.PS.41.020190.002221?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1146/ANNUREV.PS.41.020190.002221, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "3969220",
+          "name": "J. M. Digman"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "8f7c43f97069f066c690b91833883bdee0a8affa",
+      "externalIds": {
+        "MAG": "2124563911",
+        "DOI": "10.1037/0021-9010.79.2.272",
+        "CorpusId": 53515929
+      },
+      "title": "Validity of observer ratings of the big five personality factors",
+      "venue": "",
+      "year": 1994,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1037/0021-9010.79.2.272?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1037/0021-9010.79.2.272, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "3773551",
+          "name": "M. K. Mount"
+        },
+        {
+          "authorId": "4249469",
+          "name": "Murray R. Barrick"
+        },
+        {
+          "authorId": "144512507",
+          "name": "J. Strauss"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "2323b4032699c4af8e2894c10919007ec289648d",
+      "externalIds": {
+        "MAG": "2034820821",
+        "DOI": "10.1016/J.RESPOL.2008.06.004",
+        "CorpusId": 154041171
+      },
+      "title": "The role of SME entrepreneurs’ innovativeness and personality in the adoption of innovations",
+      "venue": "",
+      "year": 2008,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1016/J.RESPOL.2008.06.004?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1016/J.RESPOL.2008.06.004, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "22641371",
+          "name": "Alberto Marcati"
+        },
+        {
+          "authorId": "6548226",
+          "name": "G. Guido"
+        },
+        {
+          "authorId": "47143372",
+          "name": "A. Peluso"
+        }
+      ],
+      "abstract": null
+    }
+  ]
+}

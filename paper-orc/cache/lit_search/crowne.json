@@ -1,0 +1,85 @@
+{
+  "total": 974,
+  "authenticated": true,
+  "data": [
+    {
+      "paperId": "9c58c19b01b04ca7dbf122d59684bf05353cc77b",
+      "externalIds": {
+        "MAG": "2120996730",
+        "DOI": "10.1037/H0047358",
+        "CorpusId": 9781635,
+        "PubMed": "13813058"
+      },
+      "title": "A new scale of social desirability independent of psychopathology.",
+      "venue": "Journal of Consulting Psychology",
+      "year": 1960,
+      "openAccessPdf": {
+        "url": "http://web.bvu.edu/faculty/goodfriend/documents/surveys/social desirability scale/ccp-24-4-349.pdf",
+        "status": "GREEN",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1037/H0047358?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1037/H0047358, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "4017180",
+          "name": "D. Crowne"
+        },
+        {
+          "authorId": "145421262",
+          "name": "D. Marlowe"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "c8621a55d6d4b868b1a7b4baf2ba1c73506c166b",
+      "externalIds": {
+        "CorpusId": 13904492
+      },
+      "title": "A VALIDATION OF THE CROWNE-MARLOWE SOCIAL DESIRABILITY SCALE",
+      "venue": "",
+      "year": 2002,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at http://www.srl.uic.edu/publist/Conference/crownemarlowe.pdf, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "144629375",
+          "name": "T. Johnson"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "b2c186887f677bc0c1f73049d343130336d0144a",
+      "externalIds": {
+        "MAG": "2989890173",
+        "DOI": "10.46827/EJES.V0I0.2734",
+        "CorpusId": 213552856
+      },
+      "title": "ADAPTION AND PSYCHOMETRIC PROPERTIES OF THE SHORT FORMS MARLOWE-CROWNE SOCIAL DESIRABILITY SCALE WITH A SAMPLE OF GREEK UNIVERSITY STUDENTS",
+      "venue": "",
+      "year": 2019,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.46827/EJES.V0I0.2734?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.46827/EJES.V0I0.2734, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "2348632598",
+          "name": "Konstantinos Lavidas"
+        },
+        {
+          "authorId": "6147192",
+          "name": "V. Gialamas"
+        }
+      ],
+      "abstract": null
+    }
+  ]
+}

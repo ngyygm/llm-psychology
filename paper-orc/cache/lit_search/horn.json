@@ -1,0 +1,31 @@
+{
+  "total": 1,
+  "authenticated": true,
+  "data": [
+    {
+      "paperId": "1efc86d78b94931fefdfd47614299f6c6c17980e",
+      "externalIds": {
+        "MAG": "2088477804",
+        "DOI": "10.1007/BF02289447",
+        "CorpusId": 19663974,
+        "PubMed": "14306381"
+      },
+      "title": "A rationale and test for the number of factors in factor analysis",
+      "venue": "Psychometrika",
+      "year": 1965,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1007/BF02289447?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1007/BF02289447, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "50783801",
+          "name": "J. Horn"
+        }
+      ],
+      "abstract": null
+    }
+  ]
+}

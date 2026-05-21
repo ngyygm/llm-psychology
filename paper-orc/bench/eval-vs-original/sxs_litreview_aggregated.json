@@ -1,0 +1,24 @@
+{
+  "_comment": "Aggregated SxS Literature Review Quality verdict (App. F.3 protocol). Both runs agreed that paper-orc has the stronger lit review.",
+  "run1": {
+    "paper_1": "paper-orc generated",
+    "paper_2": "human-authored original",
+    "winner": "paper_1",
+    "winner_resolved_to": "paper-orc"
+  },
+  "run2": {
+    "paper_1": "human-authored original",
+    "paper_2": "paper-orc generated",
+    "winner": "paper_2",
+    "winner_resolved_to": "paper-orc"
+  },
+  "verdict": "WIN for paper-orc",
+  "consistency": "Both runs agreed; positional bias did not flip the verdict.",
+  "decisive_driver": "Citation coverage: 57 vs 26 unique citations in Intro + Related Work, with paper-orc including the foundational human-subjects methodological anchors (Kaiser, Horn, Tucker, Couch & Keniston, Crowne & Marlowe, Vandenberg & Lance, Meredith) that the human-authored original omits. For a paper whose central argument is that the LLM-personality literature has skipped the standard validation toolkit, citing that toolkit explicitly is load-bearing.",
+  "secondary_drivers": [
+    "Parallel-structured Related-Work subsections (overview → SOTA → limitation → bridge) provide more explicit scaffolding than the original's '\\paragraph{Our contribution}' format.",
+    "7-bullet itemised contribution list at the end of the Introduction is sharper than the original's prose-only positioning.",
+    "Explicit silicon-sample stakeholder framing in the Introduction.",
+    "ACL-canonical \\citep / \\citet usage vs the original's mixed \\cite style."
+  ]
+}

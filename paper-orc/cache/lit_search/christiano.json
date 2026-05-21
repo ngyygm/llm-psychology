@@ -1,0 +1,139 @@
+{
+  "total": 5321,
+  "authenticated": true,
+  "data": [
+    {
+      "paperId": "5bbb6f9a8204eb13070b6f033e61c84ef8ee68dd",
+      "externalIds": {
+        "MAG": "2626804490",
+        "DBLP": "journals/corr/abs-1706-03741",
+        "ArXiv": "1706.03741",
+        "CorpusId": 4787508
+      },
+      "title": "Deep Reinforcement Learning from Human Preferences",
+      "venue": "Neural Information Processing Systems",
+      "year": 2017,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/1706.03741, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "145791315",
+          "name": "P. Christiano"
+        },
+        {
+          "authorId": "2990741",
+          "name": "Jan Leike"
+        },
+        {
+          "authorId": "31035595",
+          "name": "Tom B. Brown"
+        },
+        {
+          "authorId": "26890260",
+          "name": "Miljan Martic"
+        },
+        {
+          "authorId": "34313265",
+          "name": "S. Legg"
+        },
+        {
+          "authorId": "2330246606",
+          "name": "Dario Amodei"
+        }
+      ],
+      "abstract": "For sophisticated reinforcement learning (RL) systems to interact usefully with real-world environments, we need to communicate complex goals to these systems. In this work, we explore goals defined in terms of (non-expert) human preferences between pairs of trajectory segments. We show that this approach can effectively solve complex RL tasks without access to the reward function, including Atari games and simulated robot locomotion, while providing feedback on less than one percent of our agent's interactions with the environment. This reduces the cost of human oversight far enough that it can be practically applied to state-of-the-art RL systems. To demonstrate the flexibility of our approach, we show that we can successfully train complex novel behaviors with about an hour of human time. These behaviors and environments are considerably more complex than any that have been previously learned from human feedback."
+    },
+    {
+      "paperId": "90e28a202605b4e8a10f0e0806ccec2eb852786e",
+      "externalIds": {
+        "DOI": "10.1016/j.oceaneng.2024.120036",
+        "CorpusId": 274747142
+      },
+      "title": "Deep reinforcement learning from human preferences for ROV path tracking",
+      "venue": "Ocean Engineering",
+      "year": 2025,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1016/j.oceaneng.2024.120036?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1016/j.oceaneng.2024.120036, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "2335243242",
+          "name": "Shilong Niu"
+        },
+        {
+          "authorId": "2321947382",
+          "name": "Xingwei Pan"
+        },
+        {
+          "authorId": "2335523269",
+          "name": "Jun Wang"
+        },
+        {
+          "authorId": "2271680780",
+          "name": "Guangliang Li"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "7a15950dc71079285a4eaf195de5aadd87c41b40",
+      "externalIds": {
+        "MAG": "2973379954",
+        "DBLP": "journals/corr/abs-1909-08593",
+        "ArXiv": "1909.08593",
+        "CorpusId": 202660943
+      },
+      "title": "Fine-Tuning Language Models from Human Preferences",
+      "venue": "arXiv.org",
+      "year": 2019,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/1909.08593, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "2052152920",
+          "name": "Daniel M. Ziegler"
+        },
+        {
+          "authorId": "1387983862",
+          "name": "Nisan Stiennon"
+        },
+        {
+          "authorId": "49387725",
+          "name": "Jeff Wu"
+        },
+        {
+          "authorId": "31035595",
+          "name": "Tom B. Brown"
+        },
+        {
+          "authorId": "38909097",
+          "name": "Alec Radford"
+        },
+        {
+          "authorId": "2698777",
+          "name": "Dario Amodei"
+        },
+        {
+          "authorId": "145370786",
+          "name": "Paul Christiano"
+        },
+        {
+          "authorId": "2060655766",
+          "name": "G. Irving"
+        }
+      ],
+      "abstract": "Reward learning enables the application of reinforcement learning (RL) to tasks where reward is defined by human judgment, building a model of reward by asking humans questions. Most work on reward learning has used simulated environments, but complex information about values is often expressed in natural language, and we believe reward learning for language is a key to making RL practical and safe for real-world tasks. In this paper, we build on advances in generative pretraining of language models to apply reward learning to four natural language tasks: continuing text with positive sentiment or physically descriptive language, and summarization tasks on the TL;DR and CNN/Daily Mail datasets. For stylistic continuation we achieve good results with only 5,000 comparisons evaluated by humans. For summarization, models trained with 60,000 comparisons copy whole sentences from the input but skip irrelevant preamble; this leads to reasonable ROUGE scores and very good performance according to our human labelers, but may be exploiting the fact that labelers rely on simple heuristics."
+    }
+  ]
+}

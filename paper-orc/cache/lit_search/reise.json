@@ -1,0 +1,144 @@
+{
+  "total": 203,
+  "authenticated": true,
+  "data": [
+    {
+      "paperId": "c7a8c57cef3d503cd9371ab075bdbc95a79c35c9",
+      "externalIds": {
+        "MAG": "2033860787",
+        "DOI": "10.1158/1538-7445.AM2013-1367",
+        "CorpusId": 71931788
+      },
+      "title": "Abstract 1367: Item response theory analysis of the patient satisfaction with cancer-related care: psychometric validation in a multicultural sample of 1,296 participants.",
+      "venue": "",
+      "year": 2013,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1158/1538-7445.AM2013-1367?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1158/1538-7445.AM2013-1367, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "1411138647",
+          "name": "P. Jean-Pierre"
+        },
+        {
+          "authorId": "2146290606",
+          "name": "Ying Cheng"
+        },
+        {
+          "authorId": "4255478",
+          "name": "S. Patierno"
+        },
+        {
+          "authorId": "8073508",
+          "name": "P. Raich"
+        },
+        {
+          "authorId": "5579507",
+          "name": "R. Roetzheim"
+        },
+        {
+          "authorId": "33289544",
+          "name": "S. Rosen"
+        },
+        {
+          "authorId": "2069592004",
+          "name": "D. Dudley"
+        },
+        {
+          "authorId": "3478881",
+          "name": "K. Freund"
+        },
+        {
+          "authorId": "1399517332",
+          "name": "Victoria Warren-Mears"
+        },
+        {
+          "authorId": "143751246",
+          "name": "E. Paskett"
+        },
+        {
+          "authorId": "3976933",
+          "name": "K. Fiscella"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "b01b3fb3bdc21226c765f5339d199059df2ca406",
+      "externalIds": {
+        "MAG": "2070227138",
+        "DOI": "10.1080/00223891.2012.725437",
+        "CorpusId": 30791034,
+        "PubMed": "23030794"
+      },
+      "title": "Scoring and Modeling Psychological Measures in the Presence of Multidimensionality",
+      "venue": "Journal of Personality Assessment",
+      "year": 2013,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1080/00223891.2012.725437?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1080/00223891.2012.725437, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "6427086",
+          "name": "S. Reise"
+        },
+        {
+          "authorId": "51172143",
+          "name": "Wes Bonifay"
+        },
+        {
+          "authorId": "2611345",
+          "name": "M. Haviland"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "70123df2a187ebf5d06948f2d4ae0cf56c2fa54d",
+      "externalIds": {
+        "MAG": "2002276369",
+        "DOI": "10.1037/a0032161",
+        "CorpusId": 43648918,
+        "PubMed": "23544402"
+      },
+      "title": "The Barratt Impulsiveness Scale-11: reassessment of its structure in a community sample.",
+      "venue": "Psychological Assessment",
+      "year": 2013,
+      "openAccessPdf": {
+        "url": "https://europepmc.org/articles/pmc3805371?pdf=render",
+        "status": "GREEN",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1037/a0032161?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1037/a0032161, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "6427086",
+          "name": "S. Reise"
+        },
+        {
+          "authorId": "21858452",
+          "name": "T. Moore"
+        },
+        {
+          "authorId": "2868450",
+          "name": "F. Sabb"
+        },
+        {
+          "authorId": "3786458",
+          "name": "Amira K. Brown"
+        },
+        {
+          "authorId": "1884228",
+          "name": "E. London"
+        }
+      ],
+      "abstract": null
+    }
+  ]
+}
