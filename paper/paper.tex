@@ -178,17 +178,17 @@ We average $\alpha$ across the 20 models. Human benchmarks come from \citet{john
 Let $\mathbf{x}_j \in \mathbb{R}^{17}$ be the vector of domain scores for observation $j$ ($j = 1, \ldots, 340$). We standardize each domain to zero mean and unit variance, then compute the correlation matrix $\mathbf{R}$. We retain factors via the Kaiser criterion ($\lambda_i > 1$) \citep{kaiser1960application} and validate with parallel analysis \citep{horn1965parallel}: we permute each column of the data matrix independently, recompute eigenvalues, and repeat 500 times. A factor is retained only if its observed eigenvalue exceeds the 95th percentile of the permuted distribution. We extract factor loadings via eigendecomposition of $\mathbf{R}$ followed by varimax rotation \citep{kaiser1958varimax}. Factor replication across models is assessed with Tucker's coefficient of congruence \citep{tucker1951method}.
 
 \paragraph{Reverse-item consistency.}
-For each domain that contains both forward-coded ($+$) and reverse-coded ($-$) items, we compute the Pairwise Inconsistency Rate (PIR). For Likert items, a forward-reverse pair $(f, r)$ is inconsistent when both responses fall on the same side of the midpoint:
+For each domain that contains both forward-coded ($+$) and reverse-coded ($-$) items, we compute the Pairwise Inconsistency Rate (PIR). For Likert items, a forward-reverse pair $(f, r)$ is inconsistent when both responses are at or above the midpoint, or both are at or below it:
 {\small
 \begin{equation}
-\mathrm{PIR} = \frac{1}{|F|\,|R|} \sum_{f \in F}\sum_{r \in R} \mathbf{1}\!\bigl[\mathrm{sgn}(f{-}3) = \mathrm{sgn}(r{-}3)\bigr]
+\mathrm{PIR} = \frac{1}{|F|\,|R|} \sum_{f \in F}\sum_{r \in R} \mathbf{1}\!\bigl[(f \ge 3 \wedge r \ge 3) \vee (f \le 3 \wedge r \le 3)\bigr]
 \label{eq:pir}
 \end{equation}
 }
-where $F$ and $R$ are the sets of forward and reverse item responses, and the midpoint is 3 on the 1--5 scale. For binary items, inconsistency is $f = r$.
+where $F$ and $R$ are the sets of forward and reverse item responses (raw Likert values), and the midpoint is 3 on the 1--5 scale. For binary items, inconsistency is $f = r$.
 
 \paragraph{Variance decomposition.}
-We normalize all responses to a common 0--1 scale: Likert scores via $x' = (x - 1)/4$, binary scores kept as-is. We then decompose the total sum of squares sequentially:
+We normalize all scored responses to a common 0--1 scale: Likert scores via $x' = (x - 1)/4$, binary scores kept as-is. We then decompose the total sum of squares into marginal components:
 \begin{equation}
 \begin{split}
 \mathrm{SS}_{\mathrm{total}} &= \sum_{i}(y_i - \bar{y})^2 \\
