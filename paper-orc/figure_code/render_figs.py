@@ -13,8 +13,8 @@ import numpy as np
 import pandas as pd
 from matplotlib.colors import LinearSegmentedColormap, TwoSlopeNorm
 
-RESULTS_DIR = Path("/Users/zhanshaoxiong.3/Desktop/new-exp/llm-psychology/code/results")
-OUT_DIR = Path("/Users/zhanshaoxiong.3/Desktop/new-exp/llm-psychology/paper-orc/figures")
+RESULTS_DIR = Path(__file__).resolve().parent.parent.parent / "code" / "results"
+OUT_DIR = Path(__file__).resolve().parent.parent.parent / "paper" / "figures"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 plt.rcParams.update({
@@ -68,8 +68,8 @@ def fig_size(aspect):
     return ASPECT_TO_SIZE.get(aspect, (6.0, 4.5))
 
 def save(fig, name):
-    out = OUT_DIR / f"{name}.png"
-    fig.savefig(out)
+    out = OUT_DIR / f"{name}.pdf"
+    fig.savefig(out, bbox_inches="tight", pad_inches=0.08)
     plt.close(fig)
     print(f"  ✓ {out.name}")
 
@@ -315,6 +315,7 @@ def fig_variance_decomposition_likert_binary():
 # ============================================================
 def fig_item_plasticity_distribution():
     df = pd.read_csv(RESULTS_DIR / "item_plasticity.csv")
+    df["item_text"] = df["item_text"].fillna("").astype(str)
     df = df.dropna(subset=["mean_abs_scored_delta"])
     df["category"] = "visible behavior / sociability"
     df.loc[df["safety_sensitive_flag"] == True, "category"] = "safety / morality"
