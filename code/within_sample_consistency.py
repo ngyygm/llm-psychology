@@ -217,10 +217,11 @@ def compute_summary_tables(df: pd.DataFrame) -> dict[str, pd.DataFrame]:
 # ============================================================================
 
 def _save(fig, name):
-    path = FIG_DIR / name
+    pdf_name = name.replace(".png", ".pdf")
+    path = FIG_DIR / pdf_name
     fig.savefig(path)
     plt.close(fig)
-    print(f"  Saved {name}")
+    print(f"  Saved {pdf_name}")
 
 
 def fig_overall_portrait(df: pd.DataFrame):

@@ -995,7 +995,8 @@ def bootstrap_ci(default_df: pd.DataFrame, adherence_df: pd.DataFrame, coherence
 
 
 def savefig(fig: plt.Figure, filename: str) -> None:
-    fig.savefig(FIG_DIR / filename, dpi=320, bbox_inches="tight", pad_inches=0.035)
+    pdf_name = filename.replace(".png", ".pdf")
+    fig.savefig(FIG_DIR / pdf_name, bbox_inches="tight", pad_inches=0.035)
     plt.close(fig)
 
 

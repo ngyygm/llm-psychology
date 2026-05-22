@@ -99,8 +99,9 @@ IPIP_DOMAINS = [
 
 def save(fig: matplotlib.figure.Figure, *names: str) -> None:
     for name in names:
-        fig.savefig(FIG_DIR / name, dpi=260, bbox_inches="tight", pad_inches=0.08)
-        print(f"saved figures/{name}")
+        pdf_name = name.replace(".png", ".pdf")
+        fig.savefig(FIG_DIR / pdf_name, bbox_inches="tight", pad_inches=0.08)
+        print(f"saved figures/{pdf_name}")
     plt.close(fig)
 
 
