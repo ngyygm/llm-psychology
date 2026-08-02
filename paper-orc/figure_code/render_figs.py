@@ -14,7 +14,7 @@ import pandas as pd
 from matplotlib.colors import LinearSegmentedColormap, TwoSlopeNorm
 
 RESULTS_DIR = Path(__file__).resolve().parent.parent.parent / "code" / "results"
-OUT_DIR = Path(__file__).resolve().parent.parent.parent / "paper" / "figures"
+OUT_DIR = Path(__file__).resolve().parent.parent.parent / "paper-orc" / "final" / "figures"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 plt.rcParams.update({
@@ -67,8 +67,18 @@ ASPECT_TO_SIZE = {
 def fig_size(aspect):
     return ASPECT_TO_SIZE.get(aspect, (6.0, 4.5))
 
+def short_model(name: str) -> str:
+    """Canonical paper model names (fixes GPT_5.2 / Gemini_3 / glm lower-case)."""
+    return (str(name)
+            .replace("GPT_5.2", "GPT-5.2")
+            .replace("Gemini_3-Pro-Preview", "Gemini-3-Pro-Preview")
+            .replace("Gemini_3_Pro_Preview", "Gemini-3-Pro-Preview")
+            .replace("glm-4.7", "GLM-4.7")
+            .replace("glm-5.1", "GLM-5.1"))
+
+
 def save(fig, name):
-    out = OUT_DIR / f"{name}.pdf"
+    out = OUT_DIR / f"{name}.png"
     fig.savefig(out, bbox_inches="tight", pad_inches=0.08)
     plt.close(fig)
     print(f"  ✓ {out.name}")
@@ -380,7 +390,7 @@ def fig_persona_separation_degree():
     ax.axvline(summ["mean"].mean(), color="black", linestyle="--", linewidth=0.7,
                label=f"Mean PSD across all models = {summ['mean'].mean():.2f}")
     ax.set_yticks(y)
-    ax.set_yticklabels(summ["model"], fontsize=7)
+    ax.set_yticklabels([short_model(m) for m in summ["model"]], fontsize=7)
     ax.set_xlabel("Persona Separation Degree (z-Euclidean / √17)")
     ax.set_title("Persona Separation Degree across 20 LLMs (bars = mean ± SD over 16 personas)")
     ax.legend(loc="lower right")
@@ -410,7 +420,7 @@ def fig_within_sample_consistency_by_model():
     ax2.set_xlim(0.85, 1.0)
     ax2.set_xlabel("Mode-agreement rate (k=5)", color="black", fontsize=7)
     ax.set_yticks(y)
-    ax.set_yticklabels(df["model"], fontsize=7)
+    ax.set_yticklabels([short_model(m) for m in df["model"]], fontsize=7)
     ax.set_xlabel("Mean within-item SD across k=5 (Likert)")
     ax.set_title("Vendor sampling noise spans ~10× — must be controlled in future LLM-personality work")
     # family legend
@@ -542,7 +552,7 @@ def fig_pir_default_vs_mbti():
     ax.axvline(0.468, color=RED, linestyle="--", linewidth=0.8,
                label=f"Overall PIR = 0.468\n[0.413, 0.531]")
     ax.set_yticks(np.arange(len(by_model)))
-    ax.set_yticklabels(by_model["model"], fontsize=6.5)
+    ax.set_yticklabels([short_model(m) for m in by_model["model"]], fontsize=6.5)
     ax.set_xlabel("Mean PIR across domains")
     ax.set_title("Per-model PIR")
     ax.legend(loc="lower right")

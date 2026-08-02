@@ -75,12 +75,11 @@ BATCH_SIZE = 16            # in-flight requests per model
 PARALLEL_MODELS = 5        # how many models run simultaneously
 TEMPERATURE = 0.7
 N_SAMPLES = 1              # how many times to sample each (persona × item)
-MAX_TOKENS = 8192          # generous headroom for thinking-mode models
+MAX_TOKENS = 2048          # sufficient for short likert / true-false responses
 
 # Customize with the model ids exposed by your endpoint.
 MODELS: list[str] = [
-    "gpt-4o-mini",
-    "gpt-4o",
+    "qwen3-0.6b-instruct",
 ]
 
 MBTI_ORDER = [
